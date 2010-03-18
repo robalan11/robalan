@@ -371,7 +371,7 @@ void Floorplan::passiveMotion(int x, int y) {
 	my_grid->set_expanding(false);
 
 	float tmp, base;
-	if (selected_point != -1) base = distance(x, y, coords[selected_point].get_x(), coords[selected_point].get_y());
+	if (selected_point != -1) base = distance(x, y, (0.9*(coords[selected_point].get_x()-xmin)/xconst + 0.05)*width, (0.9*(coords[selected_point].get_y()-zmin)/zconst + 0.05)*height);
 	else base = glutGet(GLUT_WINDOW_WIDTH);
 	
 	int prev_point = selected_point;
