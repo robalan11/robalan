@@ -1,0 +1,77 @@
+"terms used": it would be better for these definitions to flow with
+the narrative rather than make a list (it's boring to read a list).
+
+The project goals section now describes the evolution of the goals.
+Rather, can you rewrite as the motivation for doing this project.  Who
+is the target audience?  Why is structural design important?  What
+about structural design is non-intuitive or requires lots of training
+to understand?  This should be written so that an average CS graduate,
+with some interest in geometry/computer graphics can follow along.
+Don't assume that the reader also has a degree in structures :) The
+intro/motivation section should be about 3-5 pages.  As you talk with
+architecture students, either informally or within the user study, you
+can use some of those anecdotes or comments in the intro/motivation.
+(take notes during the meeting so you can capture this info!)
+
+related work.  You should start this ASAP, collecting & summarizing
+and describing the context of prior work and how your system fits in
+is time consuming.  This section should be research papers, books (on
+structural engineering etc), and on existing software (that may not
+have papers or books describing its inner workings).
+
+section 2, thin shell structures.  I think this can be put in the
+intro/motivation.  Also, having some images to go with the building
+names can be very helpful.  Try to find images that are public domain.
+Be sure to properly cite the source of the image.
+
+Give more specific examples of why uninterrupted space is important.
+
+You need a citation for figure 3.1
+
+Section 3.1 can be written with more detail.  Perhaps additional
+diagrams?  More explanation of "traditional construction".  A
+discussion of tension vs compression should go somewhere too.
+
+Gaud -> Gaudi
+
+Gaudi should probably be introducted and described more in related
+work(?)  Or maybe add a section between intro/motivation & related
+work called background or something?
+
+when you introduce catenary (wherever it fits), you should explain
+that's the optimal shape assuming a uniform load.  If the surface will
+have uneven or point loads, then a catenary is not optimal.  diagrams
+are helpful too.
+
+section 4:
+
+don't start with a description of the tool.  Start with the motivation
+for the layout.  What does the user need to do, why are multiple
+panels necessary, what should the user look at, what analysis should
+they be able to do?  Try to discuss the design of the layout (why?),
+rather than just the final layout.  Then, of course you'll have a
+chapter discussing evaluation of the tool, and the design of the user
+study, and the results of the user study.  Your thesis should include
+(probably as appendix material) the questionaire and design exercise
+instructions, etc.
+
+About captions: I'm a big fan of lengthy captions, one or more
+sentences telling you everything about the figure.
+
+
+--------------------
+
+
+possibly outline:
+
+1 intro/motivation
+1.1 background (?)
+1.2 related work
+2 simulation method/algorithm (incl. poly count & performance stats)
+3 user interface design (incl. screen shots of interface & examples)
+4 user study (incl. design of study, and result data)
+(5 results -- not sure if this is needed, if all the results are in 2,3,&4)
+6 future work & conclusions
+
+2,3,&4 are the lengthy chapters.  1.2 is also lengthy.  target length
+100+ pages (more figures will help), target reference count 25+
