@@ -51,6 +51,18 @@ stable.  The tool described in this thesis simulates thin-shell structures and a
 \chapter{INTRODUCTION}
 
 \section{Project Goals}
+The goal of this project was to create a tool that could be used by architects to construct buildings more cheaply.  There are many factors
+that can make construction of a building expensive.  Labor, materials, and planning are all expensive elements which can be optimized.
+This project focuses on the third of these, reducing design time by giving the architect a tool that allows them to quickly design a
+structurally efficient building.
+
+Structural efficiency is a very important element of construction.  With traditional construction methods, this tends not to be an issue, since
+the tried-and-true construction conventions will keep a building standing.  Houses, for example, have been built using the same structural
+conventions for years and do not require any advanced structural analysis.  Walls are constructed with studs every 16 inches, and the house
+stands up.  Even in non-residential structures, the studded or cinder-block walls convention tends to be followed.  However, when creating
+buildings that fall outside the norm of studded walls, cinder block construction, and other such traditional methods, more complex analysis
+tools are necessary.  
+
 This project was originally conceived as a structural analysis tool that would find highly over- or underloaded members in a structure
 and notify the architect that some force could be diverted towards the less-used member or that the underloaded member could be
 removed.  This redesigning would help to optimize the structure, resulting in a structure that required less material or work to construct.
@@ -59,7 +71,7 @@ Since then, the focus has shifted to the design and optimization of thin shell s
 structures have been famously difficult to optimize and construct, sometime requiring a complete overhaul of the structure to fix stability
 problems. This tool attempts to alleviate this difficulty and make the design and optimization of such structures easier and faster for architects.
 
-\section{THIN SHELL STRUCTURES} \label{thinshell}
+\section{Thin Shell Structures} \label{thinshell}
 
 \subsection{What are they?}
 A thin shell structure is a structure which has a small thickness compared to its other dimensions.  While this may seem to be
@@ -76,7 +88,7 @@ thinness results in less material being used, which can save money for the compa
 itself, it offers a large uninterrupted interior space, which can be used for any number of applications.
 
 
-\section{THIN SHELL OPTIMIZATION}
+\section{Thin Shell Optimization}
 
 \subsection{Building Stability} \label{stability}
 In order for a building to stand up, the lines of thrust must pass through structural elements.  As can be seen in Figure \ref{FIGURE_arch_lines},
