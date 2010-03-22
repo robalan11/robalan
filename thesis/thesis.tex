@@ -59,15 +59,54 @@ Since then, the focus has shifted to the design and optimization of thin shell s
 structures have been famously difficult to optimize and construct, sometime requiring a complete overhaul of the structure to fix stability
 problems. This tool attempts to alleviate this difficulty and make the design and optimization of such structures easier and faster for architects.
 
-\section{Terms Used}
-\begin{itemize}
-\item Catenarian: The shape made by a hanging chain, described by the hyperbolic cosine function.
-\item Thin Shell Structure: A light weight construction which supports itself.
-\end{itemize}
+\section{THIN SHELL STRUCTURES} \label{thinshell}
+
+\subsection{What are they?}
+A thin shell structure is a structure which has a small thickness compared to its other dimensions.  While this may seem to be
+an obvious definition, the design and construction of these structures can be complicated.  Unlike normal beam and plate structures,
+thin shell structures are curved, which allows the force to travel through the thinner structural elements.  See \ref{stability} for
+more information on the stability of thin shell structures.  Thin shell structures are used often in construction when a large interior
+space is desired, since they do not require any interior columns if designed correctly.  Some prominent thin shell structures include
+the TWA Flight Center Building at the JFK International Airport in New York, New York, the Kresge Auditorium on the MIT campus in
+Cambridge, Massachusetts, and the Montreal Biosphere in Montreal, Canada.
+
+\subsection{Why do we care?}
+Since the force travels directly through the structural elements in a thin shell structure, these structural elements can be thin.  This
+thinness results in less material being used, which can save money for the companies involved.  Furthermore, since the structure supports
+itself, it offers a large uninterrupted interior space, which can be used for any number of applications.
+
+
+\section{THIN SHELL OPTIMIZATION}
+
+\subsection{Building Stability} \label{stability}
+In order for a building to stand up, the lines of thrust must pass through structural elements.  As can be seen in Figure \ref{FIGURE_arch_lines},
+traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenarian arch can be built
+much thinner for the same stability, as it contains the line of thrust exactly.
+To extrapolate to entire buildings, traditional construction methods require very thick elements to be used in order to keep the lines of thrust
+within a building's structural elements.  However, if the shape of the building is instead matched to the shape of the lines of thrust, the
+structural elements can be much thinner, needing only to support the direct compressive force.
+\begin{figure}
+\resizebox{4in}{!}{\includegraphics{images/arch.png}}
+\caption{Lines of thrust}
+\label{FIGURE_arch_lines}
+\end{figure}
+
+\subsection{Hanging Chains}
+Hanging chains have been used by architects, most famously Antoni Gaud\'{i}, to design structures for stability and aesthetics.  Since a hanging
+chain is supporting itself purely in tension and a catenary arch is supporting itself purely in compression, one can be used to describe the other.
+More complicated systems of hanging chains and weights can and have been used to design a number of structures, including the Sagrada Familia in
+Barcelona, Spain.  Design by hanging chains offers a relatively quick and accurate turnaround time, but it is still tedious to adjust the chains
+to find the desired shape.  Furthermore, inverting the model can be a tedious and confusing process.  Fortunately, hanging chains are simple to simulate.
+
+\subsection{Cloth}
+A standard cloth simulation shares many similarities with the hanging chains model.  A finite number of elements connected by links will, when
+submitted to gravity, form a catenary.  In cloth simulation, a finite number of points exert forces on each other, falling into a tensionally stable
+configuration.  Additionally, since the model is simulated, gravity can be reversed and the model shown as it would be built, making it easier for
+the architect to visualize the completed structure.
 
 \section{Related Works}
 \subsection{Procedural Modeling}
-In "Procedural Modeling of Strucutrally-Sound Masonry Buildings", Whiting, Ochsendorf, and Durand explore
+In "Procedural Modeling of Strucutrally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
 the possibilities of creating existing or novel structures procedurally.  They began by creating a grammar
 which can be used to construct masonry buildings.  Arches, buttresses, domes, and vaults are some of the
 structural elements which are then combined in their software.  These grammar elements are assembled into
@@ -84,7 +123,7 @@ safety is needed.  For example, a bridge needs a higher factor of safety than a 
 that there is no feasible configuration for a structure, the least infeasible structure is returned and the
 user is required to add new structural elements.
 
-In "Creating Models of Truss Structures with Optimization", Smith, Hodgins, Oppenheim, and Witkin propose
+In "Creating Models of Truss Structures with Optimization"\cite{Carnegie02creatingmodels}, Smith, Hodgins, Oppenheim, and Witkin propose
 a method of creating trusses procedurally.  This work allows the user to define several anchor points
 and loads for a truss, then have the software automatically generate a truss.  In this work, the risk
 of pieces falling apart is not an issue as it was in the previous paper.  The primary failure method
@@ -95,51 +134,6 @@ while ensuring that none of the members will fail, either in tension or compress
 My work had initially intended to go in this direction, using static analysis of structures within
 Google Sketchup.  However, Sketchup proved to be a poor environment for the program I wanted to write, so
 the project was moved to a standalone application and the focus shifted to thin-shell structures.
-
-\chapter{THIN SHELL STRUCTURES} \label{thinshell}
-
-\section{What are they?}
-A thin shell structure is a structure which has a small thickness compared to its other dimensions.  While this may seem to be
-an obvious definition, the design and construction of these structures can be complicated.  Unlike normal beam and plate structures,
-thin shell structures are curved, which allows the force to travel through the thinner structural elements.  See \ref{stability} for
-more information on the stability of thin shell structures.  Thin shell structures are used often in construction when a large interior
-space is desired, since they do not require any interior columns if designed correctly.  Some prominent thin shell structures include
-the TWA Flight Center Building at the JFK International Airport in New York, New York, the Kresge Auditorium on the MIT campus in
-Cambridge, Massachusetts, and the Montreal Biosphere in Montreal, Canada.
-
-\section{Why do we care?}
-Since the force travels directly through the structural elements in a thin shell structure, these structural elements can be thin.  This
-thinness results in less material being used, which can save money for the companies involved.  Furthermore, since the structure supports
-itself, it offers a large uninterrupted interior space, which can be used for any number of applications.
-
-
-\chapter{THIN SHELL OPTIMIZATION}
-
-\section{Building Stability} \label{stability}
-In order for a building to stand up, the lines of thrust must pass through structural elements.  As can be seen in Figure \ref{FIGURE_arch_lines},
-traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenarian arch can be built
-much thinner for the same stability, as it contains the line of thrust exactly.
-To extrapolate to entire buildings, traditional construction methods require very thick elements to be used in order to keep the lines of thrust
-within a building's structural elements.  However, if the shape of the building is instead matched to the shape of the lines of thrust, the
-structural elements can be much thinner, needing only to support the direct compressive force.
-\begin{figure}
-\resizebox{4in}{!}{\includegraphics{images/arch.png}}
-\caption{Lines of thrust}
-\label{FIGURE_arch_lines}
-\end{figure}
-
-\section{Hanging Chains}
-Hanging chains have been used by architects, most famously Antoni Gaud\'{i}, to design structures for stability and aesthetics.  Since a hanging
-chain is supporting itself purely in tension and a catenary arch is supporting itself purely in compression, one can be used to describe the other.
-More complicated systems of hanging chains and weights can and have been used to design a number of structures, including the Sagrada Familia in
-Barcelona, Spain.  Design by hanging chains offers a relatively quick and accurate turnaround time, but it is still tedious to adjust the chains
-to find the desired shape.  Furthermore, inverting the model can be a tedious and confusing process.  Fortunately, hanging chains are simple to simulate.
-
-\section{Cloth}
-A standard cloth simulation shares many similarities with the hanging chains model.  A finite number of elements connected by links will, when
-submitted to gravity, form a catenary.  In cloth simulation, a finite number of points exert forces on each other, falling into a tensionally stable
-configuration.  Additionally, since the model is simulated, gravity can be reversed and the model shown as it would be built, making it easier for
-the architect to visualize the completed structure.
 
 \chapter{THIN SHELL DESIGN TOOL}
 
@@ -171,9 +165,8 @@ no guarantees of the stability of the structure.
 % correspond to the \cite commands in the text.
 \specialhead{LITERATURE CITED}
 \begin{singlespace}
-\begin{thebibliography}{99}
-\bibitem{thisbook} There are no books cited yet.
-\end{thebibliography}
+\bibliographystyle{unsrt}
+\bibliography{thesis}
 \end{singlespace}
 
 %%%%%%%%%%%%%%%%%%%%%%%  For Appendices  %%%%%%%%%%%%%%%%%%%
