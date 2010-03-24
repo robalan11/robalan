@@ -53,7 +53,7 @@ stable.  The tool described in this thesis simulates thin-shell structures and a
 \section{Project Goals}
 The goal of this project was to create a tool that could be used by architects to construct buildings more cheaply.  There are many factors
 that can make construction of a building expensive.  Labor, materials, and planning are all expensive elements which can be optimized.
-This project focuses on the third of these, reducing design time by giving the architect a tool that allows them to quickly design a
+This project focuses primarily on the third of these, reducing design time by giving the architect a tool that allows them to quickly design a
 structurally efficient building.
 
 Structural efficiency is a very important element of construction.  With traditional construction methods, this tends not to be an issue, since
@@ -63,26 +63,50 @@ stands up.  Even in non-residential structures, the studded or cinder-block wall
 buildings that fall outside the norm of studded walls, cinder block construction, and other such traditional methods, more complex analysis
 tools are necessary.  
 
-This project was originally conceived as a structural analysis tool that would find highly over- or underloaded members in a structure
-and notify the architect that some force could be diverted towards the less-used member or that the underloaded member could be
-removed.  This redesigning would help to optimize the structure, resulting in a structure that required less material or work to construct.
-Since then, the focus has shifted to the design and optimization of thin shell structures.  These structures, covered in more detail in
-\ref{thinshell}, are used in architecture to conserve materials, funds, or for simply aesthetic reasons.  Unfortunately, thin-shell
-structures have been famously difficult to optimize and construct, sometime requiring a complete overhaul of the structure to fix stability
-problems. This tool attempts to alleviate this difficulty and make the design and optimization of such structures easier and faster for architects.
+%This project was originally conceived as a structural analysis tool that would find highly over- or underloaded members in a structure
+%and notify the architect that some force could be diverted towards the less-used member or that the underloaded member could be
+%removed.  This redesigning would help to optimize the structure, resulting in a structure that required less material or work to construct.
+%Since then, the focus has shifted to the design and optimization of thin shell structures.  These structures, covered in more detail in
+%\ref{thinshell}, are used in architecture to conserve materials, funds, or for simply aesthetic reasons.  Unfortunately, thin-shell
+%structures have been famously difficult to optimize and construct, sometime requiring a complete overhaul of the structure to fix stability
+%problems. This tool attempts to alleviate this difficulty and make the design and optimization of such structures easier and faster for architects.
 
 \section{Thin Shell Structures} \label{thinshell}
 
-\subsection{What are they?}
+\subsection{Overview}
 A thin shell structure is a structure which has a small thickness compared to its other dimensions.  While this may seem to be
-an obvious definition, the design and construction of these structures can be complicated.  Unlike normal beam and plate structures,
-thin shell structures are curved, which allows the force to travel through the thinner structural elements.  See \ref{stability} for
+an obvious definition, the design and construction of these structures can be complicated.  In traditional construction, load-bearing
+members are flat, carrying forces straight through themselves.  A simplified 2D representation of the load-bearing elements of a house
+can be seen in Figure \ref{fig:house}.  Larger buildings which are constructed using traditional techniques use very similar techniques
+as those used in Figure \ref{fig:house}, employing vertical members and cross-pieces to support the weight of the building.  One
+consideration for larger buildings is that large rooms will have large unsupported expanses of floor.  Beams which are loaded transversely
+in that manner are subjected to bending according to the Euler-Bernoulli equation: \[EI\frac{d^4u}{dx^4}=w(x)\]
+If too much force is applied, the beam will buckle, perhaps causing catastrophic failure.  Therefore, beams and other flat structural
+elements must be very thick in order to ensure that it will not buckle under load.  Alternately, columns can be installed to effectively
+shorten the span which the beam is crossing, but depending on the application (e.g. an auditorium) this may not be desirable.
+
+Unlike normal beam and plate structures, thin shell structures are curved, which allows the force to travel through the thinner structural
+elements.  See \ref{stability} for
 more information on the stability of thin shell structures.  Thin shell structures are used often in construction when a large interior
 space is desired, since they do not require any interior columns if designed correctly.  Some prominent thin shell structures include
 the TWA Flight Center Building at the JFK International Airport in New York, New York, the Kresge Auditorium on the MIT campus in
 Cambridge, Massachusetts, and the Montreal Biosphere in Montreal, Canada.
+\begin{figure}
+\centering
+\includegraphics[width=2in]{images/house.png}
+\caption[Simplified representation of a house]{This simplified representation of the load-bearing elements of a house show how traditional
+construction techniques require additional material to be stable.  Were it not for the horizontal piece which forms the ceiling, the walls
+would be forced outward by the forces caused by the weight of the roof.}
+\label{fig:house}
+\end{figure}
 
-\subsection{Why do we care?}
+\begin{figure}
+\centering
+\includegraphics[width=4in]{images/Bending.png}
+\caption[A beam under uniform loading]{This is an image of a beam which is deforming under a uniform load.}
+\label{fig:bending}
+\end{figure}
+
 Since the force travels directly through the structural elements in a thin shell structure, these structural elements can be thin.  This
 thinness results in less material being used, which can save money for the companies involved.  Furthermore, since the structure supports
 itself, it offers a large uninterrupted interior space, which can be used for any number of applications.
@@ -91,16 +115,17 @@ itself, it offers a large uninterrupted interior space, which can be used for an
 \section{Thin Shell Optimization}
 
 \subsection{Building Stability} \label{stability}
-In order for a building to stand up, the lines of thrust must pass through structural elements.  As can be seen in Figure \ref{FIGURE_arch_lines},
+In order for a building to stand up, the lines of thrust must pass through structural elements.  As can be seen in Figure \ref{fig:arch_lines},
 traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenarian arch can be built
 much thinner for the same stability, as it contains the line of thrust exactly.
 To extrapolate to entire buildings, traditional construction methods require very thick elements to be used in order to keep the lines of thrust
 within a building's structural elements.  However, if the shape of the building is instead matched to the shape of the lines of thrust, the
 structural elements can be much thinner, needing only to support the direct compressive force.
 \begin{figure}
-\resizebox{4in}{!}{\includegraphics{images/arch.png}}
+\centering
+\includegraphics[width=4in]{images/arch.png}
 \caption{Lines of thrust}
-\label{FIGURE_arch_lines}
+\label{fig:arch_lines}
 \end{figure}
 
 \subsection{Hanging Chains}
