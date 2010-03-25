@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  25 MAR 2010 03:37
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  25 MAR 2010 05:16
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -58,33 +58,79 @@ File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+("C:\Program Files\MiKTeX 2.8\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\caption\caption.sty"
+Package: caption 2010/01/09 v3.1m Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\caption\caption3.sty"
+Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
+\captionmargin=\dimen105
+\captionmargin@=\dimen106
+\captionwidth=\dimen107
+\caption@indent=\dimen108
+\caption@parindent=\dimen109
+\caption@hangindent=\dimen110
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used on input line 1084.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \sbox \@tempboxa {\bfseries #1:~~#2}\ifdim \wd \@tempboxa >\hsize {\bfseries 
+#1:~~#2}\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempbox
+a \hfil }\fi \vskip \belowcaptionskip .
+\c@ContinuedFloat=\count92
+)
+\c@KVtest=\count93
+\sf@farskip=\skip43
+\sf@captopadj=\dimen111
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count94
+\c@subfigure@save=\count95
+\c@lofdepth=\count96
+\c@subtable=\count97
+\c@subtable@save=\count98
+\c@lotdepth=\count99
+\sf@top=\skip46
+\sf@bottom=\skip47
+) ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 ("C:\Program Files\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count92
-\scratchdimen=\dimen105
+\scratchcounter=\count100
+\scratchdimen=\dimen112
 \scratchbox=\box26
-\nofMPsegments=\count93
-\nofMParguments=\count94
+\nofMPsegments=\count101
+\nofMParguments=\count102
 \everyMPshowfont=\toks15
-\MPscratchCnt=\count95
-\MPscratchDim=\dimen106
-\MPnumerator=\count96
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen113
+\MPnumerator=\count104
 \everyMPtoPDFconversion=\toks16
-) [1
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
+LaTeX Info: Redefining \subref on input line 36.
+Package caption Info: End \AtBeginDocument code.
+ [1
 
 {C:/ProgramData/MiKTeX/2.8/pdftex/config/pdftex.map}]
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.toc"
@@ -151,17 +197,26 @@ kresge_auditorium.jpg>]
 <images/gateway_arch.jpg, id=46, 1951.29pt x 2601.72pt>
 File: images/gateway_arch.jpg Graphic file (type jpg)
 
-<use images/gateway_arch.jpg>
-<images/catenary.png, id=47, 473.77pt x 307.1475pt>
+<use images/gateway_arch.jpg> [5 <C:/Users/Allan/Documents/Grad School/reposito
+ry/thesis/images/montreal_biosphere.jpg>] [6 <C:/Users/Allan/Documents/Grad Sch
+ool/repository/thesis/images/arch.png> <C:/Users/Allan/Documents/Grad School/re
+pository/thesis/images/gateway_arch.jpg>]
+<images/catenary.png, id=53, 473.77pt x 307.1475pt>
 File: images/catenary.png Graphic file (type png)
  <use images/catenary.png>
-[5 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/montreal_bios
-phere.jpg>] [6 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/a
-rch.png> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/gateway
-_arch.jpg>] [7 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/c
-atenary.png>] [8] [9]
+<images/hanging_chain.jpg, id=54, 803.0pt x 602.25pt>
+File: images/hanging_chain.jpg Graphic file (type jpg)
+
+<use images/hanging_chain.jpg>
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 190--196
+ [][][] 
+ []
+
+[7 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/catenary.png>
+ <C:/Users/Allan/Documents/Grad School/repository/thesis/images/hanging_chain.j
+pg>] [8] [9]
  2.
-<images/screenshot.png, id=65, 915.42pt x 629.35126pt>
+<images/screenshot.png, id=67, 915.42pt x 629.35126pt>
 File: images/screenshot.png Graphic file (type png)
 
 <use images/screenshot.png> [10
@@ -173,23 +228,24 @@ File: images/screenshot.png Graphic file (type png)
 ]
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
- 1179 strings out of 495285
- 15956 string characters out of 3180395
- 68146 words of memory out of 3000000
- 4396 multiletter control sequences out of 15000+200000
+ 2272 strings out of 495285
+ 35377 string characters out of 3180395
+ 99723 words of memory out of 3000000
+ 5478 multiletter control sequences out of 15000+200000
  8156 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 28i,7n,21p,199b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,9n,45p,199b,345s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Prog
 ram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program File
 s/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
- 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/font
-s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/pu
-blic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/ams
-fonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (18 pages, 1615579 bytes).
+ 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8/font
+s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsf
+onts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/
+cmtt12.pfb>
+Output written on thesis.pdf (18 pages, 1802973 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
