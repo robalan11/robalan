@@ -13,6 +13,7 @@
 
 \documentclass{thesis}
 \usepackage{graphicx}
+\usepackage{url}
 
 % Use the first command below if you want captions over 1 line indented.
 % A side effect of this is to remove the use of bold for captions. 
@@ -48,9 +49,9 @@ required for structural stability depends on the material used, the size of the 
 these structures quickly and accurately, allowing architects to concentrate more on their design and less on ensuring that their building is
 stable.  The tool described in this thesis simulates thin-shell structures and aids architects in their design and optimization.
 
-\chapter{INTRODUCTION}
+\chapter{INTRODUCTION} \label{chp:introduction}
 
-\section{Project Goals}
+\section{Project Goals} \label{sec:goals}
 The goal of this project was to create a tool that could be used by architects to construct buildings more cheaply.  There are many factors
 that can make construction of a building expensive.  Labor, materials, and planning are all expensive elements which can be optimized.
 This project focuses primarily on the third of these, reducing design time by giving the architect a tool that allows them to quickly design a
@@ -97,15 +98,15 @@ would be forced outward by the forces caused by the weight of the roof.}
 \begin{figure}
 \centering
 \includegraphics[width=4in]{images/Bending.png}
-\caption[A beam under uniform loading]{This is an image of a beam which is deforming under a uniform load.}
+\caption[A beam under uniform loading]{This is an image of a beam which is deforming under a uniform load. \cite{img:bending}}
 \label{fig:bending}
 \end{figure}
 
 Unlike normal beam and plate structures, thin shell structures are curved, which allows the force to travel through the thinner structural
-elements.  Structures such as those in figure \ref{fig:isler_service} can cover a large span with a minimal amount of material and no
-internal obstructions.  These structures are very stable because of their unique shape, called a catenary.  See \ref{stability} for
-more information on the stability of thin shell structures.  Thin shell structures are used often in construction when a large interior
-space is desired, since they do not require any interior columns if designed correctly.  Some prominent thin shell structures include
+elements.  Structures such as those in figure \ref{fig:isler_service} can cover a large span with a minimal amount of material, saving the
+construction company money.  Since the structure completely supports itself, no internal columns are necessary, allowing an unobstructed interior.
+These structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in section
+\ref{sec:catenary}  Some prominent thin shell structures include
 the TWA Flight Center Building at the JFK International Airport in New York, New York (Fig. \ref{fig:twa_flight}), the Kresge Auditorium on
 the MIT campus in Cambridge, Massachusetts (Fig. \ref{fig:kresge_aud}), and the Montreal Biosphere in Montreal, Canada (Fig \ref{fig:montreal_bio}).
 
@@ -113,7 +114,7 @@ the MIT campus in Cambridge, Massachusetts (Fig. \ref{fig:kresge_aud}), and the 
 \centering
 \includegraphics[width=4in]{images/isler_dome_1.jpg}
 \caption[A thin-shell dome over a service area in Switzerland]{This dome, designed by Swiss civil engineer Heinz Isler, gracefully arches over
-a service area, protecting it from the elements with a minimal amount of material.}
+a service area, protecting it from the elements with a minimal amount of material. \cite{img:isler_service}}
 \label{fig:isler_service}
 \end{figure}
 
@@ -121,7 +122,7 @@ a service area, protecting it from the elements with a minimal amount of materia
 \centering
 \includegraphics[width=5in]{images/twa_flight_center.jpg}
 \caption[The TWA Flight Center]{The TWA Flight Center at JFK International Airport in New York, New York is an excellent modern example of
-thin-shell structures providing a much-needed unobstructed internal space.}
+thin-shell structures providing a much-needed unobstructed internal space. \cite{img:twa_jfk}}
 \label{fig:twa_flight}
 \end{figure}
 
@@ -130,7 +131,7 @@ thin-shell structures providing a much-needed unobstructed internal space.}
 \includegraphics[width=4in]{images/kresge_auditorium.jpg}
 \caption[The Kresge Auditorium]{The Kresge Auditorium on the MIT campus in Cambridge, Massachusetts is an example of the problem thin-shell
 structures can cause when not designed properly.  Since the roof is octanispeherical rather than catenarian, the forces do not travel as
-intended and the building has been plagued with structural problems.}
+intended and the building has been plagued with structural problems. \cite{img:kresge_aud}}
 \label{fig:kresge_aud}
 \end{figure}
 
@@ -138,29 +139,47 @@ intended and the building has been plagued with structural problems.}
 \centering
 \includegraphics[width=4in]{images/montreal_biosphere.jpg}
 \caption[The Montreal Biosphere]{The Montreal Biosphere is an example of a lattice-based thin-shell structure, which relies on a lattice of
-struts to support the huge expanse of the dome.}
+struts to support the huge expanse of the dome. \cite{img:montreal_bio}}
 \label{fig:montreal_bio}
 \end{figure}
 
-Since the force travels directly through the structural elements in a thin shell structure, these structural elements can be thin.  This
-thinness results in less material being used, which can save money for the companies involved.  Furthermore, since the structure supports
-itself, it offers a large uninterrupted interior space, which can be used for any number of applications.
 
-
-\section{Thin Shell Optimization}
-
-\subsection{Building Stability} \label{stability}
-In order for a building to stand up, the lines of thrust must pass through structural elements.  As can be seen in Figure \ref{fig:arch_lines},
+\subsection{Structural Stability} \label{sec:stability}
+The core concept for structural stability for masonry buildings is the concept of lines of thrust.  Lines of thrust are lines that can be drawn
+in the direction of the forces neighboring elements of the structure impart on one another.  If all the discrete forces are connected together
+into a generalized curve, the traditional lines of thrust are obtained.
+In order for a building to stand up, these lines of thrust must pass through structural elements.  As can be seen in Figure \ref{fig:arch_lines},
 traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenarian arch can be built
-much thinner for the same stability, as it contains the line of thrust exactly.
-To extrapolate to entire buildings, traditional construction methods require very thick elements to be used in order to keep the lines of thrust
-within a building's structural elements.  However, if the shape of the building is instead matched to the shape of the lines of thrust, the
-structural elements can be much thinner, needing only to support the direct compressive force.
+much thinner for the same stability, as it contains the line of thrust exactly.  For example, the Gateway Arch in St. Louis, Missouri is
+constructed in the shape of a catenary arch.  This allows it to be thin and elegant while remaining very stable.
+To extrapolate the concept of lines of thrust to entire buildings, traditional construction methods require very thick elements to be used
+in order to keep the lines of thrust within a building's structural elements.  However, if the shape of the building is instead matched to
+the shape of the lines of thrust, the structural elements can be much thinner, since they only need to support the direct compressive force.
 \begin{figure}
 \centering
 \includegraphics[width=4in]{images/arch.png}
-\caption{Lines of thrust}
+\caption{Lines of thrust \cite{img:thrust}}
 \label{fig:arch_lines}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=3in]{images/gateway_arch.jpg}
+\caption[The Gateway Arch]{The Gateway Arch in St. Louis, Missouri is an example of a catenary arch.  Since the lines of thrust travel directly
+through the structure of the arch, it can be built very thin. \cite{img:gateway_arch}}
+\label{fig:gateway_arch}
+\end{figure}
+
+\subsection{Catenary} \label{sec:catenary}
+The term for the shape that lines of thrust tend to take is called a catenary.  A catenary is a curve described by the function
+\[y=a cosh(\frac{x}{a})\]
+where cosh is the hyperbolic cosine function.  Several examples of catenaries can be seen in Figure \ref{fig:catenary}.
+
+\begin{figure}
+\centering
+\includegraphics[width=4in]{images/catenary.png}
+\caption[Example catenary curves]{This image shows a few catenary curves for various values of a. \cite{img:catenary}}
+\label{fig:catenary}
 \end{figure}
 
 \subsection{Hanging Chains}
