@@ -4,7 +4,9 @@
 \contentsline {figure}{\numberline {1.4}{\ignorespaces The TWA Flight Center}}{4}
 \contentsline {figure}{\numberline {1.5}{\ignorespaces The Kresge Auditorium}}{4}
 \contentsline {figure}{\numberline {1.6}{\ignorespaces The Montreal Biosphere}}{5}
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Lines of thrust \cite {img:thrust}}}{6}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Lines of thrust \cite {img:thrust}\relax }}{6}
 \contentsline {figure}{\numberline {1.8}{\ignorespaces The Gateway Arch}}{6}
 \contentsline {figure}{\numberline {1.9}{\ignorespaces Example catenary curves}}{7}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces A screenshot of the tool}}{11}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{7}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A screenshot of the tool\relax }}{11}

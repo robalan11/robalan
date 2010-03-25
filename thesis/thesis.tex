@@ -14,12 +14,13 @@
 \documentclass{thesis}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{subfig}
 
 % Use the first command below if you want captions over 1 line indented.
 % A side effect of this is to remove the use of bold for captions. 
 % To restore bold, also include the second line below.
 %\usepackage[hang]{caption}     % to indent subsequent lines of captions
-%\renewcommand{\captionfont}{\bfseries} % only needed with caption package;
+\renewcommand{\captionfont}{\bfseries} % only needed with caption package;
                                         %   otherwise bold is default)
                                         
 %%%%%%%%%%%%%%%%%%%%  supply titlepage info  %%%%%%%%%%%%%%%%%%%%%
@@ -173,14 +174,29 @@ through the structure of the arch, it can be built very thin. \cite{img:gateway_
 \subsection{Catenary} \label{sec:catenary}
 The term for the shape that lines of thrust tend to take is called a catenary.  A catenary is a curve described by the function
 \[y=a cosh(\frac{x}{a})\]
-where cosh is the hyperbolic cosine function.  Several examples of catenaries can be seen in Figure \ref{fig:catenary}.
+where cosh is the hyperbolic cosine function.  Several examples of catenaries can be seen in Figure \ref{fig:catenary}.  In addition to being
+an interesting mathematical figure, the catenary is the shape taken by a cable, rope, or chain suspended at both ends, as seen in Figure
+\ref{fig:hanging_chain}.  Since this is the shape formed by a freely hanging object under pure tension, it is not surprising that if inverted,
+it is similarly stable under pure compression.  For this reason, catenary arches and catenary shells are the primary building blocks of
+thin-shell structures.  One very important thing to note is that a catenary is only the optimal shape when the chain or arch is evenly loaded.
+If there is an uneven load, for example if the arch has a decorative mass at some point or if a secondary arch rests on another arch, the
+catenary is not the optimal shape, as seen in Figure \ref{fig:composite_catenary}.
 
 \begin{figure}
 \centering
-\includegraphics[width=4in]{images/catenary.png}
-\caption[Example catenary curves]{This image shows a few catenary curves for various values of a. \cite{img:catenary}}
-\label{fig:catenary}
+\subfloat[]{
+  \label{fig:catenary}
+  \includegraphics[width=3in]{images/catenary.png}
+}
+\subfloat[]{
+  \label{fig:hanging_chain}
+  \includegraphics[width=3in]{images/hanging_chain.jpg}
+}
+\caption[Example catenary curves]{Image (a) shows a few catenary curves for various values of a. \cite{img:catenary}
+Image (b) shows a natural catenary formed by a freely hanging chain. \cite{img:hanging_chain}}
 \end{figure}
+
+\label{fig:composite_catenary}
 
 \subsection{Hanging Chains}
 Hanging chains have been used by architects, most famously Antoni Gaud\'{i}, to design structures for stability and aesthetics.  Since a hanging
