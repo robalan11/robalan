@@ -8,11 +8,9 @@
 \contentsline {subsection}{\numberline {1.2.1}Overview}{1}
 \contentsline {subsection}{\numberline {1.2.2}Structural Stability}{3}
 \contentsline {subsection}{\numberline {1.2.3}Catenary}{5}
-\contentsline {subsection}{\numberline {1.2.4}Hanging Chains}{7}
-\contentsline {subsection}{\numberline {1.2.5}Cloth}{8}
-\contentsline {section}{\numberline {1.3}Related Works}{8}
-\contentsline {subsection}{\numberline {1.3.1}Procedural Modeling}{8}
-\contentsline {chapter}{\numberline {2.}THIN SHELL DESIGN TOOL}{10}
-\contentsline {section}{\numberline {2.1}Layout}{10}
-\contentsline {section}{\numberline {2.2}Simulator}{10}
-\contentsline {chapter}{LITERATURE CITED}{10}
+\contentsline {section}{\numberline {1.3}Related Works}{10}
+\contentsline {subsection}{\numberline {1.3.1}Procedural Modeling}{10}
+\contentsline {chapter}{\numberline {2.}THIN SHELL DESIGN TOOL}{12}
+\contentsline {section}{\numberline {2.1}Layout}{12}
+\contentsline {section}{\numberline {2.2}Simulator}{12}
+\contentsline {chapter}{LITERATURE CITED}{12}

@@ -84,8 +84,9 @@ as those used in Figure \ref{fig:house}, employing vertical members and cross-pi
 consideration for larger buildings is that large rooms will have large unsupported expanses of floor.  Beams which are loaded transversely
 in that manner are subjected to bending according to the Euler-Bernoulli equation: \[EI\frac{d^4u}{dx^4}=w(x)\]
 If too much force is applied, the beam will buckle, perhaps causing catastrophic failure.  Therefore, beams and other flat structural
-elements must be very thick in order to ensure that it will not buckle under load.  Alternately, columns can be installed to effectively
-shorten the span which the beam is crossing, but depending on the application (e.g. an auditorium) this may not be desirable.
+elements must have a high second moment of area (have a large dimension parallel to the applied force) in order to ensure that it will not
+buckle under load.  Alternately, columns can be installed to effectively shorten the span which the beam is crossing, but depending on the
+application, this may not be desirable.
 
 \begin{figure}
 \centering
@@ -132,7 +133,7 @@ thin-shell structures providing a much-needed unobstructed internal space. \cite
 \includegraphics[width=4in]{images/kresge_auditorium.jpg}
 \caption[The Kresge Auditorium]{The Kresge Auditorium on the MIT campus in Cambridge, Massachusetts is an example of the problem thin-shell
 structures can cause when not designed properly.  Since the roof is octanispeherical rather than catenarian, the forces do not travel as
-intended and the building has been plagued with structural problems. \cite{img:kresge_aud}}
+intended and the building has been plagued with structural problems since its construction. \cite{img:kresge_aud}}
 \label{fig:kresge_aud}
 \end{figure}
 
@@ -150,22 +151,24 @@ The core concept for structural stability for masonry buildings is the concept o
 in the direction of the forces neighboring elements of the structure impart on one another.  If all the discrete forces are connected together
 into a generalized curve, the traditional lines of thrust are obtained.
 In order for a building to stand up, these lines of thrust must pass through structural elements.  As can be seen in Figure \ref{fig:arch_lines},
-traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenarian arch can be built
-much thinner for the same stability, as it contains the line of thrust exactly.  For example, the Gateway Arch in St. Louis, Missouri is
-constructed in the shape of a catenary arch.  This allows it to be thin and elegant while remaining very stable.
-To extrapolate the concept of lines of thrust to entire buildings, traditional construction methods require very thick elements to be used
-in order to keep the lines of thrust within a building's structural elements.  However, if the shape of the building is instead matched to
+traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenary arch can be built
+much thinner for the same stability, as it contains the line of thrust exactly.  For example, the Gateway Arch in St. Louis, Missouri (Figure
+\ref{fig:gateway_arch} is constructed in the shape of a catenary arch.  This allows it to be thin and elegant while remaining very stable.
+To extrapolate the concept of lines of thrust to entire buildings, traditional construction methods require very thick elements such as walls
+and columns to be used in order to keep the lines of thrust within a building's structural elements.  This is especially true of large masonry
+structures such as cathedrals.  However, if the shape of the building is instead matched to
 the shape of the lines of thrust, the structural elements can be much thinner, since they only need to support the direct compressive force.
 \begin{figure}
 \centering
 \includegraphics[width=4in]{images/arch.png}
-\caption{Lines of thrust \cite{img:thrust}}
+\caption[Lines of thrust]{This figure shows the lines of thrust within a standard masonry arch.  As can be seen from the minimum and maximum
+lines, the arch must be rather thick in order to contain the lines of thrust, thereby wasting material. \cite{img:thrust}}
 \label{fig:arch_lines}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=3in]{images/gateway_arch.jpg}
+\includegraphics[height=3.5in]{images/gateway_arch.jpg}
 \caption[The Gateway Arch]{The Gateway Arch in St. Louis, Missouri is an example of a catenary arch.  Since the lines of thrust travel directly
 through the structure of the arch, it can be built very thin. \cite{img:gateway_arch}}
 \label{fig:gateway_arch}
@@ -180,36 +183,108 @@ an interesting mathematical figure, the catenary is the shape taken by a cable, 
 it is similarly stable under pure compression.  For this reason, catenary arches and catenary shells are the primary building blocks of
 thin-shell structures.  One very important thing to note is that a catenary is only the optimal shape when the chain or arch is evenly loaded.
 If there is an uneven load, for example if the arch has a decorative mass at some point or if a secondary arch rests on another arch, the
-catenary is not the optimal shape, as seen in Figure \ref{fig:composite_catenary}.
+catenary is not the optimal shape, as seen in Figure \ref{fig:compound_catenary}.
 
 \begin{figure}
 \centering
 \subfloat[]{
   \label{fig:catenary}
-  \includegraphics[width=3in]{images/catenary.png}
+  \includegraphics[height=1.7in]{images/catenary.png}
 }
 \subfloat[]{
   \label{fig:hanging_chain}
-  \includegraphics[width=3in]{images/hanging_chain.jpg}
+  \includegraphics[height=1.7in]{images/hanging_chain.jpg}
 }
 \caption[Example catenary curves]{Image (a) shows a few catenary curves for various values of a. \cite{img:catenary}
 Image (b) shows a natural catenary formed by a freely hanging chain. \cite{img:hanging_chain}}
 \end{figure}
 
-\label{fig:composite_catenary}
+\begin{figure}
+\centering
+\includegraphics[width=2.25in]{images/compound_catenary.png}
+\caption[A composite catenary structure]{This image shows the necessary deformation of supporting catenary arches when a third arch is placed
+on top of them.}
+\label{fig:compound_catenary}
+\end{figure}
 
-\subsection{Hanging Chains}
-Hanging chains have been used by architects, most famously Antoni Gaud\'{i}, to design structures for stability and aesthetics.  Since a hanging
-chain is supporting itself purely in tension and a catenary arch is supporting itself purely in compression, one can be used to describe the other.
-More complicated systems of hanging chains and weights can and have been used to design a number of structures, including the Sagrada Familia in
-Barcelona, Spain.  Design by hanging chains offers a relatively quick and accurate turnaround time, but it is still tedious to adjust the chains
-to find the desired shape.  Furthermore, inverting the model can be a tedious and confusing process.  Fortunately, hanging chains are simple to simulate.
+The shape of the catenary has been used by many architects.  One example mentioned earlier is the Gateway Arch in St. Louis, Missouri, designed by
+the Finnish-American architect Eero Saarinen, seen in Figure \ref{fig:gateway_arch}.  However, the shape has also been used as an integral design
+principle for much larger and more complex structures.  Hanging chains have been used by a number of architects to design structures for stability and
+aesthetics.  One famous user of hanging chains is Antoni Gaud\'{i}, whose catenary-rich projects include such Barcelona landmarks as the Casa Mil\`{a}
+(Figure \ref{fig:casa_mila}), Park Guell (Figure \ref{fig:parc_guell}), and Sagrada Familia (Figure \ref{fig:sagrada_familia}).  Figure
+\ref{fig:gaudi_model} shows one of the models Gaud\'{i} used in creating these graceful structures.
 
-\subsection{Cloth}
-A standard cloth simulation shares many similarities with the hanging chains model.  A finite number of elements connected by links will, when
-submitted to gravity, form a catenary.  In cloth simulation, a finite number of points exert forces on each other, falling into a tensionally stable
-configuration.  Additionally, since the model is simulated, gravity can be reversed and the model shown as it would be built, making it easier for
-the architect to visualize the completed structure.
+\begin{figure}
+\centering
+\subfloat[]{
+	\label{fig:casa_mila_ext}
+	\includegraphics[height=3in]{images/casa_mila_ext.jpg}
+}
+\subfloat[]{
+	\label{fig:casa_mila_arch}
+	\includegraphics[height=3in]{images/casa_mila_arch.jpg}
+}
+\caption[Casa Mil\`{a}, Barcelona, Spain]{Image (a) shows an exterior view of Casa Mil\`{a}, one of Antoni Gaud\'{i}'s stunning buildings in
+Barcelona, Spain. \cite{img:casa_mila}  Image (b) is of the catenary arches under the terrace of Casa Mil\`{a}. \cite{img:casa_mila_arch}}
+\label{fig:casa_mila}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfloat[]{
+	\label{fig:parc_guell_ent}
+	\includegraphics[height=2in]{images/parc_guell.jpg}
+}
+\subfloat[]{
+	\label{fig:parc_guell_arch}
+	\includegraphics[height=2in]{images/parc_guell_arch.jpg}
+}
+\caption[Parc Guell, Barcelona, Spain]{Image (a) shows the entrance to Parc Guell in Barcelona. \cite{img:parc_guell}  Image (b) shows the
+columns supporting the roadway that runs past the park.  These columns form an offset catenary, which is asymmetric because the loading of
+the arch is asymmetric. \cite{img:parc_guell_arch}}
+\label{fig:parc_guell}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfloat[]{
+	\label{fig:sagrada_familia_nativity}
+	\includegraphics[width=2.5in]{images/sagrada_familia_nativity.jpg}
+}
+\subfloat[]{
+	\label{fig:sagrada_familia_columns}
+	\includegraphics[width=3in]{images/sagrada_familia_columns.jpg}
+}
+\caption[Sagrada Fam\'{i}lia, Barcelona, Spain]{Image (a) shows the nativity fa\c{c}ade of Antoni Gad\'{i}'s masterpiece, Sagrada Fam\'{i}lia,
+slated to be completed some time after 2026. \cite{img:sagrada_familia_nativity}  Image (b) shows the strucutral columns that are possible when
+designing with catenaries in mind.  Rather than the monolithic columns found in most gothic cathedrals, Gaud\'{i} has whittled away the nonessential
+stone to reveal the core load-bearing elements.  This results in a gracefully arcing column that supports the huge structure as well as a monolithic
+column would have. \cite{img:sagrada_familia_columns}}
+\label{fig:sagrada_familia}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=4in]{images/gaudi_model.jpg}
+\caption[A hanging model used by Gaud\'{i}]{This is a photo of one of the hanging models used by Antoni Gaud\'{i} to understand the forces in
+the buildings he constructed.  The bags are full of small lead weights which are proportonal to various structural elements and ornaments in
+the planned building.  The strings holding them together are the necessary columns, arches, and other core structural elements that will make
+up the building. \cite{img:gaudi_model}}
+\label{fig:gaudi_model}
+\end{figure}
+
+Another architect who is famous for his use of catenary shells in his thin-shell structures is Heinz Isler.  A civil engineer from Switzerland,
+Isler designed some very beautiful and elegant structures using the simple tools of cloth and water.  Since a sheet of cloth will behave as an
+interconnected set of hanging strings, it can be used to create catenary shell structures.  What Isler did was to take the shape a sheet of cloth
+formed in when suspended and freeze it by soaking the cloth evenly with water.  The resulting frozen structure was then inverted and measured very
+accurately with a device he created.  Once these measurements had been taken, he built forms and poured the shell using standard concrete
+construction techniques.  The resulting buildings, such as those in Figure \ref{fig:isler_service}, are elegant, graceful structures with an
+exquisite simplicity of form and conservation of material.
+
+One drawback to the thin-shell structure work done by Gaud\'{i} and Isler is that the design process is very time-consuming.  The amount of time
+it takes to create a hanging model from strings and lead shot or freeze a cloth shell is prohibitive to the fast-paced, quick turnaround time of
+the modern architecture world.  Fortunately, both hanging chains and cloth are rather easy to simulate, and therefore software can be created to
+allow these designs to be rapidly prototyped, tweaked, and refined on the computer.
 
 \section{Related Works}
 \subsection{Procedural Modeling}
