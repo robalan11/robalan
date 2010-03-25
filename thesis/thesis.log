@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  24 MAR 2010 12:43
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  25 MAR 2010 01:44
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -120,41 +120,61 @@ File: images/house.png Graphic file (type png)
 File: images/Bending.png Graphic file (type png)
  <use images/Bending.png>
 [2 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/house.png (PN
-G copy)>] <images/arch.png, id=34, 555.57562pt x 359.84438pt>
-File: images/arch.png Graphic file (type png)
+G copy)> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Bending
+.png>] <images/isler_dome_1.jpg, id=35, 72.27pt x 48.14989pt>
+File: images/isler_dome_1.jpg Graphic file (type jpg)
 
-<use images/arch.png> [3 <C:/Users/Allan/Documents/Grad School/repository/thesi
-s/images/Bending.png>] [4 <C:/Users/Allan/Documents/Grad School/repository/thes
-is/images/arch.png>] [5]
+<use images/isler_dome_1.jpg>
+<images/twa_flight_center.jpg, id=36, 803.0pt x 394.47375pt>
+File: images/twa_flight_center.jpg Graphic file (type jpg)
+
+<use images/twa_flight_center.jpg>
+<images/kresge_auditorium.jpg, id=37, 401.5pt x 263.98625pt>
+File: images/kresge_auditorium.jpg Graphic file (type jpg)
+
+<use images/kresge_auditorium.jpg>
+<images/montreal_biosphere.jpg, id=38, 803.0pt x 602.25pt>
+File: images/montreal_biosphere.jpg Graphic file (type jpg)
+
+<use images/montreal_biosphere.jpg>
+<images/arch.png, id=39, 555.57562pt x 359.84438pt>
+File: images/arch.png Graphic file (type png)
+ <use images/arch.png>
+[3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/isler_dome_1.
+jpg>] [4 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/twa_fli
+ght_center.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
+kresge_auditorium.jpg>] [5 <C:/Users/Allan/Documents/Grad School/repository/the
+sis/images/montreal_biosphere.jpg>] [6 <C:/Users/Allan/Documents/Grad School/re
+pository/thesis/images/arch.png>] [7]
  2.
-<images/screenshot.png, id=45, 915.42pt x 629.35126pt>
+<images/screenshot.png, id=56, 915.42pt x 629.35126pt>
 File: images/screenshot.png Graphic file (type png)
 
-<use images/screenshot.png> [6
+<use images/screenshot.png> [8
 
-] [7 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot.
+] [9 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot.
 png>]
-("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl") [8
+("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl") [10
 
 ]
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
- 1055 strings out of 495285
- 13940 string characters out of 3180395
- 66097 words of memory out of 3000000
- 4284 multiletter control sequences out of 15000+200000
+ 1080 strings out of 495285
+ 14601 string characters out of 3180395
+ 67137 words of memory out of 3000000
+ 4304 multiletter control sequences out of 15000+200000
  7987 words of font info for 28 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 28i,7n,21p,183b,212s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,7n,21p,195b,212s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Prog
 ram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program File
 s/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/font
 s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/pu
 blic/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (14 pages, 230755 bytes).
+Output written on thesis.pdf (16 pages, 623306 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
