@@ -18,6 +18,7 @@
 
 GLCanvas* Floorplan::parent;
 std::vector<Point> Floorplan::coords;
+int Floorplan::hovered_point;
 int Floorplan::selected_point;
 int Floorplan::selected_line;
 int Floorplan::selected_control_point;
@@ -206,8 +207,11 @@ void Floorplan::display(void) {
 		float x = 0.9*((coords[i].get_x()-xmin) / xconst * 2 - 1);
 		float y = 0.9*((coords[i].get_y()-zmin) / zconst *-2 + 1);
 		
-		if (i == selected_point) {
+		if (i == hovered_point) {
 			glColor3f(1.0,0.95,0.3);
+			glVertex2f(x, y);
+		} else if (i == selected_point) {
+			glColor3f(1.0, 0.65, 0.4);
 			glVertex2f(x, y);
 		} else {
 			glColor3f(0.6,0.7,0.9);
@@ -245,6 +249,7 @@ void Floorplan::mouse(int button, int state, int x, int y) {
 
 	if (mouseButton == GLUT_LEFT_BUTTON && mouseStatus == GLUT_DOWN) {
 		float tmp, min = 10;
+		selected_point = hovered_point;
 		for (unsigned int i = 0; i < coords.size(); i++) {
 			float px = (0.9*(coords[i].get_x()-xmin)/xconst + 0.05) * width;
 			float py = (0.9*(coords[i].get_y()-zmin)/zconst + 0.05) * height;
@@ -264,6 +269,7 @@ void Floorplan::mouse(int button, int state, int x, int y) {
 			selected_line = -1;
 			if (coords.size() > 1) {
 				selected_point = coords.size()-1;
+				hovered_point = coords.size()-1;
 				glutSetWindow(grid_window);
 				my_grid->Render();
 				glutSetWindow(my_window);
@@ -371,16 +377,16 @@ void Floorplan::passiveMotion(int x, int y) {
 	my_grid->set_expanding(false);
 
 	float tmp, base;
-	if (selected_point != -1) base = distance(x, y, (0.9*(coords[selected_point].get_x()-xmin)/xconst + 0.05)*width, (0.9*(coords[selected_point].get_y()-zmin)/zconst + 0.05)*height);
+	if (hovered_point != -1) base = distance(x, y, (0.9*(coords[hovered_point].get_x()-xmin)/xconst + 0.05)*width, (0.9*(coords[hovered_point].get_y()-zmin)/zconst + 0.05)*height);
 	else base = glutGet(GLUT_WINDOW_WIDTH);
 	
-	int prev_point = selected_point;
+	int prev_point = hovered_point;
 	for (unsigned int i = 0; i < coords.size(); i++) {
 		float cx = (0.9*(coords[i].get_x()-xmin)/xconst + 0.05)*width;
 		float cy = (0.9*(coords[i].get_y()-zmin)/zconst + 0.05)*height;
 		tmp = distance(x, y, cx, cy);
 		if (tmp < base && tmp < 5) {
-			selected_point = i;
+			hovered_point = i;
 			glutSetWindow(grid_window);
 			my_grid->Render();
 			glutSetWindow(my_window);
@@ -391,8 +397,8 @@ void Floorplan::passiveMotion(int x, int y) {
 			break;
 		}
 	}
-	if (selected_point == prev_point && base > 15) {
-		selected_point = -1;
+	if (hovered_point == prev_point && base > 15) {
+		hovered_point = -1;
 		selected_line = -1;
 		glutSetWindow(my_window);
 		glutSetMenu(default_menu_id);
@@ -402,7 +408,7 @@ void Floorplan::passiveMotion(int x, int y) {
 				if (distance(x, y, coords[i].get_bezier_points()[1].get_x(), coords[i].get_bezier_points()[1].get_y()) < 5) {
 					selected_control_point = 1;
 					selected_line = i;
-					selected_point = -1;
+					hovered_point = -1;
 					glutSetMenu(line_menu_id);
 					glutAttachMenu(GLUT_RIGHT_BUTTON);
 					Render();
@@ -411,7 +417,7 @@ void Floorplan::passiveMotion(int x, int y) {
 				if (distance(x, y, coords[i].get_bezier_points()[2].get_x(), coords[i].get_bezier_points()[2].get_y()) < 5) {
 					selected_control_point = 2;
 					selected_line = i;
-					selected_point = -1;
+					hovered_point = -1;
 					glutSetMenu(line_menu_id);
 					glutAttachMenu(GLUT_RIGHT_BUTTON);
 					Render();
@@ -436,7 +442,7 @@ void Floorplan::passiveMotion(int x, int y) {
 
 					if (point_to_line(x, y, x1, y1, x2, y2) < 4) {
 						selected_line = i;
-						selected_point = -1;
+						hovered_point = -1;
 						glutSetMenu(line_menu_id);
 						glutAttachMenu(GLUT_RIGHT_BUTTON);
 						Render();
@@ -451,7 +457,7 @@ void Floorplan::passiveMotion(int x, int y) {
 				float cy2 = (0.9*(coords[coords[i].get_next()].get_y()-zmin)/zconst + 0.05)*height;
 				if (point_to_line(x, y, cx1, cy1, cx2, cy2) < 4) {
 					selected_line = i;
-					selected_point = -1;
+					hovered_point = -1;
 					selected_control_point = -1;
 					glutSetMenu(line_menu_id);
 					glutAttachMenu(GLUT_RIGHT_BUTTON);
@@ -520,8 +526,10 @@ void Floorplan::set_selected_point(int p) {
 	coords[selected_point].set_p(p);
 	parent->get_cloth()->fix_particle(p);
 	glutSetWindow(my_window);
-	float new_x = coords[selected_point].get_x() / float(glutGet(GLUT_WINDOW_WIDTH)) / 2 * (parent->get_cloth()->width() - 1);
-	float new_y = coords[selected_point].get_y() / float(glutGet(GLUT_WINDOW_HEIGHT)) / 2 * (parent->get_cloth()->height()- 1);
+	//float new_x = coords[selected_point].get_x() / float(glutGet(GLUT_WINDOW_WIDTH)) / 2 * (parent->get_cloth()->width() - 1);
+	//float new_y = coords[selected_point].get_y() / float(glutGet(GLUT_WINDOW_HEIGHT)) / 2 * (parent->get_cloth()->height()- 1);
+	float new_x = coords[selected_point].get_x();
+	float new_y = coords[selected_point].get_y();
 	glutSetWindow(grid_window);
 	parent->get_cloth()->move_fixed(p, new_x, new_y, 0);
 
@@ -587,6 +595,9 @@ void Floorplan::point_menu(int op) {
 void Floorplan::toggle_line_fixed(int line, bool state) {
 	Point p1 = coords[line];
 	Point p2 = coords[coords[line].get_next()];
+
+	ClothParticle start = parent->get_cloth()->getParticle(p1.get_p());
+	ClothParticle end = parent->get_cloth()->getParticle(p1.get_p());
 
 	/* Temporarily disabled.
 

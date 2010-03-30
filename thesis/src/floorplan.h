@@ -12,7 +12,7 @@ class Grid;
 
 class Point {
 public:
-	void set_pos(int _x, int _y) { x = _x; y = _y; }
+	void set_pos(float _x, float _y) { x = _x; y = _y; }
 	void set_original_pos(int _x, int _y) { orig_x = _x; orig_y = _y; }
 	void set_p(int _p) { p = _p; }
 	void set_next(int n) { next = n; }
@@ -20,10 +20,10 @@ public:
 	void unfix() { fixed = false; }
 	void set_bezier(bool state) { bezier = state; }
 	void init_bezier(vector<Point> points) { control_pts = points; }
-	void move_bezier_point(int index, int x, int y) { control_pts[index].set_pos(x, y); }
+	void move_bezier_point(int index, float x, float y) { control_pts[index].set_pos(x, y); }
 
-	int get_x() { return x; }
-	int get_y() { return y; }
+	float get_x() { return x; }
+	float get_y() { return y; }
 	int get_p() { return p; }
 	int get_next() { return next; }
 	bool is_fixed() { return fixed; }
@@ -31,8 +31,8 @@ public:
 	vector<Point> get_bezier_points() { return control_pts; }
 
 private:
-	int x;
-	int y;
+	float x;
+	float y;
 	int orig_x;
 	int orig_y;
 	int p;
@@ -62,6 +62,7 @@ private:
 	//Variables
 	static GLCanvas* parent;
 	static std::vector<Point> coords;
+	static int hovered_point;
 	static int selected_point;
 	static int selected_line;
 	static int selected_control_point;

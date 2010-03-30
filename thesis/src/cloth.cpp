@@ -67,7 +67,7 @@ Cloth::Cloth(ArgParser *_args, bool parent) {
   float fabric_weight;
   istr >> token >> fabric_weight; assert (token == "fabric_weight");
   float area = AreaOfTriangle(a,b,c) + AreaOfTriangle(a,c,d);
-
+/*
   // create the particles
   float mass = area*fabric_weight / float(nx*ny);
   float xdim = Vec3f(a, d).Length()/float(nx);
@@ -138,6 +138,8 @@ Cloth::Cloth(ArgParser *_args, bool parent) {
 	fixed_particles[num_fixed] = p;
 	num_fixed ++;
   }
+*/
+  load("vault.obj");  
 
   computeBoundingBox();
 
