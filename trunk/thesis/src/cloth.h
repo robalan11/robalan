@@ -154,10 +154,10 @@ public:
     assert (i >= 0 && i < nx && j >= 0 && j < ny);
     return particles[i + j*nx]; }
   const ClothParticle& getParticle(int i) const {
-	  assert (i >= 0 && i < nx*ny);
+	  assert (i >= 0 && i < (int)particles.size());
 	  return particles[i]; }
   ClothParticle& getParticle(int i) {
-	  assert (i >= 0 && i < nx*ny);
+	  assert (i >= 0 && i < (int)particles.size());
 	  return particles[i]; }
 
 private:
