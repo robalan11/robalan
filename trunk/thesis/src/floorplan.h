@@ -21,6 +21,7 @@ public:
 	void set_bezier(bool state) { bezier = state; }
 	void init_bezier(vector<Point> points) { control_pts = points; }
 	void move_bezier_point(int index, float x, float y) { control_pts[index].set_pos(x, y); }
+	void set_line_points(vector<ClothParticle*> points) { line_pts = points; }
 
 	float get_x() { return x; }
 	float get_y() { return y; }
@@ -29,6 +30,7 @@ public:
 	bool is_fixed() { return fixed; }
 	bool is_bezier() { return bezier; }
 	vector<Point> get_bezier_points() { return control_pts; }
+	vector<ClothParticle*> get_line_points() { return line_pts; }
 
 private:
 	float x;
@@ -40,6 +42,7 @@ private:
 	bool fixed;
 	bool bezier;
 	vector<Point> control_pts;
+	vector<ClothParticle*> line_pts;
 };
 
 class Floorplan {

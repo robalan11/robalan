@@ -58,7 +58,7 @@ void maindisplay(void) {
 }
 
 void mainreshape(int w, int h) {
-	printf("BLAH!\n");
+	//printf("BLAH!\n");
 }
 
 void GLCanvas::initialize(ArgParser *_args) {
