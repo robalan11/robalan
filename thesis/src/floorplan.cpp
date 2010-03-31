@@ -50,14 +50,10 @@ void Floorplan::initialize(GLCanvas* canvas, int window) {
 	glEnable (GL_BLEND);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glHint (GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
-
+	
 	for (int i = 0; i < parent->get_cloth()->num_fixed; i++) {
 		add_cloth_point(parent->get_cloth()->fixed_particles[i], parent->get_cloth());
 	}
-	//coords[0].set_next(1);
-	//coords[1].set_next(3);
-	//coords[2].set_next(0);
-	//coords[3].set_next(2);
 
 	selected_line = -1;
 
@@ -69,8 +65,9 @@ void Floorplan::initialize(GLCanvas* canvas, int window) {
 	glutKeyboardFunc(keyboard);
 
     default_menu_id = glutCreateMenu(default_menu);
-	glutAddMenuEntry("Save as .obj", 's');
+	glutAddMenuEntry("Save design", 's');
 	glutAddMenuEntry("Load input.obj", 'l');
+	glutAddMenuEntry("Reset", 'r');
     glutAddMenuEntry("Quit", 'q');
     glutAttachMenu(GLUT_RIGHT_BUTTON);
 
@@ -81,7 +78,7 @@ void Floorplan::initialize(GLCanvas* canvas, int window) {
 	glutAddMenuEntry("Set Line", 'l');
 
 	point_menu_id = glutCreateMenu(point_menu);
-	glutAddMenuEntry("Set Height", 'h');
+	//glutAddMenuEntry("Set Height", 'h');
 	glutAddMenuEntry("Delete", 'd');
 }
 
@@ -104,7 +101,7 @@ void Floorplan::display(void) {
 
 	glBegin(GL_LINES);
 	for(unsigned int i = 0; i < coords.size(); i++) {
-		/*if (coords[i].is_bezier()) {
+		if (coords[i].is_bezier()) {
 			Point p1, p2, point;
 			std::vector<Point> points;
 			p1 = coords[i];
@@ -112,14 +109,14 @@ void Floorplan::display(void) {
 
 			points = coords[i].get_bezier_points();
 			Point prev = bezier(points, 0);
-			int length = max(abs(p1.get_i()-p2.get_i()), abs(p1.get_j()-p2.get_j()));
+			int length = 20;//max(abs(p1.get_i()-p2.get_i()), abs(p1.get_j()-p2.get_j()));
 			for (int j = 1; j <= length; j++) {
 				float t = 1.0/length*j;
 				point = bezier(points, t);
-				float x1 = float(prev.get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-				float y1 = float(prev.get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
-				float x2 = float(point.get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-				float y2 = float(point.get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
+				float x1 = 0.9*((float(prev.get_x())-xmin) / xconst * 2 - 1);
+				float y1 = 0.9*((float(prev.get_y())-zmin) / zconst *-2 + 1);
+				float x2 = 0.9*((float(point.get_x())-xmin) / xconst * 2 - 1);
+				float y2 = 0.9*((float(point.get_y())-zmin) / zconst *-2 + 1);
 				glVertex2f(x1, y1);
 				glVertex2f(x2, y2);
 				prev = point;
@@ -131,20 +128,20 @@ void Floorplan::display(void) {
 				glColor3f(0.75f, 0.75f, 0.75f);
 			}
 			for (int j = 0; j < 3; j++) {
-				float x1 = float(coords[i].get_bezier_points()[j].get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-				float y1 = float(coords[i].get_bezier_points()[j].get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
-				float x2 = float(coords[i].get_bezier_points()[j+1].get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-				float y2 = float(coords[i].get_bezier_points()[j+1].get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
+				float x1 = 0.9*((float(coords[i].get_bezier_points()[j].get_x())-xmin) / xconst * 2 - 1);
+				float y1 = 0.9*((float(coords[i].get_bezier_points()[j].get_y())-zmin) / zconst *-2 + 1);
+				float x2 = 0.9*((float(coords[i].get_bezier_points()[j+1].get_x())-xmin) / xconst * 2 - 1);
+				float y2 = 0.9*((float(coords[i].get_bezier_points()[j+1].get_y())-zmin) / zconst *-2 + 1);
 				glVertex2f(x1, y1);
 				glVertex2f(x2, y2);
 			}
 			glEnd();
 
 			glBegin(GL_POINTS);
-			float x1 = float(coords[i].get_bezier_points()[1].get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-			float y1 = float(coords[i].get_bezier_points()[1].get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
-			float x2 = float(coords[i].get_bezier_points()[2].get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-			float y2 = float(coords[i].get_bezier_points()[2].get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
+			float x1 = 0.9*((float(coords[i].get_bezier_points()[1].get_x())-xmin) / xconst * 2 - 1);
+			float y1 = 0.9*((float(coords[i].get_bezier_points()[1].get_y())-zmin) / zconst *-2 + 1);
+			float x2 = 0.9*((float(coords[i].get_bezier_points()[2].get_x())-xmin) / xconst * 2 - 1);
+			float y2 = 0.9*((float(coords[i].get_bezier_points()[2].get_y())-zmin) / zconst *-2 + 1);
 			if (i == selected_line && 1 == selected_control_point) glColor3f(0.3f, 0.5f, 1.0f);
 			else glColor3f(0.3f, 0.3f, 0.3f);
 			glVertex2f(x1, y1);
@@ -154,14 +151,15 @@ void Floorplan::display(void) {
 			glEnd();
 
 			glBegin(GL_LINES);
-		} else {*/
+		} else {
 			float x1 = 0.9*((coords[i].get_x()-xmin) / xconst * 2 - 1);
 			float y1 = 0.9*((coords[i].get_y()-zmin) / zconst *-2 + 1);
 			float x2 = 0.9*((coords[coords[i].get_next()].get_x()-xmin) / xconst * 2 - 1);
 			float y2 = 0.9*((coords[coords[i].get_next()].get_y()-zmin) / zconst *-2 + 1);
+			glColor3f(0.5f, 0.6f, 0.8f);
 			glVertex2f(x1, y1);
 			glVertex2f(x2, y2);
-		//}
+		}
 	}
 	glEnd();
 
@@ -170,7 +168,7 @@ void Floorplan::display(void) {
 		glLineWidth(4);
 		glBegin(GL_LINES);
 
-		/*if (coords[selected_line].is_bezier()) {
+		if (coords[selected_line].is_bezier()) {
 			Point p1, p2, point;
 			std::vector<Point> points;
 			p1 = coords[selected_line];
@@ -178,26 +176,26 @@ void Floorplan::display(void) {
 
 			points = coords[selected_line].get_bezier_points();
 			Point prev = bezier(points, 0);
-			int length = max(abs(p1.get_i()-p2.get_i()), abs(p1.get_j()-p2.get_j()));
+			int length = 20;//max(abs(p1.get_x()-p2.get_i()), abs(p1.get_j()-p2.get_j()));
 			for (int j = 1; j <= length; j++) {
 				float t = 1.0/length*j;
 				point = bezier(points, t);
-				float x1 = float(prev.get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-				float y1 = float(prev.get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
-				float x2 = float(point.get_x()) / float(glutGet(GLUT_WINDOW_WIDTH)) * 2 - 1;
-				float y2 = float(point.get_y()) / float(glutGet(GLUT_WINDOW_HEIGHT)) * -2 + 1;
+				float x1 = 0.9*((float(prev.get_x())-xmin) / xconst * 2 - 1);
+				float y1 = 0.9*((float(prev.get_y())-zmin) / zconst *-2 + 1);
+				float x2 = 0.9*((float(point.get_x())-xmin) / xconst * 2 - 1);
+				float y2 = 0.9*((float(point.get_y())-zmin) / zconst *-2 + 1);
 				glVertex2f(x1, y1);
 				glVertex2f(x2, y2);
 				prev = point;
 			}
-		} else {*/
+		} else {
 			float x1 = 0.9*((coords[selected_line].get_x()-xmin) / xconst * 2 - 1);
 			float y1 = 0.9*((coords[selected_line].get_y()-zmin) / zconst *-2 + 1);
 			float x2 = 0.9*((coords[coords[selected_line].get_next()].get_x()-xmin) / xconst * 2 - 1);
 			float y2 = 0.9*((coords[coords[selected_line].get_next()].get_y()-zmin) / zconst *-2 + 1);
 			glVertex2f(x1, y1);
 			glVertex2f(x2, y2);
-		//}
+		}
 
 		glEnd();
 	}
@@ -247,9 +245,10 @@ void Floorplan::mouse(int button, int state, int x, int y) {
 	mouseY = y;
 	//controlPressed = glutGetModifiers() & GLUT_ACTIVE_CTRL;
 
+	selected_point = hovered_point;
+
 	if (mouseButton == GLUT_LEFT_BUTTON && mouseStatus == GLUT_DOWN) {
 		float tmp, min = 10;
-		selected_point = hovered_point;
 		for (unsigned int i = 0; i < coords.size(); i++) {
 			float px = (0.9*(coords[i].get_x()-xmin)/xconst + 0.05) * width;
 			float py = (0.9*(coords[i].get_y()-zmin)/zconst + 0.05) * height;
@@ -259,9 +258,13 @@ void Floorplan::mouse(int button, int state, int x, int y) {
 			}
 		}
 		if (selected_line != -1 && coords[selected_line].is_bezier()) {
-			tmp = distance(x, y, coords[selected_line].get_bezier_points()[1].get_x(), coords[selected_line].get_bezier_points()[1].get_y());
+			float cx1 = (0.9*(coords[selected_line].get_bezier_points()[1].get_x()-xmin)/xconst + 0.05)*width;
+			float cy1 = (0.9*(coords[selected_line].get_bezier_points()[1].get_y()-zmin)/zconst + 0.05)*height;
+			float cx2 = (0.9*(coords[selected_line].get_bezier_points()[2].get_x()-xmin)/xconst + 0.05)*width;
+			float cy2 = (0.9*(coords[selected_line].get_bezier_points()[2].get_y()-zmin)/zconst + 0.05)*height;
+			tmp = distance(x, y, cx1, cy1);
 			if (tmp < min) min = tmp;
-			tmp = distance(x, y, coords[selected_line].get_bezier_points()[2].get_x(), coords[selected_line].get_bezier_points()[2].get_y());
+			tmp = distance(x, y, cx2, cy2);
 			if (tmp < min) min = tmp;
 		}
 		if (min > 5) {
@@ -281,7 +284,23 @@ void Floorplan::mouse(int button, int state, int x, int y) {
 	glutPostRedisplay();
 }
 
-void Floorplan::add_point(int x, int y, int p) {
+void Floorplan::add_point(int _x, int _y, int p) {
+	float x, y;
+	if (p == -1) {
+		float xconst = fabs(parent->get_cloth()->getBoundingBox().getMax().x() - parent->get_cloth()->getBoundingBox().getMin().x());
+		float xmin = parent->get_cloth()->getBoundingBox().getMin().x();
+		float zconst = fabs(parent->get_cloth()->getBoundingBox().getMax().z() - parent->get_cloth()->getBoundingBox().getMin().z());
+		float zmin = parent->get_cloth()->getBoundingBox().getMin().x();
+		int width = glutGet(GLUT_WINDOW_WIDTH);
+		int height = glutGet(GLUT_WINDOW_HEIGHT);
+
+		x = (_x/float(width)-0.05)/0.9 * xconst;
+		y = (_y/float(width)-0.05)/0.9 * zconst;
+	} else {
+		x = _x;
+		y = _y;
+	}
+
 	Point tmp;
 	tmp.set_pos(x, y);
 	tmp.set_original_pos(x, y);
@@ -330,16 +349,17 @@ void Floorplan::motion(int x, int y) {
 	if (y < 0) y = 0;
 	if (x > glutGet(GLUT_WINDOW_WIDTH )) x = glutGet(GLUT_WINDOW_WIDTH );
 	if (y > glutGet(GLUT_WINDOW_HEIGHT)) y = glutGet(GLUT_WINDOW_HEIGHT);
+	float transx = (x/float(width)-0.05)/0.9 * xconst;
+	float transy = (y/float(height)-0.05)/0.9 * zconst;
+
 	if (mouseButton == GLUT_LEFT_BUTTON) {
 		if (selected_point != -1) {
 			Point point = coords[selected_point];
-			float transx = (x/float(width)-0.05)/0.9 * xconst;
-			float transy = (y/float(height)-0.05)/0.9 * zconst;
 			coords[selected_point].set_pos(transx, transy);
-			if (point.is_bezier()) coords[selected_point].move_bezier_point(0, x, y);
+			if (point.is_bezier()) coords[selected_point].move_bezier_point(0, transx, transy);
 			for (unsigned int i = 0; i < coords.size(); i++) {
 				if (coords[i].is_bezier() && coords[i].get_next() == selected_point)
-					coords[i].move_bezier_point(3, x, y);
+					coords[i].move_bezier_point(3, transx, transy);
 			}
 			glutPostRedisplay();
 			if (point.get_p() != -1) {
@@ -356,7 +376,7 @@ void Floorplan::motion(int x, int y) {
 			parent->Render();
 		}
 		if (selected_line != -1 && selected_control_point != -1) {
-			coords[selected_line].move_bezier_point(selected_control_point, x, y);
+			coords[selected_line].move_bezier_point(selected_control_point, transx, transy);
 			Render();
 			if (coords[selected_line].is_fixed())
 				toggle_line_fixed(selected_line, true);
@@ -404,8 +424,13 @@ void Floorplan::passiveMotion(int x, int y) {
 		glutSetMenu(default_menu_id);
 		glutAttachMenu(GLUT_RIGHT_BUTTON);
 		for (unsigned int i = 0; i < coords.size(); i++) {
-			/*if (coords[i].is_bezier()) {
-				if (distance(x, y, coords[i].get_bezier_points()[1].get_x(), coords[i].get_bezier_points()[1].get_y()) < 5) {
+			if (coords[i].is_bezier()) {
+				float cx1 = (0.9*(coords[i].get_bezier_points()[1].get_x()-xmin)/xconst + 0.05)*width;
+				float cy1 = (0.9*(coords[i].get_bezier_points()[1].get_y()-zmin)/zconst + 0.05)*height;
+				float cx2 = (0.9*(coords[i].get_bezier_points()[2].get_x()-xmin)/xconst + 0.05)*width;
+				float cy2 = (0.9*(coords[i].get_bezier_points()[2].get_y()-zmin)/zconst + 0.05)*height;
+
+				if (distance(x, y, cx1, cy1) < 5) {
 					selected_control_point = 1;
 					selected_line = i;
 					hovered_point = -1;
@@ -414,7 +439,7 @@ void Floorplan::passiveMotion(int x, int y) {
 					Render();
 					break;
 				}
-				if (distance(x, y, coords[i].get_bezier_points()[2].get_x(), coords[i].get_bezier_points()[2].get_y()) < 5) {
+				if (distance(x, y, cx2, cy2) < 5) {
 					selected_control_point = 2;
 					selected_line = i;
 					hovered_point = -1;
@@ -431,16 +456,16 @@ void Floorplan::passiveMotion(int x, int y) {
 
 				points = coords[i].get_bezier_points();
 				Point prev = bezier(points, 0);
-				int length = max(abs(p1.get_i()-p2.get_i()), abs(p1.get_j()-p2.get_j()));
+				int length = 20;//max(abs(p1.get_i()-p2.get_i()), abs(p1.get_j()-p2.get_j()));
 				for (int j = 1; j <= length; j++) {
 					float t = 1.0/length*j;
 					point = bezier(points, t);
-					float x1 = float(prev.get_x());
-					float y1 = float(prev.get_y());
-					float x2 = float(point.get_x());
-					float y2 = float(point.get_y());
+					float cx1 = (0.9*(prev.get_x()-xmin)/xconst + 0.05)*width;
+					float cy1 = (0.9*(prev.get_y()-zmin)/zconst + 0.05)*height;
+					float cx2 = (0.9*(point.get_x()-xmin)/xconst + 0.05)*width;
+					float cy2 = (0.9*(point.get_y()-zmin)/zconst + 0.05)*height;
 
-					if (point_to_line(x, y, x1, y1, x2, y2) < 4) {
+					if (point_to_line(x, y, cx1, cy1, cx2, cy2) < 4) {
 						selected_line = i;
 						hovered_point = -1;
 						glutSetMenu(line_menu_id);
@@ -450,7 +475,7 @@ void Floorplan::passiveMotion(int x, int y) {
 						prev = point;
 					}
 				}
-			} else {*/
+			} else {
 				float cx1 = (0.9*(coords[i].get_x()-xmin)/xconst + 0.05)*width;
 				float cy1 = (0.9*(coords[i].get_y()-zmin)/zconst + 0.05)*height;
 				float cx2 = (0.9*(coords[coords[i].get_next()].get_x()-xmin)/xconst + 0.05)*width;
@@ -463,7 +488,7 @@ void Floorplan::passiveMotion(int x, int y) {
 					glutAttachMenu(GLUT_RIGHT_BUTTON);
 					Render();
 				}
-			//}
+			}
 		}
 	}
 }
@@ -545,6 +570,10 @@ void Floorplan::default_menu(int op) {
 			parent->get_cloth()->load("input.obj");
 			get_new_points();
 			break;
+		case 'R': case 'r':			
+			parent->get_cloth()->load("flat.obj");
+			get_new_points();
+			break;
 		case 'Q': case 'q':
 			parent->quit();
 			break;
@@ -593,84 +622,81 @@ void Floorplan::point_menu(int op) {
 }
 
 void Floorplan::toggle_line_fixed(int line, bool state) {
+	float xconst = fabs(parent->get_cloth()->getBoundingBox().getMax().x() - parent->get_cloth()->getBoundingBox().getMin().x());
+	float xmin = parent->get_cloth()->getBoundingBox().getMin().x();
+	float zconst = fabs(parent->get_cloth()->getBoundingBox().getMax().z() - parent->get_cloth()->getBoundingBox().getMin().z());
+	float zmin = parent->get_cloth()->getBoundingBox().getMin().x();
+	int width = glutGet(GLUT_WINDOW_WIDTH);
+	int height = glutGet(GLUT_WINDOW_HEIGHT);
+
 	Point p1 = coords[line];
 	Point p2 = coords[coords[line].get_next()];
 
-	ClothParticle start = parent->get_cloth()->getParticle(p1.get_p());
-	ClothParticle end = parent->get_cloth()->getParticle(p1.get_p());
+	ClothParticle *start = &parent->get_cloth()->getParticle(p1.get_p());
+	ClothParticle *end = &parent->get_cloth()->getParticle(p2.get_p());
+	float startx = start->getPosition().x();
+	float starty = start->getPosition().z();
+	float endx = end->getPosition().x();
+	float endy = end->getPosition().z();
+	
+	vector<ClothParticle*> points;
 
-	/* Temporarily disabled.
+	if (!p1.is_fixed()) {
+		float min;
+		ClothParticle *current = start;
+		ClothParticle *next = start;
 
-	int diff_i = p1.get_i()-p2.get_i();
-	int diff_j = p1.get_j()-p2.get_j();
-	int steps = max(abs(diff_i), abs(diff_j));
-
-	float diff_x = p2.get_x() - p1.get_x();
-	float diff_y = p2.get_y() - p1.get_y();
-
-	for (int i = 1; i < steps; i++) {
-		int coord_i;
-		int coord_j;
-		if (p1.get_i() < p2.get_i()) {
-			if (p1.get_j() < p2.get_j()) {
-				if (abs(diff_i) > abs(diff_j)) {
-					coord_i = p1.get_i() + i;
-					coord_j = p1.get_j() + int(i*(float(diff_j)/float(diff_i)));
-				} else {
-					coord_i = p1.get_i() + int(i*(float(diff_i)/float(diff_j)));
-					coord_j = p1.get_j() + i;
-				}
-			} else {
-				if (abs(diff_i) > abs(diff_j)) {
-					coord_i = p1.get_i() + i;
-					coord_j = p1.get_j() - int(i*(float(diff_j)/float(diff_i)));
-				} else {
-					coord_i = p1.get_i() + int(i*(float(diff_i)/float(diff_j)));
-					coord_j = p1.get_j() - i;
+		while (next != end) {
+			current = next;
+			min = sqrt(pow(endx-current->getPosition().x(), 2) + pow(endy-current->getPosition().z(), 2))*2;
+			for (unsigned int i = 0; i < current->getStructural().size(); i++) {
+				ClothParticle *temp = &parent->get_cloth()->getParticle(current->getStructural()[i].getTarget());
+				float dist = sqrt(pow(endx-temp->getPosition().x(), 2) + pow(endy-temp->getPosition().z(), 2));
+				if (dist < min) {
+					min = dist;
+					next = temp;
 				}
 			}
-		} else {
-			if (p1.get_j() < p2.get_j()) {
-				if (abs(diff_i) > abs(diff_j)) {
-					coord_i = p1.get_i() - i;
-					coord_j = p1.get_j() + int(i*(float(diff_j)/float(diff_i)));
-				} else {
-					coord_i = p1.get_i() - int(i*(float(diff_i)/float(diff_j)));
-					coord_j = p1.get_j() + i;
+			/*for (unsigned int i = 0; i < current->getShear().size(); i++) {
+				ClothParticle *temp = &parent->get_cloth()->getParticle(current->getShear()[i].getTarget());
+				float dist = sqrt(pow(endx-temp->getPosition().x(), 2) + pow(endy-temp->getPosition().z(), 2));
+				if (dist < min) {
+					min = dist;
+					next = temp;
 				}
-			} else {
-				if (abs(diff_i) > abs(diff_j)) {
-					coord_i = p1.get_i() - i;
-					coord_j = p1.get_j() - int(i*(float(diff_j)/float(diff_i)));
-				} else {
-					coord_i = p1.get_i() - int(i*(float(diff_i)/float(diff_j)));
-					coord_j = p1.get_j() - i;
-				}
-			}
+			}*/
+			points.push_back(next);
 		}
-		float x_pos, y_pos;
+	} else {
+		points = p1.get_line_points();
+	}
+	
+	float dx = (endx-startx)/float(points.size());
+	float dy = (endy-starty)/float(points.size());
+	Vec3f pos;
+
+	for (unsigned int i = 0; i < points.size()-1; i++) {
 		if (coords[line].is_bezier()) {
 			Point point;
-			std::vector<Point> points;
-			points = coords[line].get_bezier_points();
-			float t = float(i)/steps;
-			point = bezier(points, t);
-			x_pos = point.get_x() / float(glutGet(GLUT_WINDOW_WIDTH)) / 2.0 * (parent->get_cloth()->width() - 1);
-			y_pos = point.get_y() / float(glutGet(GLUT_WINDOW_HEIGHT))/ 2.0 * (parent->get_cloth()->height()- 1);
+			std::vector<Point> bezier_points;
+			bezier_points = coords[line].get_bezier_points();
+			float t = float(i+1)/(points.size());
+			point = bezier(bezier_points, t);
+			pos = Vec3f(point.get_x(), 0, point.get_y());
 		} else {
-			x_pos = float(p1.get_x() + (diff_x * (float(i)/float(steps)))) / float(glutGet(GLUT_WINDOW_WIDTH)) / 2.0 * (parent->get_cloth()->width() - 1);
-			y_pos = float(p1.get_y() + (diff_y * (float(i)/float(steps)))) / float(glutGet(GLUT_WINDOW_HEIGHT))/ 2.0 * (parent->get_cloth()->height()- 1);
+			pos = Vec3f(startx + (i+1)*dx, 0, starty + (i+1)*dy);
 		}
 		if (state) {
-			parent->get_cloth()->move_fixed(coord_i, coord_j, x_pos, y_pos, 0);
-			parent->get_cloth()->fix_particle(coord_i, coord_j);
+			if (coords[line].is_fixed())
+				coords[line].set_line_points(points);
+			points[i]->setPosition(pos);
+			points[i]->setFixed(true);
 			coords[line].fix();
 		} else {
-			parent->get_cloth()->unfix_particle(coord_i, coord_j);
+			points[i]->setFixed(false);
 			coords[line].unfix();
 		}
 	}
-	*/
 }
 
 void Floorplan::expand() {

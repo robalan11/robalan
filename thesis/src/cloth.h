@@ -190,6 +190,9 @@ private:
 
   Cloth* second;
   Cloth* third;
+
+  int directory;
+  int filenum;
 };
 
 #endif

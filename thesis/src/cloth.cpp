@@ -15,6 +15,7 @@
 #include "cloth.h"
 #include "argparser.h"
 #include <fstream>
+#include <time.h>
 #include "vectors.h"
 
 using namespace std;
@@ -139,9 +140,53 @@ Cloth::Cloth(ArgParser *_args, bool parent) {
 	num_fixed ++;
   }
 */
-  load("vault.obj");  
+  /* Further user study hackage */
+  load("flat.obj");
+
+  /*
+  for (unsigned int i = 0; i < particles.size(); i++) {
+	  if (particles[i].getStructural().size() > 2)
+		  particles[i].setFixed(false);
+  }
+  /* User Study Hack incoming! 
+	num_fixed = 0;
+
+	fixed_particles = new ClothParticle[particles.size()];
+
+	// the fixed particles
+	for (unsigned int p=0; p < particles.size(); p++) {
+		if (particles[p].isFixed()) {
+			fixed_particles[num_fixed] = particles[p];
+			num_fixed ++;
+		}
+	}
+	/* All clear. 
+
+  Vec3f max = getParticle(fixed_particles[2].getP()).getPosition();
+  getParticle(fixed_particles[0].getP()).setPosition(max*0.1);
+  fixed_particles[0].setPosition(max*0.1);
+  getParticle(fixed_particles[1].getP()).setPosition(Vec3f(max.x()*0.9, max.y(), max.z()*0.1));
+  fixed_particles[1].setPosition(Vec3f(max.x()*0.9, max.y(), max.z()*0.1));
+  getParticle(fixed_particles[2].getP()).setPosition(max*0.9);
+  fixed_particles[2].setPosition(max*0.9);
+  getParticle(fixed_particles[3].getP()).setPosition(Vec3f(max.x()*0.1, max.y(), max.z()*0.9));
+  fixed_particles[3].setPosition(Vec3f(max.x()*0.1, max.y(), max.z()*0.9));
+
+  /* end hackage */
 
   computeBoundingBox();
+
+  /* User study setup */
+
+  if (parent) {
+	  directory = time(NULL);
+	  char command[32];
+	  sprintf(command, "md user%i", directory);
+	  system(command);
+	  filenum = 0;
+  }
+
+  /* end User study setup */
 
   if (parent) {
 	  second = new Cloth(args, false);
@@ -504,7 +549,11 @@ void drawForce(const Vec3f &p, const Vec3f &f) {
 void Cloth::save() {
 	printf("Saving...\n");
 	ofstream outstream;
-	outstream.open("output.obj");
+
+	char filename[64];
+	sprintf(filename, "user%i/output%i.obj", directory, filenum);
+	outstream.open(filename);
+	filenum++;
 
 	Vec3f part;
 	for (unsigned int i = 0; i < particles.size(); i++) {
@@ -517,7 +566,7 @@ void Cloth::save() {
 	for (unsigned int i = 0; i < faces.size(); i++) {
 		outstream << "f";
 		for (unsigned int j = 0; j < faces[i].size(); j++)
-			outstream << " " << faces[i][j];
+			outstream << " " << (faces[i][j] + 1);
 		outstream << std::endl;
 	}
 
@@ -644,6 +693,36 @@ void Cloth::load(char* file) {
 		}
 	}
 	computeBoundingBox();
+
+	if (file == "flat.obj" || file == "flat16.obj") {
+		for (unsigned int i = 0; i < particles.size(); i++) {
+		  if (particles[i].getStructural().size() > 2)
+			  particles[i].setFixed(false);
+		}
+		/* User Study Hack incoming! */
+		num_fixed = 0;
+
+		fixed_particles = new ClothParticle[particles.size()];
+
+		// the fixed particles
+		for (unsigned int p=0; p < particles.size(); p++) {
+			if (particles[p].isFixed()) {
+				fixed_particles[num_fixed] = particles[p];
+				num_fixed ++;
+			}
+		}
+		/* All clear. */
+
+		Vec3f max = getParticle(fixed_particles[2].getP()).getPosition();
+		getParticle(fixed_particles[0].getP()).setPosition(max*0.1);
+		fixed_particles[0].setPosition(max*0.1);
+		getParticle(fixed_particles[1].getP()).setPosition(Vec3f(max.x()*0.9, max.y(), max.z()*0.1));
+		fixed_particles[1].setPosition(Vec3f(max.x()*0.9, max.y(), max.z()*0.1));
+		getParticle(fixed_particles[2].getP()).setPosition(max*0.9);
+		fixed_particles[2].setPosition(max*0.9);
+		getParticle(fixed_particles[3].getP()).setPosition(Vec3f(max.x()*0.1, max.y(), max.z()*0.9));
+		fixed_particles[3].setPosition(Vec3f(max.x()*0.1, max.y(), max.z()*0.9));
+	}
 
 	printf("Loaded!\n");
 }

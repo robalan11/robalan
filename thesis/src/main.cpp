@@ -30,9 +30,12 @@ int main(int argc, char *argv[]) {
   glutInit(&argc, argv);
   
   if (args->cloth_file == "") {
+	  /*
     cout << "no simulation specified" << endl;
     delete args;
     return 0;
+	*/
+	  args->cloth_file = "vault.txt";
   }
 
   GLCanvas glcanvas;
