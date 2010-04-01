@@ -343,6 +343,57 @@ will take anywhere from a second to a couple minutes to reach equilibrium.  It s
 no guarantees of the stability of the structure.
 
 
+\chapter{USER STUDY}
+\section{John}
+The first user I had in to use the software was John.  John is an architecture student, and was very excited about the software.
+The first thing I noticed when he started using the software was that he tried to zoom with the mouse wheel.  That's a feature that
+should be added.  Mouse wheel scrolling is a common functionality that shouldn't be too hard to implement.
+
+As he continued to use the software and get more comfortable with it, he noted that having left-click have an immediate action was not
+what he was used to. Most architectural software allows the user to select points with the left mouse button, then right-click to
+bring up the interaction menu.  A standardization would be a good idea.  This is especially true in the floorplan window, where
+left-clicking places a new point, which is not what the user wants when they miss selecting a point by a few pixels.  On a related
+note, an undo feature would be very welcome.  While it would be less of an issue if accidental left-clicks did not create points,
+an undo feature would still help the user to revert changes, whether this reversion stems from error or indecision.
+
+Something that became very clear to me as the John continued to use the software is that the current implementation of the grid
+interface is a bit clunky.  Firstly, new points should automatically associate with the closest point in the grid.  That's almost
+always what the user does next, and it saves them from having to guess which point is the closest, which is especially useful in a
+high-density grid.  However, the real problem with grid association is the snapping.  Since the floorplan point does not move when
+it is associated with a new grid point, the mesh is forced to warp, sometimes drastically, to acquiesce to the user's request.
+I am not sure what the best approach to this would be.  Moving the floorplan point to match the grid does not make much sense,
+since that's not usually what the user is trying to do.  Moving them both to the average also does not make a lot of sense.
+I suspect, however, that the main problem with the snapping is less that it snaps and more that it surprises the user when it
+happens.  I think having a less immediate interface would help with this.  For example, if rather than left-click associating the
+points it selected them, the user could see where on the mesh he was about to associate with a floorplan point.  He could then
+associate the two via a right-click menu, which is a more natural workflow.  It also gives the architect finer control, allowing
+them to have more information before making a change to the model.
+
+Some creative features that were requested include changing the height of points and length of springs.  Point height changing
+would be a fairly simple feature, and allow for more complex catenary shapes that incorporate traditional structural parts.
+Changing the length of springs would be a very useful feature, allowing the user to modify the shape of the structure in much
+finer detail than is currently possible.  By manually tightening and relaxing springs, the structure can be allowed to slip into
+any shape the architect wants.
+
+Several visualization options were discussed during the trial, foremost of which was the option to highlight the selected floorplan
+and/or grid point on the model.  This would make it much easier to orient the model to the floorplan and to keep one's bearings
+when looking at the model from various angles.  Another visualization option that was requested was the ability to pause and rewind
+the simulation of the model.  While rewinding is probably not feasible, pausing certainly is, though I'm not certain that it is
+necessarily a good idea since a model is not stable until it reaches equilibrium.
+
+Several suggestions were also made with regards to audience and distribution.  John suggested that this tool would work very well in
+a web-based medium, perhaps with the ability for users to save and share their designs.  This could be a fun tool with potential for
+collaboration.  In addition, it would be a great market to get a number of testers.  The downside to this, of course, is that this
+would require a complete re-write of the code, as c++ is not well-supported on the internet.
+
+A workflow pattern that I noticed is that he tended to start with an idea in mind of what he wanted to create.  Once that was made,
+he would look at it from a few angles, then change it.  If the simulation started to get tangled up or if he made a mis-click
+such that the model did something he was not expecting, he would continue to push it in that direction, ususally ending up in an
+inescapable oscillation which would either require the mesh to be reset or crash the program.  I'm not sure what was so intriguing
+about the failures, but he seemed much more interested in them than in the successful structures.
+
+
+
 % The following produces a numbered bibliography where the numbers
 % correspond to the \cite commands in the text.
 \specialhead{LITERATURE CITED}
