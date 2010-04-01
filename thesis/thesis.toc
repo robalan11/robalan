@@ -13,4 +13,6 @@
 \contentsline {chapter}{\numberline {2.}THIN SHELL DESIGN TOOL}{12}
 \contentsline {section}{\numberline {2.1}Layout}{12}
 \contentsline {section}{\numberline {2.2}Simulator}{12}
-\contentsline {chapter}{LITERATURE CITED}{12}
+\contentsline {chapter}{\numberline {3.}USER STUDY}{14}
+\contentsline {section}{\numberline {3.1}John}{14}
+\contentsline {chapter}{LITERATURE CITED}{16}
