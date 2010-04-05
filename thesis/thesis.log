@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  5 APR 2010 05:23
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  5 APR 2010 17:57
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -174,129 +174,160 @@ File: images/house.png Graphic file (type png)
 <images/Bending.png, id=27, 323.2075pt x 203.76125pt>
 File: images/Bending.png Graphic file (type png)
  <use images/Bending.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 106.
+
 <images/isler_dome_1.jpg, id=29, 72.27pt x 48.14989pt>
 File: images/isler_dome_1.jpg Graphic file (type jpg)
 
-<use images/isler_dome_1.jpg>
-<images/twa_flight_center.jpg, id=30, 803.0pt x 394.47375pt>
+<use images/isler_dome_1.jpg> [2 <C:/Users/Allan/Documents/Grad School/reposito
+ry/thesis/images/house.png (PNG copy)>]
+<images/twa_flight_center.jpg, id=38, 803.0pt x 394.47375pt>
 File: images/twa_flight_center.jpg Graphic file (type jpg)
 
 <use images/twa_flight_center.jpg>
-<images/kresge_auditorium.jpg, id=31, 401.5pt x 263.98625pt>
+<images/kresge_auditorium.jpg, id=39, 401.5pt x 263.98625pt>
 File: images/kresge_auditorium.jpg Graphic file (type jpg)
 
 <use images/kresge_auditorium.jpg>
-<images/montreal_biosphere.jpg, id=32, 803.0pt x 602.25pt>
+Underfull \hbox (badness 4108) in paragraph at lines 142--142
+[][]\OT1/cmr/m/n/10 "Kresge Au-ti-do-rium", Eero Saari-nen, $\OT1/cmtt/m/n/10 h
+ttp : / / en . wikipedia . org / wiki / File : Kresge _
+ []
+
+<images/montreal_biosphere.jpg, id=40, 803.0pt x 602.25pt>
 File: images/montreal_biosphere.jpg Graphic file (type jpg)
 
 <use images/montreal_biosphere.jpg>
-<images/arch.png, id=33, 555.57562pt x 359.84438pt>
+<images/arch.png, id=41, 555.57562pt x 359.84438pt>
 File: images/arch.png Graphic file (type png)
  <use images/arch.png>
-[2 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/house.png (PN
-G copy)>] [3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Ben
-ding.png> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/isler_
-dome_1.jpg>] [4 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
-twa_flight_center.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/
-images/kresge_auditorium.jpg>]
-<images/gateway_arch.jpg, id=46, 1951.29pt x 2601.72pt>
+Underfull \hbox (badness 1968) in paragraph at lines 174--174
+[][]\OT1/cmr/m/n/10 Screenshot of "In-ter-ac-tive Thrust", John Ochsendorf, $\O
+T1/cmtt/m/n/10 http : / / web . mit . edu / masonry /
+ []
+
+[3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Bending.png> 
+<C:/Users/Allan/Documents/Grad School/repository/thesis/images/isler_dome_1.jpg
+>] [4 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/twa_flight
+_center.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/kre
+sge_auditorium.jpg>] [5 <C:/Users/Allan/Documents/Grad School/repository/thesis
+/images/montreal_biosphere.jpg>]
+<images/gateway_arch.jpg, id=52, 1951.29pt x 2601.72pt>
 File: images/gateway_arch.jpg Graphic file (type jpg)
 
-<use images/gateway_arch.jpg> [5 <C:/Users/Allan/Documents/Grad School/reposito
-ry/thesis/images/montreal_biosphere.jpg>] [6 <C:/Users/Allan/Documents/Grad Sch
-ool/repository/thesis/images/arch.png> <C:/Users/Allan/Documents/Grad School/re
-pository/thesis/images/gateway_arch.jpg>]
-<images/catenary.png, id=53, 473.77pt x 307.1475pt>
+<use images/gateway_arch.jpg> [6 <C:/Users/Allan/Documents/Grad School/reposito
+ry/thesis/images/arch.png>]
+<images/catenary.png, id=56, 473.77pt x 307.1475pt>
 File: images/catenary.png Graphic file (type png)
  <use images/catenary.png>
-<images/hanging_chain.jpg, id=54, 803.0pt x 602.25pt>
+<images/hanging_chain.jpg, id=57, 803.0pt x 602.25pt>
 File: images/hanging_chain.jpg Graphic file (type jpg)
 
 <use images/hanging_chain.jpg>
-<images/compound_catenary.png, id=55, 471.7625pt x 407.5225pt>
+<images/compound_catenary.png, id=58, 471.7625pt x 407.5225pt>
 File: images/compound_catenary.png Graphic file (type png)
 
-<use images/compound_catenary.png> [7 <C:/Users/Allan/Documents/Grad School/rep
-ository/thesis/images/catenary.png> <C:/Users/Allan/Documents/Grad School/repos
-itory/thesis/images/hanging_chain.jpg> <C:/Users/Allan/Documents/Grad School/re
-pository/thesis/images/compound_catenary.png>]
-<images/casa_mila_ext.jpg, id=63, 642.4pt x 602.25pt>
+<use images/compound_catenary.png>
+<images/casa_mila_ext.jpg, id=59, 642.4pt x 602.25pt>
 File: images/casa_mila_ext.jpg Graphic file (type jpg)
 
 <use images/casa_mila_ext.jpg>
-<images/casa_mila_arch.jpg, id=64, 72.27pt x 108.405pt>
+<images/casa_mila_arch.jpg, id=60, 72.27pt x 108.405pt>
 File: images/casa_mila_arch.jpg Graphic file (type jpg)
 
 <use images/casa_mila_arch.jpg>
-<images/parc_guell.jpg, id=65, 401.5pt x 221.82875pt>
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[][]\OT1/cmr/m/n/10 "Casa Mila", An-toni Gaud, $\OT1/cmtt/m/n/10 http : / / 
+en . wikipedia . org / wiki / File : Casa _ Mil \ %C3 \
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+\OT1/cmtt/m/n/10 %A0 _ -[] _ Barcelona ,[] _Spain _ -[] _ Jan _ 2007 . jpg$\OT1
+/cmr/m/n/10 , $\OT1/cmtt/m/n/10 http : / / en . wikipedia . org / wiki / File :
+
+ []
+
+<images/parc_guell.jpg, id=61, 401.5pt x 221.82875pt>
 File: images/parc_guell.jpg Graphic file (type jpg)
 
 <use images/parc_guell.jpg>
-<images/parc_guell_arch.jpg, id=66, 451.6875pt x 602.25pt>
+<images/parc_guell_arch.jpg, id=62, 451.6875pt x 602.25pt>
 File: images/parc_guell_arch.jpg Graphic file (type jpg)
 
 <use images/parc_guell_arch.jpg>
-<images/sagrada_familia_nativity.jpg, id=67, 401.5pt x 481.8pt>
+<images/sagrada_familia_nativity.jpg, id=63, 401.5pt x 481.8pt>
 File: images/sagrada_familia_nativity.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_nativity.jpg>
-<images/sagrada_familia_columns.jpg, id=68, 803.0pt x 602.25pt>
+<images/sagrada_familia_columns.jpg, id=64, 803.0pt x 602.25pt>
 File: images/sagrada_familia_columns.jpg Graphic file (type jpg)
 
-<use images/sagrada_familia_columns.jpg>
+<use images/sagrada_familia_columns.jpg> [7 <C:/Users/Allan/Documents/Grad Scho
+ol/repository/thesis/images/gateway_arch.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 280--280
+[][]\OT1/cmr/m/n/10 "Sagrada Famlia", An-toni Gaud, $\OT1/cmtt/m/n/10 http 
+: / / en . wikipedia . org / wiki / File :
+ []
+
 <images/gaudi_model.jpg, id=69, 752.8125pt x 502.87875pt>
 File: images/gaudi_model.jpg Graphic file (type jpg)
 
 <use images/gaudi_model.jpg> [8 <C:/Users/Allan/Documents/Grad School/repositor
-y/thesis/images/casa_mila_ext.jpg> <C:/Users/Allan/Documents/Grad School/reposi
-tory/thesis/images/casa_mila_arch.jpg>] [9 <C:/Users/Allan/Documents/Grad Schoo
-l/repository/thesis/images/parc_guell.jpg> <C:/Users/Allan/Documents/Grad Schoo
-l/repository/thesis/images/parc_guell_arch.jpg> <C:/Users/Allan/Documents/Grad 
-School/repository/thesis/images/sagrada_familia_nativity.jpg> <C:/Users/Allan/D
-ocuments/Grad School/repository/thesis/images/sagrada_familia_columns.jpg>]
-[10 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/gaudi_model.
-jpg>] [11]
+y/thesis/images/catenary.png> <C:/Users/Allan/Documents/Grad School/repository/
+thesis/images/hanging_chain.jpg> <C:/Users/Allan/Documents/Grad School/reposito
+ry/thesis/images/compound_catenary.png>] [9 <C:/Users/Allan/Documents/Grad Scho
+ol/repository/thesis/images/casa_mila_ext.jpg> <C:/Users/Allan/Documents/Grad S
+chool/repository/thesis/images/casa_mila_arch.jpg> <C:/Users/Allan/Documents/Gr
+ad School/repository/thesis/images/parc_guell.jpg> <C:/Users/Allan/Documents/Gr
+ad School/repository/thesis/images/parc_guell_arch.jpg>] [10 <C:/Users/Allan/Do
+cuments/Grad School/repository/thesis/images/sagrada_familia_nativity.jpg> <C:/
+Users/Allan/Documents/Grad School/repository/thesis/images/sagrada_familia_colu
+mns.jpg>] [11 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/ga
+udi_model.jpg>] [12]
  2.
-[12
+[13
 
 ]
  3.
-<images/screenshot.png, id=85, 915.42pt x 629.35126pt>
+<images/screenshot.png, id=91, 915.42pt x 629.35126pt>
 File: images/screenshot.png Graphic file (type png)
 
-<use images/screenshot.png> [13
+<use images/screenshot.png> [14
 
-] [14 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot
+] [15 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot
 .png>]
  4.
-[15
+[16
 
-] [16] [17]
-("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
-Missing character: There is no à in font cmr12!
- [18
+] [17] [18]
+("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl") [19
 
-])
-[19] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
+]
+("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
- 2336 strings out of 495285
- 37074 string characters out of 3180395
- 101723 words of memory out of 3000000
- 5534 multiletter control sequences out of 15000+200000
- 8156 words of font info for 29 fonts, out of 3000000 for 9000
+ 2322 strings out of 495285
+ 36812 string characters out of 3180395
+ 103723 words of memory out of 3000000
+ 5520 multiletter control sequences out of 15000+200000
+ 8155 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,9n,45p,199b,345s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:
-/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program
- Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/M
-iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public
-/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfont
-s/cm/cmtt12.pfb>
-Output written on thesis.pdf (25 pages, 2597400 bytes).
+ 44i,9n,45p,199b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Prog
+ram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program File
+s/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
+ 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8/font
+s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsf
+onts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cm
+ti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+>
+Output written on thesis.pdf (25 pages, 2627558 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
+ 138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
