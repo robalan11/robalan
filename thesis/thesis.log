@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  1 APR 2010 15:38
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  5 APR 2010 05:23
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -140,22 +140,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 1.
+
+Overfull \hbox (6.19113pt too wide) in paragraph at lines 13--13
+ [][] []\OT1/cmr/m/n/12 BACKEND / SIM-U-LA-TION AL-GO-RITHM (BET-TER TI-TLE GOE
+S HERE) []  
+ []
+
 )
 \tf@toc=\write3
  [2
 
-]
-("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lot")
+] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lot")
 \tf@lot=\write4
- [3
 
-]
-("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lof")
+[3
+
+] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lof")
 \tf@lof=\write5
- [4
 
-]
-[5
+[4
+
+] [5
 
 ] [6
 
@@ -252,23 +257,27 @@ ocuments/Grad School/repository/thesis/images/sagrada_familia_columns.jpg>]
 [10 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/gaudi_model.
 jpg>] [11]
  2.
-<images/screenshot.png, id=82, 915.42pt x 629.35126pt>
+[12
+
+]
+ 3.
+<images/screenshot.png, id=85, 915.42pt x 629.35126pt>
 File: images/screenshot.png Graphic file (type png)
 
-<use images/screenshot.png> [12
+<use images/screenshot.png> [13
 
-] [13 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot
+] [14 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot
 .png>]
- 3.
-[14
+ 4.
+[15
 
-] [15] [16]
+] [16] [17]
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
 Missing character: There is no à in font cmr12!
- [17
+ [18
 
 ])
-[18] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
+[19] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
  2336 strings out of 495285
  37074 string characters out of 3180395
@@ -285,9 +294,9 @@ iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8
 pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfont
 s/cm/cmtt12.pfb>
-Output written on thesis.pdf (24 pages, 2595773 bytes).
+Output written on thesis.pdf (25 pages, 2597400 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
+ 134 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -317,6 +317,22 @@ My work had initially intended to go in this direction, using static analysis of
 Google Sketchup.  However, Sketchup proved to be a poor environment for the program I wanted to write, so
 the project was moved to a standalone application and the focus shifted to thin-shell structures.
 
+\chapter{BACKEND / SIMULATION ALGORITHM (BETTER TITLE GOES HERE)}
+The primary data structure is the cloth object.  This object is a collection of points which are connected to each other through springs.
+These springs exert forces on one another based on constants determined when the cloth is loaded.
+
+At each step of the simulation, the system iterates over all the vertices in the shell, and for each vertex calculates the forces acting
+upon it.  The forces that act upon any given point are gravity and the spring force exerted by all connected points.  Once the forces have
+been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.  The acceleration can by multiplied
+by the time step to obtain a velocity, which is again multiplied by the time step to get the new position of the point.  However, this
+single-step explicit integration is very imprecise.  If the timestep or forces involved are very large, the result can be very imprecise or
+cause oscillations.  To combat this problem, a second step is taken which calculates the midpoint of the original integration and takes an
+additional half-step from that point.  This second-order integration is much more stable, so much larger timesteps can be taken.  A
+fourth-order system was created, but despite its stability, each step took too long for it to be useful in an interactive simulation.
+
+This simulation will find equilibrium when the forces exerted by the springs balance the force of gravity.  Depending on the number of
+points in the shell and the amount the shape was changed, this equilibrium could take anywhere from a few seconds to a minute to reach.
+
 \chapter{THIN SHELL DESIGN TOOL}
 
 \section{Layout}
@@ -334,13 +350,6 @@ shape of the structure optimal.
 \caption{A screenshot of the tool}
 \label{FIGURE_screenshot}
 \end{figure}
-
-\section{Simulator}
-The heart of the tool is the simulator.  This simulator uses a second-order explicit integral solver to simulate the forces on the structure.  These forces
-cause the structure to form catenaries, shapes that will support themselves.  The floorplan, grid, and viewing window can all be interacted with in real
-time while the simulation is going on, allowing the architect to make changes on the fly.  Depending on the magnitude of the changes made, the simulator
-will take anywhere from a second to a couple minutes to reach equilibrium.  It should be noted that until the simulation does reach equilibrium there are
-no guarantees of the stability of the structure.
 
 
 \chapter{USER STUDY}
