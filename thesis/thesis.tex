@@ -354,9 +354,15 @@ Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains c
 part of their design processes.
 
 \chapter{BACKEND / SIMULATION ALGORITHM (BETTER TITLE GOES HERE)}
-The primary data structure is the cloth object.  This object is a collection of points which are connected to each other through springs.
-These springs exert forces on one another based on constants determined when the cloth is loaded.
+The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
+Each point has a list of structural and shear springs that are connected to it.  These springs know what their resting length is and have
+a pointer to the point at the other end.  These springs exert forces on the points to which they are connected based on stiffness constants
+which are determined when the cloth is loaded.  The other attribute that points can have is the "fixed" attribute.  Fixed points are
+attached to the ground and can be moved only by the user manipulating the points in the floorplan pane.
 
+In the interest of having short timesteps and thus a higher framerate and better interactivity, an explicit Euler integration method was
+implemented for the simulation.  Explicit Euler integration finds the tangent line of the function at the current point, then moves in that
+direction for a timestep and repeats.  
 At each step of the simulation, the system iterates over all the vertices in the shell, and for each vertex calculates the forces acting
 upon it.  The forces that act upon any given point are gravity and the spring force exerted by all connected points.  Once the forces have
 been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.  The acceleration can by multiplied
