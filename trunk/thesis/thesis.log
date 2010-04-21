@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  19 APR 2010 12:45
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  20 APR 2010 12:56
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -294,7 +294,7 @@ File: images/euler25.png Graphic file (type png)
  3.
 
 LaTeX Warning: Reference `FIGURE_screenshot' on page 16 undefined on input line
- 392.
+ 395.
 
 <images/screenshot.png, id=100, 915.42pt x 629.35126pt>
 File: images/screenshot.png Graphic file (type png)
@@ -333,7 +333,7 @@ X 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fon
 ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/p
 ublic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/am
 sfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (28 pages, 2639913 bytes).
+Output written on thesis.pdf (28 pages, 2640242 bytes).
 PDF statistics:
  147 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
