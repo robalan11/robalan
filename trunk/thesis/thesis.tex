@@ -111,6 +111,7 @@ Leon Martinez, \url+http://en.wikipedia.org/wiki/File:Bending.png+}
 Unlike normal beam and plate structures, thin shell structures are curved, which allows the force to travel through the thinner structural
 elements.  Structures such as those in figure \ref{fig:isler_service} can cover a large span with a minimal amount of material, saving the
 construction company money.  Since the structure completely supports itself, no internal columns are necessary, allowing an unobstructed interior.
+An unobstructed interior is very useful in a variety of buildings such as theatres, museums, and airport terminals, to name a few.
 These structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in section
 \ref{sec:catenary}  Some prominent thin shell structures include
 the TWA Flight Center Building at the JFK International Airport in New York, New York (Fig. \ref{fig:twa_flight}), the Kresge Auditorium on
@@ -305,11 +306,7 @@ it takes to create a hanging model from strings and lead shot or freeze a cloth 
 the modern architecture world.  Fortunately, both hanging chains and cloth are rather easy to simulate, and therefore software can be created to
 allow these designs to be rapidly prototyped, tweaked, and refined on the computer.
 
-\section{Cloth Simulation}
-Cloth simulation is a very well-developed field.  Much work has been done in this area, and a large number of advances have been made in improving
-the accuracy and efficiency of simulations.  None of these have been applied in this work, but I'm gonna talk about them anyway.  Though now I'm
-second-guessing this section?  Maybe all this discussion should go in related works, algorithm, and future work.  Meh, for later.
-
+\clearpage
 \section{Related Works}
 \subsection{Procedural Modeling}
 In "Procedural Modeling of Strucutrally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
@@ -350,8 +347,49 @@ is hanging chains.  They show that a naturally hanging square-mesh chain net wil
 traditional Asian roofs, while inverting chain nets suspended differently will yield the ideal structure
 for arches, domes, and vaults.  While this has been known for some time, it is comforting to see
 well-documented, carefully constructed pictures of these structures.  As was discussed in\ref{sec:catenary},
-Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains constantly as an integral
-part of their design processes.
+Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains similar to those described in
+\underline{Finding Form} constantly as an integral part of their design processes.
+
+\subsection{Cloth Simulation}
+Much work has been done in the field of cloth simulation.  In "The Synthesis of Cloth
+Objects"\cite{weil86synthcloth}, Jerry Weil lays the groundwork for much of the future of cloth simulation.
+Weil describes a method of surface generation that draws catenaries between points in order to approximate
+the surface of a hanging cloth, then iteratively relaxes the surface to more accurately represent a
+naturally draping piece of cloth.
+
+Further work on the simulation of elastic bodies was done by Terzopoulos, Platt, Barr, and Fleischer in
+"Elastically Deformable Models"\cite{terzopoulos87elastic}.  This paper yields results that are applicable
+much more generally than simply cloth simulation.  The elastic model that is created can be used for cloth,
+solids, and other elastic manifolds.  By summing the internal strain energies and energies applied by
+external forces such as gravity or wind then integrating the resulting equations numerically, an animation
+of these deformable models can be created.
+
+These early examples of cloth simulation are expanded upon by Volino, Courchesne, and Thalmann in "Versatile
+and efficient techniques for simulating cloth and other deformable objects"\cite{volino95cloth}.  In this
+paper, the internal shear and bending strain energies and external forces are augmented by further collision
+energies, such as self-collision.  This algorithm is robust enough to simulate such complex situations as
+cloth tumbling in a dryer and a dress draping around a walking human.
+
+In "Deformation constraints in a mass-spring model to describe rigid cloth behavior"\cite{provot95deformationconstraints},
+Xavier Provot describes a method for cloth simulation on which the simulation used in this thesis is based.
+A cloth consisting of a mesh of masses and springs is subjected to external forces such as gravity.  These
+external forces are combined with internal spring forces to obtain the total force on each point.  However,
+this simulation method results in overstretching, the cloth behaving more like putty than cloth.  Therefore,
+Provot implements a correction step, wherein the points are brought closer together if they have stretched
+farther than some allowed amount.  This correction prevents the cloth from stretching farther than reality
+would allow.
+
+Far more advanced cloth simulation methods have been developed more recently which are not implemented in
+this project but which are planned for future work.  In "Large Steps in Cloth Simulation"\cite{baraff98largesteps},
+Baraff and Witkin propose an implicit simulation method which is the basis for most modern cloth simulation.
+The same shear and bending forces used in the earlier methods, as well as gravity and other external forces
+are applied to the cloth, but instead of being explicitly integrated, an implicit integration method employing
+sparse matrices is employed.  The sparse matrix of equations resulting from the internal and external forces
+is solved using a modified Conjugate Gradients method that can operate on asymmetric systems.
+
+\subsection{Other Software}
+(Write about several pieces of software here: NASTRAN and other FEA tools, CADenary, others?)
+
 
 \chapter{BACKEND / SIMULATION ALGORITHM (BETTER TITLE GOES HERE)}
 The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
@@ -368,7 +406,7 @@ upon it.  The forces that act upon any given point are gravity and the spring fo
 been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.  The acceleration can by multiplied
 by the time step to obtain a velocity, which is again multiplied by the time step to get the new position of the point.  However, this
 single-step explicit integration is very imprecise.  If the timestep or forces involved are very large, the result can be very imprecise or
-cause oscillations.  To combat this problem, a second step is taken which calculates the midpoint of the original integration and takes an
+cause oscillations.  To combat this problem, a calculation is performed which calculates the midpoint of the original integration and takes an
 additional half-step from that point.  This second-order integration is much more stable, so much larger timesteps can be taken.  A
 fourth-order system was created, but despite its stability, each step took too long for it to be useful in an interactive simulation.
 Figure \ref{fig:euler_integration} shows the error present in explicit Euler integration.
@@ -389,8 +427,21 @@ while image (b) has a timestep of 0.25.  As can be seen, the smaller timestep re
 \label{fig:euler_integration}
 \end{figure}
 
-This simulation will find equilibrium when the forces exerted by the springs balance the force of gravity.  Depending on the number of
-points in the shell and the amount the shape was changed, this equilibrium could take anywhere from a few seconds to a minute to reach.
+After the Euler integration is performed, overstretched springs are shortened in two ways.  First, the saved original length of the
+spring is shortened so that the force pulling it back towards the original shape will be higher.  This correction will reverse and
+increase the original length if the overstretched spring becomes overcontracted.  Secondly, the points will be adjusted such that
+a hard cap is enforced on the lengths of the springs in order to prevent the deformation from becoming too severe.  While a
+higher spring constant would also cause the springs to stay shorter in general, if the constant becomes too large, the forces
+operating within the cloth will become very large and the simulation will become unstable.  The only way to combat an unstable
+simulation using the explicit Euler method is by shrinking the timestep, which will slow down the simulation.  In order for the
+simulation to be interactive, a large enough timestep must be used that a stiff cloth is not feasible, thus requiring the use of
+these correction techniques.
+
+This simulation finds equilibrium when the forces exerted by the springs balance the force of gravity and the velocities of the particles
+are all zero.  Depending on the number of points in the shell and the changes made to the shape since it was last in equilibrium, the
+simulation could take anywhere from a few seconds to a few minutes to reach this resting state.
+
+(Insert table/graph of performance for different numbers of vertices here)
 
 \chapter{USER INTERFACE}
 
@@ -412,8 +463,8 @@ shape of the structure optimal.
 
 
 \chapter{USER STUDY}
-\section{John}
-The first user I had in to use the software was John.  John is an architecture student, and was very excited about the software.
+\section{Observations}
+The first user I had in to use the software was an architecture student who was very excited about the software.
 The first thing I noticed when he started using the software was that he tried to zoom with the mouse wheel.  That's a feature that
 should be added.  Mouse wheel scrolling is a common functionality that shouldn't be too hard to implement.
 
@@ -424,7 +475,7 @@ left-clicking places a new point, which is not what the user wants when they mis
 note, an undo feature would be very welcome.  While it would be less of an issue if accidental left-clicks did not create points,
 an undo feature would still help the user to revert changes, whether this reversion stems from error or indecision.
 
-Something that became very clear to me as the John continued to use the software is that the current implementation of the grid
+Something that became very clear to me as the user continued to use the software is that the current implementation of the grid
 interface is a bit clunky.  Firstly, new points should automatically associate with the closest point in the grid.  That's almost
 always what the user does next, and it saves them from having to guess which point is the closest, which is especially useful in a
 high-density grid.  However, the real problem with grid association is the snapping.  Since the floorplan point does not move when
@@ -449,7 +500,7 @@ when looking at the model from various angles.  Another visualization option tha
 the simulation of the model.  While rewinding is probably not feasible, pausing certainly is, though I'm not certain that it is
 necessarily a good idea since a model is not stable until it reaches equilibrium.
 
-Several suggestions were also made with regards to audience and distribution.  John suggested that this tool would work very well in
+Several suggestions were also made with regards to audience and distribution.  User 1 suggested that this tool would work very well in
 a web-based medium, perhaps with the ability for users to save and share their designs.  This could be a fun tool with potential for
 collaboration.  In addition, it would be a great market to get a number of testers.  The downside to this, of course, is that this
 would require a complete re-write of the code, as c++ is not well-supported on the internet.
@@ -460,12 +511,64 @@ such that the model did something he was not expecting, he would continue to pus
 inescapable oscillation which would either require the mesh to be reset or crash the program.  I'm not sure what was so intriguing
 about the failures, but he seemed much more interested in them than in the successful structures.
 
+(Add paragraphs for users as appropriate, write about things noticed.)
+
+\section{Results}
+(This section is for tabulation of questionnaire responses.  The questionnaires are at the lab, not with me, so I can't do this now.)
+
 
 \chapter{FUTURE WORK}
 
 \section{Changes to existing features}
 
+\subsection{Cloth}
+When I originally wrote the cloth simulation code for this project, I was under the impression that implicit integration methods were
+too slow for use in an interactive project.  However, I recently happened upon the paper "Comparing efficiency of integration methods
+for cloth simulation"\cite{volino01comparingefficiency}, which reports that a properly implemented implicit solver is as fast as, if
+not faster than, a midpoint explicit solver.  In addition to being nearly as fast per timestep, the implicit solver is also stable
+for considerably larger timesteps than can be comfortably used with the explicit solver.  With this new information in mind, I would
+very much like to replace the current cloth simulation with an implicit method, as that will eliminate several of the issues I find
+fault with in the program.
+
+\subsection{Clicking}
+In the current implementation, left-clicking in the floorplan pane places a new point and left-clicking in the grid pane associates
+the currently selected point with the point that was clicked on.  Both of these behaviors are unexpected to many architects.
+Traditionally, architectural software has the pattern that left-clicking is only for selection and right-clicking is used to interact
+with selected objects.  Therefore, an interface change to improve the learning curve will be to alter the grid pane such that
+left-clicking selects a point and right-clicking brings up a menu with the options to associate/deassociate and disable/enable that
+point.  In the floorplan pane, left-clicking in empty space will deselect all points, and to create a new point the user must
+right-click and select the "new point" option from the pop-up menu.
+
+\subsection{Save/Open option}
+There is a save option and an open option, but neither of them is really what it should be.  The save option saves automatically
+numbered files into an automatically generated folder, while the load option loads a hardcoded filename.  Both of these options
+should have a dialog box of some sort to allow the user some control over what is saved and loaded.
+
+\subsection{Other}
+I know there are other things I wanted to change; I'll fill this in later.
+
 \section{Additional features}
+
+\subsection{Height change}
+One feature that was commonly requested was the option to change the height of a fixed point.  This would allow structures built
+in this tool to more easily interface with existing structures, as well as giving architects further control over the final form
+of the structure.
+
+\subsection{Visualizations}
+There are a few visualization options that would be very nice to have in this tool.  One which is not as useful at the moment due
+to the awkward loading interface is the ability to visualize the difference between the loaded structure and the structure after
+optimization.  This would aid the architect using the software in determining which parts of the structure that was imported
+changed the most.  In many cases, the shift from imported mesh to optimized mesh is very slight, being the difference between
+a hemisphere or parabola and a catenary.
+
+Another visualization which comes with a change to the simulation is a visualization of the thickness of the structure.  Parts
+of a shell which have higher loads must be thicker than the parts with smaller loads in order to support the load.  For example,
+in Figure \ref{fig:isler_service}, the corners of the dome are much thicker than the center of the roof because they must support
+a great deal more weight.  The simulation does not currently differentiate between thin and thick portions of the mesh, so that
+attribute would need to be added before this visualization could be implemented.
+
+\subsection{Other}
+There are other features; I need to remember what they are (i.e. read questionnaires again)
 
 \section{Other possibilities}
 
@@ -497,9 +600,230 @@ design of interesting, stable structures.
 \end{singlespace}
 
 %%%%%%%%%%%%%%%%%%%%%%%  For Appendices  %%%%%%%%%%%%%%%%%%%
-%\appendix    % This command is used only once!
-%\addtocontents{toc}{\parindent0pt\vskip12pt APPENDICES} %toc entry, no page #
-%\chapter{THIS IS AN APPENDIX}
+\appendix    % This command is used only once!
+\addtocontents{toc}{\parindent0pt\vskip12pt APPENDICES} %toc entry, no page #
+\chapter{QUESTIONNAIRE}
+\setlength{\parindent}{0in} 
+{\bf PART 1: THIN SHELL TOOL} 
+\hfill Participant ID \verb+_______+
+\vspace{0.3in}
+
+What did you think was useful or interesting about this tool?
+\vspace{1.1in}
+
+Please rate the following potential features from 1-5, where 1 is not useful at all and 5 is highly useful: \\
+
+\verb+___+ save/open dialog\\
+\verb+___+ option to change the height of points\\
+\verb+___+ visualization of the difference between an imported mesh and the optimized mesh\\
+\verb+___+ visualization of materials used in the structure\\
+\verb+___+ visualization of thickness of the structure
+
+
+\vspace{0.3in}
+
+Please list any other features that would have been useful in designing thin-shell structures.
+\vspace{1.2in}
+
+
+
+
+Describe or sketch some structures that you were unable to create due to limitations of the software.
+\vspace{1in}
+
+
+
+\newpage
+{\bf PART 2: DESIGN METHOD COMPARISON} 
+\hfill Participant ID \verb+_______+
+\vspace{0.3in}
+
+Rate the usefulness of various design tools in the following scenarios from 1-5,
+where 1 is not useful at all and 5 is highly useful:
+
+
+Schematic Design (early-stage architectural design)\\
+\verb+___+ paper \& pencil sketching \\
+\verb+___+ traditional computer software \\
+\verb+___+ thin-shell design tool \\
+Team design meetings with architects \& engineering consultants\\
+\verb+___+ paper \& pencil sketching \\
+\verb+___+ traditional computer software \\
+\verb+___+ thin-shell design tool \\
+Presentation of preliminary or final designs to the client\\
+\verb+___+ paper \& pencil sketching \\
+\verb+___+ traditional computer software \\
+\verb+___+ thin-shell design tool \\
+
+
+Additional comments or scenarios where these methods are most useful
+\vspace{0.15in}
+
+\hspace*{0.3in} 
+Paper \& pencil sketching:
+\vspace{0.7in}
+
+\hspace*{0.3in} 
+Traditional computer software:
+\vspace{0.7in}
+
+\hspace*{0.3in} 
+Thin-shell design tool:
+\vspace{0.7in}
+
+Are there any other design tools that would be more useful than those listed above
+in any of the scenarios?
+
+
+\newpage
+{\bf PARTICIPANT BACKGROUND \& EXPERIENCE}
+\hfill Participant ID \verb+_______+
+\vspace{0.3in}
+
+\renewcommand\arraystretch{2}
+
+\begin{tabular}{l@{\hspace{0.3in}}l}
+Completed degree(s): 
+& \verb+______________________________________+ \\
+Degree(s) in progress: 
+& \verb+______________________________________+ \\
+%
+\begin{minipage}[b]{1.8in}
+\begin{flushleft}
+~\\~\\\# of years of \\ architectural \\ education:
+\end{flushleft}
+\end{minipage}
+& \verb+______________________________________+ \\
+%
+\begin{minipage}[b]{1.8in}
+\begin{flushleft}
+~\\~\\\# of years of \\ visual arts education:
+\end{flushleft}
+\end{minipage}
+& \verb+______________________________________+ \\
+%
+\begin{minipage}[b]{1.8in}
+\begin{flushleft}
+~\\~\\\# of years of \\ architectural experience \\ (internships/jobs): 
+\end{flushleft}
+\end{minipage}
+& \verb+______________________________________+ \\
+%
+\begin{minipage}[b]{1.8in}
+\begin{flushleft}
+~\\~\\\# of years of \\ visual arts experience \\ (internships/jobs): 
+\end{flushleft}
+\end{minipage}
+& \verb+______________________________________+ \\
+%
+\begin{minipage}[b]{1.8in}
+\begin{flushleft}
+~\\~\\other relevant education/experience \\ (please describe):
+\end{flushleft}
+\end{minipage}
+& \verb+______________________________________+ \\
+%
+\end{tabular}
+
+\renewcommand\arraystretch{1.0}
+
+\vspace{0.5in}
+
+\newpage
+{\bf CONSENT FOR PUBLICATION}
+\vspace{0.1in}
+
+After completing this survey:
+\vspace{0.3in}
+
+\verb+____+~~
+\begin{minipage}[t]{5.8in}
+I give permission for use of any or all of the thin-shell designs
+and my comments in academic
+publications. This information will be anonymous and my participation
+in the study will not be revealed.
+\end{minipage}
+\vspace{0.3in}
+
+\verb+____+~~
+I give permission for use of selected information.  (please describe)
+\vspace{0.3in}
+
+\verb+____+~~
+I do not give permission for use of any of this information at this time.
+
+
+\newpage
+{\bf PARTICIPANT CONTACT INFORMATION}
+\hfill Participant ID \verb+_______+
+\vspace{0.3in}
+
+
+RPI requires us to collect the following basic contact information
+from all participants in this user study.  Your participation will
+remain confidential, and this portion of the record will be securely
+stored by Professor Barbara Cutler.
+
+\vspace{0.2in}
+
+\renewcommand\arraystretch{2.0}
+
+\begin{tabular}{r@{\hspace{0.3in}}l}
+Name: 
+& \verb+______________________________________+ \\
+E-mail: 
+& \verb+______________________________________+ \\
+Home mailing address: 
+& \verb+______________________________________+ \\
+& \verb+______________________________________+ \\
+& \verb+______________________________________+ \\
+\end{tabular}
+
+\renewcommand\arraystretch{1.0}
+
+\vspace{0.5in}
+
+Participants for this study will be compensated for their time in the
+form of a gift certificate at the rate of \$10 per hour.  This
+compensation is not contingent upon the subject completing the entire
+study and will be prorated if the subject withdraws.  For IRS income
+reporting purposes, RPI must also collect the social security number
+and RIN number of participants who accept compensation. 
+\vspace{0.1in}
+
+\renewcommand\arraystretch{1.75}
+\begin{tabular}{r@{\hspace{0.3in}}l}
+\hspace{0.45in}Social Security number:
+& \verb+______________________________________+ \\
+\hspace{0.45in}RIN number:
+& \verb+______________________________________+ \\
+\verb+______+ & I decline the compensation
+\end{tabular}
+
+\renewcommand\arraystretch{1.0}
+
+\newpage
+
+\vspace*{0.5in}
+
+Thanks for participating in our user study!\\
+
+\vspace{0.2in}
+
+Allan Pendergrast\\
+Masters Student\\
+Department of Computer Science\\
+Rensselaer Polytechnic Institute\\
+{\tt pender@rpi.edu}\\
+\url{http://www.rpi.edu/~pender/}\\
+
+
+Barb Cutler\\
+Assistant Professor\\
+Department of Computer Science\\
+Rensselaer Polytechnic Institute\\
+{\tt cutler@cs.rpi.edu}\\
+\url{http://www.cs.rpi.edu/~cutler/}\\
 %Note the numbering of the chapter heading is changed.
 %This is a sentence to take up space and look like text.
 %\section{A Section Heading}
