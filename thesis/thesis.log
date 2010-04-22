@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  20 APR 2010 12:56
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  22 APR 2010 04:24
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -141,60 +141,60 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 1.
 
-Overfull \hbox (6.19113pt too wide) in paragraph at lines 14--14
+Overfull \hbox (6.19113pt too wide) in paragraph at lines 15--15
  [][] []\OT1/cmr/m/n/12 BACKEND / SIM-U-LA-TION AL-GO-RITHM (BET-TER TI-TLE GOE
 S HERE) []  
  []
 
-)
-\tf@toc=\write3
- [2
+[2
 
-] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lot")
+])
+\tf@toc=\write3
+ [3] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lot")
 \tf@lot=\write4
 
-[3
+[4
 
 ] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.lof")
 \tf@lof=\write5
 
-[4
-
-] [5
+[5
 
 ] [6
+
+] [7
 
 ]
  1.
 [1
 
-] <images/house.png, id=26, 184.69pt x 152.57pt>
+] <images/house.png, id=29, 184.69pt x 152.57pt>
 File: images/house.png Graphic file (type png)
  <use images/house.png>
-<images/Bending.png, id=27, 323.2075pt x 203.76125pt>
+<images/Bending.png, id=30, 323.2075pt x 203.76125pt>
 File: images/Bending.png Graphic file (type png)
  <use images/Bending.png>
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 107.
 
 [2 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/house.png (PN
-G copy)>] <images/isler_dome_1.jpg, id=34, 72.27pt x 48.14989pt>
+G copy)>] <images/isler_dome_1.jpg, id=37, 72.27pt x 48.14989pt>
 File: images/isler_dome_1.jpg Graphic file (type jpg)
 
 <use images/isler_dome_1.jpg>
-<images/twa_flight_center.jpg, id=35, 803.0pt x 394.47375pt>
+<images/twa_flight_center.jpg, id=38, 803.0pt x 394.47375pt>
 File: images/twa_flight_center.jpg Graphic file (type jpg)
 
 <use images/twa_flight_center.jpg>
-<images/kresge_auditorium.jpg, id=36, 401.5pt x 263.98625pt>
+<images/kresge_auditorium.jpg, id=39, 401.5pt x 263.98625pt>
 File: images/kresge_auditorium.jpg Graphic file (type jpg)
 
 <use images/kresge_auditorium.jpg>
-<images/montreal_biosphere.jpg, id=37, 803.0pt x 602.25pt>
+<images/montreal_biosphere.jpg, id=40, 803.0pt x 602.25pt>
 File: images/montreal_biosphere.jpg Graphic file (type jpg)
 
 <use images/montreal_biosphere.jpg>
-<images/arch.png, id=38, 555.57562pt x 359.84438pt>
+<images/arch.png, id=41, 555.57562pt x 359.84438pt>
 File: images/arch.png Graphic file (type png)
  <use images/arch.png>
 [3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Bending.png>]
@@ -203,68 +203,68 @@ jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/twa_flight_
 center.jpg>] [5 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
 kresge_auditorium.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/
 images/montreal_biosphere.jpg>]
-<images/gateway_arch.jpg, id=50, 1951.29pt x 2601.72pt>
+<images/gateway_arch.jpg, id=53, 1951.29pt x 2601.72pt>
 File: images/gateway_arch.jpg Graphic file (type jpg)
 
 <use images/gateway_arch.jpg> [6 <C:/Users/Allan/Documents/Grad School/reposito
 ry/thesis/images/arch.png>]
-<images/catenary.png, id=54, 473.77pt x 307.1475pt>
+<images/catenary.png, id=58, 473.77pt x 307.1475pt>
 File: images/catenary.png Graphic file (type png)
  <use images/catenary.png>
-<images/hanging_chain.jpg, id=55, 803.0pt x 602.25pt>
+<images/hanging_chain.jpg, id=59, 803.0pt x 602.25pt>
 File: images/hanging_chain.jpg Graphic file (type jpg)
 
 <use images/hanging_chain.jpg>
-<images/compound_catenary.png, id=56, 471.7625pt x 407.5225pt>
+<images/compound_catenary.png, id=60, 471.7625pt x 407.5225pt>
 File: images/compound_catenary.png Graphic file (type png)
 
 <use images/compound_catenary.png>
-Overfull \hbox (105.62279pt too wide) in paragraph at lines 221--229
+Overfull \hbox (105.62279pt too wide) in paragraph at lines 222--230
 \OT1/cmr/m/n/12 fully pho-tographed, dis-cussed, and an-a-lyzed in Rainer Zerbs
 t's $[]$[[]].
  []
 
 [7 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/gateway_arch.
-jpg>] <images/casa_mila_ext.jpg, id=61, 642.4pt x 602.25pt>
+jpg>] <images/casa_mila_ext.jpg, id=64, 642.4pt x 602.25pt>
 File: images/casa_mila_ext.jpg Graphic file (type jpg)
 
 <use images/casa_mila_ext.jpg>
-<images/casa_mila_arch.jpg, id=62, 72.27pt x 108.405pt>
+<images/casa_mila_arch.jpg, id=65, 72.27pt x 108.405pt>
 File: images/casa_mila_arch.jpg Graphic file (type jpg)
 
 <use images/casa_mila_arch.jpg>
-<images/parc_guell.jpg, id=63, 401.5pt x 221.82875pt>
+<images/parc_guell.jpg, id=66, 401.5pt x 221.82875pt>
 File: images/parc_guell.jpg Graphic file (type jpg)
 
 <use images/parc_guell.jpg>
-<images/parc_guell_arch.jpg, id=64, 451.6875pt x 602.25pt>
+<images/parc_guell_arch.jpg, id=67, 451.6875pt x 602.25pt>
 File: images/parc_guell_arch.jpg Graphic file (type jpg)
 
 <use images/parc_guell_arch.jpg>
-<images/sagrada_familia_nativity.jpg, id=65, 401.5pt x 481.8pt>
+<images/sagrada_familia_nativity.jpg, id=68, 401.5pt x 481.8pt>
 File: images/sagrada_familia_nativity.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_nativity.jpg>
-<images/sagrada_familia_columns.jpg, id=66, 803.0pt x 602.25pt>
+<images/sagrada_familia_columns.jpg, id=69, 803.0pt x 602.25pt>
 File: images/sagrada_familia_columns.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_columns.jpg>
-Underfull \hbox (badness 5711) in paragraph at lines 280--280
+Underfull \hbox (badness 5711) in paragraph at lines 281--281
 \OT1/cmtt/m/n/12 / / en . wikipedia . org / wiki / File : Sagradafamilia-[]over
 view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
  []
 
-<images/gaudi_model.jpg, id=67, 752.8125pt x 502.87875pt>
+<images/gaudi_model.jpg, id=70, 752.8125pt x 502.87875pt>
 File: images/gaudi_model.jpg Graphic file (type jpg)
 
 <use images/gaudi_model.jpg>
-Underfull \hbox (badness 1789) in paragraph at lines 291--291
+Underfull \hbox (badness 1789) in paragraph at lines 292--292
 \OT1/cmr/bx/n/12 build-ing. The strings hold-ing them to-gether are the nec-es-
 sary
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 291--291
+Underfull \hbox (badness 1199) in paragraph at lines 292--292
 \OT1/cmr/bx/n/12 up the build-ing. "Hang-ing model", An-toni Gaud, photo take
 n
  []
@@ -279,50 +279,93 @@ sis/images/parc_guell.jpg> <C:/Users/Allan/Documents/Grad School/repository/the
 sis/images/parc_guell_arch.jpg>] [11 <C:/Users/Allan/Documents/Grad School/repo
 sitory/thesis/images/sagrada_familia_nativity.jpg> <C:/Users/Allan/Documents/Gr
 ad School/repository/thesis/images/sagrada_familia_columns.jpg>] [12 <C:/Users/
-Allan/Documents/Grad School/repository/thesis/images/gaudi_model.jpg>] [13]
+Allan/Documents/Grad School/repository/thesis/images/gaudi_model.jpg>] [13
+
+]
+Overfull \hbox (0.8317pt too wide) in paragraph at lines 367--372
+[]\OT1/cmr/m/n/12 These early ex-am-ples of cloth sim-u-la-tion are ex-panded u
+pon by Volino, Courch-
+ []
+
+[14] [15]
  2.
-<images/euler1.png, id=90, 220.825pt x 321.2pt>
+<images/euler1.png, id=99, 220.825pt x 321.2pt>
 File: images/euler1.png Graphic file (type png)
  <use images/euler1.png>
-<images/euler25.png, id=91, 220.825pt x 321.2pt>
+<images/euler25.png, id=100, 220.825pt x 321.2pt>
 File: images/euler25.png Graphic file (type png)
  <use images/euler25.png>
-[14
+[16
 
-] [15 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler1.png
-> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler25.png>]
+] [17 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler1.png
+> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler25.png>] 
+[18]
  3.
 
-LaTeX Warning: Reference `FIGURE_screenshot' on page 16 undefined on input line
- 395.
+LaTeX Warning: Reference `FIGURE_screenshot' on page 19 undefined on input line
+ 449.
 
-<images/screenshot.png, id=100, 915.42pt x 629.35126pt>
+<images/screenshot.png, id=113, 915.42pt x 629.35126pt>
 File: images/screenshot.png Graphic file (type png)
 
-<use images/screenshot.png> [16
+<use images/screenshot.png> [19
 
-] [17 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot
+] [20 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/screenshot
 .png>]
  4.
-[18
-
-] [19] [20]
- 5.
 [21
 
-] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl")
-[22
+] [22] [23]
+ 5.
+[24
 
-] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux")
+] [25] [26]
+("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl") [27
+
+]
+APPENDIX A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
+
+ []
+
+[28
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 645--657
+
+ []
+
+[29] [30]
+Overfull \hbox (25.30693pt too wide) in paragraph at lines 739--747
+[][]\OT1/cmtt/m/n/12 ____   []
+ []
+
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--819
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 821--838
+
+ []
+
+[33] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux")
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2342 strings out of 495285
- 37176 string characters out of 3180395
+ 2348 strings out of 495285
+ 37312 string characters out of 3180395
  104723 words of memory out of 3000000
- 5538 multiletter control sequences out of 15000+200000
+ 5544 multiletter control sequences out of 15000+200000
  8156 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,9n,45p,199b,420s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -333,9 +376,9 @@ X 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fon
 ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/p
 ublic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/am
 sfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (28 pages, 2640242 bytes).
+Output written on thesis.pdf (40 pages, 2663469 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
