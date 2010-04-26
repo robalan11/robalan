@@ -22,7 +22,12 @@
 %\usepackage[hang]{caption}     % to indent subsequent lines of captions
 \renewcommand{\captionfont}{\bfseries} % only needed with caption package;
                                         %   otherwise bold is default)
-                                        
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\bottomfraction}{0.99}
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.01}
+\renewcommand{\dbltopfraction}{0.99}
+\renewcommand{\dblfloatpagefraction}{0.01}
 %%%%%%%%%%%%%%%%%%%%  supply titlepage info  %%%%%%%%%%%%%%%%%%%%%
 \thesistitle{\bf Thin Shell Structure Design Tool}        
 \author{R. Allan Pendergrast}
@@ -103,7 +108,7 @@ would be forced outward by the forces caused by the weight of the roof.}
 \begin{figure}
 \centering
 \includegraphics[width=4in]{images/Bending.png}
-\caption[A beam under uniform loading]{This is an image of a beam which is deforming under a uniform load.  "Bending", image created by Daniel De
+\caption[A beam under uniform loading]{This is an image of a beam which is deforming under a uniform load.  ``Bending", image created by Daniel De
 Leon Martinez, \url+http://en.wikipedia.org/wiki/File:Bending.png+}
 \label{fig:bending}
 \end{figure}
@@ -121,7 +126,7 @@ the MIT campus in Cambridge, Massachusetts (Fig. \ref{fig:kresge_aud}), and the 
 \centering
 \includegraphics[width=4in]{images/isler_dome_1.jpg}
 \caption[A thin-shell dome over a service area in Switzerland]{This dome, designed by Swiss civil engineer Heinz Isler, gracefully arches over
-a service station along the A1 Motorway in Switzerland, protecting it from the elements with a minimal amount of material.  "Deitingen Service
+a service station along the A1 Motorway in Switzerland, protecting it from the elements with a minimal amount of material.  ``Deitingen Service
 Station"(1968), Heinz Isler, photo taken by Chriusha, \url+http://commons.wikimedia.org/wiki/File:Deitingen_Sued_Raststaette,_Schalendach_04_09.jpg+}
 \label{fig:isler_service}
 \end{figure}
@@ -130,7 +135,7 @@ Station"(1968), Heinz Isler, photo taken by Chriusha, \url+http://commons.wikime
 \centering
 \includegraphics[width=5in]{images/twa_flight_center.jpg}
 \caption[The TWA Flight Center]{The TWA Flight Center at JFK International Airport in New York, New York is an excellent modern example of
-thin-shell structures providing a much-needed unobstructed internal space.  "TWA Flight Center", Eero Saarinen, photo taken by Marc N. Weissman
+thin-shell structures providing a much-needed unobstructed internal space.  ``TWA Flight Center", Eero Saarinen, photo taken by Marc N. Weissman
 \url+http://en.wikipedia.org/wiki/File:08terminal5.jpg+}
 \label{fig:twa_flight}
 \end{figure}
@@ -140,7 +145,7 @@ thin-shell structures providing a much-needed unobstructed internal space.  "TWA
 \includegraphics[width=4in]{images/kresge_auditorium.jpg}
 \caption[The Kresge Auditorium]{The Kresge Auditorium on the MIT campus in Cambridge, Massachusetts is an example of the problem thin-shell
 structures can cause when not designed properly.  Since the roof is octanispeherical rather than catenarian, the forces do not travel as
-intended and the building has been plagued with structural problems since its construction.  "Kresge Autidorium", Eero Saarinen, photo
+intended and the building has been plagued with structural problems since its construction.  ``Kresge Autidorium", Eero Saarinen, photo
 taken by Ibn Battuta \url+http://en.wikipedia.org/wiki/File:Kresge_Auditorium,_MIT_(view_with_Green_Building).JPG+}
 \label{fig:kresge_aud}
 \end{figure}
@@ -149,7 +154,7 @@ taken by Ibn Battuta \url+http://en.wikipedia.org/wiki/File:Kresge_Auditorium,_M
 \centering
 \includegraphics[width=4in]{images/montreal_biosphere.jpg}
 \caption[The Montreal Biosphere]{The Montreal Biosphere is an example of a lattice-based thin-shell structure, which relies on a lattice of
-struts to support the huge expanse of the dome.  "Montreal Biosphere", Richard Buckminster Fuller, photo taken by Philipp Hienstorfer
+struts to support the huge expanse of the dome.  ``Montreal Biosphere", Richard Buckminster Fuller, photo taken by Philipp Hienstorfer
 \url+http://en.wikipedia.org/wiki/File:Biosphere_montreal.JPG+}
 \label{fig:montreal_bio}
 \end{figure}
@@ -180,7 +185,7 @@ lines, the arch must be rather thick in order to contain the lines of thrust, th
 \centering
 \includegraphics[height=3.5in]{images/gateway_arch.jpg}
 \caption[The Gateway Arch]{The Gateway Arch in St. Louis, Missouri is an example of a catenary arch.  Since the lines of thrust travel directly
-through the structure of the arch, it can be built very thin.  "Gateway Arch", Eero Saarinen, photo taken by David K. Staub
+through the structure of the arch, it can be built very thin.  ``Gateway Arch", Eero Saarinen, photo taken by David K. Staub
 \url+http://en.wikipedia.org/wiki/File:Gateway_Arch.jpg+}
 \label{fig:gateway_arch}
 \end{figure}
@@ -206,7 +211,7 @@ catenary is not the optimal shape, as seen in Figure \ref{fig:compound_catenary}
   \label{fig:hanging_chain}
   \includegraphics[height=1.7in]{images/hanging_chain.jpg}
 }
-\caption[Example catenary curves]{Image (a) shows a few catenary curves for various values of a.  "Catenary Curves", image created
+\caption[Example catenary curves]{Image (a) shows a few catenary curves for various values of a.  ``Catenary Curves", image created
 by Geek3, \url+http://en.wikipedia.org/wiki/File:Catenary-pm.svg+  Image (b) shows a natural catenary formed by a freely hanging chain.
 "Hanging Chain", photo taken by Kamel15, \url+http://en.wikipedia.org/wiki/File:Kette_Kettenkurve_Catenary_2008_PD.JPG+}
 \end{figure}
@@ -239,9 +244,9 @@ creating these graceful structures.
 	\includegraphics[height=3in]{images/casa_mila_arch.jpg}
 }
 \caption[Casa Mil\`{a}, Barcelona, Spain]{Image (a) shows an exterior view of Casa Mil\`{a}, one of Antoni Gaud\'{i}'s stunning buildings in
-Barcelona, Spain. "Casa Mil\`{a}", Antoni Gaud\'{i}, photo taken by David Iliff
+Barcelona, Spain. ``Casa Mil\`{a}", Antoni Gaud\'{i}, photo taken by David Iliff
 \url+http://en.wikipedia.org/wiki/File:Casa_Mil\`{a}_-_Barcelona,_Spain_-_Jan_2007.jpg+ Image (b) is of the catenary arches under the terrace
-of Casa Mil\`{a}. "Casa Mil\`{a}", Antoni Gaud\'{i}, photo taken by Error, \url+http://en.wikipedia.org/wiki/File:LaPedreraParabola.jpg+}
+of Casa Mil\`{a}. ``Casa Mil\`{a}", Antoni Gaud\'{i}, photo taken by Error, \url+http://en.wikipedia.org/wiki/File:LaPedreraParabola.jpg+}
 \label{fig:casa_mila}
 \end{figure}
 
@@ -255,9 +260,9 @@ of Casa Mil\`{a}. "Casa Mil\`{a}", Antoni Gaud\'{i}, photo taken by Error, \url+
 	\label{fig:parc_guell_arch}
 	\includegraphics[height=2in]{images/parc_guell_arch.jpg}
 }
-\caption[Parc Guell, Barcelona, Spain]{Image (a) shows the entrance to Parc Guell in Barcelona.  "Parc Guell Entrance", Antoni Gaud\'{i}, photo
+\caption[Parc Guell, Barcelona, Spain]{Image (a) shows the entrance to Parc Guell in Barcelona.  ``Parc Guell Entrance", Antoni Gaud\'{i}, photo
 taken by Montrealais \url+http://en.wikipedia.org/wiki/File:Parcguell.jpg+  Image (b) shows the columns supporting the roadway that runs past the
-park.  These columns form an offset catenary, which is asymmetric because the loading of the arch is asymmetric. "Parc Guell", Antoni Gaud\'{i},
+park.  These columns form an offset catenary, which is asymmetric because the loading of the arch is asymmetric. ``Parc Guell", Antoni Gaud\'{i},
 photo taken by Rapomon, \url+http://en.wikipedia.org/wiki/File:Parc_Guell_10.jpg+}
 \label{fig:parc_guell}
 \end{figure}
@@ -273,11 +278,11 @@ photo taken by Rapomon, \url+http://en.wikipedia.org/wiki/File:Parc_Guell_10.jpg
 	\includegraphics[width=3in]{images/sagrada_familia_columns.jpg}
 }
 \caption[Sagrada Fam\'{i}lia, Barcelona, Spain]{Image (a) shows the nativity fa\c{c}ade of Antoni Gad\'{i}'s masterpiece, Sagrada Fam\'{i}lia,
-slated to be completed some time after 2026.  "Sagrada Fam\'{i}lia", Antoni Gaud\'{i}, photo taken by Montrealais,
+slated to be completed some time after 2026.  ``Sagrada Fam\'{i}lia", Antoni Gaud\'{i}, photo taken by Montrealais,
 \url+http://en.wikipedia.org/wiki/File:Sagradafamilia-overview.jpg+  Image (b) shows the strucutral columns that are possible when
 designing with catenaries in mind.  Rather than the monolithic columns found in most gothic cathedrals, Gaud\'{i} has whittled away the nonessential
 stone to reveal the core load-bearing elements.  This results in a gracefully arcing column that supports the huge structure as well as a monolithic
-column would have.  "Sagrada Fami\'{i}lia", Antoni Gaud\'{i}, photo taken by Etan J. Tal,
+column would have.  ``Sagrada Fami\'{i}lia", Antoni Gaud\'{i}, photo taken by Etan J. Tal,
 \url+http://en.wikipedia.org/wiki/File:SagradaFamiliaRoof.jpg+}
 \label{fig:sagrada_familia}
 \end{figure}
@@ -288,7 +293,7 @@ column would have.  "Sagrada Fami\'{i}lia", Antoni Gaud\'{i}, photo taken by Eta
 \caption[A hanging model used by Gaud\'{i}]{This is a photo of one of the hanging models used by Antoni Gaud\'{i} to understand the forces in
 the buildings he constructed.  The bags are full of small lead weights which are proportonal to various structural elements and ornaments in
 the planned building.  The strings holding them together are the necessary columns, arches, and other core structural elements that will make
-up the building.  "Hanging model", Antoni Gaud\'{i}, photo taken by Pamela Angus, 
+up the building.  ``Hanging model", Antoni Gaud\'{i}, photo taken by Pamela Angus, 
 \url+http://2.bp.blogspot.com/_PZOVPTsrTJ0/SR7z2F_h93I/AAAAAAAAAls/hAv1--bslzQ/s1600-h/Gaudi+model.jpg+}
 \label{fig:gaudi_model}
 \end{figure}
@@ -307,9 +312,9 @@ the modern architecture world.  Fortunately, both hanging chains and cloth are r
 allow these designs to be rapidly prototyped, tweaked, and refined on the computer.
 
 \clearpage
-\section{Related Works}
-\subsection{Procedural Modeling}
-In "Procedural Modeling of Strucutrally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
+\chapter{RELATED WORKS}
+\section{Procedural Modeling}
+In ``Procedural Modeling of Strucutrally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
 the possibilities of creating existing or novel structures procedurally.  They began by creating a grammar
 which can be used to construct masonry buildings.  Arches, buttresses, domes, and vaults are some of the
 structural elements which are then combined in their software.  These grammar elements are assembled into
@@ -326,7 +331,7 @@ safety is needed.  For example, a bridge needs a higher factor of safety than a 
 that there is no feasible configuration for a structure, the least infeasible structure is returned and the
 user is required to add new structural elements.
 
-In "Creating Models of Truss Structures with Optimization"\cite{Carnegie02creatingmodels}, Smith, Hodgins, Oppenheim, and Witkin propose
+In ``Creating Models of Truss Structures with Optimization"\cite{Carnegie02creatingmodels}, Smith, Hodgins, Oppenheim, and Witkin propose
 a method of creating trusses procedurally.  This work allows the user to define several anchor points
 and loads for a truss, then have the software automatically generate a truss.  In this work, the risk
 of pieces falling apart is not an issue as it was in the previous paper.  The primary failure method
@@ -350,8 +355,8 @@ well-documented, carefully constructed pictures of these structures.  As was dis
 Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains similar to those described in
 \underline{Finding Form} constantly as an integral part of their design processes.
 
-\subsection{Cloth Simulation}
-Much work has been done in the field of cloth simulation.  In "The Synthesis of Cloth
+\section{Cloth Simulation}
+Much work has been done in the field of cloth simulation.  In ``The Synthesis of Cloth
 Objects"\cite{weil86synthcloth}, Jerry Weil lays the groundwork for much of the future of cloth simulation.
 Weil describes a method of surface generation that draws catenaries between points in order to approximate
 the surface of a hanging cloth, then iteratively relaxes the surface to more accurately represent a
@@ -364,13 +369,13 @@ solids, and other elastic manifolds.  By summing the internal strain energies an
 external forces such as gravity or wind then integrating the resulting equations numerically, an animation
 of these deformable models can be created.
 
-These early examples of cloth simulation are expanded upon by Volino, Courchesne, and Thalmann in "Versatile
+These early examples of cloth simulation are expanded upon by Volino, Courchesne, and Thalmann in ``Versatile
 and efficient techniques for simulating cloth and other deformable objects"\cite{volino95cloth}.  In this
 paper, the internal shear and bending strain energies and external forces are augmented by further collision
 energies, such as self-collision.  This algorithm is robust enough to simulate such complex situations as
 cloth tumbling in a dryer and a dress draping around a walking human.
 
-In "Deformation constraints in a mass-spring model to describe rigid cloth behavior"\cite{provot95deformationconstraints},
+In ``Deformation constraints in a mass-spring model to describe rigid cloth behavior"\cite{provot95deformationconstraints},
 Xavier Provot describes a method for cloth simulation on which the simulation used in this thesis is based.
 A cloth consisting of a mesh of masses and springs is subjected to external forces such as gravity.  These
 external forces are combined with internal spring forces to obtain the total force on each point.  However,
@@ -380,22 +385,43 @@ farther than some allowed amount.  This correction prevents the cloth from stret
 would allow.
 
 Far more advanced cloth simulation methods have been developed more recently which are not implemented in
-this project but which are planned for future work.  In "Large Steps in Cloth Simulation"\cite{baraff98largesteps},
+this project but which are planned for future work.  In ``Large Steps in Cloth Simulation"\cite{baraff98largesteps},
 Baraff and Witkin propose an implicit simulation method which is the basis for most modern cloth simulation.
 The same shear and bending forces used in the earlier methods, as well as gravity and other external forces
 are applied to the cloth, but instead of being explicitly integrated, an implicit integration method employing
 sparse matrices is employed.  The sparse matrix of equations resulting from the internal and external forces
 is solved using a modified Conjugate Gradients method that can operate on asymmetric systems.
 
-\subsection{Other Software}
-(Write about several pieces of software here: NASTRAN and other FEA tools, CADenary, others?)
+\section{Other Software}
+There is a large variety of software available for structural analysis, architectural modeling, and even
+catenary design.
+
+Foremost in the field of finite element analysis is NASTRAN\cite{NASTRAN}.  Originally developed for NASA in
+the 1960s, NASTRAN is one of the most advanced finite element analysis packages on the market.  Able to
+analyze both static and dynamic systems in a wide variety of failure modes, NASTRAN is the software
+of choice for analysis of parts and systems for any mechanical application.  While NASTRAN is very good
+at what it does, it gives information on a lower level than is relevant for most architectural applications.
+Furthermore, it is not a real-time application.
+
+Another piece of software that is relevant in architectural design is Dr. Frame 3D\cite{drframe}.  This
+software is more useful in architectural design, as there is an interface for building frames and structures.
+Once constructed, the user can apply loads and see the resulting deformations, moments, and other relevant
+visualizations.  However, as with standard architectural CAD packages such as Rhino\cite{rhino} and
+AutoCAD Architecture\cite{autocad}, it is tedious to construct an accurate catenary, as there are no
+tools for easily creating an arbitrary stable shell.
+
+One tool that is useful in creating arbitrary shell structures is CADenary\cite{cadenary}.  With this tool,
+users can attach endpoints of strings and sheets to points on a grid or points on existing strings and sheets.
+Interesting shells can be made, but once points are placed they are fixed, which is disadvantageous for
+iterative design.  In his paper FILL IN PART ABOUT PAPER HERE.
+(Write about several pieces of software here: others?)
 
 
 \chapter{BACKEND / SIMULATION ALGORITHM (BETTER TITLE GOES HERE)}
 The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
 Each point has a list of structural and shear springs that are connected to it.  These springs know what their resting length is and have
 a pointer to the point at the other end.  These springs exert forces on the points to which they are connected based on stiffness constants
-which are determined when the cloth is loaded.  The other attribute that points can have is the "fixed" attribute.  Fixed points are
+which are determined when the cloth is loaded.  The other attribute that points can have is the ``fixed" attribute.  Fixed points are
 attached to the ground and can be moved only by the user manipulating the points in the floorplan pane.
 
 In the interest of having short timesteps and thus a higher framerate and better interactivity, an explicit Euler integration method was
@@ -523,7 +549,7 @@ about the failures, but he seemed much more interested in them than in the succe
 
 \subsection{Cloth}
 When I originally wrote the cloth simulation code for this project, I was under the impression that implicit integration methods were
-too slow for use in an interactive project.  However, I recently happened upon the paper "Comparing efficiency of integration methods
+too slow for use in an interactive project.  However, I recently happened upon the paper ``Comparing efficiency of integration methods
 for cloth simulation"\cite{volino01comparingefficiency}, which reports that a properly implemented implicit solver is as fast as, if
 not faster than, a midpoint explicit solver.  In addition to being nearly as fast per timestep, the implicit solver is also stable
 for considerably larger timesteps than can be comfortably used with the explicit solver.  With this new information in mind, I would
@@ -537,7 +563,7 @@ Traditionally, architectural software has the pattern that left-clicking is only
 with selected objects.  Therefore, an interface change to improve the learning curve will be to alter the grid pane such that
 left-clicking selects a point and right-clicking brings up a menu with the options to associate/deassociate and disable/enable that
 point.  In the floorplan pane, left-clicking in empty space will deselect all points, and to create a new point the user must
-right-click and select the "new point" option from the pop-up menu.
+right-click and select the ``new point" option from the pop-up menu.
 
 \subsection{Save/Open option}
 There is a save option and an open option, but neither of them is really what it should be.  The save option saves automatically
