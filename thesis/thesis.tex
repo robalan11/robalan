@@ -413,29 +413,61 @@ tools for easily creating an arbitrary stable shell.
 One tool that is useful in creating arbitrary shell structures is CADenary\cite{cadenary}.  With this tool,
 users can attach endpoints of strings and sheets to points on a grid or points on existing strings and sheets.
 Interesting shells can be made, but once points are placed they are fixed, which is disadvantageous for
-iterative design.  In his paper FILL IN PART ABOUT PAPER HERE.
-(Write about several pieces of software here: others?)
+iterative design.  In his paper ``Linking Hanging Chain Models to Fabrication"\cite{kilian05cadenary}, Axel Kilian
+discusses his tool in finer detail, detailing its features and the design process behind it.
+
+(Any other software I'm forgetting?)
 
 
 \chapter{BACKEND / SIMULATION ALGORITHM (BETTER TITLE GOES HERE)}
+\section{Data Structure}
 The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
 Each point has a list of structural and shear springs that are connected to it.  These springs know what their resting length is and have
 a pointer to the point at the other end.  These springs exert forces on the points to which they are connected based on stiffness constants
 which are determined when the cloth is loaded.  The other attribute that points can have is the ``fixed" attribute.  Fixed points are
 attached to the ground and can be moved only by the user manipulating the points in the floorplan pane.
 
-In the interest of having short timesteps and thus a higher framerate and better interactivity, an explicit Euler integration method was
-implemented for the simulation.  Explicit Euler integration finds the tangent line of the function at the current point, then moves in that
-direction for a timestep and repeats.  
+This data structure taken as a whole represents a discrete mesh, upon which a simulation can be run.  Figure \ref{fig:wireframe} shows
+the wireframe view of a model within the simulator.  The lines in the image are the springs connecting points, and each place where
+the points meet is a discrete mass.  Each point has both structural and shear springs coming from it, and the forces applied by these
+springs together with the force of gravity give the shell its stable shape.  In Figure \ref{fig:wireframe_detail}, the forces acting on
+a point are annotated.  The green arrow represents gravity, the red arrows mark the structural springs, and the blue arrows mark the
+shear springs.  It may seem curious that gravity is applying a force up, but the reason for this is to make the structure easier to
+comprehend.  While the simulator is constructing a hanging chain model, the architect is interested in the final shell, which is
+the hanging chain model inverted.  Therefore, since this is a simulator, gravity can easily be inverted within the simulation to
+obtain accurate results in an easily visualized form.  The structural forces are the hanging chains in the simulation, while the
+shear forces are the forces that would be present in an actual structure keeping the structure from collapsing due to a lack of
+constraints.
+
+\begin{figure}
+\centering
+\includegraphics[width=3in]{images/wireframe.png}
+\caption[A wireframe of a simulated model]{This image shows a wireframe in the simulator.  The lines represent springs, while the points
+where they meet are the discrete points of mass.}
+\label{fig:wireframe}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=3in]{images/wireframe_detail.png}
+\caption[Detail of a wireframe of a simulated model]{This image shows annotations on a portion of a wireframe.  In this image, green is
+gravity, red is structural forces, and blue are shear forces.}
+\label{fig:wireframe_detail}
+\end{figure}
+
+\section{Algorithm}
+In the interest of having short timesteps and thus a higher framerate and better interactivity, a second order explicit Euler integration
+method was implemented for the simulation.  Explicit Euler integration finds the tangent line of the function at the current point, then
+moves in that direction for a timestep and repeats.  
 At each step of the simulation, the system iterates over all the vertices in the shell, and for each vertex calculates the forces acting
-upon it.  The forces that act upon any given point are gravity and the spring force exerted by all connected points.  Once the forces have
-been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.  The acceleration can by multiplied
-by the time step to obtain a velocity, which is again multiplied by the time step to get the new position of the point.  However, this
-single-step explicit integration is very imprecise.  If the timestep or forces involved are very large, the result can be very imprecise or
-cause oscillations.  To combat this problem, a calculation is performed which calculates the midpoint of the original integration and takes an
-additional half-step from that point.  This second-order integration is much more stable, so much larger timesteps can be taken.  A
+upon it.  As shown above, the forces acting upon any given point are gravity and the spring force exerted by all connected points.  Once
+the forces have been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.  The acceleration
+can by multiplied by the time step to obtain a velocity, which is again multiplied by the time step to get the new position of the point.
+However, this single-step explicit integration is very imprecise.  If the timestep or forces involved are very large, the result will
+have a large amount of error, which can cause instability, inaccuracy, or oscillations.  To combat this problem, a further calculation
+is performed which calculates the midpoint of the original step and takes an additional half-step from that point.  This second-order
+integration method is much more stable, so much larger timesteps can be taken, as shown in Figure \ref{fig:euler_integration}.  A
 fourth-order system was created, but despite its stability, each step took too long for it to be useful in an interactive simulation.
-Figure \ref{fig:euler_integration} shows the error present in explicit Euler integration.
 
 \begin{figure}
 \centering
@@ -456,18 +488,64 @@ while image (b) has a timestep of 0.25.  As can be seen, the smaller timestep re
 After the Euler integration is performed, overstretched springs are shortened in two ways.  First, the saved original length of the
 spring is shortened so that the force pulling it back towards the original shape will be higher.  This correction will reverse and
 increase the original length if the overstretched spring becomes overcontracted.  Secondly, the points will be adjusted such that
-a hard cap is enforced on the lengths of the springs in order to prevent the deformation from becoming too severe.  While a
-higher spring constant would also cause the springs to stay shorter in general, if the constant becomes too large, the forces
-operating within the cloth will become very large and the simulation will become unstable.  The only way to combat an unstable
-simulation using the explicit Euler method is by shrinking the timestep, which will slow down the simulation.  In order for the
-simulation to be interactive, a large enough timestep must be used that a stiff cloth is not feasible, thus requiring the use of
-these correction techniques.
+a hard cap is enforced on the lengths of the springs in order to prevent the deformation from becoming too severe, as detailed
+in\cite{provot95deformationconstraints}.  While a higher spring constant would also cause the springs to stay shorter in general,
+if the constant becomes too large, the forces operating within the cloth will become very large and the simulation will become
+unstable.  The only way to combat an unstable simulation using the explicit Euler method is by shrinking the timestep, which
+will slow down the simulation.  In order for the simulation to be interactive, a large enough timestep must be used that a stiff
+cloth is not feasible, thus requiring the use of these correction techniques.
 
 This simulation finds equilibrium when the forces exerted by the springs balance the force of gravity and the velocities of the particles
 are all zero.  Depending on the number of points in the shell and the changes made to the shape since it was last in equilibrium, the
-simulation could take anywhere from a few seconds to a few minutes to reach this resting state.
+simulation could take anywhere from a few seconds to a few minutes to reach this resting state.  Figure \ref{fig:wireframe_sim} shows
+the motion of a shell as it progresses from an initial mesh to a stable thin-shell configuration.
 
-(Insert table/graph of performance for different numbers of vertices here)
+\begin{figure}
+\centering
+\subfloat[]{
+	\label{fig:wireframe_sim1}
+	\includegraphics[width=3in]{images/simframe1.png}
+}
+\subfloat[]{
+	\label{fig:wireframe_sim2}
+	\includegraphics[width=3in]{images/simframe2.png}
+}\\
+\subfloat[]{
+	\label{fig:wireframe_sim3}
+	\includegraphics[width=3in]{images/simframe3.png}
+}
+\subfloat[]{
+	\label{fig:wireframe_sim4}
+	\includegraphics[width=3in]{images/simframe4.png}
+}
+\caption[Simulation frames]{These images show the motion of a shell as it is subjected to the simulation.  (a) is the starting position,
+(b) shows the shell as the points begin to ``fall", (c) shows the shell as the points stop their free-fall, and (d) shows the equilibium
+position.}
+\label{fig:wireframe_sim}
+\end{figure}
+
+(Insert table/graph of performance for different numbers of points here)
+
+\section{Advantages}
+There are numerous advantages to using an explicit midpoint integration method over other methods.  Midpoint has a considerable stability
+advantage over a first-order explicit integration, and is faster per frame than a fourth order Runge-Kutta integration or implicit
+integration.  The stability increase over a first-order integration has the obvious benefit of being able to take considerably larger
+time steps.  A fourth order Runge-Kutta solver was implemented, but the advantage of increased stability and associated larger timestep
+was offset by the long computation time per frame.  When implemented, the 4th-order solver took much too long per frame to be practical
+for an interactive simulation on reasonably large meshes.
+
+The spring correction allows for the imitation of very stiff springs without requiring very small timesteps.  For a relatively small
+execution time, the structure can be corrected in such a way that it remains structurally correct and avoids overstretching.
+
+\section{Disadvantages}
+The primary disadvantage to an explicit solver rather than an implicit solver is that the timestep is limited.  However, while an
+implicit solver can theoretically operate with arbitrarily large timesteps, the computation tradeoff is not favorable.  Furthermore,
+the timestep used in the current simulation is large enough that the user does not grow impatient waiting for the structure to reach
+equilibrium, nor is it short enough that the user cannot react to the motion of the shell.  An ancillary disadvantage to the
+explicit solver is the necessity of correction methods to prevent overstretching.  However, this disadvantage is again offset by the
+fact that even with the correction methods, the explicit solver is faster than an implicit solver.
+
+
 
 \chapter{USER INTERFACE}
 
@@ -489,6 +567,12 @@ shape of the structure optimal.
 
 
 \chapter{USER STUDY}
+\section{Design of the Study}
+When designing the user study for this tool, the first consideration was what I wanted to get out of the study.  Being that this is
+a design tool and not a scientific tool, the results of a user study were liable to be rather subjective rather than provide any hard
+data.  Fortunately, subjective is exactly what I wanted from this study.  My goal is to provide a useful tool that conforms to users'
+expectations and provides the functionality that they expect from it.
+
 \section{Observations}
 The first user I had in to use the software was an architecture student who was very excited about the software.
 The first thing I noticed when he started using the software was that he tried to zoom with the mouse wheel.  That's a feature that
@@ -550,11 +634,11 @@ about the failures, but he seemed much more interested in them than in the succe
 \subsection{Cloth}
 When I originally wrote the cloth simulation code for this project, I was under the impression that implicit integration methods were
 too slow for use in an interactive project.  However, I recently happened upon the paper ``Comparing efficiency of integration methods
-for cloth simulation"\cite{volino01comparingefficiency}, which reports that a properly implemented implicit solver is as fast as, if
-not faster than, a midpoint explicit solver.  In addition to being nearly as fast per timestep, the implicit solver is also stable
-for considerably larger timesteps than can be comfortably used with the explicit solver.  With this new information in mind, I would
-very much like to replace the current cloth simulation with an implicit method, as that will eliminate several of the issues I find
-fault with in the program.
+for cloth simulation"\cite{volino01comparingefficiency}\nocite{volino00fastcloth}, which reports that a properly implemented implicit
+solver is as fast as, if not faster than, a midpoint explicit solver.  In addition to being nearly as fast per timestep, the implicit
+solver is also stable for considerably larger timesteps than can be comfortably used with the explicit solver.  With this new
+information in mind, I would very much like to replace the current cloth simulation with an implicit method, as that will eliminate
+several of the issues I find fault with in the program.
 
 \subsection{Clicking}
 In the current implementation, left-clicking in the floorplan pane places a new point and left-clicking in the grid pane associates
@@ -615,6 +699,9 @@ user does not have to download anything, which makes it much more likely that an
 web is a great environment for collaboration.  With a properly designed app and website, a collaborative thin-shell structure
 community could be created where architects and artists can create structures, share them, comment, and collaborate in the
 design of interesting, stable structures.
+
+\chapter{CONCLUSIONS}
+
 
 
 % The following produces a numbered bibliography where the numbers
