@@ -1,7 +1,7 @@
 \contentsline {chapter}{LIST OF TABLES}{iii}
 \contentsline {chapter}{LIST OF FIGURES}{iv}
-\contentsline {chapter}{ACKNOWLEDGMENT}{v}
-\contentsline {chapter}{ABSTRACT}{vi}
+\contentsline {chapter}{ACKNOWLEDGMENT}{vi}
+\contentsline {chapter}{ABSTRACT}{vii}
 \contentsline {chapter}{\numberline {1.}INTRODUCTION}{1}
 \contentsline {section}{\numberline {1.1}Project Goals}{1}
 \contentsline {section}{\numberline {1.2}Thin Shell Structures}{1}
@@ -19,24 +19,24 @@
 \contentsline {section}{\numberline {3.4}Disadvantages}{25}
 \contentsline {chapter}{\numberline {4.}USER INTERFACE}{26}
 \contentsline {section}{\numberline {4.1}Layout}{26}
-\contentsline {chapter}{\numberline {5.}USER STUDY}{28}
-\contentsline {section}{\numberline {5.1}Design of the Study}{28}
-\contentsline {section}{\numberline {5.2}Observations}{28}
-\contentsline {section}{\numberline {5.3}Results}{30}
-\contentsline {chapter}{\numberline {6.}FUTURE WORK}{31}
-\contentsline {section}{\numberline {6.1}Changes to existing features}{31}
-\contentsline {subsection}{\numberline {6.1.1}Cloth}{31}
-\contentsline {subsection}{\numberline {6.1.2}Clicking}{31}
-\contentsline {subsection}{\numberline {6.1.3}Save/Open option}{31}
-\contentsline {subsection}{\numberline {6.1.4}Other}{32}
-\contentsline {section}{\numberline {6.2}Additional features}{32}
-\contentsline {subsection}{\numberline {6.2.1}Height change}{32}
-\contentsline {subsection}{\numberline {6.2.2}Visualizations}{32}
-\contentsline {subsection}{\numberline {6.2.3}Other}{33}
-\contentsline {section}{\numberline {6.3}Other possibilities}{33}
-\contentsline {subsection}{\numberline {6.3.1}Grasshopper}{33}
-\contentsline {subsection}{\numberline {6.3.2}Web application}{33}
-\contentsline {chapter}{\numberline {7.}CONCLUSIONS}{34}
-\contentsline {chapter}{LITERATURE CITED}{34}
+\contentsline {chapter}{\numberline {5.}USER STUDY}{32}
+\contentsline {section}{\numberline {5.1}Design of the Study}{32}
+\contentsline {section}{\numberline {5.2}Observations}{33}
+\contentsline {section}{\numberline {5.3}Results}{35}
+\contentsline {chapter}{\numberline {6.}FUTURE WORK}{36}
+\contentsline {section}{\numberline {6.1}Changes to existing features}{36}
+\contentsline {subsection}{\numberline {6.1.1}Cloth}{36}
+\contentsline {subsection}{\numberline {6.1.2}Clicking}{36}
+\contentsline {subsection}{\numberline {6.1.3}Save/Open option}{36}
+\contentsline {subsection}{\numberline {6.1.4}Other}{37}
+\contentsline {section}{\numberline {6.2}Additional features}{37}
+\contentsline {subsection}{\numberline {6.2.1}Height change}{37}
+\contentsline {subsection}{\numberline {6.2.2}Visualizations}{37}
+\contentsline {subsection}{\numberline {6.2.3}Other}{38}
+\contentsline {section}{\numberline {6.3}Other possibilities}{38}
+\contentsline {subsection}{\numberline {6.3.1}Grasshopper}{38}
+\contentsline {subsection}{\numberline {6.3.2}Web application}{38}
+\contentsline {chapter}{\numberline {7.}CONCLUSIONS}{39}
+\contentsline {chapter}{LITERATURE CITED}{39}
 \parindent 0pt\vskip 12pt APPENDICES
-\contentsline {chapter}{\numberline {A.}QUESTIONNAIRE}{37}
+\contentsline {chapter}{\numberline {A.}QUESTIONNAIRE}{42}
