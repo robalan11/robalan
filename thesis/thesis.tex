@@ -304,7 +304,7 @@ interconnected set of hanging strings, it can be used to create catenary shell s
 formed when suspended and freeze it by soaking the cloth evenly with water.  The resulting frozen structure was then inverted and measured very
 accurately with a device he created.  Once these measurements had been taken, he built forms and poured the shell using standard concrete
 construction techniques.  The resulting buildings, such as those in Figure \ref{fig:isler_service}, are elegant, graceful structures with an
-exquisite simplicity of form and conservation of material.  In 1997, he gave a lecture in honor of F\'{e}lix Candela\ref{isler97candela} in
+exquisite simplicity of form and conservation of material.  In 1997, he gave a lecture in honor of F\'{e}lix Candela\cite{isler97candela} in
 which he discussed his design process and inspiration in great detail.
 
 One drawback to the thin-shell structure work done by Gaud\'{i} and Isler is that the design process is very time-consuming.  The amount of time
@@ -787,6 +787,9 @@ left-clicking selects a point and right-clicking brings up a menu with the optio
 point.  In the floorplan pane, left-clicking in empty space will deselect all points, and to create a new point the user must
 right-click and select the ``new point" option from the pop-up menu.
 
+The viewing window also has an unusual button layout.  Architects seemed to expect right-click and drag to rotate, while the mouse
+wheel was expected to zoom and middle click was not really used at all.  Panning would then be delegated to left-click.
+
 \subsection{Save/Open option}
 There is a save option and an open option, but neither of them is really what it should be.  The save option saves automatically
 numbered files into an automatically generated folder, while the load option loads a hardcoded filename.  Both of these options
@@ -815,6 +818,12 @@ in Figure \ref{fig:isler_service}, the corners of the dome are much thicker than
 a great deal more weight.  The simulation does not currently differentiate between thin and thick portions of the mesh, so that
 attribute would need to be added before this visualization could be implemented.
 
+One other visualization that could be added is a visualization of material.  The ability for a user to customize the material the
+structure is made of has a huge effect on the aesthetic of the structure.  Possible presets could include concrete, which would be
+rather similar to the current material; glass, which would require rendering of the lines and specularity on the faces, and wood,
+which would require a texture to be applied.  For further flexibility, the user could have direct control over the colors, textures,
+and material properties of the materials present in their structures.
+
 \subsection{Other}
 There are other features; I need to remember what they are (i.e. read questionnaires again)
 
@@ -838,7 +847,18 @@ web is a great environment for collaboration.  With a properly designed app and 
 community could be created where architects and artists can create structures, share them, comment, and collaborate in the
 design of interesting, stable structures.
 
+
+
 \chapter{CONCLUSIONS}
+Overall, this project was a success.  I created a tool that architects enjoyed using and learned a lot about architecture and
+software development in the process.
+
+Before starting on this project, I had a basic knowledge of architecture and statics, as well as a rudimentary definition of what
+a thin-shell structure is.  I had taken an architectural CAD class in high school, and have experience in both wood and cinderblock
+construction.  However, none of this was very relevant in the wild world of thin shells.  Thin-shell structures tend to break all
+the traditional "rules" of construction, supporting themselves through thin, flowing elements rather than the straight, rigid
+structural elements that are the hallmark of traditional construction.
+
 
 
 

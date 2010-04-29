@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 03:10
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 06:03
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -267,10 +267,6 @@ Underfull \hbox (badness 1199) in paragraph at lines 297--297
 en
  []
 
-
-LaTeX Warning: Reference `isler97candela' on page 11 undefined on input line 30
-7.
-
 [11 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/casa_mila_ex
 t.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/casa_mila
 _arch.jpg>] [12 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
@@ -410,52 +406,48 @@ y)>] [34 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/tangle1
  6.
 [39
 
-] [40] [41]
+] [40] [41] [42]
  7.
-[42
-
-] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
 [43
 
-]) [44]
+] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
+[44
+
+]) [45]
 APPENDIX A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--866
+Underfull \hbox (badness 10000) in paragraph at lines 885--886
 
  []
 
-[45
+[46
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 896--908
+Underfull \hbox (badness 10000) in paragraph at lines 916--928
 
  []
 
-[46] [47]
-Overfull \hbox (25.30693pt too wide) in paragraph at lines 990--998
+[47] [48]
+Overfull \hbox (25.30693pt too wide) in paragraph at lines 1010--1018
 [][]\OT1/cmtt/m/n/12 ____   []
  []
 
-[48] [49]
-Underfull \hbox (badness 10000) in paragraph at lines 1060--1061
+[49] [50]
+Underfull \hbox (badness 10000) in paragraph at lines 1080--1081
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1064--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1090
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1072--1089
+Underfull \hbox (badness 10000) in paragraph at lines 1092--1109
 
  []
 
-[50] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux")
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[51] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
  2462 strings out of 495285
  39899 string characters out of 3180395
@@ -464,16 +456,17 @@ Here is how much of TeX's memory you used:
  8156 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,9n,45p,199b,420s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
-les/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
-X 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fon
-ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/p
-ublic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/am
-sfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (58 pages, 4057973 bytes).
+<C:
+/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program
+ Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/M
+iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public
+/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfont
+s/cm/cmtt12.pfb>
+Output written on thesis.pdf (59 pages, 4060104 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
+ 264 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
