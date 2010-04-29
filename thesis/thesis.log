@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 07:14
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 08:10
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -170,7 +170,7 @@ File: images/house.png Graphic file (type png)
 File: images/Bending.png Graphic file (type png)
  <use images/Bending.png>
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 112.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 115.
 
 [2 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/house.png (PN
 G copy)>] [3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Ben
@@ -214,16 +214,11 @@ File: images/hanging_chain.jpg Graphic file (type jpg)
 <images/compound_catenary.png, id=69, 471.7625pt x 407.5225pt>
 File: images/compound_catenary.png Graphic file (type png)
 
-<use images/compound_catenary.png>
-Overfull \hbox (105.62279pt too wide) in paragraph at lines 227--235
-\OT1/cmr/m/n/12 fully pho-tographed, dis-cussed, and an-a-lyzed in Rainer Zerbs
-t's $[]$[[]].
- []
-
-[9 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/catenary.png>
- <C:/Users/Allan/Documents/Grad School/repository/thesis/images/hanging_chain.j
-pg>] [10 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/compoun
-d_catenary.png>] <images/casa_mila_ext.jpg, id=79, 642.4pt x 602.25pt>
+<use images/compound_catenary.png> [9 <C:/Users/Allan/Documents/Grad School/rep
+ository/thesis/images/catenary.png> <C:/Users/Allan/Documents/Grad School/repos
+itory/thesis/images/hanging_chain.jpg>] [10 <C:/Users/Allan/Documents/Grad Scho
+ol/repository/thesis/images/compound_catenary.png>]
+<images/casa_mila_ext.jpg, id=79, 642.4pt x 602.25pt>
 File: images/casa_mila_ext.jpg Graphic file (type jpg)
 
 <use images/casa_mila_ext.jpg>
@@ -247,7 +242,7 @@ File: images/sagrada_familia_nativity.jpg Graphic file (type jpg)
 File: images/sagrada_familia_columns.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_columns.jpg>
-Underfull \hbox (badness 5711) in paragraph at lines 286--286
+Underfull \hbox (badness 5711) in paragraph at lines 290--290
 \OT1/cmtt/m/n/12 / / en . wikipedia . org / wiki / File : Sagradafamilia-[]over
 view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
  []
@@ -256,13 +251,13 @@ view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
 File: images/gaudi_model.jpg Graphic file (type jpg)
 
 <use images/gaudi_model.jpg>
-Underfull \hbox (badness 1789) in paragraph at lines 297--297
+Underfull \hbox (badness 1789) in paragraph at lines 301--301
 \OT1/cmr/bx/n/12 build-ing. The strings hold-ing them to-gether are the nec-es-
 sary
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 297--297
+Underfull \hbox (badness 1199) in paragraph at lines 301--301
 \OT1/cmr/bx/n/12 up the build-ing. ``Hang-ing model", An-toni Gaud, photo tak
 en
  []
@@ -280,7 +275,7 @@ ents/Grad School/repository/thesis/images/gaudi_model.jpg>] [15]
 
 
 ] [17]
-Overfull \hbox (0.8317pt too wide) in paragraph at lines 374--379
+Overfull \hbox (0.8317pt too wide) in paragraph at lines 378--383
 []\OT1/cmr/m/n/12 These early ex-am-ples of cloth sim-u-la-tion are ex-panded u
 pon by Volino, Courch-
  []
@@ -315,7 +310,7 @@ File: images/simframe1.png Graphic file (type png)
 File: images/simframe2.png Graphic file (type png)
 
 <use images/simframe2.png>
-Overfull \hbox (22.89395pt too wide) in paragraph at lines 508--512
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 512--516
  [][][] 
  []
 
@@ -327,7 +322,7 @@ File: images/simframe3.png Graphic file (type png)
 File: images/simframe4.png Graphic file (type png)
 
 <use images/simframe4.png>
-Overfull \hbox (22.89395pt too wide) in paragraph at lines 516--523
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 520--527
  [][][] 
  []
 
@@ -416,34 +411,34 @@ y)>] [34 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/tangle1
 ]) [46]
 APPENDIX A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 918--919
 
  []
 
 [47
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 944--956
+Underfull \hbox (badness 10000) in paragraph at lines 949--961
 
  []
 
 [48] [49]
-Overfull \hbox (25.30693pt too wide) in paragraph at lines 1038--1046
+Overfull \hbox (25.30693pt too wide) in paragraph at lines 1043--1051
 [][]\OT1/cmtt/m/n/12 ____   []
  []
 
 [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1112--1118
+Underfull \hbox (badness 10000) in paragraph at lines 1117--1123
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1137
+Underfull \hbox (badness 10000) in paragraph at lines 1125--1142
 
  []
 
@@ -451,7 +446,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1120--1137
 Here is how much of TeX's memory you used:
  2462 strings out of 495285
  39899 string characters out of 3180395
- 102723 words of memory out of 3000000
+ 104723 words of memory out of 3000000
  5642 multiletter control sequences out of 15000+200000
  8156 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -464,7 +459,7 @@ iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8
 pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfont
 s/cm/cmtt12.pfb>
-Output written on thesis.pdf (60 pages, 4063226 bytes).
+Output written on thesis.pdf (60 pages, 4063710 bytes).
 PDF statistics:
  267 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
