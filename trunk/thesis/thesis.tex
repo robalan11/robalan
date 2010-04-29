@@ -46,7 +46,9 @@
 \listoffigures         % required if there are figures
 
 \specialhead{ACKNOWLEDGMENT}
-Thanks to Barbara Cutler for all her help in creating, testing, and writing about this tool.
+Thanks to Barbara Cutler for all her help in creating, testing, and writing about this tool.  Thanks to my family for their endless
+support as I worked on this project.  Thanks to the user study subjects for participating in the study and providing me with valuable
+insight into what can be done to improve this tool.
 
 \specialhead{ABSTRACT}
 Thin-shell structures are becoming increasingly useful in construction and design of buildings.  They allow the usage of less material to enclose
@@ -58,10 +60,11 @@ stable.  The tool described in this thesis simulates thin-shell structures and a
 \chapter{INTRODUCTION} \label{chp:introduction}
 
 \section{Project Goals} \label{sec:goals}
-The goal of this project was to create a tool that could be used by architects to construct buildings more cheaply.  There are many factors
-that can make construction of a building expensive.  Labor, materials, and planning are all expensive elements which can be optimized.
-This project focuses primarily on the third of these, reducing design time by giving the architect a tool that allows them to quickly design a
-structurally efficient building.
+The goal of this project was to create a tool to aid architects in designing thin-shell structures.  Thin-shell structures can be used in
+buildings to save materials, create an open space, or simply for the aesthetic of a smoothly curving shell.  In addition to being beautiful
+and materials-friendly, thin-shell structures are also incredibly structurally efficient.  Some thin-shell structures feature shells as thin
+as 4 centimeters, yet stand up with nearly no required maintenence for many years.  This structural efficiency is one of the most valuable
+characteristics of thin-shell structrues.
 
 Structural efficiency is a very important element of construction.  With traditional construction methods, this tends not to be an issue, since
 the tried-and-true construction conventions will keep a building standing.  Houses, for example, have been built using the same structural
@@ -117,7 +120,7 @@ Unlike normal beam and plate structures, thin shell structures are curved, which
 elements.  Structures such as those in figure \ref{fig:isler_service} can cover a large span with a minimal amount of material, saving the
 construction company money.  Since the structure completely supports itself, no internal columns are necessary, allowing an unobstructed interior.
 An unobstructed interior is very useful in a variety of buildings such as theatres, museums, and airport terminals, to name a few.
-These structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in section
+Thin-shell structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in section
 \ref{sec:catenary}  Some prominent thin shell structures include
 the TWA Flight Center Building at the JFK International Airport in New York, New York (Fig. \ref{fig:twa_flight}), the Kresge Auditorium on
 the MIT campus in Cambridge, Massachusetts (Fig. \ref{fig:kresge_aud}), and the Montreal Biosphere in Montreal, Canada (Fig \ref{fig:montreal_bio}).
@@ -144,7 +147,7 @@ thin-shell structures providing a much-needed unobstructed internal space.  ``TW
 \centering
 \includegraphics[width=4in]{images/kresge_auditorium.jpg}
 \caption[The Kresge Auditorium]{The Kresge Auditorium on the MIT campus in Cambridge, Massachusetts is an example of the problem thin-shell
-structures can cause when not designed properly.  Since the roof is octanispeherical rather than catenarian, the forces do not travel as
+structures can cause when not designed properly.  Since the roof is octanispherical rather than a catenary shell, the forces do not travel as
 intended and the building has been plagued with structural problems since its construction.  ``Kresge Autidorium", Eero Saarinen, photo
 taken by Ibn Battuta \url+http://en.wikipedia.org/wiki/File:Kresge_Auditorium,_MIT_(view_with_Green_Building).JPG+}
 \label{fig:kresge_aud}
@@ -167,7 +170,7 @@ into a generalized curve, the traditional lines of thrust are obtained.
 In order for a building to stand up, these lines of thrust must pass through structural elements.  As can be seen in Figure \ref{fig:arch_lines},
 traditional arches must be rather thick to contain the lines of thrust produced by their weight.  However, a catenary arch can be built
 much thinner for the same stability, as it contains the line of thrust exactly.  For example, the Gateway Arch in St. Louis, Missouri (Figure
-\ref{fig:gateway_arch} is constructed in the shape of a catenary arch.  This allows it to be thin and elegant while remaining very stable.
+\ref{fig:gateway_arch}) is constructed in the shape of a catenary arch.  This allows it to be thin and elegant while remaining very stable.
 To extrapolate the concept of lines of thrust to entire buildings, traditional construction methods require very thick elements such as walls
 and columns to be used in order to keep the lines of thrust within a building's structural elements.  This is especially true of large masonry
 structures such as cathedrals.  However, if the shape of the building is instead matched to
@@ -199,7 +202,8 @@ an interesting mathematical figure, the catenary is the shape taken by a cable, 
 it is similarly stable under pure compression.  For this reason, catenary arches and catenary shells are the primary building blocks of
 thin-shell structures.  One very important thing to note is that a catenary is only the optimal shape when the chain or arch is evenly loaded.
 If there is an uneven load, for example if the arch has a decorative mass at some point or if a secondary arch rests on another arch, the
-catenary is not the optimal shape, as seen in Figure \ref{fig:compound_catenary}.
+catenary is not the optimal shape, as seen in Figure \ref{fig:compound_catenary}.  Furthermore, if the weights are spaced evenly by
+horizontal distance rather than by distance on the chain, the chain will form a parabola rather than a catenary.
 
 \begin{figure}
 \centering
@@ -225,7 +229,7 @@ on top of them.}
 \end{figure}
 
 The shape of the catenary has been used by many architects.  One example mentioned earlier is the Gateway Arch in St. Louis, Missouri, designed by
-the Finnish-American architect Eero Saarinen, seen in Figure \ref{fig:gateway_arch}.  However, the shape has also been used as an integral design
+the Finnish-American architect Eero Saarinen and seen in Figure \ref{fig:gateway_arch}.  However, the shape has also been used as an integral design
 principle for much larger and more complex structures.  Hanging chains have been used by a number of architects to design structures for stability and
 aesthetics.  One famous user of hanging chains is Antoni Gaud\'{i}, whose catenary-rich projects include such Barcelona landmarks as the Casa Mil\`{a}
 (Figure \ref{fig:casa_mila}), Park Guell (Figure \ref{fig:parc_guell}), and Sagrada Familia (Figure \ref{fig:sagrada_familia}).  The works of Antoni
@@ -298,7 +302,7 @@ up the building.  ``Hanging model", Antoni Gaud\'{i}, photo taken by Pamela Angu
 \label{fig:gaudi_model}
 \end{figure}
 
-Another architect who is famous for his use of catenary shells in his thin-shell structures is Heinz Isler.  A civil engineer from Switzerland,
+Another architect who is well-known for his use of thin shells in his structures is Heinz Isler.  A civil engineer from Switzerland,
 Isler designed some very beautiful and elegant structures using the simple tools of cloth and water.  Since a sheet of cloth will behave as an
 interconnected set of hanging strings, it can be used to create catenary shell structures.  What Isler did was to take the shape a sheet of cloth
 formed when suspended and freeze it by soaking the cloth evenly with water.  The resulting frozen structure was then inverted and measured very
@@ -341,18 +345,18 @@ multivariable optimization with constraints.  The algorithm attempts iteratively
 while ensuring that none of the members will fail, either in tension or compression.
 
 My work had initially intended to go in this direction, using static analysis of structures within
-Google Sketchup.  However, Sketchup proved to be a poor environment for the program I wanted to write, so
+Google SketchUp.  However, SketchUp proved to be a poor environment for the program I wanted to write, so
 the project was moved to a standalone application and the focus shifted to thin-shell structures.  With this
 shift in focus, the simulation method shifted from static analysis of structures to dynamic simulation of
 structure using techniques from cloth simulation.  This simulation was designed to imitate the behavior of
 hanging chains or cloth.
 
 Hanging chains and cloth have been used by a number of architects in the design of structures.  In
-\underline{Finding Form}\cite{otto95findingform}, Otto and Rasch discuss a number of natural inspirations of form, among which
+\underline{Finding Form}\cite{otto95findingform}, Frei Otto and Bodo Rasch discuss a number of natural inspirations of form, among which
 is hanging chains.  They show that a naturally hanging square-mesh chain net will form the shape of
 traditional Asian roofs, while inverting chain nets suspended differently will yield the ideal structure
 for arches, domes, and vaults.  While this has been known for some time, it is comforting to see
-well-documented, carefully constructed pictures of these structures.  As was discussed in\ref{sec:catenary},
+well-documented, carefully constructed pictures of these structures.  As was discussed in \ref{sec:catenary},
 Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains similar to those described in
 \underline{Finding Form} constantly as an integral part of their design processes.
 \nocite{charleson05structasarch}
@@ -406,7 +410,7 @@ at what it does, it gives information on a lower level than is relevant for most
 Furthermore, it is not a real-time application.
 
 Another piece of software that is relevant in architectural design is Dr. Frame 3D\cite{drframe}.  This
-software is more useful in architectural design, as there is an interface for building frames and structures.
+software is more useful in architectural design than NASTRAN, as there is an interface for building frames and structures.
 Once constructed, the user can apply loads and see the resulting deformations, moments, and other relevant
 visualizations.  However, as with standard architectural CAD packages such as Rhino\cite{rhino} and
 AutoCAD Architecture\cite{autocad}, it is tedious to construct an accurate catenary, as there are no
@@ -432,12 +436,12 @@ the wireframe view of a model within the simulator.  The lines in the image are 
 the points meet is a discrete mass.  Each point has both structural and shear springs coming from it, and the forces applied by these
 springs together with the force of gravity give the shell its stable shape.  In Figure \ref{fig:wireframe_detail}, the forces acting on
 a point are annotated.  The green arrow represents gravity, the red arrows mark the structural springs, and the blue arrows mark the
-shear springs.  It may seem curious that gravity is applying a force up, but the reason for this is to make the structure easier to
-comprehend.  While the simulator is constructing a hanging chain model, the architect is interested in the final shell, which is
-the hanging chain model inverted.  Therefore, since this is a simulator, gravity can easily be inverted within the simulation to
-obtain accurate results in an easily visualized form.  The structural forces are the hanging chains in the simulation, while the
-shear forces are the forces that would be present in an actual structure keeping the structure from collapsing due to a lack of
-constraints.
+shear springs.  It may seem curious that gravity is applying a force in the upward direction, but the reason for this is to make the
+structure easier to comprehend.  While the simulator is constructing a hanging chain model, the architect is interested in the final
+shell, which is the hanging chain model inverted.  Therefore, since this is a simulator, gravity can easily be inverted within the
+simulation to obtain accurate results in an easily visualized form.  The structural forces are the hanging chains in the simulation,
+while the shear forces are the forces that would be present in an actual structure keeping the structure from collapsing due to a lack
+of constraints.
 
 \begin{figure}
 \centering
@@ -570,7 +574,7 @@ most sensible layout, as this would allow the user to manipulate the relevant po
 However, simply being able to manipulate the points that exist when the shell is initially created is severely limiting.  Therefore,
 the creation of new points should be a central feature of the floorplan view.
 
-The most straightforward method of adding a new point is to simply click in the empty space in the floorplan view, so that's what
+The most intuitive method to add a new point is to simply click in the empty space in the floorplan view, so that's what
 I implemented.  This makes it very easy to add new points to the floorplan.  Figure \ref{fig:waist} shows a shell with points that
 have been added.  If the user wants to have a line of points attached to the ground rather than a single point, it can be tedious
 to add a point and place it correctly for every point along the line.  Therefore, another feature in the floorplan view is the
@@ -579,12 +583,13 @@ can also be converted into a bezier curve to give the user additional flexibilit
 \ref{fig:thing_with_wings} and \ref{fig:countercurve}.
 
 Once points are created in the floorplan, they need a context in the mesh in order to be meaningful.  Therefore, a window with
-a representation of the shell was added.  If a point is selected in the floorplan, it can then be associated with a point in the
-mesh by clicking on that point in the grid window.  This causes the point in the mesh that was clicked on to snap to the point
-on the ground corresponding to the selected point in the floorplan view.  This mesh point can now be moved by dragging the
-associated point in the floorplan view.  One other feature of the grid window is the ability to add windows or voids into the
-shell.  By right-clicking on a point, it is removed from the simulation, thus creating a hole in the shell.  The shell in Figure
-\ref{fig:bird_windows} has a number of windows in its sides.
+a representation of the shell can be found in the lower right-hand corner of the window.  If a point is selected in the
+floorplan, it can then be associated with a point in the mesh by clicking on that point in the grid window.  This causes
+the point in the mesh that was clicked on to snap to the point on the ground corresponding to the selected point in the
+floorplan view.  This mesh point can now be moved by dragging the associated point in the floorplan view.  One other
+feature of the grid window is the ability to add windows or voids into the shell.  By right-clicking on a point, it is
+removed from the simulation, thus creating a hole in the shell.  The shell in Figure \ref{fig:bird_windows} has a number
+of windows in its sides.
 
 One problem that was discovered after the initial prototype had been created is that it can be very hard to select points if
 there are a lot of them very close together.  To help combat this, the floorplan and grid windows zoom in when the user hovers
@@ -627,7 +632,7 @@ caused the points in the mesh between the newly added points to be pulled down, 
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/bird_windows.png}}
-\caption[Thin atrium]{This shell has one corner turned off and the points next to it attached to create the short wall
+\caption[Shell with windows]{This shell has one corner turned off and the points next to it attached to create the short wall
 seen in the back of the space.  Also, points in the sides have been deactivated to create windows.}
 \label{fig:bird_windows}
 \end{figure}
