@@ -762,7 +762,7 @@ about the failures, but he seemed much more interested in them than in the succe
 (Add paragraphs for users as appropriate, write about things noticed.)
 
 \section{Results}
-(This section is for tabulation of questionnaire responses.  The questionnaires are at the lab, not with me, so I can't do this now.)
+(This section is for tabulation of questionnaire responses.  I will finish this when the user studies are finished.)
 
 
 \chapter{FUTURE WORK}
@@ -855,11 +855,39 @@ software development in the process.
 
 Before starting on this project, I had a basic knowledge of architecture and statics, as well as a rudimentary definition of what
 a thin-shell structure is.  I had taken an architectural CAD class in high school, and have experience in both wood and cinderblock
-construction.  However, none of this was very relevant in the wild world of thin shells.  Thin-shell structures tend to break all
-the traditional "rules" of construction, supporting themselves through thin, flowing elements rather than the straight, rigid
-structural elements that are the hallmark of traditional construction.
+construction.  However, while the basic architecture knowledge was useful, none of it was particularly relevant in the wild world
+of thin shells.  Thin-shell structures tend to break all the traditional "rules" of construction, supporting themselves through
+thin, flowing elements rather than the straight, rigid structural elements that are the hallmark of traditional construction.
 
+In my first attempt at a thin-shell design tool, I used Ruby to create a plugin for Google SketchUp that would attempt to analyze
+a structure created in SketchUp and indicate which elements of the shell were under tension and which were under compression.
+However, the solution method I used in this plugin did not behave very well on most shells.  This is because the method I was
+using to solve the system of equations is not very well suited to sparse matrices.  I have since learned of more appropriate
+solving methods, but the method I used is what I was familiar with at the time.  After determining that the plugin was not
+very effective as it was, I decided to abandon the idea of a SketchUp plugin, as the Ruby interface was not as powerful as I had
+hoped it would be, nor was it fast enough to deliver the interactive experience I wanted from it.  Therefore, this design was
+scrapped in favor of a standalone c++ tool.
 
+The development of this tool was the most valuable development experience I have had, as it gave me practical insight into some
+parts of software development I had never experienced before.  Firstly, while I have been and still am a fan of iterative
+design, I left one important element of iterative design out of my development until rather late in the project: other people's
+input.  While I knew exactly how my tool worked, what I wanted out of it, and all its little idiosyncrasies, I did not allow
+other people to use my software until it was in a "stable" state.  Once I did have people look at the tool in my user study,
+a number of issues were brought to my attention, some of which would have been very easy to fix, add, or modify if I had known
+about them earlier in the life cycle of the tool.  Many of them are still easy to deal with, but more smaller user studies
+would probably have been more useful than the one larger user study.
+
+Secondly, I gained a great deal of practice using OpenGL and c++, as well as various tools.  Since I was designing this tool for
+Windows in order to have the largest potential market audience, the use of Visual Studio was recommended.  Since most of my
+previous c++ experience had been in Linux or Cygwin, it was quite a pleasant surprise to get to know all the powerful features
+that Visual Studio had to offer.  Another tool that proved invaluable in the creation of this tool is Very Sleepy, a performance
+profiler.  The ability to see what exactly a program is doing is very useful when trying to determine what is causing said
+program to slow down.
+
+While I had used OpenGL before, I had never dealt with multiple windows before.  This was an interesting challenge, since all
+three windows needed to be able to render the others at various times throughout the execution of the program.  This problem,
+along with the performance optimization required to make the simulation interactive and the challenge of creating a user
+interface from scratch taught me many practical lessons about c++ that will doubtlessly be useful on future projects.
 
 
 % The following produces a numbered bibliography where the numbers

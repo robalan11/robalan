@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 06:03
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 07:14
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -410,44 +410,44 @@ y)>] [34 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/tangle1
  7.
 [43
 
-] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
-[44
+] [44] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
+[45
 
-]) [45]
+]) [46]
 APPENDIX A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 885--886
+Underfull \hbox (badness 10000) in paragraph at lines 913--914
 
  []
 
-[46
+[47
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 916--928
+Underfull \hbox (badness 10000) in paragraph at lines 944--956
 
  []
 
-[47] [48]
-Overfull \hbox (25.30693pt too wide) in paragraph at lines 1010--1018
+[48] [49]
+Overfull \hbox (25.30693pt too wide) in paragraph at lines 1038--1046
 [][]\OT1/cmtt/m/n/12 ____   []
  []
 
-[49] [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1081
+[50] [51]
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1084--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1112--1118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1109
+Underfull \hbox (badness 10000) in paragraph at lines 1120--1137
 
  []
 
-[51] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
+[52] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
  2462 strings out of 495285
  39899 string characters out of 3180395
@@ -464,9 +464,9 @@ iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8
 pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfont
 s/cm/cmtt12.pfb>
-Output written on thesis.pdf (59 pages, 4060104 bytes).
+Output written on thesis.pdf (60 pages, 4063226 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
+ 267 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
