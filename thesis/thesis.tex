@@ -304,7 +304,8 @@ interconnected set of hanging strings, it can be used to create catenary shell s
 formed when suspended and freeze it by soaking the cloth evenly with water.  The resulting frozen structure was then inverted and measured very
 accurately with a device he created.  Once these measurements had been taken, he built forms and poured the shell using standard concrete
 construction techniques.  The resulting buildings, such as those in Figure \ref{fig:isler_service}, are elegant, graceful structures with an
-exquisite simplicity of form and conservation of material.
+exquisite simplicity of form and conservation of material.  In 1997, he gave a lecture in honor of F\'{e}lix Candela\ref{isler97candela} in
+which he discussed his design process and inspiration in great detail.
 
 One drawback to the thin-shell structure work done by Gaud\'{i} and Isler is that the design process is very time-consuming.  The amount of time
 it takes to create a hanging model from strings and lead shot or freeze a cloth shell is prohibitive to the fast-paced, quick turnaround time of
@@ -354,6 +355,7 @@ for arches, domes, and vaults.  While this has been known for some time, it is c
 well-documented, carefully constructed pictures of these structures.  As was discussed in\ref{sec:catenary},
 Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains similar to those described in
 \underline{Finding Form} constantly as an integral part of their design processes.
+\nocite{charleson05structasarch}
 
 \section{Cloth Simulation}
 Much work has been done in the field of cloth simulation.  In ``The Synthesis of Cloth
@@ -416,10 +418,8 @@ Interesting shells can be made, but once points are placed they are fixed, which
 iterative design.  In his paper ``Linking Hanging Chain Models to Fabrication"\cite{kilian05cadenary}, Axel Kilian
 discusses his tool in finer detail, detailing its features and the design process behind it.
 
-(Any other software I'm forgetting?)
 
-
-\chapter{BACKEND / SIMULATION ALGORITHM (BETTER TITLE GOES HERE)}
+\chapter{SIMULATION ALGORITHM}
 \section{Data Structure}
 The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
 Each point has a list of structural and shear springs that are connected to it.  These springs know what their resting length is and have
@@ -549,94 +549,152 @@ fact that even with the correction methods, the explicit solver is faster than a
 
 \chapter{USER INTERFACE}
 
-\section{Layout}
-As can be seen in figure \ref{FIGURE_screenshot}, there are 3 main panels in the design tool.  On the left is the viewing panel, where the structure
-is shown in 3D.  This view can be rotated, zoomed, and panned to give the architect the view they need.  There is no actual interaction with the
-structure in this panel; all of the interaction is done via the two right-hand panels.  The top-right panel is the floorplan panel.  This panel
-contains a point for each point of the structure that is in contact with the ground.  These points can be moved around in order to modify the shape
-of the structure to fit the architect's vision.  The bottom-right panel is the grid panel.  This panel shows all the vertexes of the structure in 2D.
-This panel can be used to disable points, creating voids in the structure.  It can also be used to associate different points in the shell with certain
-points in the floor plan.  This is most useful when adding new points to the floor plan, allowing the architect to define a new point of support on the
-fly.  Together, these windows allow the architect broad control over the design of their structure, while the tool works in the background to keep the
-shape of the structure optimal.
-
-Images \ref{fig:barrel_vault}-\ref{fig:waist} show a variety of possibilities of the tool, some more successful than others.
-These will be discussed in more detail when this section gets written more.  More screenshots will be taken as necessary.
 \begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/screenshot.png}}
-\caption{A screenshot of the tool}
-\label{fig:screenshot}
+\resizebox{5in}{!}{\includegraphics{images/basic.png}}
+\caption[The basic shell]{This is the shape that forms from the mesh that loads when the tool is first run.}
+\label{fig:basic}
+\end{figure}
+
+\section{Description}
+The most important thing I wanted when making this was for it to be flexible and precise.  I wanted the user to feel that they
+had very good control over the creation of their structure and the tools to bring their vision to life.  The first thing that must
+be present, therefore, was a viewing window that allows the user to clearly view their structure as they make changes to it.
+This window needed to have straightforward and expected camera controls: left-click and drag to rotate the camera, right-click and
+drag to zoom, and middle-click and drag to pan the camera.  Now that a camera control system had been established, I needed a way
+to control the mesh.
+
+Since the item being designed is a thin shell, there will probably be a limited number of points touching the ground.  In order
+for the structure to be stable, I decided that it made the most sense to manipulate these points and let the simulator take care
+of placing the rest of them.  Since these points are all touching the ground, a floorplan view of these attached points seemed the
+most sensible layout, as this would allow the user to manipulate the relevant points from a straightforward and uncluttered view.
+However, simply being able to manipulate the points that exist when the shell is initially created is severely limiting.  Therefore,
+the creation of new points should be a central feature of the floorplan view.
+
+The most straightforward method of adding a new point is to simply click in the empty space in the floorplan view, so that's what
+I implemented.  This makes it very easy to add new points to the floorplan.  Figure \ref{fig:waist} shows a shell with points that
+have been added.  If the user wants to have a line of points attached to the ground rather than a single point, it can be tedious
+to add a point and place it correctly for every point along the line.  Therefore, another feature in the floorplan view is the
+ability to attach a line between two points.  Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  The line
+can also be converted into a bezier curve to give the user additional flexibility in designing their structure, as seen in Figures
+\ref{fig:thing_with_wings} and \ref{fig:countercurve}.
+
+Once points are created in the floorplan, they need a context in the mesh in order to be meaningful.  Therefore, a window with
+a representation of the shell was added.  If a point is selected in the floorplan, it can then be associated with a point in the
+mesh by clicking on that point in the grid window.  This causes the point in the mesh that was clicked on to snap to the point
+on the ground corresponding to the selected point in the floorplan view.  This mesh point can now be moved by dragging the
+associated point in the floorplan view.  One other feature of the grid window is the ability to add windows or voids into the
+shell.  By right-clicking on a point, it is removed from the simulation, thus creating a hole in the shell.  The shell in Figure
+\ref{fig:bird_windows} has a number of windows in its sides.
+
+One problem that was discovered after the initial prototype had been created is that it can be very hard to select points if
+there are a lot of them very close together.  To help combat this, the floorplan and grid windows zoom in when the user hovers
+them, making the points more spaced out and easier to select.  Furthermore, the contents of each window was scaled so that the
+points on the edges would be easier to select.  Figure \ref{fig:big_grid} shows the tool with the grid window enlarged.
+
+Additional features that do not have obvious UI elements associated with them are loading and resetting.  If an architect has
+designed a shell in a traditional architectural CAD tool such as Rhino or Google SketchUp, they can right-click in the floorplan
+window to load an exported mesh into the tool.  The shell in Figure \ref{fig:triangle_mesh} was loaded in this way.  Similarly,
+if the user creates an interesting shell in the tool, they can right-click to save it.  If the user has done all the work they
+feel can be done on a shell, they can right-click in the floorplan to reset the tool to the initial load state.
+
+One problem with the flexibility of the interface is that it allows the user to create impossible structures.  For example,
+while the floorplan in Figure \ref{fig:highly_improbably} may look reasonable, when the connectivity of the shell is taken into
+account it becomes apparent that the shell will be forced to intersect itself.  In Figure \ref{fig:inside_out_transient}, the
+user has instructed the shell to turn inside out.  It will comply with this and be stable once it has finished simulating, but
+its appearence as it goes to that state is a bit unusual.  Figure \ref{fig:tangle1} shows what happens when the user gives the
+shell instructions that are completely impossible to follow.
+
+\section{Examples}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/waist.png}}
+\caption[Adding points]{This shell was created by adding a point on either side of the square and attaching them.  This
+caused the points in the mesh between the newly added points to be pulled down, forming a double-lobed shelter.}
+\label{fig:waist}
+\end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/triangle.png}}
+\caption[A triangle]{The shell in this image is created by attaching a line and bringing its endpoints together.}
+\label{fig:triangle}
 \end{figure}
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/barrel_vault.png}}
-\caption{A screenshot of the tool}
+\caption[A barrel vault]{This barrel vault is created by attaching to parallel lines to the ground.}
 \label{fig:barrel_vault}
 \end{figure}
 
 \begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/bird_beak.png}}
-\caption{A screenshot of the tool}
-\label{fig:bird_beak}
+\resizebox{5in}{!}{\includegraphics{images/bird_windows.png}}
+\caption[Thin atrium]{This shell has one corner turned off and the points next to it attached to create the short wall
+seen in the back of the space.  Also, points in the sides have been deactivated to create windows.}
+\label{fig:bird_windows}
+\end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/thing_with_wings.png}}
+\caption[Flared shell]{The flared edges on the sides of this shell are caused by the bezier curves on either side.}
+\label{fig:thing_with_wings}
+\end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/countercurve.png}}
+\caption[Modified barrel vault]{This shell, as well as the shell in Figure \ref{fig:thing_with_wings}, show some of the
+interesting shapes that can arise from the simple barrel vault.}
+\label{fig:countercurve}
+\end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/big_grid.png}}
+\caption[Zoomed in grid]{This screenshot shows the tool with the grid window enlarged.}
+\label{fig:big_grid}
+\end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/triangle_mesh.png}}
+\caption[A loaded mesh]{This shell was created in Google SketchUp, then imported into the tool, where it was optimized
+from being semi-circular to catenary.}
+\label{fig:triangle_mesh}
 \end{figure}
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/highly_improbable.png}}
-\caption{A screenshot of the tool}
+\caption[Results of user error]{While the tool tries to make every shape stable, there are some configurations of points
+for which there is no solution.  For these, it finds the closest answer it can, which occasionally results in the shell
+intersecting with itself.}
 \label{fig:highly_improbably}
 \end{figure}
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/inside_out_transient.png}}
-\caption{A screenshot of the tool}
+\caption[Transient error]{This is a screenshot of a shell that is in the process of turning inside-out.  This is not a
+stable configuration, and the inside-out stable configuration will be stable, if unusual looking.}
 \label{fig:inside_out_transient}
 \end{figure}
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/tangle1.png}}
-\caption{A screenshot of the tool}
+\caption[A tangled mess]{This screenshot shows what happens to a shell when the user forces it into uncomfortable positions.
+This will never find a remotely accurate solution, as the user has instructed the shell to intersect itself in a number of
+places.}
 \label{fig:tangle1}
-\end{figure}
-
-\begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/thing_with_wings.png}}
-\caption{A screenshot of the tool}
-\label{fig:thing_with_wings}
-\end{figure}
-
-\begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/triangle.png}}
-\caption{A screenshot of the tool}
-\label{fig:triangle}
-\end{figure}
-
-\begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/triangle_mesh.png}}
-\caption{A screenshot of the tool}
-\label{fig:triangle_mesh}
-\end{figure}
-
-\begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/waist.png}}
-\caption{A screenshot of the tool}
-\label{fig:waist}
 \end{figure}
 
 
 \chapter{USER STUDY}
 \section{Design of the Study}
-(CHECK THIS SECTION FOR TENSE CLASHING.  I CANNOT GRAMMAR RIGHT NOW; I'LL DO IT LATER)
 When designing the user study for this tool, the first consideration was what I wanted to get out of the study.  Being that this is
-a design tool and not a scientific tool, the results of a user study were liable to be rather subjective rather than provide any hard
-data.  Fortunately, subjective is exactly what I wanted from this study.  My goal is to provide a useful tool that conforms to users'
-expectations and provides the functionality that they expect from it.  Therefore, the primary part of the study should involve the
+a design tool rather than a scientific tool, the results of a user study were liable to be rather subjective and not provide any hard
+data.  Fortunately, subjective is exactly what I wanted from this study.  My goal is for this tool to be useful and conform to users'
+expectations while providing the functionality that they expect.  Therefore, the primary part of the study should involve the
 user using the software, designing structures, and formulating an opinion of the tool.  Since very few software tools are immediately
-intuitive, it was necessary for me to show the user the controls of the tool before setting them loose upon it.  While they used
+intuitive, it was necessary for me to demonstrate the controls of the tool to the user before setting them loose upon it.  While they used
 the tool, I would watch, taking notes on their usage of the tool for use in improving the learning curve, bringing the controls
-more in line with the expected functionality of existing architectural tools.  Any comments they gave while using the tool were also
-noted, and ended up providing invaluable insights into the desired behavior of the tool that were not reported anywhere else.  Once
-the user had used the tool for a sufficient length of time, they were directed to complete a questionnaire which contained questions
-I had about their experience using the tool.
+more in line with the expected functionality of existing architectural tools, and making other improvements to the software.  Any
+comments they gave while using the tool were also noted, and ended up providing invaluable insights into the desired behavior of the
+tool that were not reported anywhere else.  Once the user had used the tool for a sufficient length of time, they were directed to
+complete a questionnaire which contained questions I had about their experience using the tool.
 
 First and foremost on the questionnaire, I wanted to know what they liked about the tool.  Anything that stood out at them as
 nifty, useful, or otherwise good was something that I probably wanted to keep.  Secondly, I wanted to know which of a list
