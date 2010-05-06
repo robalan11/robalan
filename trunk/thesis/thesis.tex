@@ -59,22 +59,31 @@ stable.  The tool described in this thesis simulates thin-shell structures and a
 
 \chapter{INTRODUCTION} \label{chp:introduction}
 
-\section{Project Goals} \label{sec:goals}
 The goal of this project was to create a tool to aid architects in designing thin-shell structures.  Thin-shell structures can be used in
 buildings to save materials, create an open space, or simply for the aesthetic of a smoothly curving shell.  In addition to being beautiful
 and materials-friendly, thin-shell structures are also incredibly structurally efficient.  Some thin-shell structures feature shells as thin
 as 4 centimeters, yet stand up with nearly no required maintenence for many years.  This structural efficiency is one of the most valuable
-characteristics of thin-shell structrues.
+characteristics of thin-shell structures.
 
 Structural efficiency is a very important element of construction.  With traditional construction methods, this tends not to be an issue, since
 the tried-and-true construction conventions will keep a building standing.  Houses, for example, have been built using the same structural
 conventions for years and do not require any advanced structural analysis.  Walls are constructed with studs every 16 inches, and the house
 stands up.  Even in non-residential structures, the studded or cinder-block walls convention tends to be followed.  However, when creating
 buildings that fall outside the norm of studded walls, cinder block construction, and other such traditional methods, more complex analysis
-tools are necessary.  Insufficient analysis of the elements used in constructing a building can result in spectacular disasters such as those
-detailed and discussed in \underline{Why Buildings Fall Down}\cite{levy92falldown}.  Conversely, if proper care is taken to analyze structures
-before they are constructed, miracles of architecture can be constructed that stand up for thousands of years, as some of the building in
-Mario Salvadori's \underline{Why Buildings Fall Down}\cite{salvadori80standup} have.
+tools are necessary.
+
+Insufficient analysis of the elements used in constructing a building can result in spectacular disasters such as those
+detailed and discussed in \underline{Why Buildings Fall Down}\cite{levy92falldown}.  For example, the C.W. Post Dome covering a theatre on the
+campus of C.W. Post College collapsed suddenly under a load of snow much lower than the dome had been built to withstand.  While the dome had
+stood up under loads much larger than the one under which it collapsed, the uneven loading of this particular load put undue stress on part
+of the dome, leading to a localized instability which spread to cause the whole dome to collapse.  Another famous collapsing structure whose
+collapse is discussed in the book is the Tacoma Narros Bridge, also known as ``Galloping Gertie".  While this bridge was designed comparably
+to other bridges of the time, certain aerodynamic features were not taken into account.  Under windy conditions, the bridge moved up and down,
+sometimes as much as several feet.  This turned out to be due to insufficient stiffness in the deck and ultimately led to the bridge's
+collapse.
+
+Conversely, if proper care is taken to analyze structures before they are constructed, miracles of architecture can be constructed that stand
+up for thousands of years, as some of the building in Mario Salvadori's \underline{Why Buildings Stand Up}\cite{salvadori80standup} have.
 
 %This project was originally conceived as a structural analysis tool that would find highly over- or underloaded members in a structure
 %and notify the architect that some force could be diverted towards the less-used member or that the underloaded member could be
@@ -117,11 +126,11 @@ Leon Martinez, \url+http://en.wikipedia.org/wiki/File:Bending.png+}
 \end{figure}
 
 Unlike normal beam and plate structures, thin shell structures are curved, which allows the force to travel through the thinner structural
-elements.  Structures such as those in figure \ref{fig:isler_service} can cover a large span with a minimal amount of material, saving the
+elements.  Structures such as those in Figure \ref{fig:isler_service} can cover a large span with a minimal amount of material, saving the
 construction company money.  Since the structure completely supports itself, no internal columns are necessary, allowing an unobstructed interior.
 An unobstructed interior is very useful in a variety of buildings such as theatres, museums, and airport terminals, to name a few.
-Thin-shell structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in section
-\ref{sec:catenary}  Some prominent thin shell structures include
+Thin-shell structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in Section
+\ref{sec:catenary}.  Some prominent thin shell structures include
 the TWA Flight Center Building at the JFK International Airport in New York, New York (Fig. \ref{fig:twa_flight}), the Kresge Auditorium on
 the MIT campus in Cambridge, Massachusetts (Fig. \ref{fig:kresge_aud}), and the Montreal Biosphere in Montreal, Canada (Fig \ref{fig:montreal_bio}).
 
@@ -173,14 +182,17 @@ much thinner for the same stability, as it contains the line of thrust exactly. 
 \ref{fig:gateway_arch}) is constructed in the shape of a catenary arch.  This allows it to be thin and elegant while remaining very stable.
 To extrapolate the concept of lines of thrust to entire buildings, traditional construction methods require very thick elements such as walls
 and columns to be used in order to keep the lines of thrust within a building's structural elements.  This is especially true of large masonry
-structures such as cathedrals.  However, if the shape of the building is instead matched to
-the shape of the lines of thrust, the structural elements can be much thinner, since they only need to support the direct compressive force.
+structures such as cathedrals.  However, if the shape of the building is instead matched to the shape of the lines of thrust, the structural
+elements can be much thinner, since they only need to support the direct compressive force.  Alternatively, if the structural members can
+withstand tensile forces, the lines of thrust can be allowed to pass outside the structure, since the resulting tensile forces can be
+supported.
+
 \begin{figure}
 \centering
 \includegraphics[width=4in]{images/arch.png}
 \caption[Lines of thrust]{This figure shows the lines of thrust within a standard masonry arch.  As can be seen from the minimum and maximum
 lines, the arch must be rather thick in order to contain the lines of thrust, thereby wasting material.  This image is a screenshot of the
-"Interactive Thrust" tool created by John Ochsendorf.  It can be found at \url+http://web.mit.edu/masonry/interactiveThrust/applets/applet01.html+}
+"Interactive Thrust" tool created by Philippe Block.  It can be found at \url+http://web.mit.edu/masonry/interactiveThrust/applets/applet01.html+}
 \label{fig:arch_lines}
 \end{figure}
 
@@ -194,8 +206,8 @@ through the structure of the arch, it can be built very thin.  ``Gateway Arch", 
 \end{figure}
 
 \subsection{Catenary} \label{sec:catenary}
-The term for the shape that lines of thrust tend to take is called a catenary.  A catenary is a curve described by the function
-\[y=a cosh(\frac{x}{a})\]
+The term for the shape that lines of thrust take under uniform loading is called a catenary.  A catenary is a curve described by the function
+\[y=a cosh\left(\frac{x}{a}\right)\]
 where cosh is the hyperbolic cosine function.  Several examples of catenaries can be seen in Figure \ref{fig:catenary}.  In addition to being
 an interesting mathematical figure, the catenary is the shape taken by a cable, rope, or chain suspended at both ends, as seen in Figure
 \ref{fig:hanging_chain}.  Since this is the shape formed by a freely hanging object under pure tension, it is not surprising that if inverted,
@@ -298,7 +310,7 @@ column would have.  ``Sagrada Fami\'{i}lia", Antoni Gaud\'{i}, photo taken by Et
 the buildings he constructed.  The bags are full of small lead weights which are proportonal to various structural elements and ornaments in
 the planned building.  The strings holding them together are the necessary columns, arches, and other core structural elements that will make
 up the building.  ``Hanging model", Antoni Gaud\'{i}, photo taken by Pamela Angus, 
-\url+http://2.bp.blogspot.com/_PZOVPTsrTJ0/SR7z2F_h93I/AAAAAAAAAls/hAv1--bslzQ/s1600-h/Gaudi+model.jpg+}
+\url*http://2.bp.blogspot.com/_PZOVPTsrTJ0/SR7z2F_h93I/AAAAAAAAAls/hAv1--bslzQ/s1600-h/Gaudi+model.jpg*}
 \label{fig:gaudi_model}
 \end{figure}
 
@@ -315,6 +327,20 @@ One drawback to the thin-shell structure work done by Gaud\'{i} and Isler is tha
 it takes to create a hanging model from strings and lead shot or freeze a cloth shell is prohibitive to the fast-paced, quick turnaround time of
 the modern architecture world.  Fortunately, both hanging chains and cloth are rather easy to simulate, and therefore software can be created to
 allow these designs to be rapidly prototyped, tweaked, and refined on the computer.
+
+\section{Overview}
+In chapter two, I will discuss a number of related works and their influence on this project.  Papers on
+procedural structure generation and cloth simulation are discussed, along with structural analysis sofware.
+Chapter three contains a description of the simulation algorithm used in this tool.  Advantages and
+disadvantages of various simulation methods are discussed, and the algorithm selected is described in detail.
+Chapter four concerns the design of the user interface.  The various elements of the interface, as well as
+features that are not evident from screenshots of the tool are discussed in this chapter.  Chapter five is
+about the user study.  The design considerations when putting the study together are discussed, as well as
+responses recieved from the users.  In addition, observations of the users are included.  These observations
+provided some of the most relevant information about the tool that I obtained from the study.  Chapter six
+contains discussions on future work.  There are many things that could be changed about this tool, and most
+of these potential changes are detailed in this section.  Chapter seven contains some conclusions about the
+process.
 
 \clearpage
 \chapter{RELATED WORKS}
@@ -424,6 +450,14 @@ discusses his tool in finer detail, detailing its features and the design proces
 
 
 \chapter{SIMULATION ALGORITHM}
+Armed with the knowledge gained from these previous works, I set out to create a back end that would accurately
+and quickly find the stable configurations of various thin-shell structures.  Algorithms from cloth simulation,
+concepts from procedural modeling, and design ideas from similar software were combined to create the backend for
+this tool.  In this section, I will discuss the data structures used to implement this tool as well as algorithms
+that are applied to the data structures.  A discussion on the advantages and disadvantages of various algorithms
+is also included.
+
+
 \section{Data Structure}
 The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
 Each point has a list of structural and shear springs that are connected to it.  These springs know what their resting length is and have
@@ -440,38 +474,61 @@ shear springs.  It may seem curious that gravity is applying a force in the upwa
 structure easier to comprehend.  While the simulator is constructing a hanging chain model, the architect is interested in the final
 shell, which is the hanging chain model inverted.  Therefore, since this is a simulator, gravity can easily be inverted within the
 simulation to obtain accurate results in an easily visualized form.  The structural forces are the hanging chains in the simulation,
-while the shear forces are the forces that would be present in an actual structure keeping the structure from collapsing due to a lack
-of constraints.
+connecting the discrete masses together.  The shear forces are the forces that would be exerted by the actual material were it
+continuous rather than consisting of discretized masses.
 
 \begin{figure}
 \centering
 \includegraphics[width=3in]{images/wireframe.png}
 \caption[A wireframe of a simulated model]{This image shows a wireframe in the simulator.  The lines represent springs, while the points
-where they meet are the discrete points of mass.}
+where they meet are the discrete points of mass.  The points at the corners have been fixed, which means that they must support the weight
+of the entire shell.  These points are not affected by the simulation, and can only be moved by the user.}
 \label{fig:wireframe}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=3in]{images/wireframe_detail.png}
-\caption[Detail of a wireframe of a simulated model]{This image shows annotations on a portion of a wireframe.  In this image, green is
-gravity, red is structural forces, and blue are shear forces.}
+\caption[Detail of a wireframe of a simulated model]{This image shows annotations on a portion of a wireframe.  In this image, the black
+vertical arrow is the gravitational force, the red orthogonal arrows are the structural forces, and the light blue diagonal arrows are the
+shear forces.}
 \label{fig:wireframe_detail}
 \end{figure}
 
 \section{Algorithm}
-In the interest of having short timesteps and thus a higher framerate and better interactivity, a second order explicit Euler integration
-method was implemented for the simulation.  Explicit Euler integration finds the tangent line of the function at the current point, then
-moves in that direction for a timestep and repeats.  
-At each step of the simulation, the system iterates over all the vertices in the shell, and for each vertex calculates the forces acting
-upon it.  As shown above, the forces acting upon any given point are gravity and the spring force exerted by all connected points.  Once
-the forces have been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.  The acceleration
-can by multiplied by the time step to obtain a velocity, which is again multiplied by the time step to get the new position of the point.
+The algorithm which was to be applied to this cloth structure needed to be quick enough to maintain a high framerate, but robust enough
+that reasonable timesteps could be taken in order to reach an equilibrium where all the forces cancel each other out quickly.
+Furthermore, it needed to be able to find an equilibrium without becoming unstable and degenerating into a chaotic mess.  The
+best candidate for an integration method that met all of these criteria is a second-order explicit Euler integration.  This
+integration method is also called the Midpoint method.
+
+The implementation of the Midpoint method is rather straightforward, and is an expansion of the first order explicit Euler integration
+method.  First order explicit Euler integration finds the tangent line of the function at the current point, then moves in that direction
+for a timestep and repeats.  Therefore, at each step of the simulation, the system iterates over all the vertices in the shell, and for
+each vertex calculates the forces acting upon it.  As shown in Figure \ref{fig:wireframe_detail}, the forces acting upon any given point are
+gravity and the spring force exerted by all connected points.  The total force can therefore be calculated as \[F_g+\sum{F_{si}}\]
+Where $F_g$ is the force of gravity and $F_{si}$ are the spring forces acting on the point.
+
+Once the total forces have been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.
+The acceleration can by multiplied by the time step to obtain a velocity, which is again multiplied by the time step to get the new
+position of the point: $a=\frac{F}{m}$, $v=a\times t$, $x=v\times t$.
 However, this single-step explicit integration is very imprecise.  If the timestep or forces involved are very large, the result will
-have a large amount of error, which can cause instability, inaccuracy, or oscillations.  To combat this problem, a further calculation
-is performed which calculates the midpoint of the original step and takes an additional half-step from that point.  This second-order
-integration method is much more stable, so much larger timesteps can be taken, as shown in Figure \ref{fig:euler_integration}.  A
-fourth-order system was created, but despite its stability, each step took too long for it to be useful in an interactive simulation.
+have a large amount of error, which can cause instability, inaccuracy, or oscillation.  Figure \ref{fig:euler_integration} shows the
+inaccuracies that can develop when trying to approximate a function with first-order Euler integration.
+
+To alleviate this problem, rather than taking a step using the forces calculated at the initial point, a half step is taken instead.
+Once this half step has been taken, the forces are re-calculated and a full step is taken from the initial point using these new forces.
+The end result is that a step is taken from the inital point in approximately the direction of the tangent line of the force function at
+the midpoint of the step. This second-order integration method is much more stable, so much larger timesteps can be taken with comparable
+accuracy, as shown in Figure \ref{fig:euler_integration}.
+
+A fourth-order Runge-Kutta system was created, but despite its stability, each step took too long for it to be useful in an interactive
+simulation.  The fourth-order Runge-Kutta method, commonly referred to simply as \emph{the} Runge-Kutta method, was developed around 1900
+by Runge and Kutta.  It can be expanded to any order, but the fourth-order version is the most commonly used.  In order to take a step
+using the Runge-Kutta method, four slopes must be calculated.  $k_1$ is the slope at the inital point, $k_2$ is the slope at the midpoint,
+calculated using $k_1$ as the slope from the inial point, $k_3$ is the slope at the midpoint calculated using $k_2$ as the slope from the
+inital point, and $k_4$ is the slope at the end of the step, calculated using $k_3$ as the slope from the inial point.  The final slope
+is then calculated as \[slope=\frac{1}{6}(k_1+2k_2+2k_3+k_4)\]  A step is then taken in the direction specified by this final slope.
 
 \begin{figure}
 \centering
@@ -483,9 +540,11 @@ fourth-order system was created, but despite its stability, each step took too l
 	\label{fig:euler.25}
 	\includegraphics[width=2in]{images/euler25.png}
 }
-\caption[Euler integration]{These images show the error that is present in explicit Euler integration.  The red line is the target,
-the blue line is first order Euler integration, and the green line is the midpoint method.  Image (a) has a timestep of 1,
-while image (b) has a timestep of 0.25.  As can be seen, the smaller timestep results in lower error, but error is still present.}
+\caption[Euler integration]{These images show the error that is present in explicit Euler integration.  The red line is the target
+function f(x), the blue line is first order Euler integration, and the green line is the midpoint method.  Image (a) has a timestep of 1,
+while image (b) has a timestep of 0.25.  As can be seen, the smaller timestep results in lower error, but error is still present.
+In (b), the target function and midpoint method lines are nearly indistinguishable, showing the accuracy of the midpoint method with
+proper timestep selection.}
 \label{fig:euler_integration}
 \end{figure}
 
@@ -494,8 +553,8 @@ spring is shortened so that the force pulling it back towards the original shape
 increase the original length if the overstretched spring becomes overcontracted.  Secondly, the points will be adjusted such that
 a hard cap is enforced on the lengths of the springs in order to prevent the deformation from becoming too severe, as detailed
 in\cite{provot95deformationconstraints}.  While a higher spring constant would also cause the springs to stay shorter in general,
-if the constant becomes too large, the forces operating within the cloth will become very large and the simulation will become
-unstable.  The only way to combat an unstable simulation using the explicit Euler method is by shrinking the timestep, which
+if the constant becomes too large, the forces within the cloth will become very large and the simulation will become
+unstable.  The only way to combat an unstable simulation using the Midpoint method is by shrinking the timestep, which
 will slow down the simulation.  In order for the simulation to be interactive, a large enough timestep must be used that a stiff
 cloth is not feasible, thus requiring the use of these correction techniques.
 
@@ -528,7 +587,20 @@ position.}
 \label{fig:wireframe_sim}
 \end{figure}
 
-(Insert table/graph of performance for different numbers of points here)
+\begin{table}
+\begin{center}
+  \begin{tabular}{ | l | c | r | }
+    \hline
+    Number of points & Average FPS \\ \hline
+	49 & 43.10 \\ \hline
+	69 & 31.25 \\ \hline
+    81 & 30.63 \\ \hline
+	169 & 13.70 \\ \hline
+    289 & 7.18 \\ \hline
+  \end{tabular}
+  \caption{Frames per second for various mesh sizes}
+\end{center}
+\end{table}
 
 \section{Advantages}
 There are numerous advantages to using an explicit midpoint integration method over other methods.  Midpoint has a considerable stability
@@ -861,7 +933,7 @@ software development in the process.
 Before starting on this project, I had a basic knowledge of architecture and statics, as well as a rudimentary definition of what
 a thin-shell structure is.  I had taken an architectural CAD class in high school, and have experience in both wood and cinderblock
 construction.  However, while the basic architecture knowledge was useful, none of it was particularly relevant in the wild world
-of thin shells.  Thin-shell structures tend to break all the traditional "rules" of construction, supporting themselves through
+of thin shells.  Thin-shell structures tend to break all the traditional ``rules" of construction, supporting themselves through
 thin, flowing elements rather than the straight, rigid structural elements that are the hallmark of traditional construction.
 
 In my first attempt at a thin-shell design tool, I used Ruby to create a plugin for Google SketchUp that would attempt to analyze
@@ -877,7 +949,7 @@ The development of this tool was the most valuable development experience I have
 parts of software development I had never experienced before.  Firstly, while I have been and still am a fan of iterative
 design, I left one important element of iterative design out of my development until rather late in the project: other people's
 input.  While I knew exactly how my tool worked, what I wanted out of it, and all its little idiosyncrasies, I did not allow
-other people to use my software until it was in a "stable" state.  Once I did have people look at the tool in my user study,
+other people to use my software until it was in a ``stable" state.  Once I did have people look at the tool in my user study,
 a number of issues were brought to my attention, some of which would have been very easy to fix, add, or modify if I had known
 about them earlier in the life cycle of the tool.  Many of them are still easy to deal with, but more smaller user studies
 would probably have been more useful than the one larger user study.

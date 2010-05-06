@@ -75,3 +75,25 @@ possibly outline:
 
 2,3,&4 are the lengthy chapters.  1.2 is also lengthy.  target length
 100+ pages (more figures will help), target reference count 25+
+
+
+
+
+
+
+* In the algorithm chapter you should discuss the discrete mesh, you
+ should include images of an original mesh and how it deforms over
+ time.  You can visualize/diagram the compressive/tensile forces,
+ etc.
+
+* Yes, the UI section needs to have lots more detail and design
+ discussion.
+
+* Before diving into user student participants, include a significant
+ discussion of the goals and design of the study.
+
+* Why are there no examples of output from your tool.  You should
+ include an illustrative screenshot for every positive and negative
+ aspect of your tool.
+
+* I hope the bibliography is not yet complete...

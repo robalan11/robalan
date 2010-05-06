@@ -141,7 +141,7 @@ Cloth::Cloth(ArgParser *_args, bool parent) {
   }
 */
   /* Further user study hackage */
-  load("flat.obj");
+  load("flat12.obj");
 
   /*
   for (unsigned int i = 0; i < particles.size(); i++) {

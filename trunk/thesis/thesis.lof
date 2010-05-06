@@ -1,4 +1,4 @@
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Simplified representation of a house}}{2}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Simplified representation of a house}}{3}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces A beam under uniform loading}}{3}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces A thin-shell dome over a service area in Switzerland}}{4}
 \contentsline {figure}{\numberline {1.4}{\ignorespaces The TWA Flight Center}}{5}
@@ -20,25 +20,25 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{13}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{13}
 \contentsline {figure}{\numberline {1.14}{\ignorespaces A hanging model used by Gaud\'{i}}}{14}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces A wireframe of a simulated model}}{21}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Detail of a wireframe of a simulated model}}{21}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Euler integration}}{23}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{23}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{23}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Simulation frames}}{24}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{24}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{24}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{24}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{24}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The basic shell}}{26}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Adding points}}{29}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces A triangle}}{29}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces A barrel vault}}{30}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Shell with windows}}{30}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Flared shell}}{31}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Modified barrel vault}}{31}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Zoomed in grid}}{32}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces A loaded mesh}}{32}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Results of user error}}{33}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Transient error}}{33}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces A tangled mess}}{34}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A wireframe of a simulated model}}{22}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Detail of a wireframe of a simulated model}}{22}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Euler integration}}{25}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{25}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{25}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Simulation frames}}{26}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{26}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The basic shell}}{28}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Adding points}}{31}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces A triangle}}{31}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces A barrel vault}}{32}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Shell with windows}}{32}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Flared shell}}{33}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Modified barrel vault}}{33}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Zoomed in grid}}{34}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces A loaded mesh}}{34}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Results of user error}}{35}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Transient error}}{35}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces A tangled mess}}{36}

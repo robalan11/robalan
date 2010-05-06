@@ -305,6 +305,10 @@ void GLCanvas::keyboard(unsigned char key, int x, int y) {
 
 
 void GLCanvas::idle() {
+	DWORD startTime, endTime;
+	DWORD elapsedTime;
+	startTime = timeGetTime();
+
     if (args->animate) {
 		// do 10 steps of animation before rendering
 	    for (int i = 0; i < 1; i++) {
@@ -314,6 +318,10 @@ void GLCanvas::idle() {
     }
 	floorplan->expand();
 	grid->expand();
+
+	endTime = timeGetTime();
+	elapsedTime = endTime - startTime;
+	printf("This frame took %d miliseconds to render.\n", (int)elapsedTime);
 }
 
 
