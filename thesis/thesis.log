@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  29 APR 2010 08:10
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  6 MAY 2010 19:29
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -161,6 +161,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
  1.
+
+Overfull \hbox (36.31378pt too wide) in paragraph at lines 75--84
+\OT1/cmr/m/n/12 in spec-tac-u-lar dis-as-ters such as those de-tailed and dis-c
+ussed in $[]$[[]].
+ []
+
 [1
 
 ] <images/house.png, id=32, 184.69pt x 152.57pt>
@@ -170,10 +176,10 @@ File: images/house.png Graphic file (type png)
 File: images/Bending.png Graphic file (type png)
  <use images/Bending.png>
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 115.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 124.
 
-[2 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/house.png (PN
-G copy)>] [3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Ben
+[2] [3 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/house.png
+ (PNG copy)> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/Ben
 ding.png>] <images/isler_dome_1.jpg, id=45, 72.27pt x 48.14989pt>
 File: images/isler_dome_1.jpg Graphic file (type jpg)
 
@@ -189,15 +195,14 @@ File: images/kresge_auditorium.jpg Graphic file (type jpg)
 <images/montreal_biosphere.jpg, id=48, 803.0pt x 602.25pt>
 File: images/montreal_biosphere.jpg Graphic file (type jpg)
 
-<use images/montreal_biosphere.jpg>
-<images/arch.png, id=49, 555.57562pt x 359.84438pt>
+<use images/montreal_biosphere.jpg> [4 <C:/Users/Allan/Documents/Grad School/re
+pository/thesis/images/isler_dome_1.jpg>] [5 <C:/Users/Allan/Documents/Grad Sch
+ool/repository/thesis/images/twa_flight_center.jpg> <C:/Users/Allan/Documents/G
+rad School/repository/thesis/images/kresge_auditorium.jpg>] [6 <C:/Users/Allan/
+Documents/Grad School/repository/thesis/images/montreal_biosphere.jpg>]
+<images/arch.png, id=59, 555.57562pt x 359.84438pt>
 File: images/arch.png Graphic file (type png)
  <use images/arch.png>
-[4 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/isler_dome_1.
-jpg>] [5 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/twa_fli
-ght_center.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
-kresge_auditorium.jpg>] [6 <C:/Users/Allan/Documents/Grad School/repository/the
-sis/images/montreal_biosphere.jpg>]
 <images/gateway_arch.jpg, id=60, 1951.29pt x 2601.72pt>
 File: images/gateway_arch.jpg Graphic file (type jpg)
 
@@ -218,46 +223,46 @@ File: images/compound_catenary.png Graphic file (type png)
 ository/thesis/images/catenary.png> <C:/Users/Allan/Documents/Grad School/repos
 itory/thesis/images/hanging_chain.jpg>] [10 <C:/Users/Allan/Documents/Grad Scho
 ol/repository/thesis/images/compound_catenary.png>]
-<images/casa_mila_ext.jpg, id=79, 642.4pt x 602.25pt>
+<images/casa_mila_ext.jpg, id=80, 642.4pt x 602.25pt>
 File: images/casa_mila_ext.jpg Graphic file (type jpg)
 
 <use images/casa_mila_ext.jpg>
-<images/casa_mila_arch.jpg, id=80, 72.27pt x 108.405pt>
+<images/casa_mila_arch.jpg, id=81, 72.27pt x 108.405pt>
 File: images/casa_mila_arch.jpg Graphic file (type jpg)
 
 <use images/casa_mila_arch.jpg>
-<images/parc_guell.jpg, id=81, 401.5pt x 221.82875pt>
+<images/parc_guell.jpg, id=82, 401.5pt x 221.82875pt>
 File: images/parc_guell.jpg Graphic file (type jpg)
 
 <use images/parc_guell.jpg>
-<images/parc_guell_arch.jpg, id=82, 451.6875pt x 602.25pt>
+<images/parc_guell_arch.jpg, id=83, 451.6875pt x 602.25pt>
 File: images/parc_guell_arch.jpg Graphic file (type jpg)
 
 <use images/parc_guell_arch.jpg>
-<images/sagrada_familia_nativity.jpg, id=83, 401.5pt x 481.8pt>
+<images/sagrada_familia_nativity.jpg, id=84, 401.5pt x 481.8pt>
 File: images/sagrada_familia_nativity.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_nativity.jpg>
-<images/sagrada_familia_columns.jpg, id=84, 803.0pt x 602.25pt>
+<images/sagrada_familia_columns.jpg, id=85, 803.0pt x 602.25pt>
 File: images/sagrada_familia_columns.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_columns.jpg>
-Underfull \hbox (badness 5711) in paragraph at lines 290--290
+Underfull \hbox (badness 5711) in paragraph at lines 302--302
 \OT1/cmtt/m/n/12 / / en . wikipedia . org / wiki / File : Sagradafamilia-[]over
 view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
  []
 
-<images/gaudi_model.jpg, id=85, 752.8125pt x 502.87875pt>
+<images/gaudi_model.jpg, id=86, 752.8125pt x 502.87875pt>
 File: images/gaudi_model.jpg Graphic file (type jpg)
 
 <use images/gaudi_model.jpg>
-Underfull \hbox (badness 1789) in paragraph at lines 301--301
+Underfull \hbox (badness 1789) in paragraph at lines 313--313
 \OT1/cmr/bx/n/12 build-ing. The strings hold-ing them to-gether are the nec-es-
 sary
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 301--301
+Underfull \hbox (badness 1199) in paragraph at lines 313--313
 \OT1/cmr/bx/n/12 up the build-ing. ``Hang-ing model", An-toni Gaud, photo tak
 en
  []
@@ -269,199 +274,201 @@ parc_guell.jpg> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
 parc_guell_arch.jpg>] [13 <C:/Users/Allan/Documents/Grad School/repository/thes
 is/images/sagrada_familia_nativity.jpg> <C:/Users/Allan/Documents/Grad School/r
 epository/thesis/images/sagrada_familia_columns.jpg>] [14 <C:/Users/Allan/Docum
-ents/Grad School/repository/thesis/images/gaudi_model.jpg>] [15]
+ents/Grad School/repository/thesis/images/gaudi_model.jpg>] [15] [16]
  2.
-[16
+[17
 
 
-] [17]
-Overfull \hbox (0.8317pt too wide) in paragraph at lines 378--383
+] [18]
+Overfull \hbox (0.8317pt too wide) in paragraph at lines 404--409
 []\OT1/cmr/m/n/12 These early ex-am-ples of cloth sim-u-la-tion are ex-panded u
 pon by Volino, Courch-
  []
 
-[18] [19]
+[19] [20]
  3.
-<images/wireframe.png, id=115, 604.2575pt x 411.5375pt>
+[21
+
+] <images/wireframe.png, id=122, 604.2575pt x 411.5375pt>
 File: images/wireframe.png Graphic file (type png)
 
 <use images/wireframe.png>
-<images/wireframe_detail.png, id=116, 557.08125pt x 367.3725pt>
+<images/wireframe_detail.png, id=123, 417.81094pt x 275.52937pt>
 File: images/wireframe_detail.png Graphic file (type png)
 
-<use images/wireframe_detail.png> [20
-
-] [21 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/wireframe.
-png (PNG copy)> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
-wireframe_detail.png (PNG copy)>]
-<images/euler1.png, id=123, 220.825pt x 321.2pt>
+<use images/wireframe_detail.png> [22 <C:/Users/Allan/Documents/Grad School/rep
+ository/thesis/images/wireframe.png (PNG copy)> <C:/Users/Allan/Documents/Grad 
+School/repository/thesis/images/wireframe_detail.png (PNG copy)>] [23]
+<images/euler1.png, id=133, 220.825pt x 321.2pt>
 File: images/euler1.png Graphic file (type png)
  <use images/euler1.png>
-<images/euler25.png, id=124, 220.825pt x 321.2pt>
+<images/euler25.png, id=134, 220.825pt x 321.2pt>
 File: images/euler25.png Graphic file (type png)
  <use images/euler25.png>
-[22] [23 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler1.
+[24] [25 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler1.
 png> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/euler25.png
->] <images/simframe1.png, id=134, 663.47874pt x 213.79875pt>
+>] <images/simframe1.png, id=144, 663.47874pt x 213.79875pt>
 File: images/simframe1.png Graphic file (type png)
 
 <use images/simframe1.png>
-<images/simframe2.png, id=135, 459.96844pt x 237.13594pt>
+<images/simframe2.png, id=145, 459.96844pt x 237.13594pt>
 File: images/simframe2.png Graphic file (type png)
 
 <use images/simframe2.png>
-Overfull \hbox (22.89395pt too wide) in paragraph at lines 512--516
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 571--575
  [][][] 
  []
 
-<images/simframe3.png, id=136, 426.09187pt x 261.97874pt>
+<images/simframe3.png, id=146, 426.09187pt x 261.97874pt>
 File: images/simframe3.png Graphic file (type png)
 
 <use images/simframe3.png>
-<images/simframe4.png, id=137, 416.30531pt x 259.7203pt>
+<images/simframe4.png, id=147, 416.30531pt x 259.7203pt>
 File: images/simframe4.png Graphic file (type png)
 
 <use images/simframe4.png>
-Overfull \hbox (22.89395pt too wide) in paragraph at lines 520--527
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 579--586
  [][][] 
  []
 
-[24 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/simframe1.pn
+[26 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/simframe1.pn
 g (PNG copy)> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/si
 mframe2.png (PNG copy)> <C:/Users/Allan/Documents/Grad School/repository/thesis
 /images/simframe3.png (PNG copy)> <C:/Users/Allan/Documents/Grad School/reposit
-ory/thesis/images/simframe4.png (PNG copy)>] [25]
+ory/thesis/images/simframe4.png (PNG copy)>] [27]
  4.
-<images/basic.png, id=144, 1220.56pt x 839.135pt>
+<images/basic.png, id=154, 1220.56pt x 839.135pt>
 File: images/basic.png Graphic file (type png)
  <use images/basic.png>
-[26
+[28
 
  <C:/Users/Allan/Documents/Grad School/repository/thesis/images/basic.png (PNG 
-copy)>] [27] <images/waist.png, id=151, 915.42pt x 629.35126pt>
+copy)>] [29] <images/waist.png, id=162, 915.42pt x 629.35126pt>
 File: images/waist.png Graphic file (type png)
 
-<use images/waist.png> <images/triangle.png, id=152, 915.42pt x 629.35126pt>
+<use images/waist.png> <images/triangle.png, id=163, 915.42pt x 629.35126pt>
 File: images/triangle.png Graphic file (type png)
 
 <use images/triangle.png>
-<images/barrel_vault.png, id=153, 1220.56pt x 839.135pt>
+<images/barrel_vault.png, id=164, 1220.56pt x 839.135pt>
 File: images/barrel_vault.png Graphic file (type png)
 
 <use images/barrel_vault.png>
-<images/bird_windows.png, id=154, 915.42pt x 629.35126pt>
+<images/bird_windows.png, id=165, 915.42pt x 629.35126pt>
 File: images/bird_windows.png Graphic file (type png)
 
 <use images/bird_windows.png>
-<images/thing_with_wings.png, id=155, 915.42pt x 629.35126pt>
+<images/thing_with_wings.png, id=166, 915.42pt x 629.35126pt>
 File: images/thing_with_wings.png Graphic file (type png)
 
 <use images/thing_with_wings.png>
-<images/countercurve.png, id=156, 1220.56pt x 839.135pt>
+<images/countercurve.png, id=167, 1220.56pt x 839.135pt>
 File: images/countercurve.png Graphic file (type png)
 
 <use images/countercurve.png>
-<images/big_grid.png, id=157, 915.42pt x 629.35126pt>
+<images/big_grid.png, id=168, 915.42pt x 629.35126pt>
 File: images/big_grid.png Graphic file (type png)
 
 <use images/big_grid.png>
-<images/triangle_mesh.png, id=158, 915.42pt x 629.35126pt>
+<images/triangle_mesh.png, id=169, 915.42pt x 629.35126pt>
 File: images/triangle_mesh.png Graphic file (type png)
 
 <use images/triangle_mesh.png>
-<images/highly_improbable.png, id=159, 915.42pt x 629.35126pt>
+<images/highly_improbable.png, id=170, 915.42pt x 629.35126pt>
 File: images/highly_improbable.png Graphic file (type png)
 
 <use images/highly_improbable.png>
-<images/inside_out_transient.png, id=160, 915.42pt x 629.35126pt>
+<images/inside_out_transient.png, id=171, 915.42pt x 629.35126pt>
 File: images/inside_out_transient.png Graphic file (type png)
 
 <use images/inside_out_transient.png>
-<images/tangle1.png, id=161, 915.42pt x 629.35126pt>
+<images/tangle1.png, id=172, 915.42pt x 629.35126pt>
 File: images/tangle1.png Graphic file (type png)
  <use images/tangle1.png>
-[28] [29 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/waist.p
+[30] [31 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/waist.p
 ng (PNG copy)> <C:/Users/Allan/Documents/Grad School/repository/thesis/images/t
-riangle.png (PNG copy)>] [30 <C:/Users/Allan/Documents/Grad School/repository/t
+riangle.png (PNG copy)>] [32 <C:/Users/Allan/Documents/Grad School/repository/t
 hesis/images/barrel_vault.png (PNG copy)> <C:/Users/Allan/Documents/Grad School
-/repository/thesis/images/bird_windows.png (PNG copy)>] [31 <C:/Users/Allan/Doc
+/repository/thesis/images/bird_windows.png (PNG copy)>] [33 <C:/Users/Allan/Doc
 uments/Grad School/repository/thesis/images/thing_with_wings.png (PNG copy)> <C
 :/Users/Allan/Documents/Grad School/repository/thesis/images/countercurve.png (
-PNG copy)>] [32 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
+PNG copy)>] [34 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/
 big_grid.png (PNG copy)> <C:/Users/Allan/Documents/Grad School/repository/thesi
-s/images/triangle_mesh.png (PNG copy)>] [33 <C:/Users/Allan/Documents/Grad Scho
+s/images/triangle_mesh.png (PNG copy)>] [35 <C:/Users/Allan/Documents/Grad Scho
 ol/repository/thesis/images/highly_improbable.png (PNG copy)> <C:/Users/Allan/D
 ocuments/Grad School/repository/thesis/images/inside_out_transient.png (PNG cop
-y)>] [34 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/tangle1
+y)>] [36 <C:/Users/Allan/Documents/Grad School/repository/thesis/images/tangle1
 .png (PNG copy)>]
  5.
-[35
+[37
 
-] [36] [37] [38]
+] [38] [39] [40]
  6.
-[39
+[41
 
-] [40] [41] [42]
+] [42] [43] [44]
  7.
-[43
-
-] [44] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
 [45
 
-]) [46]
-APPENDIX A.
-
-Underfull \hbox (badness 10000) in paragraph at lines 918--919
-
- []
-
+] [46] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.bbl"
 [47
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 949--961
+]) [48]
+APPENDIX A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 
  []
 
-[48] [49]
-Overfull \hbox (25.30693pt too wide) in paragraph at lines 1043--1051
-[][]\OT1/cmtt/m/n/12 ____   []
+[49
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1033
+
  []
 
 [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
+Overfull \hbox (25.30693pt too wide) in paragraph at lines 1115--1123
+[][]\OT1/cmtt/m/n/12 ____   []
+ []
+
+[52] [53]
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1117--1123
+Underfull \hbox (badness 10000) in paragraph at lines 1189--1195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1125--1142
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1214
 
  []
 
-[52] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
+[54] ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.aux") ) 
 Here is how much of TeX's memory you used:
  2462 strings out of 495285
- 39899 string characters out of 3180395
+ 39905 string characters out of 3180395
  104723 words of memory out of 3000000
  5642 multiletter control sequences out of 15000+200000
  8156 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,9n,45p,199b,420s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,9n,45p,199b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:
 /Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program
- Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/M
-iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public
-/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfont
-s/cm/cmtt12.pfb>
-Output written on thesis.pdf (60 pages, 4063710 bytes).
+ Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/M
+iKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.
+8/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.8/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmti12.pfb><
+C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on thesis.pdf (62 pages, 4098246 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
+ 286 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
