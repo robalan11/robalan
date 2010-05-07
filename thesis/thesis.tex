@@ -22,12 +22,6 @@
 %\usepackage[hang]{caption}     % to indent subsequent lines of captions
 \renewcommand{\captionfont}{\bfseries} % only needed with caption package;
                                         %   otherwise bold is default)
-\renewcommand{\topfraction}{0.99}
-\renewcommand{\bottomfraction}{0.99}
-\renewcommand{\textfraction}{0.01}
-\renewcommand{\floatpagefraction}{0.01}
-\renewcommand{\dbltopfraction}{0.99}
-\renewcommand{\dblfloatpagefraction}{0.01}
 %%%%%%%%%%%%%%%%%%%%  supply titlepage info  %%%%%%%%%%%%%%%%%%%%%
 \thesistitle{\bf Thin Shell Structure Design Tool}        
 \author{R. Allan Pendergrast}
@@ -454,9 +448,8 @@ Armed with the knowledge gained from these previous works, I set out to create a
 and quickly find the stable configurations of various thin-shell structures.  Algorithms from cloth simulation,
 concepts from procedural modeling, and design ideas from similar software were combined to create the backend for
 this tool.  In this section, I will discuss the data structures used to implement this tool as well as algorithms
-that are applied to the data structures.  A discussion on the advantages and disadvantages of various algorithms
+that are applied to the data structures.  A discussion on the advantages and disadvantages of the selected algorithm
 is also included.
-
 
 \section{Data Structure}
 The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
@@ -589,7 +582,7 @@ position.}
 
 \begin{table}
 \begin{center}
-  \begin{tabular}{ | l | c | r | }
+  \begin{tabular}{ | c | c | }
     \hline
     Number of points & Average FPS \\ \hline
 	49 & 43.10 \\ \hline
@@ -602,18 +595,14 @@ position.}
 \end{center}
 \end{table}
 
-\section{Advantages}
-There are numerous advantages to using an explicit midpoint integration method over other methods.  Midpoint has a considerable stability
-advantage over a first-order explicit integration, and is faster per frame than a fourth order Runge-Kutta integration or implicit
-integration.  The stability increase over a first-order integration has the obvious benefit of being able to take considerably larger
-time steps.  A fourth order Runge-Kutta solver was implemented, but the advantage of increased stability and associated larger timestep
-was offset by the long computation time per frame.  When implemented, the 4th-order solver took much too long per frame to be practical
-for an interactive simulation on reasonably large meshes.
+\section{Discussion}
+There are numerous advantages to using an explicit midpoint integration method over other methods.  The midpoint method has a
+considerable stability advantage over a first-order explicit integration, and is faster per frame than a fourth order Runge-Kutta
+integration or implicit integration.  The stability increase over a first-order integration has the obvious benefit of being able to
+take considerably larger time steps.  The spring correction allows for the imitation of very stiff springs without requiring very
+small timesteps.  For a relatively small amount of clock time, the structure can be corrected in such a way that it remains stable
+and avoids overstretching.
 
-The spring correction allows for the imitation of very stiff springs without requiring very small timesteps.  For a relatively small
-execution time, the structure can be corrected in such a way that it remains structurally correct and avoids overstretching.
-
-\section{Disadvantages}
 The primary disadvantage to an explicit solver rather than an implicit solver is that the timestep is limited.  However, while an
 implicit solver can theoretically operate with arbitrarily large timesteps, the computation tradeoff is not favorable.  Furthermore,
 the timestep used in the current simulation is large enough that the user does not grow impatient waiting for the structure to reach
@@ -621,67 +610,54 @@ equilibrium, nor is it short enough that the user cannot react to the motion of 
 explicit solver is the necessity of correction methods to prevent overstretching.  However, this disadvantage is again offset by the
 fact that even with the correction methods, the explicit solver is faster than an implicit solver.
 
+\section{Summary}
+The backend of this tool consists of a cloth data structure, to which a midpoint method solver is applied.  This solver is much more
+robust than a first-order solver, but faster than an implicit solver or Runge-Kutta solver.  This speed makes it a great solution
+for interactive tools such as this, and the robustness ensures that it is unlikely to become unstable.  On top of this solver is
+added a correction method first suggest by Provot in \cite{provot95deformationconstraints} which reduces overstretching while
+maintaining a large timestep.
 
 
 \chapter{USER INTERFACE}
+Now that a simulation engine had been created, a user interface could be created that would allow the user to interface with the
+shell and create interesting shapes.  It was ver important for this interface to be both flexible and precise.  The user should
+feel very in control over their structure, but also have the freedom to do make any shape they could come up with.  To allow this
+control and flexibility, a multi-panel design was created, which can be seen in Figure \ref{fig:basic}.  The viewing window,
+floorplan window, and grid window all work together to allow the user to create a wide variety of thin-shell structures.  Several
+other UI elements are also available to the user which are not visible in the screenshot of Figure \ref{fig:basic}, but are
+detailed in this chapter.
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/basic.png}}
-\caption[The basic shell]{This is the shape that forms from the mesh that loads when the tool is first run.}
+\caption[The tool]{This is a screenshot of the tool as it looks when first run.  On the upper-right is the floorplan window, and
+in the lower-right is the grid window.  To the left is the viewing window with a view of the default shell.}
 \label{fig:basic}
 \end{figure}
 
-\section{Description}
-The most important thing I wanted when making this was for it to be flexible and precise.  I wanted the user to feel that they
-had very good control over the creation of their structure and the tools to bring their vision to life.  The first thing that must
-be present, therefore, was a viewing window that allows the user to clearly view their structure as they make changes to it.
-This window needed to have straightforward and expected camera controls: left-click and drag to rotate the camera, right-click and
-drag to zoom, and middle-click and drag to pan the camera.  Now that a camera control system had been established, I needed a way
-to control the mesh.
+\section{Vieiwing Window}
+The first UI element that was created was a viewing window that allows the user to clearly view their structure as they make changes
+to it. This window needed to have straightforward and expected camera controls: left-click and drag to rotate the camera, right-click and
+drag to zoom, and middle-click and drag to pan the camera.  This window does not allow any control over the shell itself, only the viewing
+of it.  The way to control the mesh would be through the floorplan and grid windows.
 
+\section{Floorplan Window}
 Since the item being designed is a thin shell, there will probably be a limited number of points touching the ground.  In order
 for the structure to be stable, I decided that it made the most sense to manipulate these points and let the simulator take care
 of placing the rest of them.  Since these points are all touching the ground, a floorplan view of these attached points seemed the
-most sensible layout, as this would allow the user to manipulate the relevant points from a straightforward and uncluttered view.
-However, simply being able to manipulate the points that exist when the shell is initially created is severely limiting.  Therefore,
+most sensible representation, as this would allow the user to manipulate the relevant points from a straightforward and uncluttered view.
+However, simply being able to manipulate the points that exist when the shell is initially created is very limiting.  Therefore,
 the creation of new points should be a central feature of the floorplan view.
 
-The most intuitive method to add a new point is to simply click in the empty space in the floorplan view, so that's what
-I implemented.  This makes it very easy to add new points to the floorplan.  Figure \ref{fig:waist} shows a shell with points that
-have been added.  If the user wants to have a line of points attached to the ground rather than a single point, it can be tedious
-to add a point and place it correctly for every point along the line.  Therefore, another feature in the floorplan view is the
-ability to attach a line between two points.  Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  The line
-can also be converted into a bezier curve to give the user additional flexibility in designing their structure, as seen in Figures
-\ref{fig:thing_with_wings} and \ref{fig:countercurve}.
-
-Once points are created in the floorplan, they need a context in the mesh in order to be meaningful.  Therefore, a window with
-a representation of the shell can be found in the lower right-hand corner of the window.  If a point is selected in the
-floorplan, it can then be associated with a point in the mesh by clicking on that point in the grid window.  This causes
-the point in the mesh that was clicked on to snap to the point on the ground corresponding to the selected point in the
-floorplan view.  This mesh point can now be moved by dragging the associated point in the floorplan view.  One other
-feature of the grid window is the ability to add windows or voids into the shell.  By right-clicking on a point, it is
-removed from the simulation, thus creating a hole in the shell.  The shell in Figure \ref{fig:bird_windows} has a number
-of windows in its sides.
-
-One problem that was discovered after the initial prototype had been created is that it can be very hard to select points if
-there are a lot of them very close together.  To help combat this, the floorplan and grid windows zoom in when the user hovers
-them, making the points more spaced out and easier to select.  Furthermore, the contents of each window was scaled so that the
-points on the edges would be easier to select.  Figure \ref{fig:big_grid} shows the tool with the grid window enlarged.
-
-Additional features that do not have obvious UI elements associated with them are loading and resetting.  If an architect has
-designed a shell in a traditional architectural CAD tool such as Rhino or Google SketchUp, they can right-click in the floorplan
-window to load an exported mesh into the tool.  The shell in Figure \ref{fig:triangle_mesh} was loaded in this way.  Similarly,
-if the user creates an interesting shell in the tool, they can right-click to save it.  If the user has done all the work they
-feel can be done on a shell, they can right-click in the floorplan to reset the tool to the initial load state.
-
-One problem with the flexibility of the interface is that it allows the user to create impossible structures.  For example,
-while the floorplan in Figure \ref{fig:highly_improbably} may look reasonable, when the connectivity of the shell is taken into
-account it becomes apparent that the shell will be forced to intersect itself.  In Figure \ref{fig:inside_out_transient}, the
-user has instructed the shell to turn inside out.  It will comply with this and be stable once it has finished simulating, but
-its appearence as it goes to that state is a bit unusual.  Figure \ref{fig:tangle1} shows what happens when the user gives the
-shell instructions that are completely impossible to follow.
-
-\section{Examples}
+The most intuitive method to add a new point is to simply click in the empty space in the floorplan view, so that is what was
+implemented.  This makes it very easy to add new points to the floorplan.  Figure \ref{fig:waist} shows a shell with points that
+have been added.  If the user wants to have a line of points attached to the ground rather than a single point in order to create
+a wall or otherwise block off a portion of the shell, it can be tedious to add a point and place it correctly for every point along
+the line.  Therefore, another feature in the floorplan view is the ability to attach a line between two points by right-clicking on
+the line and selecting "Attach".  If they change their mind, a line can be freed by right-clicking on it and selecting "Detach".
+Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  Lines can also be converted into a bezier curve to give
+the user additional flexibility in designing their structure, as seen in Figures \ref{fig:thing_with_wings} and
+\ref{fig:countercurve}.  Conversion from line to bezier is done by right-clicking on the line and selecting "Set Bezier".  To
+convert back into a line, the user can right-click on the bezier curve and select "Set Line".
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/waist.png}}
@@ -691,16 +667,34 @@ caused the points in the mesh between the newly added points to be pulled down, 
 \end{figure}
 
 \begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/triangle.png}}
-\caption[A triangle]{The shell in this image is created by attaching a line and bringing its endpoints together.}
-\label{fig:triangle}
-\end{figure}
-
-\begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/barrel_vault.png}}
 \caption[A barrel vault]{This barrel vault is created by attaching to parallel lines to the ground.}
 \label{fig:barrel_vault}
 \end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/thing_with_wings.png}}
+\caption[Flared shell]{The flared edges on the sides of this shell are caused by the bezier curves on either side
+allowing the edges of the shell to rise up.}
+\label{fig:thing_with_wings}
+\end{figure}
+
+\begin{figure}
+\resizebox{5in}{!}{\includegraphics{images/countercurve.png}}
+\caption[Modified barrel vault]{This shell, as well as the shell in Figure \ref{fig:thing_with_wings}, show some of the
+interesting shapes that can arise from the simple barrel vault using bezier curves.}
+\label{fig:countercurve}
+\end{figure}
+
+\section{Grid Window}
+Once points are created in the floorplan, they need a context in the mesh in order to be meaningful.  Therefore, a window with
+a two dimensional representation of the shell can be found in the lower right-hand corner of the window.  If a point is selected
+in the floorplan, it can then be associated with a point in the mesh by clicking on that point in the grid window.  This causes
+the point in the mesh that was clicked on to snap to the point on the ground corresponding to the selected point in the
+floorplan view.  This mesh point can now be moved by dragging the associated point in the floorplan view.  One other
+feature of the grid window is the ability to add windows or voids into the shell.  By right-clicking on a point, it is
+removed from the simulation, thus creating a hole in the shell.  The shell in Figure \ref{fig:bird_windows} has a number
+of windows in its sides.
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/bird_windows.png}}
@@ -709,24 +703,30 @@ seen in the back of the space.  Also, points in the sides have been deactivated 
 \label{fig:bird_windows}
 \end{figure}
 
-\begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/thing_with_wings.png}}
-\caption[Flared shell]{The flared edges on the sides of this shell are caused by the bezier curves on either side.}
-\label{fig:thing_with_wings}
-\end{figure}
-
-\begin{figure}
-\resizebox{5in}{!}{\includegraphics{images/countercurve.png}}
-\caption[Modified barrel vault]{This shell, as well as the shell in Figure \ref{fig:thing_with_wings}, show some of the
-interesting shapes that can arise from the simple barrel vault.}
-\label{fig:countercurve}
-\end{figure}
+\section{Other Features}
+One problem that was discovered after the initial prototype had been created is that it can be very hard to select points if
+there are a lot of them very close together.  To help combat this, the floorplan and grid windows zoom in when the user hovers
+them, making the points more spaced out and easier to select.  Furthermore, the contents of each window was scaled so that the
+points on the edges would be easier to select.  Figure \ref{fig:big_grid} shows the tool with the grid window enlarged.
+Unfortunately, it is still possible for points to be directly above one another and therefore hard to select.  Alternate methods
+of displaying the grid have been considered to help combat this problem.
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/big_grid.png}}
 \caption[Zoomed in grid]{This screenshot shows the tool with the grid window enlarged.}
 \label{fig:big_grid}
 \end{figure}
+
+One features that does not have an obvious UI elements associated with it is the ability to load shells that have been created
+elsewhere.  If an architect has designed a shell in a traditional architectural CAD tool such as Rhino or Google SketchUp, they
+can right-click in the floorplan window and select "Load input.obj" to load an exported mesh into the tool.  This allows users
+to create a shell in an environment that they might be more comfortable in and import it into this tool so that the simulator
+can adjust the mesh to be more structurally stable.  The shell in Figure \ref{fig:triangle_mesh} was loaded in this way.  No
+restrictions are put on the shell to be imported, and the tool should be able to handle arbitrarily large or complex shells.
+Additionally, if the user creates an interesting shell in the tool, they can right-click to save it.  The current implementation
+of saving gives the file an automatically generated number to distinguish it from other saved files.  If the user would like to
+start over from the initial shell, right-clicking in the floorplan window and selecting "Reset" will give the user a clean shell
+from which to begin creating again.
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/triangle_mesh.png}}
@@ -735,46 +735,72 @@ from being semi-circular to catenary.}
 \label{fig:triangle_mesh}
 \end{figure}
 
+One issue with the flexibility of the interface is that it allows the user to create impossible structures.  For example,
+while the floorplan in Figure \ref{fig:highly_improbably} may look reasonable, when the connectivity of the shell is taken into
+account it becomes apparent that the shell will be forced to intersect itself.  In Figure \ref{fig:inside_out_transient}, the
+user has instructed the shell to turn inside out.  It will comply with this and be stable once it has finished simulating, but
+its appearence as it goes to that state is a bit unusual.  Figure \ref{fig:tangle1} shows what happens when the user gives the
+shell instructions that are completely impossible to follow.  While these structures would probably be buildable, I am not sure
+whether or not they would in fact be stable.
+
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/highly_improbable.png}}
 \caption[Results of user error]{While the tool tries to make every shape stable, there are some configurations of points
-for which there is no solution.  For these, it finds the closest answer it can, which occasionally results in the shell
-intersecting with itself.}
+for which there no stable solution can be found.  For these, it finds the closest answer it can, which occasionally results
+in the shell intersecting with itself.  In these cases, it is possible that the structure could be build, but the stability
+is not guaranteed.}
 \label{fig:highly_improbably}
 \end{figure}
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/inside_out_transient.png}}
-\caption[Transient error]{This is a screenshot of a shell that is in the process of turning inside-out.  This is not a
-stable configuration, and the inside-out stable configuration will be stable, if unusual looking.}
+\caption[Transient error]{This is a screenshot of a shell that is in the process of turning inside-out.  This screenshot does not
+show an equilibrium configuration, and the inside-out equilibrium configuration will be stable, if unusual looking.}
 \label{fig:inside_out_transient}
 \end{figure}
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/tangle1.png}}
-\caption[A tangled mess]{This screenshot shows what happens to a shell when the user forces it into uncomfortable positions.
-This will never find a remotely accurate solution, as the user has instructed the shell to intersect itself in a number of
-places.}
+\caption[A tangled mess]{This screenshot shows what happens to a shell when the user pulls many control points through each other,
+forcing the shell to contort strangely.  Shells such as this are unlikely to ever find an accurate solution, as the user has
+instructed the shell to intersect itself in a number of places.  While this structure could probably be built, it would likely function
+better as a sculpture than a structure.  The elegance of form and conservation of material that are the hallmarks of thin-shell
+design are absent in designs such as this.}
 \label{fig:tangle1}
 \end{figure}
 
+\section{Summary}
+The user interface of this tool was designed with precision and flexibility in mind.  The viewing window has straightforward controls
+to view a shell from any angle, while the floorplan and grid windows allow the user to make changes to the shell.  The floorplan
+controls the fixed points and allows the user to attach lines and set them to bezier curves.  The grid allows the user to associate
+floorplan points with points in the mesh and disable points to create windows.  Other tools available to the user are loading and
+saving, resetting, and zooming the small windows.  Put together, these features make for a very flexible tool that allows users to
+create a wide variety of thin-shell structures.
+
 
 \chapter{USER STUDY}
+Since this is a tool designed for users who do not share the same background as me, it was evident that a user study would have to be
+conducted in order to get information on how useful the tool actually is.  In this section, I detail the process taken in designing
+the study, then give observations taken as the users used the tool as well as responses given on questionnaires afterwards.  The user
+study was the part of this project during which I learned the most about designing a useful piece of software, and I am taking several
+lessons away from it.
+
 \section{Design of the Study}
 When designing the user study for this tool, the first consideration was what I wanted to get out of the study.  Being that this is
 a design tool rather than a scientific tool, the results of a user study were liable to be rather subjective and not provide any hard
-data.  Fortunately, subjective is exactly what I wanted from this study.  My goal is for this tool to be useful and conform to users'
-expectations while providing the functionality that they expect.  Therefore, the primary part of the study should involve the
+data.  Fortunately, subjective feedback is exactly what I wanted from this study.  My goal is for this tool to be useful and conform
+to users' expectations while providing the functionality that they expect.  Therefore, the primary part of the study should involve the
 user using the software, designing structures, and formulating an opinion of the tool.  Since very few software tools are immediately
-intuitive, it was necessary for me to demonstrate the controls of the tool to the user before setting them loose upon it.  While they used
+intuitive, it was necessary for me to demonstrate the controls of the tool to the user before allowing them to use it.  While they used
 the tool, I would watch, taking notes on their usage of the tool for use in improving the learning curve, bringing the controls
 more in line with the expected functionality of existing architectural tools, and making other improvements to the software.  Any
 comments they gave while using the tool were also noted, and ended up providing invaluable insights into the desired behavior of the
 tool that were not reported anywhere else.  Once the user had used the tool for a sufficient length of time, they were directed to
 complete a questionnaire which contained questions I had about their experience using the tool.
 
+\section{The Questionnaire}
 First and foremost on the questionnaire, I wanted to know what they liked about the tool.  Anything that stood out at them as
-nifty, useful, or otherwise good was something that I probably wanted to keep.  Secondly, I wanted to know which of a list
+interesting or useful was something that I had succeeded in creating.  Secondly, I wanted to know which of a list
 of potential features would be most appreciated by the users.  Users were asked to number various features with a 1-5, where
 1 was ``not useful at all" and 5 was ``highly useful".  This would help me determine which feature was most important to
 implement in the future.  Following this list, I asked users what other features they would like to see in the tool.  This
@@ -788,58 +814,229 @@ better idea of how to market the tool to architects, as well as helping to direc
 From this input, I was able to gain a more accurate picture of how architects saw my tool, compare that with what I
 envisioned the tool to be, and formulate a plan to bring the two into closer alignment.
 
-\section{Observations}
+\section{The Users}
+During the study, nine users were brought in to test the tool.  Four of them were architecture students, two were arts majors, two
+were computer science students, and one was a civil engineering student.  Though the tool is aimed at architects, artists and civil
+engineers can both use the tool in their work, and computer scientists can help detect other problems that may be present in the tool.
+Each of the users spent about 45 minutes working with the tool and 15 completing the questionnaire.  All of the users came up with
+different and interesting structures in their time with the tool.
+
+\subsection{User 1}
+\subsubsection{Interface Observations}
 The first user I had in to use the software was an architecture student who was very excited about the software.
-The first thing I noticed when he started using the software was that he tried to zoom with the mouse wheel.  That's a feature that
-should be added.  Mouse wheel scrolling is a common functionality that shouldn't be too hard to implement.
+The first thing I noticed when he started using the software was that he tried to zoom with the mouse wheel.  That is a feature that
+should be added.  Mouse wheel scrolling is a common functionality that should not be too hard to implement.
 
 As he continued to use the software and get more comfortable with it, he noted that having left-click have an immediate action was not
 what he was used to. Most architectural software allows the user to select points with the left mouse button, then right-click to
-bring up the interaction menu.  A standardization would be a good idea.  This is especially true in the floorplan window, where
+bring up the interaction menu.  Standardization would be a good idea.  This is especially true in the floorplan window, where
 left-clicking places a new point, which is not what the user wants when they miss selecting a point by a few pixels.  On a related
 note, an undo feature would be very welcome.  While it would be less of an issue if accidental left-clicks did not create points,
 an undo feature would still help the user to revert changes, whether this reversion stems from error or indecision.
 
-Something that became very clear to me as the user continued to use the software is that the current implementation of the grid
-interface is a bit clunky.  Firstly, new points should automatically associate with the closest point in the grid.  That's almost
-always what the user does next, and it saves them from having to guess which point is the closest, which is especially useful in a
-high-density grid.  However, the real problem with grid association is the snapping.  Since the floorplan point does not move when
-it is associated with a new grid point, the mesh is forced to warp, sometimes drastically, to acquiesce to the user's request.
-I am not sure what the best approach to this would be.  Moving the floorplan point to match the grid does not make much sense,
-since that's not usually what the user is trying to do.  Moving them both to the average also does not make a lot of sense.
-I suspect, however, that the main problem with the snapping is less that it snaps and more that it surprises the user when it
-happens.  I think having a less immediate interface would help with this.  For example, if rather than left-click associating the
-points it selected them, the user could see where on the mesh he was about to associate with a floorplan point.  He could then
+Something that became very clear to me as User 1 continued to use the software is that the current implementation of the mesh
+interface is a bit clunky.  Firstly, when the user creates a new point in the floorplan view, the very next thing that is done is
+usually to associate that point with a point in the mesh.  The mesh point chosen is usually the point in the mesh that is closest
+to the location of the floorplan point, as shown in Figure \ref{fig:closest_point}.  To save the user a step, new points
+should automatically associate with the closest point in the mesh upon creation.
+
+\begin{figure}
+\resizebox{4in}{!}{\includegraphics{images/closest_point.png}}
+\caption[Association with the closest point]{This screenshot shows a shell after a point has been added in the floorplan and
+associated with the closest point in the mesh.}
+\label{fig:closest_point}
+\end{figure}
+
+Another problem with mesh association is the snapping of mesh points, shown in figure \ref{fig:snapping}.  Since the floorplan
+point does not move when it is associated with a new mesh point, the mesh is forced to warp, sometimes drastically, to acquiesce
+to the user's request.  The snapping is not a problem in and of itself; in fact it is the intended and expected behavior of the
+tool.  The main problem with the snapping is that it surprises the user when it happens.  Having a less immediate interface would
+help fix this.  Rather than left-click immediately associating the floorplan point with a mesh point, it should select the mesh
+point, allowing the user to see which point on the mesh he was about to associate with a floorplan point.  He could then
 associate the two via a right-click menu, which is a more natural workflow.  It also gives the architect finer control, allowing
 them to have more information before making a change to the model.
 
+\begin{figure}
+\resizebox{4in}{!}{\includegraphics{images/snapping.png}}
+\caption[Snapping]{This screenshot shows how the mesh is suddenly deformed when a mesh point is associated with a faraway
+floorplan point.}
+\label{fig:snapping}
+\end{figure}
+
+A workflow pattern that I noticed is that User 1 tended to start with an idea in mind of what he wanted to create.  Once that was made,
+he would look at it from a few angles, then change it.  If the simulation started to get tangled up or if he made a mis-click
+such that the model did something he was not expecting, he would continue to push it in that direction, ususally ending up in an
+inescapable oscillation which would either require the mesh to be reset or crash the program.  I am not sure what was so intriguing
+about the failures, but he seemed much more interested in them than in the successful structures.
+
+\subsubsection{Feature Requests}
 Some creative features that were requested include changing the height of points and length of springs.  Point height changing
 would be a fairly simple feature, and allow for more complex catenary shapes that incorporate traditional structural parts.
+Implementation would require adding a fixed height value to each point and adding a UI element to control this height.
 Changing the length of springs would be a very useful feature, allowing the user to modify the shape of the structure in much
 finer detail than is currently possible.  By manually tightening and relaxing springs, the structure can be allowed to slip into
-any shape the architect wants.
+any shape the architect wants.  This could be implemented by allowing springs in the mesh view to be clickable and having a UI
+element to control their lengths.
 
 Several visualization options were discussed during the trial, foremost of which was the option to highlight the selected floorplan
 and/or grid point on the model.  This would make it much easier to orient the model to the floorplan and to keep one's bearings
 when looking at the model from various angles.  Another visualization option that was requested was the ability to pause and rewind
-the simulation of the model.  While rewinding is probably not feasible, pausing certainly is, though I'm not certain that it is
+the simulation of the model.  While rewinding is probably not feasible, pausing certainly is, though I am not certain that it is
 necessarily a good idea since a model is not stable until it reaches equilibrium.
 
 Several suggestions were also made with regards to audience and distribution.  User 1 suggested that this tool would work very well in
 a web-based medium, perhaps with the ability for users to save and share their designs.  This could be a fun tool with potential for
 collaboration.  In addition, it would be a great market to get a number of testers.  The downside to this, of course, is that this
-would require a complete re-write of the code, as c++ is not well-supported on the internet.
+would require a complete re-write of the code, as C++ is not well-supported on the internet.
 
-A workflow pattern that I noticed is that he tended to start with an idea in mind of what he wanted to create.  Once that was made,
-he would look at it from a few angles, then change it.  If the simulation started to get tangled up or if he made a mis-click
-such that the model did something he was not expecting, he would continue to push it in that direction, ususally ending up in an
-inescapable oscillation which would either require the mesh to be reset or crash the program.  I'm not sure what was so intriguing
-about the failures, but he seemed much more interested in them than in the successful structures.
+\subsubsection{Questionnaire}
+In his questionnaire, User 1 commented that he really liked the ``parametric design possibilities" that made it easy to ``quickly compose
+catenary structures".  He thought that a variety of visualizations would be the most helpful features to add to the tool, especially
+a visualization of materials and the ability to clearly see in the viewing window which points were selected.  One type of structure
+that the tool cannot do easily that he was interested in making is ``structures with complex surface overlappings".
 
-(Add paragraphs for users as appropriate, write about things noticed.)
+User 1 felt that this tool would be most useful in the design and meeting phases of construction, but less useful when preparing
+designs to present to the client.  It best lends itself to inital concepts and optimization of design, but less to final design
+development and presentation.
 
-\section{Results}
-(This section is for tabulation of questionnaire responses.  I will finish this when the user studies are finished.)
+\subsection{User 2}
+\subsubsection{Observations}
+User 2 broke the tool considerably less often than User 1 had.  She tended to make interesting shapes that were well within the tool's
+capabilities, using all the tool's features to make shells that were reasonable and useful.  It seemed that she was more interested in
+simply using the tool than pushing it to its limit to find out exactly what it was capable of.
+
+\subsubsection{Questionnaire}
+User 2 thought that the way the floorplan and grid windows worked together was interesting and useful.  She felt it ``allowed for neat
+designs to be created".  She also enjoyed the ability to create holes in the mesh.  User 2 felt that visualizations of material and
+thickness would be the most useful features, with more robust saving and loading and the option to change the height of points being
+a close second.  Like User 1, User 2 also felt that displaying the selected point in the viewing window would be very useful.  User 2
+felt that this tool would be most useful during the conceptual design phase when creating a quick mock-up in 3D.  However, she felt
+that it also has its uses at other points in the design process.
+
+\subsection{User 3}
+In his questionnaire, User 3 responded that he felt the tool provided an ``easy and intuitive way to quickly prototype and alter a
+shell".  He also enjoyed it's support of bezier curves.  Unlike the previous two users, he felt that being able to save and load
+shells more easily would be the most useful feature.  In addition, he requested a way to see which floorplan point was associated with
+a given point in the mesh rather than only being able to see which mesh point was associated with a floorplan point.  In addition, he
+requested the ability to change the lighting, as he found it hard to see the shell in some cases.
+
+\subsection{User 4}
+\subsubsection{Observations}
+While using the tool, user 4 commented that it would be helpful to have a border around the floorplan and grid windows so that the
+user was less likely to stray outside and inadvertently shrink the window.  The ability to disassociate floorplan points so that they
+have no effect on the mesh was also requested, as well as an ability to snap lines in the floorplan view to angles.  He also felt
+that it would be useful to be able to see all of the grid window when the floorplan window was enlarged and vice versa.  This would
+require restructuring the layout of the interface, but could help the usability of the tool.  Also, the ability to move mesh points
+within the grid window was requested.
+
+\subsubsection{Questionnaire}
+In his questionnaire, User 4 commented that he really liked the response of the shell when a point was moved.  A more sophisticated
+saving and loading interface was selected as the most useful feature, while visualizations of materials and thickness rated lowest.
+He felt that the ability to anchor points at heights other than ground level would be very helpful.  He also suggested that the ability
+to associate with points in the viewing window rather than the grid window would be useful.
+
+\subsection{User 5}
+\subsubsection{Observations}
+User 5 made some interesting shells, but kept running into a problem where the structure would oscillate due to an instability
+somewhere in the structure.  She became very adept at quelling these oscillations, unlike User 1, who would try to find oscillations
+then drive them into further oscillation.
+
+\subsubsection{Questionnaire}
+User 5 found the real-time visualization of the shell to be very useful.  She found the option to change the height of fixed points
+to be the most useful potential feature, followed by the visualizations of materials and thickness.  She also wanted real-world
+units to associate with the shells.  Even the addition of people to give a sense of scale would be useful to give the user some
+idea of how big their structure was.  User 5 felt that there should be a way to have points going up as well as down when fixing
+points.  She felt that this tool would be most useful in the design phase, as well as when presenting designs to the client.
+
+\subsection{User 6}
+\subsubsection{Observations}
+User 6 felt that the camera controls in the viewing window were unintuitive.  She expected left-click to have an effect of the
+structure and right-click to rotate the camera.  Also, the mouse wheel was expected to zoom.  She suggested the ability to
+connect arbitrary points in the floorplan view so that it was easier to attach lines wherever the user wanted.  This would
+require some restructuring of the floorplan structure, but would give the user a great deal of additional flexibility.
+
+\subsubsection{Questionnaire}
+In her questionnaire, User 6 stated that she found it ``very interesting to be able to watch the design shift as changes were made".
+She also found the grid window to be an interesting way to represent that aspect of the structure.  She felt that all of the
+suggested features would be useful, but found the visualizations of materials and thickness to be less useful than the others.
+User 6 felt that the ability to tighten or loosen the shell would be very useful, as well as the ability to see a sense of scale.
+One further suggestion was that the user be able to import a design from another tool, isolate that structure from the simulation,
+and build a thin-shell structure on or in the imported design.  This user felt that this tool would be most useful during the early
+design and final presentation phases of the project, but that it was less useful for team meetings.
+
+\subsection{User 7}
+In her questionnaire, User 7 stated that she felt that the ability to change the height of fixed points, as well as a more robust
+saving and loading functionality would be most useful.  The other proposed features were considered less potentially useful.
+User 7 felt that the thin-shell design tool would be most useful in team meetings and when presenting designs to clients rather than
+in the schematic design phase.
+
+\subsection{User 8}
+In his questionnaire, User 8 stated that he thought this tool ``is a good program to design different shapes and interesting
+structures".  He felt that the visualization of materials, a more robust saving and loading interface, and the ability to 
+change the height of fixed points were the most useful suggested features.  He felt that the visualization of thickness was
+particularly not useful.  User 8 felt the tool could be greatly improved by the ability to make multi-layer structures.
+He felt the tool was most useful in the design phases, but that it was quite useful throughout the design process.
+
+\subsection{User 9}
+User 9 found the zooming of the floorplan and grid windows to be a bit disorienting, since the user can be aiming for a point
+only to have it move as they approach the window.  In his questionnaire, he stated that once the user gets used to the tool,
+it provides interesting methods of implementing designs.  He felt the learning curve was a bit steep, but had gotten used to
+the tool well within his 45 minutes working with it.  As many of the other users had, User 9 felt that the option to change
+the height of points was the most useful, with the visualization of the thickness being the least useful.  He felt that the
+tool as a whole was most useful ``for ideation and conceptualizing thin shelled structures".
+
+
+\section{Discussion}
+\begin{table}
+\begin{center}
+  \begin{tabular}{ | p{3in} | c | }
+    \hline
+    Feature & Average usefulness \\ \hline
+	save/open dialog & 3.78 \\ \hline
+	option to change the height of points & 4.22 \\ \hline
+	visualization of the difference between an imported mesh and the optimized mesh & 3.44 \\ \hline
+	visualization of materials used in the structure & 3.56 \\ \hline
+    visualization of the thickness of the structure & 3.22 \\ \hline
+  \end{tabular}
+  \caption{Average usefulness of various features}
+  \label{tbl:features}
+\end{center}
+\end{table}
+	%1 4 5 4 2 5 5 5 3 = 3.78
+	%2 4 4 3 5 5 5 5 5 = 4.22
+	%3 3 3 3 3 5 3 4 4 = 3.44
+	%5 5 3 2 4 3 3 5 2 = 3.56
+	%4 5 3 2 4 4 4 2 1 = 3.22
+
+Table \ref{tbl:features} shows the usefulness of various features, rated on a scale from 1 to 5.  These values are averaged from
+the responses of the 9 users.  Unfortunately, many of the users had very different ideas of what as important, so most of these
+averages do not mean much.  I can conclude that the option to change the height of fixed points is the most valuable feature,
+since is has not only the highest average, but also the highest median and mode, both of which are 5.  The visualization of the
+difference between an imported mesh and the optimized mesh sits solidly at "average", with 6 users rating it a 3.  However, the
+other three features had a wide and even distribution of ratings, so no solid conclusions can be drawn from the data.  One
+possible cause for this variation is that several users were confused by the instruction to rate these features from 1 to 5,
+thinking that each number could only be used once.  This caused some features to be rated lower than the user perhaps intended
+them to be rated, which causes undue variance in the data and makes the averages rather meaningless.
+
+The responses when asked to rate the usefulness of the tool in various situations showed even more variance than the previous
+question, and is therefore not statistically significant.  However, from the users' written responses, it was mostly agreed
+that the tool is most useful in the design stages of a project and less useful in meetings.  Overall, the users found the tool
+to be interesting and useful, offering flexibility and possibilities for design.  While some users found issues with the tool,
+they all created interesting structures and had good suggestions on how to improve it.
+
+One large realization I had while performing this user study is that I should have had other people look at the tool while it
+was still in its early stages.  While I have been and still am a fan of iterative design, I neglected to consult other people's
+input until very late in the project.  While I knew exactly how my tool worked, what I wanted out of it, and all its little
+idiosyncrasies, I did not allow other people to use my software until it was in a ``stable" state.  Once I conducted my user study,
+a number of issues were brought to my attention, some of which would have been very easy to fix, add, or modify if I had known
+about them earlier in the life cycle of the tool.  Many of them are still easy to deal with, but more smaller user studies
+would probably have been more useful than the one larger user study.
+
+\section{Summary}
+In this chapter, I discussed the user study that was conducted as a part of this project.  Observations, suggestions, and
+questionnaire responses from the 9 users are detailed in this chapter, followed by a discussion of the overall results of the study.
+As a whole, the users found the tool to be quite useful and provided a number of great ideas on how to improve it to be even more
+useful.
 
 
 \chapter{FUTURE WORK}
@@ -864,8 +1061,14 @@ left-clicking selects a point and right-clicking brings up a menu with the optio
 point.  In the floorplan pane, left-clicking in empty space will deselect all points, and to create a new point the user must
 right-click and select the ``new point" option from the pop-up menu.
 
+A related issue is that the precision required to select points in both the floorplan and grid windows is a bit high.  Increasing
+the radius from which points can be selected will help the usability of the program, as it will result in fewer mis-clicks.
+
 The viewing window also has an unusual button layout.  Architects seemed to expect right-click and drag to rotate, while the mouse
 wheel was expected to zoom and middle click was not really used at all.  Panning would then be delegated to left-click.
+
+\subsection{Floorplan}
+Points start free, can be associated at will FINISH THIS
 
 \subsection{Save/Open option}
 There is a save option and an open option, but neither of them is really what it should be.  The save option saves automatically
@@ -946,13 +1149,7 @@ hoped it would be, nor was it fast enough to deliver the interactive experience 
 scrapped in favor of a standalone c++ tool.
 
 The development of this tool was the most valuable development experience I have had, as it gave me practical insight into some
-parts of software development I had never experienced before.  Firstly, while I have been and still am a fan of iterative
-design, I left one important element of iterative design out of my development until rather late in the project: other people's
-input.  While I knew exactly how my tool worked, what I wanted out of it, and all its little idiosyncrasies, I did not allow
-other people to use my software until it was in a ``stable" state.  Once I did have people look at the tool in my user study,
-a number of issues were brought to my attention, some of which would have been very easy to fix, add, or modify if I had known
-about them earlier in the life cycle of the tool.  Many of them are still easy to deal with, but more smaller user studies
-would probably have been more useful than the one larger user study.
+parts of software development I had never experienced before.  
 
 Secondly, I gained a great deal of practice using OpenGL and c++, as well as various tools.  Since I was designing this tool for
 Windows in order to have the largest potential market audience, the use of Visual Studio was recommended.  Since most of my
