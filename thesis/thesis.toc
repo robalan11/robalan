@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {2.2}Hanging Chains}{14}
 \contentsline {section}{\numberline {2.3}Cloth Simulation}{15}
 \contentsline {section}{\numberline {2.4}Other Software}{17}
-\contentsline {section}{\numberline {2.5}Summmary}{18}
+\contentsline {section}{\numberline {2.5}Summary}{18}
 \contentsline {chapter}{\numberline {3.}SIMULATION ALGORITHM}{19}
 \contentsline {section}{\numberline {3.1}First Attempt}{19}
 \contentsline {section}{\numberline {3.2}Data Structure}{19}
@@ -21,8 +21,8 @@
 \contentsline {section}{\numberline {3.4}Discussion}{24}
 \contentsline {section}{\numberline {3.5}Summary}{25}
 \contentsline {chapter}{\numberline {4.}USER INTERFACE}{26}
-\contentsline {section}{\numberline {4.1}Vieiwing Window}{27}
-\contentsline {section}{\numberline {4.2}Floorplan Window}{27}
+\contentsline {section}{\numberline {4.1}Viewing Window}{27}
+\contentsline {section}{\numberline {4.2}Floor Plan Window}{27}
 \contentsline {section}{\numberline {4.3}Grid Window}{28}
 \contentsline {section}{\numberline {4.4}Other Features}{31}
 \contentsline {section}{\numberline {4.5}Summary}{33}
@@ -60,7 +60,7 @@
 \contentsline {section}{\numberline {6.1}Changes to existing features}{49}
 \contentsline {subsection}{\numberline {6.1.1}Cloth}{49}
 \contentsline {subsection}{\numberline {6.1.2}Clicking}{49}
-\contentsline {subsection}{\numberline {6.1.3}Floorplan}{50}
+\contentsline {subsection}{\numberline {6.1.3}Floor Plan}{50}
 \contentsline {subsection}{\numberline {6.1.4}Save/Open option}{50}
 \contentsline {section}{\numberline {6.2}Additional features}{51}
 \contentsline {subsection}{\numberline {6.2.1}Height change}{51}

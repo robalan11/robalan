@@ -41,22 +41,32 @@
 
 \specialhead{ACKNOWLEDGMENT}
 Thanks to Barbara Cutler for all her help in creating, testing, and writing about this tool.  Thanks to my family for their endless
-support as I worked on this project.  Thanks to the user study subjects for participating in the study and providing me with valuable
-insight into what can be done to improve this tool.
+support and encouragement as I worked on this project.  Thanks to the user study subjects for participating in the study and providing
+me with invaluable insight into what can be done to improve this tool.  Thanks to all my friends for being there when I needed to let
+off steam, especially as the deadline grew close.  Thanks also to my friends for understanding when I needed to work and encouraging
+me to do so.  Thanks to anybody who ever gave me encouragement or assistance over the course of this project.  This is for all of you.
 
 \specialhead{ABSTRACT}
-Thin-shell structures are becoming increasingly useful in construction and design of buildings.  They allow the usage of less material to enclose
+Thin-shell structures have been used for many years in the construction and design of buildings.  They allow the usage of less material to enclose
 larger spaces, are structurally efficient, and have a natural aesthetic beauty.  However, they can be difficult to design, as the exact shape
-required for structural stability depends on the material used, the size of the shell, and other features.  Fortunately, it is possible to simulate
-these structures quickly and accurately, allowing architects to concentrate more on their design and less on ensuring that their building is
-stable.  The tool described in this thesis simulates thin-shell structures and aids architects in their design and optimization.
+required for structural stability depends on the material used, the size of the shell, potential exterior or interior loading, and other constraints.
+Fortunately, it is possible to simulate these structures quickly and accurately, allowing architects to concentrate more on their design and
+less on ensuring that their building is stable.  The tool described in this thesis simulates thin-shell structures and aids architects in
+designing and optimizing them.  The tool uses a unique three-window interface to allow the user great flexibility in designing structures.
+The back end is designed to be quick and efficient, allowing the user to design quickly, watching the structure change in real time.
+
+A major part of this project was the conducting of a user study.  This user study was essential to the project because it gave feedback from
+the users for whom the tool was designed.  This feedback is essential because while a tool can be designed and refined indefinitely, these
+revisions are meaningless if they are not useful to the users.  Obtaining feedback from users verified that the tool is useful to real users
+and provided many suggestions for improvements and additions.  Some of these features had been thought of previously, but others were
+completely new.
 
 \chapter{INTRODUCTION} \label{chp:introduction}
 
 The goal of this project was to create a tool to aid architects in designing thin-shell structures.  Thin-shell structures can be used in
 buildings to save materials, create an open space, or simply for the aesthetic of a smoothly curving shell.  In addition to being beautiful
 and materials-friendly, thin-shell structures are also incredibly structurally efficient.  Some thin-shell structures feature shells as thin
-as 4 centimeters, yet stand up with nearly no required maintenence for many years.  This structural efficiency is one of the most valuable
+as 4 centimeters, yet stand up with nearly no required maintenance for many years.  This structural efficiency is one of the most valuable
 characteristics of thin-shell structures.
 
 Structural efficiency is a very important element of construction.  With traditional construction methods, this tends not to be an issue, since
@@ -67,11 +77,11 @@ buildings that fall outside the norm of studded walls, cinder block construction
 tools are necessary.
 
 Insufficient analysis of the elements used in constructing a building can result in spectacular disasters such as those
-detailed and discussed in \underline{Why Buildings Fall Down}\cite{levy92falldown}.  For example, the C.W. Post Dome covering a theatre on the
+detailed and discussed in \underline{Why Buildings Fall Down}\cite{levy92falldown}.  For example, the C.W. Post Dome covering a theater on the
 campus of C.W. Post College collapsed suddenly under a load of snow much lower than the dome had been built to withstand.  While the dome had
 stood up under loads much larger than the one under which it collapsed, the uneven loading of this particular load put undue stress on part
 of the dome, leading to a localized instability which spread to cause the whole dome to collapse.  Another famous collapsing structure whose
-collapse is discussed in the book is the Tacoma Narros Bridge, also known as ``Galloping Gertie".  While this bridge was designed comparably
+collapse is discussed in the book is the Tacoma Narrows Bridge, also known as ``Galloping Gertie".  While this bridge was designed comparably
 to other bridges of the time, certain aerodynamic features were not taken into account.  Under windy conditions, the bridge moved up and down,
 sometimes as much as several feet.  This turned out to be due to insufficient stiffness in the deck and ultimately led to the bridge's
 collapse.
@@ -122,7 +132,7 @@ Leon Martinez, \url+http://en.wikipedia.org/wiki/File:Bending.png+}
 Unlike normal beam and plate structures, thin shell structures are curved, which allows the force to travel through the thinner structural
 elements.  Structures such as those in Figure \ref{fig:isler_service} can cover a large span with a minimal amount of material, saving the
 construction company money.  Since the structure completely supports itself, no internal columns are necessary, allowing an unobstructed interior.
-An unobstructed interior is very useful in a variety of buildings such as theatres, museums, and airport terminals, to name a few.
+An unobstructed interior is very useful in a variety of buildings such as theaters, museums, and airport terminals, to name a few.
 Thin-shell structures are very stable because of their unique shape, called a catenary shell.  Catenaries are covered in more detail in Section
 \ref{sec:catenary}.  Some prominent thin shell structures include
 the TWA Flight Center Building at the JFK International Airport in New York, New York (Fig. \ref{fig:twa_flight}), the Kresge Auditorium on
@@ -151,7 +161,7 @@ thin-shell structures providing a much-needed unobstructed internal space.  ``TW
 \includegraphics[width=4in]{images/kresge_auditorium.jpg}
 \caption[The Kresge Auditorium]{The Kresge Auditorium on the MIT campus in Cambridge, Massachusetts is an example of the problem thin-shell
 structures can cause when not designed properly.  Since the roof is octanispherical rather than a catenary shell, the forces do not travel as
-intended and the building has been plagued with structural problems since its construction.  ``Kresge Autidorium", Eero Saarinen, photo
+intended and the building has been plagued with structural problems since its construction.  ``Kresge Auditorium", Eero Saarinen, photo
 taken by Ibn Battuta \url+http://en.wikipedia.org/wiki/File:Kresge_Auditorium,_MIT_(view_with_Green_Building).JPG+}
 \label{fig:kresge_aud}
 \end{figure}
@@ -238,7 +248,7 @@ The shape of the catenary has been used by many architects.  One example mention
 the Finnish-American architect Eero Saarinen and seen in Figure \ref{fig:gateway_arch}.  However, the shape has also been used as an integral design
 principle for much larger and more complex structures.  Hanging chains have been used by a number of architects to design structures for stability and
 aesthetics.  One famous user of hanging chains is Antoni Gaud\'{i}, whose catenary-rich projects include such Barcelona landmarks as the Casa Mil\`{a}
-(Figure \ref{fig:casa_mila}), Park Guell (Figure \ref{fig:parc_guell}), and Sagrada Familia (Figure \ref{fig:sagrada_familia}).  The works of Antoni
+(Figure \ref{fig:casa_mila}), Parc Guell (Figure \ref{fig:parc_guell}), and Sagrada Fam\'{i}lia (Figure \ref{fig:sagrada_familia}).  The works of Antoni
 Gaud\'{i}, his design methods, and his aesthetic style are beautifully photographed, discussed, and analyzed in Rainer Zerbst's
 \underline{Antoni Gaud\'{i} The Complete Buildings}\cite{zerbst85gaudi}.  Figure \ref{fig:gaudi_model} shows one of the models Gaud\'{i} used in
 creating these graceful structures.
@@ -289,10 +299,10 @@ photo taken by Rapomon, \url+http://en.wikipedia.org/wiki/File:Parc_Guell_10.jpg
 }
 \caption[Sagrada Fam\'{i}lia, Barcelona, Spain]{Image (a) shows the nativity fa\c{c}ade of Antoni Gad\'{i}'s masterpiece, Sagrada Fam\'{i}lia,
 slated to be completed some time after 2026.  ``Sagrada Fam\'{i}lia", Antoni Gaud\'{i}, photo taken by Montrealais,
-\url+http://en.wikipedia.org/wiki/File:Sagradafamilia-overview.jpg+  Image (b) shows the strucutral columns that are possible when
-designing with catenaries in mind.  Rather than the monolithic columns found in most gothic cathedrals, Gaud\'{i} has whittled away the nonessential
+\url+http://en.wikipedia.org/wiki/File:Sagradafamilia-overview.jpg+  Image (b) shows the structural columns that are possible when
+designing with catenaries in mind.  Rather than the monolithic columns found in most Gothic cathedrals, Gaud\'{i} has whittled away the nonessential
 stone to reveal the core load-bearing elements.  This results in a gracefully arcing column that supports the huge structure as well as a monolithic
-column would have.  ``Sagrada Fami\'{i}lia", Antoni Gaud\'{i}, photo taken by Etan J. Tal,
+column would have.  ``Sagrada Fam\'{i}lia", Antoni Gaud\'{i}, photo taken by Etan J. Tal,
 \url+http://en.wikipedia.org/wiki/File:SagradaFamiliaRoof.jpg+}
 \label{fig:sagrada_familia}
 \end{figure}
@@ -301,7 +311,7 @@ column would have.  ``Sagrada Fami\'{i}lia", Antoni Gaud\'{i}, photo taken by Et
 \centering
 \includegraphics[width=4in]{images/gaudi_model.jpg}
 \caption[A hanging model used by Gaud\'{i}]{This is a photo of one of the hanging models used by Antoni Gaud\'{i} to understand the forces in
-the buildings he constructed.  The bags are full of small lead weights which are proportonal to various structural elements and ornaments in
+the buildings he constructed.  The bags are full of small lead weights which are proportional to various structural elements and ornaments in
 the planned building.  The strings holding them together are the necessary columns, arches, and other core structural elements that will make
 up the building.  ``Hanging model", Antoni Gaud\'{i}, photo taken by Pamela Angus, 
 \url*http://2.bp.blogspot.com/_PZOVPTsrTJ0/SR7z2F_h93I/AAAAAAAAAls/hAv1--bslzQ/s1600-h/Gaudi+model.jpg*}
@@ -324,13 +334,13 @@ allow these designs to be rapidly prototyped, tweaked, and refined on the comput
 
 \section{Overview}
 In chapter two, I will discuss a number of related works and their influence on this project.  Papers on
-procedural structure generation and cloth simulation are discussed, along with structural analysis sofware.
+procedural structure generation and cloth simulation are discussed, along with structural analysis software.
 Chapter three contains a description of the simulation algorithm used in this tool.  Advantages and
 disadvantages of various simulation methods are discussed, and the algorithm selected is described in detail.
 Chapter four concerns the design of the user interface.  The various elements of the interface, as well as
 features that are not evident from screenshots of the tool are discussed in this chapter.  Chapter five is
 about the user study.  The design considerations when putting the study together are discussed, as well as
-responses recieved from the users.  In addition, observations of the users are included.  These observations
+responses received from the users.  In addition, observations of the users are included.  These observations
 provided some of the most relevant information about the tool that I obtained from the study.  Chapter six
 contains discussions on future work.  There are many things that could be changed about this tool, and most
 of these potential changes are detailed in this section.  Chapter seven contains some conclusions about the
@@ -346,7 +356,7 @@ that have been written in the areas of procedural modeling and cloth simulation 
 for structural analysis or catenary design.
 
 \section{Procedural Modeling}
-In ``Procedural Modeling of Strucutrally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
+In ``Procedural Modeling of Structurally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
 the possibilities of creating existing or novel structures procedurally.  They began by creating a grammar
 which can be used to construct masonry buildings.  Arches, buttresses, domes, and vaults are some of the
 structural elements which are then combined in their software.  These grammar elements are assembled into
@@ -464,7 +474,7 @@ a static structure.  Furthermore, it is not a real-time application, since analy
 hours to complete.
 
 NASTRAN, while quite powerful and incredibly useful for what it is designed to do, is not suited for interactive
-design of a beam, let alone thin-shell structures.  We must look towards software that analyzes structures at a
+design of a beam, let alone thin-shell structures.  We must look toward software that analyzes structures at a
 higher level to find further inspiration for this tool.
 
 A piece of software that is more relevant in architectural design is Dr. Frame 3D\cite{drframe}.  This
@@ -493,17 +503,17 @@ but the fact that they are immovable once place is, as stated above, a large dis
 The ability to move fixed points was a central concept of my tool from the very beginning, allowing the user
 as much flexibility as possible when creating their structure.
 
-\section{Summmary}
+\section{Summary}
 Much work has been done in the areas of procedural structure generation, cloth simulation, and structural analysis.
 Relevant aspects of these works and tools have been used as inspiration in the creation of my tool.  Cloth simulation
-research formed the basis of my simulation backend, while a variety of tools provided guidance in UI design, feature
+research formed the basis of my simulation back end, while a variety of tools provided guidance in UI design, feature
 selection, and layout.  Together, these works provided the groundwork upon which this tool was built.
 
 
 \chapter{SIMULATION ALGORITHM}
 Armed with the knowledge gained from these previous works, I set out to create a back end that would accurately
 and quickly find the stable configurations of various thin-shell structures.  Algorithms from cloth simulation,
-concepts from procedural modeling, and design ideas from similar software were combined to create the backend for
+concepts from procedural modeling, and design ideas from similar software were combined to create the back end for
 this tool.  In this section, I will discuss the data structures used to implement this tool as well as algorithms
 that are applied to the data structures.  A discussion on the advantages and disadvantages of the selected algorithm
 is also included.
@@ -525,7 +535,7 @@ other through springs. Each point has a list of structural and shear springs tha
 their resting length is and have a pointer to the point at the other end.  These springs exert forces on the points to which they
 are connected based on stiffness constants which are determined when the cloth is loaded.  The other attribute that points can
 have is the ``fixed" attribute.  Fixed points are attached to the ground and can be moved only by the user manipulating the
-points in the floorplan pane.
+points in the floor plan pane.
 
 This data structure taken as a whole represents a discrete mesh, upon which a simulation can be run.  Figure \ref{fig:wireframe} shows
 the wireframe view of a model within the simulator.  The lines in the image are the springs connecting points, and each place where
@@ -558,15 +568,15 @@ shear forces.}
 \end{figure}
 
 \section{Algorithm}
-The algorithm which was to be applied to this cloth structure needed to be quick enough to maintain a high framerate, but robust enough
-that reasonable timesteps could be taken in order to reach an equilibrium where all the forces cancel each other out quickly.
+The algorithm which was to be applied to this cloth structure needed to be quick enough to maintain a high frame rate, but robust enough
+that reasonable time steps could be taken in order to reach an equilibrium where all the forces cancel each other out quickly.
 Furthermore, it needed to be able to find an equilibrium without becoming unstable and degenerating into a chaotic mess.  The
 best candidate for an integration method that met all of these criteria is a second-order explicit Euler integration.  This
 integration method is also called the Midpoint method.
 
 The implementation of the Midpoint method is rather straightforward, and is an expansion of the first order explicit Euler integration
 method.  First order explicit Euler integration finds the tangent line of the function at the current point, then moves in that direction
-for a timestep and repeats.  Therefore, at each step of the simulation, the system iterates over all the vertices in the shell, and for
+for a time step and repeats.  Therefore, at each step of the simulation, the system iterates over all the vertices in the shell, and for
 each vertex calculates the forces acting upon it.  As shown in Figure \ref{fig:wireframe_detail}, the forces acting upon any given point are
 gravity and the spring force exerted by all connected points.  The total force can therefore be calculated as \[F_g+\sum{F_{si}}\]
 Where $F_g$ is the force of gravity and $F_{si}$ are the spring forces acting on the point.
@@ -574,22 +584,22 @@ Where $F_g$ is the force of gravity and $F_{si}$ are the spring forces acting on
 Once the total forces have been calculated, the algorithm divides the forces by the masses of the points, yielding an acceleration.
 The acceleration can by multiplied by the time step to obtain a velocity, which is again multiplied by the time step to get the new
 position of the point: $a=\frac{F}{m}$, $v=a\times t$, $x=v\times t$.
-However, this single-step explicit integration is very imprecise.  If the timestep or forces involved are very large, the result will
+However, this single-step explicit integration is very imprecise.  If the time step or forces involved are very large, the result will
 have a large amount of error, which can cause instability, inaccuracy, or oscillation.  Figure \ref{fig:euler_integration} shows the
 inaccuracies that can develop when trying to approximate a function with first-order Euler integration.
 
 To alleviate this problem, rather than taking a step using the forces calculated at the initial point, a half step is taken instead.
 Once this half step has been taken, the forces are re-calculated and a full step is taken from the initial point using these new forces.
-The end result is that a step is taken from the inital point in approximately the direction of the tangent line of the force function at
-the midpoint of the step. This second-order integration method is much more stable, so much larger timesteps can be taken with comparable
+The end result is that a step is taken from the initial point in approximately the direction of the tangent line of the force function at
+the midpoint of the step. This second-order integration method is much more stable, so much larger time steps can be taken with comparable
 accuracy, as shown in Figure \ref{fig:euler_integration}.
 
 A fourth-order Runge-Kutta system was created, but despite its stability, each step took too long for it to be useful in an interactive
 simulation.  The fourth-order Runge-Kutta method, commonly referred to simply as \emph{the} Runge-Kutta method, was developed around 1900
 by Runge and Kutta.  It can be expanded to any order, but the fourth-order version is the most commonly used.  In order to take a step
-using the Runge-Kutta method, four slopes must be calculated.  $k_1$ is the slope at the inital point, $k_2$ is the slope at the midpoint,
-calculated using $k_1$ as the slope from the inial point, $k_3$ is the slope at the midpoint calculated using $k_2$ as the slope from the
-inital point, and $k_4$ is the slope at the end of the step, calculated using $k_3$ as the slope from the inial point.  The final slope
+using the Runge-Kutta method, four slopes must be calculated.  $k_1$ is the slope at the initial point, $k_2$ is the slope at the midpoint,
+calculated using $k_1$ as the slope from the initial point, $k_3$ is the slope at the midpoint calculated using $k_2$ as the slope from the
+initial point, and $k_4$ is the slope at the end of the step, calculated using $k_3$ as the slope from the initial point.  The final slope
 is then calculated as \[slope=\frac{1}{6}(k_1+2k_2+2k_3+k_4)\]  A step is then taken in the direction specified by this final slope.
 
 \begin{figure}
@@ -603,21 +613,21 @@ is then calculated as \[slope=\frac{1}{6}(k_1+2k_2+2k_3+k_4)\]  A step is then t
 	\includegraphics[width=2in]{images/euler25.png}
 }
 \caption[Euler integration]{These images show the error that is present in explicit Euler integration.  The red line is the target
-function f(x), the blue line is first order Euler integration, and the green line is the midpoint method.  Image (a) has a timestep of 1,
-while image (b) has a timestep of 0.25.  As can be seen, the smaller timestep results in lower error, but error is still present.
+function f(x), the blue line is first order Euler integration, and the green line is the midpoint method.  Image (a) has a time step of 1,
+while image (b) has a time step of 0.25.  As can be seen, the smaller time step results in lower error, but error is still present.
 In (b), the target function and midpoint method lines are nearly indistinguishable, showing the accuracy of the midpoint method with
-proper timestep selection.}
+proper time step selection.}
 \label{fig:euler_integration}
 \end{figure}
 
 After the Euler integration is performed, overstretched springs are shortened in two ways.  First, the saved original length of the
-spring is shortened so that the force pulling it back towards the original shape will be higher.  This correction will reverse and
-increase the original length if the overstretched spring becomes overcontracted.  Secondly, the points will be adjusted such that
+spring is shortened so that the force pulling it back toward the original shape will be higher.  This correction will reverse and
+increase the original length if the overstretched spring becomes over-contracted.  Secondly, the points will be adjusted such that
 a hard cap is enforced on the lengths of the springs in order to prevent the deformation from becoming too severe, as detailed
 in\cite{provot95deformationconstraints}.  While a higher spring constant would also cause the springs to stay shorter in general,
 if the constant becomes too large, the forces within the cloth will become very large and the simulation will become
-unstable.  The only way to combat an unstable simulation using the Midpoint method is by shrinking the timestep, which
-will slow down the simulation.  In order for the simulation to be interactive, a large enough timestep must be used that a stiff
+unstable.  The only way to combat an unstable simulation using the Midpoint method is by shrinking the time step, which
+will slow down the simulation.  In order for the simulation to be interactive, a large enough time step must be used that a stiff
 cloth is not feasible, thus requiring the use of these correction techniques.
 
 This simulation finds equilibrium when the forces exerted by the springs balance the force of gravity and the velocities of the particles
@@ -644,7 +654,7 @@ the motion of a shell as it progresses from an initial mesh to a stable thin-she
 	\includegraphics[width=3in]{images/simframe4.png}
 }
 \caption[Simulation frames]{These images show the motion of a shell as it is subjected to the simulation.  (a) is the starting position,
-(b) shows the shell as the points begin to ``fall", (c) shows the shell as the points stop their free-fall, and (d) shows the equilibium
+(b) shows the shell as the points begin to ``fall", (c) shows the shell as the points stop their free-fall, and (d) shows the equilibrium
 position.}
 \label{fig:wireframe_sim}
 \end{figure}
@@ -669,59 +679,59 @@ There are numerous advantages to using an explicit midpoint integration method o
 considerable stability advantage over a first-order explicit integration, and is faster per frame than a fourth order Runge-Kutta
 integration or implicit integration.  The stability increase over a first-order integration has the obvious benefit of being able to
 take considerably larger time steps.  The spring correction allows for the imitation of very stiff springs without requiring very
-small timesteps.  For a relatively small amount of clock time, the structure can be corrected in such a way that it remains stable
-and avoids overstretching.
+small time steps.  For a relatively small amount of clock time, the structure can be corrected in such a way that it remains stable
+and avoids over-stretching.
 
-The primary disadvantage to an explicit solver rather than an implicit solver is that the timestep is limited.  However, while an
-implicit solver can theoretically operate with arbitrarily large timesteps, the computation tradeoff is not favorable.  Furthermore,
-the timestep used in the current simulation is large enough that the user does not grow impatient waiting for the structure to reach
+The primary disadvantage to an explicit solver rather than an implicit solver is that the time step is limited.  However, while an
+implicit solver can theoretically operate with arbitrarily large time steps, the computation tradeoff is not favorable.  Furthermore,
+the time step used in the current simulation is large enough that the user does not grow impatient waiting for the structure to reach
 equilibrium, nor is it short enough that the user cannot react to the motion of the shell.  An ancillary disadvantage to the
-explicit solver is the necessity of correction methods to prevent overstretching.  However, this disadvantage is again offset by the
+explicit solver is the necessity of correction methods to prevent over-stretching.  However, this disadvantage is again offset by the
 fact that even with the correction methods, the explicit solver is faster than an implicit solver.
 
 \section{Summary}
-The backend of this tool consists of a cloth data structure, to which a midpoint method solver is applied.  This solver is much more
+The back end of this tool consists of a cloth data structure, to which a midpoint method solver is applied.  This solver is much more
 robust than a first-order solver, but faster than an implicit solver or Runge-Kutta solver.  This speed makes it a great solution
 for interactive tools such as this, and the robustness ensures that it is unlikely to become unstable.  On top of this solver is
-added a correction method first suggest by Provot in \cite{provot95deformationconstraints} which reduces overstretching while
-maintaining a large timestep.
+added a correction method first suggest by Provot in \cite{provot95deformationconstraints} which reduces over-stretching while
+maintaining a large time step.
 
 
 \chapter{USER INTERFACE}
 Now that a simulation engine had been created, a user interface could be created that would allow the user to interface with the
-shell and create interesting shapes.  It was ver important for this interface to be both flexible and precise.  The user should
+shell and create interesting shapes.  It was very important for this interface to be both flexible and precise.  The user should
 feel very in control over their structure, but also have the freedom to do make any shape they could come up with.  To allow this
 control and flexibility, a multi-panel design was created, which can be seen in Figure \ref{fig:basic}.  The viewing window,
-floorplan window, and grid window all work together to allow the user to create a wide variety of thin-shell structures.  Several
+floor plan window, and grid window all work together to allow the user to create a wide variety of thin-shell structures.  Several
 other UI elements are also available to the user which are not visible in the screenshot of Figure \ref{fig:basic}, but are
 detailed in this chapter.
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/basic.png}}
-\caption[The tool]{This is a screenshot of the tool as it looks when first run.  On the upper-right is the floorplan window, and
+\caption[The tool]{This is a screenshot of the tool as it looks when first run.  On the upper-right is the floor plan window, and
 in the lower-right is the grid window.  To the left is the viewing window with a view of the default shell.}
 \label{fig:basic}
 \end{figure}
 
-\section{Vieiwing Window}
+\section{Viewing Window}
 The first UI element that was created was a viewing window that allows the user to clearly view their structure as they make changes
 to it. This window needed to have straightforward and expected camera controls: left-click and drag to rotate the camera, right-click and
 drag to zoom, and middle-click and drag to pan the camera.  This window does not allow any control over the shell itself, only the viewing
-of it.  The way to control the mesh would be through the floorplan and grid windows.
+of it.  The way to control the mesh would be through the floor plan and grid windows.
 
-\section{Floorplan Window}
+\section{Floor Plan Window}
 Since the item being designed is a thin shell, there will probably be a limited number of points touching the ground.  In order
 for the structure to be stable, I decided that it made the most sense to manipulate these points and let the simulator take care
-of placing the rest of them.  Since these points are all touching the ground, a floorplan view of these attached points seemed the
+of placing the rest of them.  Since these points are all touching the ground, a floor plan view of these attached points seemed the
 most sensible representation, as this would allow the user to manipulate the relevant points from a straightforward and uncluttered view.
 However, simply being able to manipulate the points that exist when the shell is initially created is very limiting.  Therefore,
-the creation of new points should be a central feature of the floorplan view.
+the creation of new points should be a central feature of the floor plan view.
 
-The most intuitive method to add a new point is to simply click in the empty space in the floorplan view, so that is what was
-implemented.  This makes it very easy to add new points to the floorplan.  Figure \ref{fig:waist} shows a shell with points that
+The most intuitive method to add a new point is to simply click in the empty space in the floor plan view, so that is what was
+implemented.  This makes it very easy to add new points to the floor plan.  Figure \ref{fig:waist} shows a shell with points that
 have been added.  If the user wants to have a line of points attached to the ground rather than a single point in order to create
 a wall or otherwise block off a portion of the shell, it can be tedious to add a point and place it correctly for every point along
-the line.  Therefore, another feature in the floorplan view is the ability to attach a line between two points by right-clicking on
+the line.  Therefore, another feature in the floor plan view is the ability to attach a line between two points by right-clicking on
 the line and selecting "Attach".  If they change their mind, a line can be freed by right-clicking on it and selecting "Detach".
 Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  Lines can also be converted into a bezier curve to give
 the user additional flexibility in designing their structure, as seen in Figures \ref{fig:thing_with_wings} and
@@ -756,11 +766,11 @@ interesting shapes that can arise from the simple barrel vault using bezier curv
 \end{figure}
 
 \section{Grid Window}
-Once points are created in the floorplan, they need a context in the mesh in order to be meaningful.  Therefore, a window with
+Once points are created in the floor plan, they need a context in the mesh in order to be meaningful.  Therefore, a window with
 a two dimensional representation of the shell can be found in the lower right-hand corner of the window.  If a point is selected
-in the floorplan, it can then be associated with a point in the mesh by clicking on that point in the grid window.  This causes
+in the floor plan, it can then be associated with a point in the mesh by clicking on that point in the grid window.  This causes
 the point in the mesh that was clicked on to snap to the point on the ground corresponding to the selected point in the
-floorplan view.  This mesh point can now be moved by dragging the associated point in the floorplan view.  One other
+floor plan view.  This mesh point can now be moved by dragging the associated point in the floor plan view.  One other
 feature of the grid window is the ability to add windows or voids into the shell.  By right-clicking on a point, it is
 removed from the simulation, thus creating a hole in the shell.  The shell in Figure \ref{fig:bird_windows} has a number
 of windows in its sides.
@@ -774,7 +784,7 @@ seen in the back of the space.  Also, points in the sides have been deactivated 
 
 \section{Other Features}
 One problem that was discovered after the initial prototype had been created is that it can be very hard to select points if
-there are a lot of them very close together.  To help combat this, the floorplan and grid windows zoom in when the user hovers
+there are a lot of them very close together.  To help combat this, the floor plan and grid windows zoom in when the user hovers
 them, making the points more spaced out and easier to select.  Furthermore, the contents of each window was scaled so that the
 points on the edges would be easier to select.  Figure \ref{fig:big_grid} shows the tool with the grid window enlarged.
 Unfortunately, it is still possible for points to be directly above one another and therefore hard to select.  Alternate methods
@@ -788,13 +798,13 @@ of displaying the grid have been considered to help combat this problem.
 
 One features that does not have an obvious UI elements associated with it is the ability to load shells that have been created
 elsewhere.  If an architect has designed a shell in a traditional architectural CAD tool such as Rhino or Google SketchUp, they
-can right-click in the floorplan window and select "Load input.obj" to load an exported mesh into the tool.  This allows users
+can right-click in the floor plan window and select "Load input.obj" to load an exported mesh into the tool.  This allows users
 to create a shell in an environment that they might be more comfortable in and import it into this tool so that the simulator
 can adjust the mesh to be more structurally stable.  The shell in Figure \ref{fig:triangle_mesh} was loaded in this way.  No
 restrictions are put on the shell to be imported, and the tool should be able to handle arbitrarily large or complex shells.
 Additionally, if the user creates an interesting shell in the tool, they can right-click to save it.  The current implementation
 of saving gives the file an automatically generated number to distinguish it from other saved files.  If the user would like to
-start over from the initial shell, right-clicking in the floorplan window and selecting "Reset" will give the user a clean shell
+start over from the initial shell, right-clicking in the floor plan window and selecting "Reset" will give the user a clean shell
 from which to begin creating again.
 
 \begin{figure}
@@ -805,10 +815,10 @@ from being semi-circular to catenary.}
 \end{figure}
 
 One issue with the flexibility of the interface is that it allows the user to create impossible structures.  For example,
-while the floorplan in Figure \ref{fig:highly_improbably} may look reasonable, when the connectivity of the shell is taken into
+while the floor plan in Figure \ref{fig:highly_improbably} may look reasonable, when the connectivity of the shell is taken into
 account it becomes apparent that the shell will be forced to intersect itself.  In Figure \ref{fig:inside_out_transient}, the
 user has instructed the shell to turn inside out.  It will comply with this and be stable once it has finished simulating, but
-its appearence as it goes to that state is a bit unusual.  Figure \ref{fig:tangle1} shows what happens when the user gives the
+its appearance as it goes to that state is a bit unusual.  Figure \ref{fig:tangle1} shows what happens when the user gives the
 shell instructions that are completely impossible to follow.  While these structures would probably be buildable, I am not sure
 whether or not they would in fact be stable.
 
@@ -840,9 +850,9 @@ design are absent in designs such as this.}
 
 \section{Summary}
 The user interface of this tool was designed with precision and flexibility in mind.  The viewing window has straightforward controls
-to view a shell from any angle, while the floorplan and grid windows allow the user to make changes to the shell.  The floorplan
+to view a shell from any angle, while the floor plan and grid windows allow the user to make changes to the shell.  The floor plan
 controls the fixed points and allows the user to attach lines and set them to bezier curves.  The grid allows the user to associate
-floorplan points with points in the mesh and disable points to create windows.  Other tools available to the user are loading and
+floor plan points with points in the mesh and disable points to create windows.  Other tools available to the user are loading and
 saving, resetting, and zooming the small windows.  Put together, these features make for a very flexible tool that allows users to
 create a wide variety of thin-shell structures.
 
@@ -850,7 +860,7 @@ create a wide variety of thin-shell structures.
 \chapter{USER STUDY}
 Since this is a tool designed for users who do not share the same background as me, it was evident that a user study would have to be
 conducted in order to get information on how useful the tool actually is.  In this section, I detail the process taken in designing
-the study, then give observations taken as the users used the tool as well as responses given on questionnaires afterwards.  The user
+the study, then give observations taken as the users used the tool as well as responses given on questionnaires afterward.  The user
 study was the part of this project during which I learned the most about designing a useful piece of software, and I am taking several
 lessons away from it.
 
@@ -877,7 +887,7 @@ question resulted in a good list of ideas that had not previously crossed my min
 asked users to describe structures they could not make in the software that they felt it should be able to make.  This gave
 me further ideas on how to improve the software by adding features that are capable of creating those types of structures.
 
-In the next section of the questionnaire, I wanted to determine the usefulness of my tool in relation to existing tools.  Towards
+In the next section of the questionnaire, I wanted to determine the usefulness of my tool in relation to existing tools.  Toward
 this end, I asked the users to rate my tool versus existing tools in a variety of architectural applications.  This gave me a
 better idea of how to market the tool to architects, as well as helping to direct my efforts in the development of the tool.
 From this input, I was able to gain a more accurate picture of how architects saw my tool, compare that with what I
@@ -898,43 +908,43 @@ should be added.  Mouse wheel scrolling is a common functionality that should no
 
 As he continued to use the software and get more comfortable with it, he noted that having left-click have an immediate action was not
 what he was used to. Most architectural software allows the user to select points with the left mouse button, then right-click to
-bring up the interaction menu.  Standardization would be a good idea.  This is especially true in the floorplan window, where
+bring up the interaction menu.  Standardization would be a good idea.  This is especially true in the floor plan window, where
 left-clicking places a new point, which is not what the user wants when they miss selecting a point by a few pixels.  On a related
 note, an undo feature would be very welcome.  While it would be less of an issue if accidental left-clicks did not create points,
 an undo feature would still help the user to revert changes, whether this reversion stems from error or indecision.
 
 Something that became very clear to me as User 1 continued to use the software is that the current implementation of the mesh
-interface is a bit clunky.  Firstly, when the user creates a new point in the floorplan view, the very next thing that is done is
+interface is a bit clunky.  Firstly, when the user creates a new point in the floor plan view, the very next thing that is done is
 usually to associate that point with a point in the mesh.  The mesh point chosen is usually the point in the mesh that is closest
-to the location of the floorplan point, as shown in Figure \ref{fig:closest_point}.  To save the user a step, new points
+to the location of the floor plan point, as shown in Figure \ref{fig:closest_point}.  To save the user a step, new points
 should automatically associate with the closest point in the mesh upon creation.
 
 \begin{figure}
 \resizebox{4in}{!}{\includegraphics{images/closest_point.png}}
-\caption[Association with the closest point]{This screenshot shows a shell after a point has been added in the floorplan and
+\caption[Association with the closest point]{This screenshot shows a shell after a point has been added in the floor plan and
 associated with the closest point in the mesh.}
 \label{fig:closest_point}
 \end{figure}
 
-Another problem with mesh association is the snapping of mesh points, shown in figure \ref{fig:snapping}.  Since the floorplan
+Another problem with mesh association is the snapping of mesh points, shown in figure \ref{fig:snapping}.  Since the floor plan
 point does not move when it is associated with a new mesh point, the mesh is forced to warp, sometimes drastically, to acquiesce
 to the user's request.  The snapping is not a problem in and of itself; in fact it is the intended and expected behavior of the
 tool.  The main problem with the snapping is that it surprises the user when it happens.  Having a less immediate interface would
-help fix this.  Rather than left-click immediately associating the floorplan point with a mesh point, it should select the mesh
-point, allowing the user to see which point on the mesh he was about to associate with a floorplan point.  He could then
-associate the two via a right-click menu, which is a more natural workflow.  It also gives the architect finer control, allowing
+help fix this.  Rather than left-click immediately associating the floor plan point with a mesh point, it should select the mesh
+point, allowing the user to see which point on the mesh he was about to associate with a floor plan point.  He could then
+associate the two via a right-click menu, which is a more natural work flow.  It also gives the architect finer control, allowing
 them to have more information before making a change to the model.
 
 \begin{figure}
 \resizebox{4in}{!}{\includegraphics{images/snapping.png}}
 \caption[Snapping]{This screenshot shows how the mesh is suddenly deformed when a mesh point is associated with a faraway
-floorplan point.}
+floor plan point.}
 \label{fig:snapping}
 \end{figure}
 
-A workflow pattern that I noticed is that User 1 tended to start with an idea in mind of what he wanted to create.  Once that was made,
+A work flow pattern that I noticed is that User 1 tended to start with an idea in mind of what he wanted to create.  Once that was made,
 he would look at it from a few angles, then change it.  If the simulation started to get tangled up or if he made a mis-click
-such that the model did something he was not expecting, he would continue to push it in that direction, ususally ending up in an
+such that the model did something he was not expecting, he would continue to push it in that direction, usually ending up in an
 inescapable oscillation which would either require the mesh to be reset or crash the program.  I am not sure what was so intriguing
 about the failures, but he seemed much more interested in them than in the successful structures.
 
@@ -947,8 +957,8 @@ finer detail than is currently possible.  By manually tightening and relaxing sp
 any shape the architect wants.  This could be implemented by allowing springs in the mesh view to be clickable and having a UI
 element to control their lengths.
 
-Several visualization options were discussed during the trial, foremost of which was the option to highlight the selected floorplan
-and/or grid point on the model.  This would make it much easier to orient the model to the floorplan and to keep one's bearings
+Several visualization options were discussed during the trial, foremost of which was the option to highlight the selected floor plan
+and/or grid point on the model.  This would make it much easier to orient the model to the floor plan and to keep one's bearings
 when looking at the model from various angles.  Another visualization option that was requested was the ability to pause and rewind
 the simulation of the model.  While rewinding is probably not feasible, pausing certainly is, though I am not certain that it is
 necessarily a good idea since a model is not stable until it reaches equilibrium.
@@ -956,7 +966,7 @@ necessarily a good idea since a model is not stable until it reaches equilibrium
 Several suggestions were also made with regards to audience and distribution.  User 1 suggested that this tool would work very well in
 a web-based medium, perhaps with the ability for users to save and share their designs.  This could be a fun tool with potential for
 collaboration.  In addition, it would be a great market to get a number of testers.  The downside to this, of course, is that this
-would require a complete re-write of the code, as C++ is not well-supported on the internet.
+would require a complete re-write of the code, as C++ is not well-supported on the Internet.
 
 \subsubsection{Questionnaire}
 In his questionnaire, User 1 commented that he really liked the ``parametric design possibilities" that made it easy to ``quickly compose
@@ -965,7 +975,7 @@ a visualization of materials and the ability to clearly see in the viewing windo
 that the tool cannot do easily that he was interested in making is ``structures with complex surface overlappings".
 
 User 1 felt that this tool would be most useful in the design and meeting phases of construction, but less useful when preparing
-designs to present to the client.  It best lends itself to inital concepts and optimization of design, but less to final design
+designs to present to the client.  It best lends itself to initial concepts and optimization of design, but less to final design
 development and presentation.
 
 \subsection{User 2}
@@ -975,7 +985,7 @@ tool's capabilities, using all the tool's features to make shells that were reas
 interested in simply using the tool than pushing it to its limit to find out exactly what it was capable of.
 
 \subsubsection{Questionnaire}
-User 2 thought that the way the floorplan and grid windows worked together was interesting and useful.  She felt it ``allowed for neat
+User 2 thought that the way the floor plan and grid windows worked together was interesting and useful.  She felt it ``allowed for neat
 designs to be created".  She also enjoyed the ability to create holes in the mesh.  User 2 felt that visualizations of material and
 thickness would be the most useful features, with more robust saving and loading and the option to change the height of points being
 a close second.  Like User 1, User 2 also felt that displaying the selected point in the viewing window would be very useful.  User 2
@@ -985,16 +995,16 @@ that it also has its uses at other points in the design process.
 \subsection{User 3}
 In his questionnaire, User 3 responded that he felt the tool provided an ``easy and intuitive way to quickly prototype and alter a
 shell".  He also enjoyed it's support of bezier curves.  Unlike the previous two users, he felt that being able to save and load
-shells more easily would be the most useful feature.  In addition, he requested a way to see which floorplan point was associated with
-a given point in the mesh rather than only being able to see which mesh point was associated with a floorplan point.  In addition, he
+shells more easily would be the most useful feature.  In addition, he requested a way to see which floor plan point was associated with
+a given point in the mesh rather than only being able to see which mesh point was associated with a floor plan point.  In addition, he
 requested the ability to change the lighting, as he found it hard to see the shell in some cases.
 
 \subsection{User 4}
 \subsubsection{Observations}
-While using the tool, user 4 commented that it would be helpful to have a border around the floorplan and grid windows so that the
-user was less likely to stray outside and inadvertently shrink the window.  The ability to disassociate floorplan points so that they
-have no effect on the mesh was also requested, as well as an ability to snap lines in the floorplan view to angles.  He also felt
-that it would be useful to be able to see all of the grid window when the floorplan window was enlarged and vice versa.  This would
+While using the tool, user 4 commented that it would be helpful to have a border around the floor plan and grid windows so that the
+user was less likely to stray outside and inadvertently shrink the window.  The ability to disassociate floor plan points so that they
+have no effect on the mesh was also requested, as well as an ability to snap lines in the floor plan view to angles.  He also felt
+that it would be useful to be able to see all of the grid window when the floor plan window was enlarged and vice versa.  This would
 require restructuring the layout of the interface, but could help the usability of the tool.  Also, the ability to move mesh points
 within the grid window was requested.
 
@@ -1021,8 +1031,8 @@ points.  She felt that this tool would be most useful in the design phase, as we
 \subsubsection{Observations}
 User 6 felt that the camera controls in the viewing window were unintuitive.  She expected left-click to have an effect of the
 structure and right-click to rotate the camera.  Also, the mouse wheel was expected to zoom.  She suggested the ability to
-connect arbitrary points in the floorplan view so that it was easier to attach lines wherever the user wanted.  This would
-require some restructuring of the floorplan structure, but would give the user a great deal of additional flexibility.
+connect arbitrary points in the floor plan view so that it was easier to attach lines wherever the user wanted.  This would
+require some restructuring of the floor plan structure, but would give the user a great deal of additional flexibility.
 
 \subsubsection{Questionnaire}
 In her questionnaire, User 6 stated that she found it ``very interesting to be able to watch the design shift as changes were made".
@@ -1047,7 +1057,7 @@ particularly not useful.  User 8 felt the tool could be greatly improved by the 
 He felt the tool was most useful in the design phases, but that it was quite useful throughout the design process.
 
 \subsection{User 9}
-User 9 found the zooming of the floorplan and grid windows to be a bit disorienting, since the user can be aiming for a point
+User 9 found the zooming of the floor plan and grid windows to be a bit disorienting, since the user can be aiming for a point
 only to have it move as they approach the window.  In his questionnaire, he stated that once the user gets used to the tool,
 it provides interesting methods of implementing designs.  He felt the learning curve was a bit steep, but had gotten used to
 the tool well within his 45 minutes working with it.  As many of the other users had, User 9 felt that the option to change
@@ -1060,7 +1070,7 @@ tool as a whole was most useful ``for ideation and conceptualizing thin shelled 
 Overall, the users seemed to like the tool.  They found it to be ``a good program to design different shapes and interesting
 structures" and useful ``for ideation and conceptualizing thin shelled structures".  They found the three-window design to be
 fairly intuitive and easy to use, as well as providing useful information in each window.  One element of the tool that
-several users found very interesting is the ability to watch the structure shift as points are moved in the floorplan view.
+several users found very interesting is the ability to watch the structure shift as points are moved in the floor plan view.
 This viewing of the transient stages of the simulation can help the users understand why the equilibrium state is stable.
 
 Overall, most users tended to find that the tool was most useful in the design phases, but that it had its uses in later
@@ -1074,9 +1084,9 @@ as well as the ways these shells can interact with non-thin-shell structures wou
 Many users also felt that a variety of visualizations would be useful and made comments to this effect.
 
 Users also made a number of suggestions for changes that I had not thought of implementing.  One change that was suggested
-by a number of users wat that the controls for the windows should be altered.  The primary alteration was that in the
-floorplan and grid windows, the left mouse button should select elements and the right mouse button should be used to
-perform actions on them.  This keeps the workflow consistent with existing software and uniform within the tool.  There
+by a number of users what that the controls for the windows should be altered.  The primary alteration was that in the
+floor plan and grid windows, the left mouse button should select elements and the right mouse button should be used to
+perform actions on them.  This keeps the work flow consistent with existing software and uniform within the tool.  There
 were also suggestions that the controls for the viewing window should be changed so that the right mouse button rotates
 and the mouse wheel zooms.
 
@@ -1160,39 +1170,39 @@ and suggestions for a variety of distribution methods are all detailed in this c
 When I originally wrote the cloth simulation code for this project, I was under the impression that implicit integration methods were
 too slow for use in an interactive project.  However, I recently happened upon the paper ``Comparing efficiency of integration methods
 for cloth simulation"\cite{volino01comparingefficiency}\nocite{volino00fastcloth}, which reports that a properly implemented implicit
-solver is as fast as, if not faster than, a midpoint explicit solver.  In addition to being nearly as fast per timestep, the implicit
-solver is also stable for considerably larger timesteps than can be comfortably used with the explicit solver.  With this new
+solver is as fast as, if not faster than, a midpoint explicit solver.  In addition to being nearly as fast per time step, the implicit
+solver is also stable for considerably larger time steps than can be comfortably used with the explicit solver.  With this new
 information in mind, I would very much like to replace the current cloth simulator with an implicit solver, as that will eliminate
 several of the issues I find fault with in the program.
 
 \subsection{Clicking}
-In the current implementation, left-clicking in the floorplan pane places a new point and left-clicking in the grid pane associates
+In the current implementation, left-clicking in the floor plan pane places a new point and left-clicking in the grid pane associates
 the currently selected point with the point that was clicked on.  Both of these behaviors are unexpected to many architects.
 Traditionally, architectural software has the pattern that left-clicking is only for selection and right-clicking is used to interact
 with selected objects.  Therefore, an interface change to improve the learning curve will be to alter the grid pane such that
-left-clicking selects a point and right-clicking brings up a menu with the options to associate/deassociate and disable/enable that
-point.  In the floorplan pane, left-clicking in empty space will deselect all points, and to create a new point the user must
+left-clicking selects a point and right-clicking brings up a menu with the options to associate/dissociate and disable/enable that
+point.  In the floor plan pane, left-clicking in empty space will deselect all points, and to create a new point the user must
 right-click and select the ``new point" option from the pop-up menu.
 
-A related issue is that the precision required to select points in both the floorplan and grid windows is a bit high.  Increasing
+A related issue is that the precision required to select points in both the floor plan and grid windows is a bit high.  Increasing
 the radius from which points can be selected will help the usability of the program, as it will result in fewer mis-clicks.
 
 The viewing window also has an unusual button layout.  Architects seemed to expect right-click and drag to rotate, while the mouse
 wheel was expected to zoom and middle click was not really used at all.  Panning would then be delegated to left-click.
 
-\subsection{Floorplan}
-One user pointed out that it would be helpful to be able to connect arbitrary points in the floorplan together so that arbitrary
+\subsection{Floor Plan}
+One user pointed out that it would be helpful to be able to connect arbitrary points in the floor plan together so that arbitrary
 lines could be attached.  Thinking further on this, I realized that it would make a lot more sense for newly created points to be
 unconnected.  This would allow the user to connect them with each other as desired and not give them preconceptions of what
-points should be connected.  Furthermore, it would prevent the current confusion that can arise from meaninless lines or the
+points should be connected.  Furthermore, it would prevent the current confusion that can arise from meaningless lines or the
 lack of meaningful lines.  For example, in figure \ref{fig:center_fixed}, the center point has no logical connection to the corners,
-but the floorplan view has lines connecting it to them.  It would make much more sense for the center point to not have lines
+but the floor plan view has lines connecting it to them.  It would make much more sense for the center point to not have lines
 connecting it to anything and for the line connecting the top-right point to the bottom-left point to remain in place.
 
 \begin{figure}
 \centering
 \includegraphics[width=4in]{images/center_fixed.png}
-\caption[A shell with the center fixed]{This image shows a shell with the center attached to the ground.  The floorplan view is
+\caption[A shell with the center fixed]{This image shows a shell with the center attached to the ground.  The floor plan view is
 not very representative of the structure's form, since the center is not logically associated with the corners.}
 \label{fig:compound_catenary}
 \end{figure}
@@ -1233,9 +1243,9 @@ and material properties of the materials present in their structures.
 
 \subsection{Grasshopper}
 One possible future for this project is as a plugin for the architectural CAD software Rhino\cite{rhino}.  Since architects
-have a somewhat cumbersome workflow as it is, adding an additional tool that requires importing and exporting their design
-is perhaps more than should be expected of them.  Towards this end, creating a plugin for software that is the primary part
-of their normal workflow would make the software much more accessible and useful.  Grasshopper\cite{grasshopper} is a tool
+have a somewhat cumbersome work flow as it is, adding an additional tool that requires importing and exporting their design
+is perhaps more than should be expected of them.  Toward this end, creating a plugin for software that is the primary part
+of their normal work flow would make the software much more accessible and useful.  Grasshopper\cite{grasshopper} is a tool
 that allows procedural creation of features within Rhino.  If a plugin were made in Grasshopper, architects could create a
 shell in the software that they would use to create it anyway, run a script on the model, and get the benefits of this
 software with the press of a button.  One major roadblock to this deployment method is that in order to create a Grasshopper
