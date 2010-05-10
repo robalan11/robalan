@@ -48,22 +48,26 @@
 \contentsline {subsection}{\numberline {5.3.8}User 8}{42}
 \contentsline {subsection}{\numberline {5.3.9}User 9}{42}
 \contentsline {section}{\numberline {5.4}Discussion}{43}
-\contentsline {section}{\numberline {5.5}Summary}{44}
-\contentsline {chapter}{\numberline {6.}FUTURE WORK}{45}
-\contentsline {section}{\numberline {6.1}Changes to existing features}{45}
-\contentsline {subsection}{\numberline {6.1.1}Cloth}{45}
-\contentsline {subsection}{\numberline {6.1.2}Clicking}{45}
-\contentsline {subsection}{\numberline {6.1.3}Floorplan}{46}
-\contentsline {subsection}{\numberline {6.1.4}Save/Open option}{46}
-\contentsline {subsection}{\numberline {6.1.5}Other}{46}
-\contentsline {section}{\numberline {6.2}Additional features}{46}
-\contentsline {subsection}{\numberline {6.2.1}Height change}{46}
-\contentsline {subsection}{\numberline {6.2.2}Visualizations}{46}
-\contentsline {subsection}{\numberline {6.2.3}Other}{47}
-\contentsline {section}{\numberline {6.3}Other possibilities}{47}
-\contentsline {subsection}{\numberline {6.3.1}Grasshopper}{47}
-\contentsline {subsection}{\numberline {6.3.2}Web application}{48}
-\contentsline {chapter}{\numberline {7.}CONCLUSIONS}{49}
-\contentsline {chapter}{LITERATURE CITED}{50}
+\contentsline {subsection}{\numberline {5.4.1}Noted Strengths}{43}
+\contentsline {subsection}{\numberline {5.4.2}Suggested Improvements}{43}
+\contentsline {subsection}{\numberline {5.4.3}Numerical Responses}{44}
+\contentsline {subsection}{\numberline {5.4.4}Conclusions}{45}
+\contentsline {section}{\numberline {5.5}Summary}{46}
+\contentsline {chapter}{\numberline {6.}FUTURE WORK}{47}
+\contentsline {section}{\numberline {6.1}Changes to existing features}{47}
+\contentsline {subsection}{\numberline {6.1.1}Cloth}{47}
+\contentsline {subsection}{\numberline {6.1.2}Clicking}{47}
+\contentsline {subsection}{\numberline {6.1.3}Floorplan}{48}
+\contentsline {subsection}{\numberline {6.1.4}Save/Open option}{48}
+\contentsline {subsection}{\numberline {6.1.5}Other}{48}
+\contentsline {section}{\numberline {6.2}Additional features}{48}
+\contentsline {subsection}{\numberline {6.2.1}Height change}{48}
+\contentsline {subsection}{\numberline {6.2.2}Visualizations}{48}
+\contentsline {subsection}{\numberline {6.2.3}Other}{49}
+\contentsline {section}{\numberline {6.3}Other possibilities}{49}
+\contentsline {subsection}{\numberline {6.3.1}Grasshopper}{49}
+\contentsline {subsection}{\numberline {6.3.2}Web application}{50}
+\contentsline {chapter}{\numberline {7.}CONCLUSIONS}{51}
+\contentsline {chapter}{LITERATURE CITED}{52}
 \parindent 0pt\vskip 12pt APPENDICES
-\contentsline {chapter}{\numberline {A.}QUESTIONNAIRE}{53}
+\contentsline {chapter}{\numberline {A.}QUESTIONNAIRE}{55}
