@@ -338,6 +338,13 @@ process.
 
 \clearpage
 \chapter{RELATED WORKS}
+There has been a lot of work done in the areas of procedural modeling of structures, cloth simulation, and
+architectural analysis and design.  These works were used to create the foundation for my tool, which takes
+elements of these different fields of study and combines them into a tool that is useful to architects and
+others for designing thin-shell structures.  In the following sections, I will discuss a number of works
+that have been written in the areas of procedural modeling and cloth simulation as well as several tools
+for structural analysis or catenary design.
+
 \section{Procedural Modeling}
 In ``Procedural Modeling of Strucutrally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
 the possibilities of creating existing or novel structures procedurally.  They began by creating a grammar
@@ -345,10 +352,10 @@ which can be used to construct masonry buildings.  Arches, buttresses, domes, an
 structural elements which are then combined in their software.  These grammar elements are assembled into
 a structure through a procedural algorithm which cuts windows in walls and assembles
 all the various masonry elements of the building.  Once the initial configuration is
-generated, the software runs static analysis on the building.  If it is feasibly stable, the program is
-done.  If not, the program determines a measure of infeasibility, which is a measure of how far away from
-stable a structure is.  The static analysis only allows for compressive forces, as the tensile strength of
-masonry elements is close to zero.  Friction is also modeled, allowing for some shear.  Once the measure
+generated, the software runs static analysis on the building.  The static analysis only allows for compressive
+forces, since the tensile strength of masonry is close to zero.  Friction is also modeled, allowing for shear
+forces.  If the structure is feasibly stable, the program is done.  If not, the program determines a measure
+of infeasibility, which is a measure of how far away from stable a structure is.  Once the measure
 of infeasibility is calculated, a parameter search is conducted iteratively, searching the parameter space
 for a stable configuration.  Depending on the application, this stable configuration will take into account
 a factor of safety.  The more likely a structure is to have changing loads, the higher a factor of
@@ -356,67 +363,92 @@ safety is needed.  For example, a bridge needs a higher factor of safety than a 
 that there is no feasible configuration for a structure, the least infeasible structure is returned and the
 user is required to add new structural elements.
 
-In ``Creating Models of Truss Structures with Optimization"\cite{Carnegie02creatingmodels}, Smith, Hodgins, Oppenheim, and Witkin propose
-a method of creating trusses procedurally.  This work allows the user to define several anchor points
-and loads for a truss, then have the software automatically generate a truss.  In this work, the risk
-of pieces falling apart is not an issue as it was in the previous paper.  The primary failure method
-in this case is buckling, since all forces are axial.  Therefore, the core of the algorithm is a
+The initial version of my software, discussed in Section \ref{sec:initial}, used static analysis like this
+research does.  The initial version was intended to analyze a structure that the user created in Google
+SketchUp\cite{sketchup} and alter the structure to make it more stable or cheaper to construct.  However,
+while SketchUp is an excellent tool and the Ruby scripting offers many possibilities, the combination of
+Ruby and SketchUp was not responsive or flexible enough for the tool I had hoped to create.
+
+In ``Creating Models of Truss Structures with Optimization"\cite{Carnegie02creatingmodels}, Smith, Hodgins,
+Oppenheim, and Witkin propose a method of creating trusses procedurally.  This work allows the user to define
+several anchor points and loads for a truss, then have the software automatically generate a truss.  In this
+work, the risk of pieces falling apart is not an issue as it was in the previous paper.  The primary failure
+method in this case is buckling, since all forces are axial.  Therefore, the core of the algorithm is a
 multivariable optimization with constraints.  The algorithm attempts iteratively to minimize weight
 while ensuring that none of the members will fail, either in tension or compression.
 
-My work had initially intended to go in this direction, using static analysis of structures within
-Google SketchUp.  However, SketchUp proved to be a poor environment for the program I wanted to write, so
-the project was moved to a standalone application and the focus shifted to thin-shell structures.  With this
-shift in focus, the simulation method shifted from static analysis of structures to dynamic simulation of
-structure using techniques from cloth simulation.  This simulation was designed to imitate the behavior of
-hanging chains or cloth.
+This work was also referenced while creating the original version of this tool.  The procedural generation
+of trusses and especially the optimization such that non-essential members were removed was very important
+to my goals of giving architects optimized structures that were stable and conserved material.  As stated
+above, this version of the tool was eventually discarded in favor of a standalone C++ tool which had the
+flexibility, speed, and power that was desired.
 
+\section{Hanging Chains}
 Hanging chains and cloth have been used by a number of architects in the design of structures.  In
-\underline{Finding Form}\cite{otto95findingform}, Frei Otto and Bodo Rasch discuss a number of natural inspirations of form, among which
+\underline{Finding Form}\cite{otto95findingform}, Otto and Rasch discuss a number of natural inspirations of form, among which
 is hanging chains.  They show that a naturally hanging square-mesh chain net will form the shape of
 traditional Asian roofs, while inverting chain nets suspended differently will yield the ideal structure
 for arches, domes, and vaults.  While this has been known for some time, it is comforting to see
 well-documented, carefully constructed pictures of these structures.  As was discussed in \ref{sec:catenary},
 Antoni Gaud\'{i} and Heinz Isler used thin-shell structures and hanging chains similar to those described in
-\underline{Finding Form} constantly as an integral part of their design processes.
-\nocite{charleson05structasarch}
+\underline{Finding Form} constantly as an integral part of their design processes. \nocite{charleson05structasarch}
+
+Hanging chains are the basis for the simulation used in this tool.  The work done by architects shows the ways these
+hanging chains can be used to create structures and provides inspiration for applications for which this tool will be
+used.  These applications led to the design and implementation of many of the features of this tool.
 
 \section{Cloth Simulation}
 Much work has been done in the field of cloth simulation.  In ``The Synthesis of Cloth
-Objects"\cite{weil86synthcloth}, Jerry Weil lays the groundwork for much of the future of cloth simulation.
+Objects"\cite{weil86synthcloth}, Weil lays the groundwork for much of the future of cloth simulation.
 Weil describes a method of surface generation that draws catenaries between points in order to approximate
 the surface of a hanging cloth, then iteratively relaxes the surface to more accurately represent a
 naturally draping piece of cloth.
 
 Further work on the simulation of elastic bodies was done by Terzopoulos, Platt, Barr, and Fleischer in
-"Elastically Deformable Models"\cite{terzopoulos87elastic}.  This paper yields results that are applicable
-much more generally than simply cloth simulation.  The elastic model that is created can be used for cloth,
+``Elastically Deformable Models"\cite{terzopoulos87elastic}.  This paper yields results that are applicable
+to situations other than simply cloth simulation.  The elastic model that is created can be used for cloth,
 solids, and other elastic manifolds.  By summing the internal strain energies and energies applied by
 external forces such as gravity or wind then integrating the resulting equations numerically, an animation
 of these deformable models can be created.
 
-These early examples of cloth simulation are expanded upon by Volino, Courchesne, and Thalmann in ``Versatile
+These initial methods for the simulation of cloth and other elastically deforming objects were very powerful
+for the time.  They provided the groundwork for future cloth simulations, and the concepts first used here
+are still the core of cloth simulations today.  Today's simulations are much faster, more accurate, and more
+stable than these early methods, but the impact of these cloth simulation pioneers should not be taken lightly.
+
+The early examples of cloth simulation are expanded upon by Volino, Courchesne, and Thalmann in ``Versatile
 and efficient techniques for simulating cloth and other deformable objects"\cite{volino95cloth}.  In this
 paper, the internal shear and bending strain energies and external forces are augmented by further collision
 energies, such as self-collision.  This algorithm is robust enough to simulate such complex situations as
 cloth tumbling in a dryer and a dress draping around a walking human.
 
 In ``Deformation constraints in a mass-spring model to describe rigid cloth behavior"\cite{provot95deformationconstraints},
-Xavier Provot describes a method for cloth simulation on which the simulation used in this thesis is based.
+Provot describes a method for cloth simulation on which the simulation used in this thesis is based.
 A cloth consisting of a mesh of masses and springs is subjected to external forces such as gravity.  These
 external forces are combined with internal spring forces to obtain the total force on each point.  However,
 this simulation method results in overstretching, the cloth behaving more like putty than cloth.  Therefore,
 Provot implements a correction step, wherein the points are brought closer together if they have stretched
-farther than some allowed amount.  This correction prevents the cloth from stretching farther than reality
-would allow.
+farther than some allowed amount.  This correction allows the simulation to impose a cap on how far elements
+are allowed to stretch.
+
+The simulation methods from \cite{volino95cloth} and \cite{provot95deformationconstraints} provide the basis
+for the simulation implemented in this tool.  While self-collision is not included within this tool, the
+other aspects of these simulations are implemented.  The calculation of internal energies, explicit
+integration method, and iterative correction are the essential components of the simulation used in this tool.
 
 Far more advanced cloth simulation methods have been developed more recently which are not implemented in
-this project but which are planned for future work.  In ``Large Steps in Cloth Simulation"\cite{baraff98largesteps},
+this project but which are could be undertaken in future work.  In ``Large Steps in Cloth Simulation"\cite{baraff98largesteps},
 Baraff and Witkin propose an implicit simulation method which is the basis for most modern cloth simulation.
 The same shear and bending forces used in the earlier methods, as well as gravity and other external forces
 are applied to the cloth, but instead of being explicitly integrated, an implicit integration method employing
 sparse matrices is employed.  The sparse matrix of equations resulting from the internal and external forces
 is solved using a modified Conjugate Gradients method that can operate on asymmetric systems.
+
+This simulation method was not implemented because while it can take large steps, these steps tend to take
+too long to calculate to be usable in an interactive tool.  However, as detailed in section \ref{subsec:changecloth},
+more recent advances have pushed this simulation method to a point where it as fast as the method implemented in
+the tool.  Therefore, future work on this tool could include replacing the current simulation method with one
+like the method detailed in this paper.
 
 \section{Other Software}
 There is a large variety of software available for structural analysis, architectural modeling, and even
@@ -427,20 +459,45 @@ the 1960s, NASTRAN is one of the most advanced finite element analysis packages 
 analyze both static and dynamic systems in a wide variety of failure modes, NASTRAN is the software
 of choice for analysis of parts and systems for any mechanical application.  While NASTRAN is very good
 at what it does, it gives information on a lower level than is relevant for most architectural applications.
-Furthermore, it is not a real-time application.
+For example, NASTRAN is used to determine the failure modes for a part of a mechanical system rather than
+a static structure.  Furthermore, it is not a real-time application, since analysis of a complex system can take
+hours to complete.
 
-Another piece of software that is relevant in architectural design is Dr. Frame 3D\cite{drframe}.  This
-software is more useful in architectural design than NASTRAN, as there is an interface for building frames and structures.
-Once constructed, the user can apply loads and see the resulting deformations, moments, and other relevant
-visualizations.  However, as with standard architectural CAD packages such as Rhino\cite{rhino} and
-AutoCAD Architecture\cite{autocad}, it is tedious to construct an accurate catenary, as there are no
-tools for easily creating an arbitrary stable shell.
+NASTRAN, while quite powerful and incredibly useful for what it is designed to do, is not suited for interactive
+design of a beam, let alone thin-shell structures.  We must look towards software that analyzes structures at a
+higher level to find further inspiration for this tool.
+
+A piece of software that is more relevant in architectural design is Dr. Frame 3D\cite{drframe}.  This
+software is more useful in architectural design than NASTRAN, as there is an interface for building frames
+and structures.  Once constructed, the user can apply loads and see the resulting deformations, moments,
+and other relevant visualizations.  This tool is very adept at constructing frames for traditionally
+designed houses, skyscrapers, bridges, and the like.  However, as with standard architectural CAD packages
+such as Rhino\cite{rhino} and AutoCAD Architecture\cite{autocad}, it is tedious to construct an accurate
+catenary since there are no tools for easily creating an arbitrary stable shell.
+
+The interactive nature of Dr. Frame makes it very appealing for designing structures.  It gives quick and
+accurate feedback about structures that are created within it as well as providing flexible tools for
+creating these structures.  Dr. Frame provided inspiration in the creation of my tool with its quick
+response and flexible interface, but the rigidity of the built structures were not what I wanted from
+my tool.
 
 One tool that is useful in creating arbitrary shell structures is CADenary\cite{cadenary}.  With this tool,
 users can attach endpoints of strings and sheets to points on a grid or points on existing strings and sheets.
 Interesting shells can be made, but once points are placed they are fixed, which is disadvantageous for
-iterative design.  In his paper ``Linking Hanging Chain Models to Fabrication"\cite{kilian05cadenary}, Axel Kilian
+iterative design.  In his paper ``Linking Hanging Chain Models to Fabrication"\cite{kilian05cadenary}, Kilian
 discusses his tool in finer detail, detailing its features and the design process behind it.
+
+This tool was not discovered until significant work had been done on my tool, but gave me ideas of things that
+could be done to improve my tool.  The ability to add arbitrary sheets and arches to the design is very appealing,
+but the fact that they are immovable once place is, as stated above, a large disadvantage for iterative design.
+The ability to move fixed points was a central concept of my tool from the very beginning, allowing the user
+as much flexibility as possible when creating their structure.
+
+\section{Summmary}
+Much work has been done in the areas of procedural structure generation, cloth simulation, and structural analysis.
+Relevant aspects of these works and tools have been used as inspiration in the creation of my tool.  Cloth simulation
+research formed the basis of my simulation backend, while a variety of tools provided guidance in UI design, feature
+selection, and layout.  Together, these works provided the groundwork upon which this tool was built.
 
 
 \chapter{SIMULATION ALGORITHM}
@@ -451,12 +508,24 @@ this tool.  In this section, I will discuss the data structures used to implemen
 that are applied to the data structures.  A discussion on the advantages and disadvantages of the selected algorithm
 is also included.
 
+\section{First Attempt}
+\label{sec:initial}
+In my first attempt at a thin-shell design tool, I used Ruby to create a plugin for Google SketchUp that would attempt to analyze
+a structure created in SketchUp and indicate which elements of the shell were under tension and which were under compression.
+However, the solution method I used in this plugin did not behave very well on most shells.  This is because the method I was
+using to solve the system of equations is not very well suited to sparse matrices.  I have since learned of more appropriate
+solving methods, but the method I used is what I was familiar with at the time.  After determining that the plugin was not
+very effective as it was, I decided to abandon the idea of a SketchUp plugin, as the Ruby interface was not as powerful as I had
+hoped it would be, nor was it fast enough to deliver the interactive experience I wanted from it.  Therefore, this design was
+scrapped in favor of a standalone C++ tool.
+
 \section{Data Structure}
-The primary data structure is the cloth object.  This object contains an array of points which are connected to each other through springs.
-Each point has a list of structural and shear springs that are connected to it.  These springs know what their resting length is and have
-a pointer to the point at the other end.  These springs exert forces on the points to which they are connected based on stiffness constants
-which are determined when the cloth is loaded.  The other attribute that points can have is the ``fixed" attribute.  Fixed points are
-attached to the ground and can be moved only by the user manipulating the points in the floorplan pane.
+The primary data structure of this tool is the cloth object.  This object contains an array of points which are connected to each
+other through springs. Each point has a list of structural and shear springs that are connected to it.  These springs know what
+their resting length is and have a pointer to the point at the other end.  These springs exert forces on the points to which they
+are connected based on stiffness constants which are determined when the cloth is loaded.  The other attribute that points can
+have is the ``fixed" attribute.  Fixed points are attached to the ground and can be moved only by the user manipulating the
+points in the floorplan pane.
 
 This data structure taken as a whole represents a discrete mesh, upon which a simulation can be run.  Figure \ref{fig:wireframe} shows
 the wireframe view of a model within the simulator.  The lines in the image are the springs connecting points, and each place where
@@ -1079,10 +1148,15 @@ useful.  User input is an invaluable resource when developing any tool.
 
 \chapter{FUTURE WORK}
 \label{chp:future}
+There is much work that can be done on this tool.  Some of the future work consists of features and improvements that I had considered
+while working on the tool, but others are suggestions from users which I had not even thought of.  While the tool is quite capable in
+its current state, there are many things that can be done to further improve it.  Changes to existing features, entirely new features,
+and suggestions for a variety of distribution methods are all detailed in this chapter.
 
 \section{Changes to existing features}
 
 \subsection{Cloth}
+\label{subsec:changecloth}
 When I originally wrote the cloth simulation code for this project, I was under the impression that implicit integration methods were
 too slow for use in an interactive project.  However, I recently happened upon the paper ``Comparing efficiency of integration methods
 for cloth simulation"\cite{volino01comparingefficiency}\nocite{volino00fastcloth}, which reports that a properly implemented implicit
@@ -1107,15 +1181,26 @@ The viewing window also has an unusual button layout.  Architects seemed to expe
 wheel was expected to zoom and middle click was not really used at all.  Panning would then be delegated to left-click.
 
 \subsection{Floorplan}
-Points start free, can be associated at will FINISH THIS
+One user pointed out that it would be helpful to be able to connect arbitrary points in the floorplan together so that arbitrary
+lines could be attached.  Thinking further on this, I realized that it would make a lot more sense for newly created points to be
+unconnected.  This would allow the user to connect them with each other as desired and not give them preconceptions of what
+points should be connected.  Furthermore, it would prevent the current confusion that can arise from meaninless lines or the
+lack of meaningful lines.  For example, in figure \ref{fig:center_fixed}, the center point has no logical connection to the corners,
+but the floorplan view has lines connecting it to them.  It would make much more sense for the center point to not have lines
+connecting it to anything and for the line connecting the top-right point to the bottom-left point to remain in place.
+
+\begin{figure}
+\centering
+\includegraphics[width=4in]{images/center_fixed.png}
+\caption[A shell with the center fixed]{This image shows a shell with the center attached to the ground.  The floorplan view is
+not very representative of the structure's form, since the center is not logically associated with the corners.}
+\label{fig:compound_catenary}
+\end{figure}
 
 \subsection{Save/Open option}
 There is a save option and an open option, but neither of them is really what it should be.  The save option saves automatically
 numbered files into an automatically generated folder, while the load option loads a hardcoded filename.  Both of these options
 should have a dialog box of some sort to allow the user some control over what is saved and loaded.
-
-\subsection{Other}
-I know there are other things I wanted to change; I'll fill this in later.
 
 \section{Additional features}
 
@@ -1138,26 +1223,25 @@ a great deal more weight.  The simulation does not currently differentiate betwe
 attribute would need to be added before this visualization could be implemented.
 
 One other visualization that could be added is a visualization of material.  The ability for a user to customize the material the
-structure is made of has a huge effect on the aesthetic of the structure.  Possible presets could include concrete, which would be
+structure is made of has a huge effect on the aesthetic of the structure.  In addition, different materials differ in mass,
+maximum load, and other physical properties.  Possible presets could include concrete, which would be
 rather similar to the current material; glass, which would require rendering of the lines and specularity on the faces, and wood,
 which would require a texture to be applied.  For further flexibility, the user could have direct control over the colors, textures,
 and material properties of the materials present in their structures.
 
-\subsection{Other}
-There are other features; I need to remember what they are (i.e. read questionnaires again)
-
 \section{Other possibilities}
 
 \subsection{Grasshopper}
-One possible future for this project is as a plugin for the architectural CAD software Rhino.  Since architects have a
-somewhat cumbersome workflow as it is, adding an additional tool that requires importing and exporting their design is
-perhaps more than should be expected of them.  Towards this end, creating a plugin for software that is the primary part
-of their normal workflow would make the software much more accessible and useful.  Grasshopper is a tool that allows procedural
-creation of features within Rhino.  If a plugin were made in Grasshopper, architects could create a shell in the software that
-they would use to create it anyway, run a script on the model, and get the benefits of this software with the press of a
-button.  One major roadblock to this deployment method is that in order to create a Grasshopper plugin, the software would
-need to be rewritten from scratch.  While the algorithms and UI design could probably be kept the same, a complete rewrite
-is still a major undertaking.
+One possible future for this project is as a plugin for the architectural CAD software Rhino\cite{rhino}.  Since architects
+have a somewhat cumbersome workflow as it is, adding an additional tool that requires importing and exporting their design
+is perhaps more than should be expected of them.  Towards this end, creating a plugin for software that is the primary part
+of their normal workflow would make the software much more accessible and useful.  Grasshopper\cite{grasshopper} is a tool
+that allows procedural creation of features within Rhino.  If a plugin were made in Grasshopper, architects could create a
+shell in the software that they would use to create it anyway, run a script on the model, and get the benefits of this
+software with the press of a button.  One major roadblock to this deployment method is that in order to create a Grasshopper
+plugin, the software would need to be rewritten from scratch.  While the algorithms and UI design could probably be kept the
+same, a complete rewrite is still a major undertaking.  In addition, I would have to ensure that the Grasshopper API is
+able to create a plugin that is as responsive and flexible as the current tool.
 
 \subsection{Web application}
 Another potential distribution method for this software is as a web application.  The advantage to the web platform is that the
@@ -1165,42 +1249,6 @@ user does not have to download anything, which makes it much more likely that an
 web is a great environment for collaboration.  With a properly designed app and website, a collaborative thin-shell structure
 community could be created where architects and artists can create structures, share them, comment, and collaborate in the
 design of interesting, stable structures.
-
-
-
-\chapter{CONCLUSIONS}
-Overall, this project was a success.  I created a tool that architects enjoyed using and learned a lot about architecture and
-software development in the process.
-
-Before starting on this project, I had a basic knowledge of architecture and statics, as well as a rudimentary definition of what
-a thin-shell structure is.  I had taken an architectural CAD class in high school, and have experience in both wood and cinderblock
-construction.  However, while the basic architecture knowledge was useful, none of it was particularly relevant in the wild world
-of thin shells.  Thin-shell structures tend to break all the traditional ``rules" of construction, supporting themselves through
-thin, flowing elements rather than the straight, rigid structural elements that are the hallmark of traditional construction.
-
-In my first attempt at a thin-shell design tool, I used Ruby to create a plugin for Google SketchUp that would attempt to analyze
-a structure created in SketchUp and indicate which elements of the shell were under tension and which were under compression.
-However, the solution method I used in this plugin did not behave very well on most shells.  This is because the method I was
-using to solve the system of equations is not very well suited to sparse matrices.  I have since learned of more appropriate
-solving methods, but the method I used is what I was familiar with at the time.  After determining that the plugin was not
-very effective as it was, I decided to abandon the idea of a SketchUp plugin, as the Ruby interface was not as powerful as I had
-hoped it would be, nor was it fast enough to deliver the interactive experience I wanted from it.  Therefore, this design was
-scrapped in favor of a standalone c++ tool.
-
-The development of this tool was the most valuable development experience I have had, as it gave me practical insight into some
-parts of software development I had never experienced before.  
-
-Secondly, I gained a great deal of practice using OpenGL and c++, as well as various tools.  Since I was designing this tool for
-Windows in order to have the largest potential market audience, the use of Visual Studio was recommended.  Since most of my
-previous c++ experience had been in Linux or Cygwin, it was quite a pleasant surprise to get to know all the powerful features
-that Visual Studio had to offer.  Another tool that proved invaluable in the creation of this tool is Very Sleepy, a performance
-profiler.  The ability to see what exactly a program is doing is very useful when trying to determine what is causing said
-program to slow down.
-
-While I had used OpenGL before, I had never dealt with multiple windows before.  This was an interesting challenge, since all
-three windows needed to be able to render the others at various times throughout the execution of the program.  This problem,
-along with the performance optimization required to make the simulation interactive and the challenge of creating a user
-interface from scratch taught me many practical lessons about c++ that will doubtlessly be useful on future projects.
 
 
 % The following produces a numbered bibliography where the numbers

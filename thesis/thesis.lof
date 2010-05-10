@@ -20,26 +20,27 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{11}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{11}
 \contentsline {figure}{\numberline {1.14}{\ignorespaces A hanging model used by Gaud\'{i}}}{12}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces A wireframe of a simulated model}}{18}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Detail of a wireframe of a simulated model}}{18}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Euler integration}}{21}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{21}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{21}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Simulation frames}}{22}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{22}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{22}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The tool}}{24}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Adding points}}{26}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces A barrel vault}}{27}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Flared shell}}{27}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Modified barrel vault}}{28}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Shell with windows}}{28}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Zoomed in grid}}{29}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces A loaded mesh}}{30}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Results of user error}}{31}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Transient error}}{32}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces A tangled mess}}{33}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Association with the closest point}}{37}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Snapping}}{37}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A wireframe of a simulated model}}{20}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Detail of a wireframe of a simulated model}}{21}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Euler integration}}{23}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{23}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{23}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Simulation frames}}{24}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{24}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{24}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{24}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{24}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The tool}}{26}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Adding points}}{28}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces A barrel vault}}{29}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Flared shell}}{29}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Modified barrel vault}}{30}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Shell with windows}}{30}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Zoomed in grid}}{31}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces A loaded mesh}}{32}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Results of user error}}{33}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Transient error}}{34}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces A tangled mess}}{35}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Association with the closest point}}{39}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Snapping}}{39}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces A shell with the center fixed}}{51}
