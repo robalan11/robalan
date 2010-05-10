@@ -901,9 +901,9 @@ development and presentation.
 
 \subsection{User 2}
 \subsubsection{Observations}
-User 2 broke the tool considerably less often than User 1 had.  She tended to make interesting shapes that were well within the tool's
-capabilities, using all the tool's features to make shells that were reasonable and useful.  It seemed that she was more interested in
-simply using the tool than pushing it to its limit to find out exactly what it was capable of.
+User 2 confused the tool considerably less often than User 1 had.  She tended to make interesting shapes that were well within the
+tool's capabilities, using all the tool's features to make shells that were reasonable and useful.  It seemed that she was more
+interested in simply using the tool than pushing it to its limit to find out exactly what it was capable of.
 
 \subsubsection{Questionnaire}
 User 2 thought that the way the floorplan and grid windows worked together was interesting and useful.  She felt it ``allowed for neat
@@ -987,6 +987,38 @@ tool as a whole was most useful ``for ideation and conceptualizing thin shelled 
 
 
 \section{Discussion}
+\subsection{Noted Strengths}
+Overall, the users seemed to like the tool.  They found it to be ``a good program to design different shapes and interesting
+structures" and useful ``for ideation and conceptualizing thin shelled structures".  They found the three-window design to be
+fairly intuitive and easy to use, as well as providing useful information in each window.  One element of the tool that
+several users found very interesting is the ability to watch the structure shift as points are moved in the floorplan view.
+This viewing of the transient stages of the simulation can help the users understand why the equilibrium state is stable.
+
+Overall, most users tended to find that the tool was most useful in the design phases, but that it had its uses in later
+phases of a project.  Some users thought that the tool would be more useful in meetings or when presenting designs to clients,
+but they also saw its usefulness in designing structures.
+
+\subsection{Suggested Improvements}
+The users had many suggestions for how to improve the tool.  In the questionnaire, the feature consistently ranked as most
+important and requested additionally was the ability to change the height of fixed points.  The variety of potential shells
+as well as the ways these shells can interact with non-thin-shell structures would be greatly improved by this feature.
+Many users also felt that a variety of visualizations would be useful and made comments to this effect.
+
+Users also made a number of suggestions for changes that I had not thought of implementing.  One change that was suggested
+by a number of users wat that the controls for the windows should be altered.  The primary alteration was that in the
+floorplan and grid windows, the left mouse button should select elements and the right mouse button should be used to
+perform actions on them.  This keeps the workflow consistent with existing software and uniform within the tool.  There
+were also suggestions that the controls for the viewing window should be changed so that the right mouse button rotates
+and the mouse wheel zooms.
+
+Visually, there were several things that users found lacking.  One user commented that a border around the expanding windows
+would help keep the user from allowing their mouse from straying outside and causing the window to shrink.  A few users
+commented that it would be helpful to be able to see which point was selected in the viewing window so that they could more
+easily orient themselves.  Visualization of materials was requested by some users even before they saw the question on the
+questionnaire.  In addition to materials, the ability to change lighting was put forward as another feature that would help
+users to more clearly visualize their structures.
+
+\subsection{Numerical Responses}
 \begin{table}
 \begin{center}
   \begin{tabular}{ | p{3in} | c | }
@@ -1024,6 +1056,7 @@ that the tool is most useful in the design stages of a project and less useful i
 to be interesting and useful, offering flexibility and possibilities for design.  While some users found issues with the tool,
 they all created interesting structures and had good suggestions on how to improve it.
 
+\subsection{Conclusions}
 One large realization I had while performing this user study is that I should have had other people look at the tool while it
 was still in its early stages.  While I have been and still am a fan of iterative design, I neglected to consult other people's
 input until very late in the project.  While I knew exactly how my tool worked, what I wanted out of it, and all its little
@@ -1032,14 +1065,20 @@ a number of issues were brought to my attention, some of which would have been v
 about them earlier in the life cycle of the tool.  Many of them are still easy to deal with, but more smaller user studies
 would probably have been more useful than the one larger user study.
 
+Regrets aside, this user study showed that this tool is a useful tool that is easy for architects and other users to use.  They
+had good things to say about it, made interesting structures, and seemed to enjoy using the tool.  They also had lots of excellent
+suggestions on how to improve the tool, which are detailed further in Chapter \ref{chp:future}.
+
 \section{Summary}
 In this chapter, I discussed the user study that was conducted as a part of this project.  Observations, suggestions, and
-questionnaire responses from the 9 users are detailed in this chapter, followed by a discussion of the overall results of the study.
+questionnaire responses from the 9 users were detailed in this chapter, followed by a discussion of the overall results of the study.
+Important conclusions and lessons learned from this study close out the chapter.
 As a whole, the users found the tool to be quite useful and provided a number of great ideas on how to improve it to be even more
-useful.
+useful.  User input is an invaluable resource when developing any tool.
 
 
 \chapter{FUTURE WORK}
+\label{chp:future}
 
 \section{Changes to existing features}
 
@@ -1049,7 +1088,7 @@ too slow for use in an interactive project.  However, I recently happened upon t
 for cloth simulation"\cite{volino01comparingefficiency}\nocite{volino00fastcloth}, which reports that a properly implemented implicit
 solver is as fast as, if not faster than, a midpoint explicit solver.  In addition to being nearly as fast per timestep, the implicit
 solver is also stable for considerably larger timesteps than can be comfortably used with the explicit solver.  With this new
-information in mind, I would very much like to replace the current cloth simulation with an implicit method, as that will eliminate
+information in mind, I would very much like to replace the current cloth simulator with an implicit solver, as that will eliminate
 several of the issues I find fault with in the program.
 
 \subsection{Clicking}
