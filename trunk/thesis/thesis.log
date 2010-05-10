@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  10 MAY 2010 16:41
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  10 MAY 2010 17:46
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -165,7 +165,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
  1.
 
-Overfull \hbox (36.31378pt too wide) in paragraph at lines 69--78
+Overfull \hbox (36.31378pt too wide) in paragraph at lines 79--88
 \OT1/cmr/m/n/12 in spec-tac-u-lar dis-as-ters such as those de-tailed and dis-c
 ussed in $[]$[[]].
  []
@@ -179,7 +179,7 @@ File: images/house.png Graphic file (type png)
 File: images/Bending.png Graphic file (type png)
  <use images/Bending.png>
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 118.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 128.
 
 [2] <images/isler_dome_1.jpg, id=43, 72.27pt x 48.14989pt>
 File: images/isler_dome_1.jpg Graphic file (type jpg)
@@ -250,7 +250,7 @@ File: images/sagrada_familia_nativity.jpg Graphic file (type jpg)
 File: images/sagrada_familia_columns.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_columns.jpg>
-Underfull \hbox (badness 5711) in paragraph at lines 296--296
+Underfull \hbox (badness 5711) in paragraph at lines 306--306
 \OT1/cmtt/m/n/12 / / en . wikipedia . org / wiki / File : Sagradafamilia-[]over
 view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
  []
@@ -259,13 +259,13 @@ view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
 File: images/gaudi_model.jpg Graphic file (type jpg)
 
 <use images/gaudi_model.jpg>
-Underfull \hbox (badness 1789) in paragraph at lines 307--307
+Underfull \hbox (badness 1789) in paragraph at lines 317--317
 \OT1/cmr/bx/n/12 build-ing. The strings hold-ing them to-gether are the nec-es-
 sary
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 307--307
+Underfull \hbox (badness 1199) in paragraph at lines 317--317
 \OT1/cmr/bx/n/12 up the build-ing. ``Hang-ing model", An-toni Gaud, photo tak
 en
  []
@@ -312,7 +312,7 @@ File: images/simframe1.png Graphic file (type png)
 File: images/simframe2.png Graphic file (type png)
 
 <use images/simframe2.png>
-Overfull \hbox (22.89395pt too wide) in paragraph at lines 633--637
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 643--647
  [][][] 
  []
 
@@ -324,7 +324,7 @@ File: images/simframe3.png Graphic file (type png)
 File: images/simframe4.png Graphic file (type png)
 
 <use images/simframe4.png>
-Overfull \hbox (22.89395pt too wide) in paragraph at lines 641--648
+Overfull \hbox (22.89395pt too wide) in paragraph at lines 651--658
  [][][] 
  []
 
@@ -412,7 +412,7 @@ ol/repository/thesis/images/snapping.png (PNG copy)>] [40] [41] [42] [43]
 ]
 
 LaTeX Warning: Reference `fig:center_fixed' on page 50 undefined on input line 
-1188.
+1198.
 
 <images/center_fixed.png, id=240, 1220.56pt x 839.135pt>
 File: images/center_fixed.png Graphic file (type png)
@@ -425,34 +425,34 @@ pository/thesis/images/center_fixed.png (PNG copy)>] [52] [53]
 [55]
 APPENDIX A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1285
 
  []
 
 [56
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1305--1317
+Underfull \hbox (badness 10000) in paragraph at lines 1315--1327
 
  []
 
 [57] [58]
-Overfull \hbox (25.30693pt too wide) in paragraph at lines 1399--1407
+Overfull \hbox (25.30693pt too wide) in paragraph at lines 1409--1417
 [][]\OT1/cmtt/m/n/12 ____   []
  []
 
 [59] [60]
-Underfull \hbox (badness 10000) in paragraph at lines 1469--1470
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1473--1479
+Underfull \hbox (badness 10000) in paragraph at lines 1483--1489
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1481--1498
+Underfull \hbox (badness 10000) in paragraph at lines 1491--1508
 
  []
 
@@ -481,7 +481,7 @@ nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1
 msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmti12.
 pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (70 pages, 4404919 bytes).
+Output written on thesis.pdf (70 pages, 4405980 bytes).
 PDF statistics:
  313 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
