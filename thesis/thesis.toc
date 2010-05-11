@@ -5,69 +5,70 @@
 \contentsline {chapter}{\numberline {1.}INTRODUCTION}{1}
 \contentsline {section}{\numberline {1.1}Thin Shell Structures}{2}
 \contentsline {subsection}{\numberline {1.1.1}Overview}{2}
-\contentsline {subsection}{\numberline {1.1.2}Structural Stability}{6}
+\contentsline {subsection}{\numberline {1.1.2}Structural Stability}{4}
 \contentsline {subsection}{\numberline {1.1.3}Catenary}{6}
-\contentsline {section}{\numberline {1.2}Overview}{11}
-\contentsline {chapter}{\numberline {2.}RELATED WORKS}{13}
-\contentsline {section}{\numberline {2.1}Procedural Modeling}{13}
-\contentsline {section}{\numberline {2.2}Hanging Chains}{14}
-\contentsline {section}{\numberline {2.3}Cloth Simulation}{15}
-\contentsline {section}{\numberline {2.4}Other Software}{17}
-\contentsline {section}{\numberline {2.5}Summary}{18}
-\contentsline {chapter}{\numberline {3.}SIMULATION ALGORITHM}{19}
-\contentsline {section}{\numberline {3.1}First Attempt}{19}
-\contentsline {section}{\numberline {3.2}Data Structure}{19}
-\contentsline {section}{\numberline {3.3}Algorithm}{21}
-\contentsline {section}{\numberline {3.4}Discussion}{24}
-\contentsline {section}{\numberline {3.5}Summary}{25}
-\contentsline {chapter}{\numberline {4.}USER INTERFACE}{26}
-\contentsline {section}{\numberline {4.1}Viewing Window}{27}
-\contentsline {section}{\numberline {4.2}Floor Plan Window}{27}
-\contentsline {section}{\numberline {4.3}Grid Window}{28}
-\contentsline {section}{\numberline {4.4}Other Features}{31}
-\contentsline {section}{\numberline {4.5}Summary}{33}
-\contentsline {chapter}{\numberline {5.}USER STUDY}{36}
-\contentsline {section}{\numberline {5.1}Design of the Study}{36}
-\contentsline {section}{\numberline {5.2}The Questionnaire}{37}
-\contentsline {section}{\numberline {5.3}The Users}{37}
-\contentsline {subsection}{\numberline {5.3.1}User 1}{38}
-\contentsline {subsubsection}{\numberline {5.3.1.1}Interface Observations}{38}
-\contentsline {subsubsection}{\numberline {5.3.1.2}Feature Requests}{40}
-\contentsline {subsubsection}{\numberline {5.3.1.3}Questionnaire}{41}
-\contentsline {subsection}{\numberline {5.3.2}User 2}{41}
-\contentsline {subsubsection}{\numberline {5.3.2.1}Observations}{41}
-\contentsline {subsubsection}{\numberline {5.3.2.2}Questionnaire}{41}
-\contentsline {subsection}{\numberline {5.3.3}User 3}{42}
-\contentsline {subsection}{\numberline {5.3.4}User 4}{42}
-\contentsline {subsubsection}{\numberline {5.3.4.1}Observations}{42}
-\contentsline {subsubsection}{\numberline {5.3.4.2}Questionnaire}{42}
-\contentsline {subsection}{\numberline {5.3.5}User 5}{43}
-\contentsline {subsubsection}{\numberline {5.3.5.1}Observations}{43}
-\contentsline {subsubsection}{\numberline {5.3.5.2}Questionnaire}{43}
-\contentsline {subsection}{\numberline {5.3.6}User 6}{43}
-\contentsline {subsubsection}{\numberline {5.3.6.1}Observations}{43}
-\contentsline {subsubsection}{\numberline {5.3.6.2}Questionnaire}{43}
-\contentsline {subsection}{\numberline {5.3.7}User 7}{44}
-\contentsline {subsection}{\numberline {5.3.8}User 8}{44}
-\contentsline {subsection}{\numberline {5.3.9}User 9}{44}
-\contentsline {section}{\numberline {5.4}Discussion}{45}
-\contentsline {subsection}{\numberline {5.4.1}Noted Strengths}{45}
-\contentsline {subsection}{\numberline {5.4.2}Suggested Improvements}{45}
-\contentsline {subsection}{\numberline {5.4.3}Numerical Responses}{46}
-\contentsline {subsection}{\numberline {5.4.4}Conclusions}{47}
-\contentsline {section}{\numberline {5.5}Summary}{48}
-\contentsline {chapter}{\numberline {6.}FUTURE WORK}{49}
-\contentsline {section}{\numberline {6.1}Changes to existing features}{49}
-\contentsline {subsection}{\numberline {6.1.1}Cloth}{49}
-\contentsline {subsection}{\numberline {6.1.2}Clicking}{49}
-\contentsline {subsection}{\numberline {6.1.3}Floor Plan}{50}
-\contentsline {subsection}{\numberline {6.1.4}Save/Open option}{50}
-\contentsline {section}{\numberline {6.2}Additional features}{51}
-\contentsline {subsection}{\numberline {6.2.1}Height change}{51}
-\contentsline {subsection}{\numberline {6.2.2}Visualizations}{51}
-\contentsline {section}{\numberline {6.3}Other possibilities}{52}
-\contentsline {subsection}{\numberline {6.3.1}Grasshopper}{52}
-\contentsline {subsection}{\numberline {6.3.2}Web application}{53}
-\contentsline {chapter}{LITERATURE CITED}{53}
+\contentsline {section}{\numberline {1.2}Overview}{10}
+\contentsline {chapter}{\numberline {2.}RELATED WORKS}{14}
+\contentsline {section}{\numberline {2.1}Procedural Modeling}{14}
+\contentsline {section}{\numberline {2.2}Hanging Chains}{15}
+\contentsline {section}{\numberline {2.3}Cloth Simulation}{16}
+\contentsline {section}{\numberline {2.4}Other Software}{18}
+\contentsline {section}{\numberline {2.5}Summary}{19}
+\contentsline {chapter}{\numberline {3.}SIMULATION ALGORITHM}{20}
+\contentsline {section}{\numberline {3.1}First Attempt}{20}
+\contentsline {section}{\numberline {3.2}Data Structure}{20}
+\contentsline {section}{\numberline {3.3}Algorithm}{22}
+\contentsline {section}{\numberline {3.4}Discussion}{25}
+\contentsline {section}{\numberline {3.5}Summary}{26}
+\contentsline {chapter}{\numberline {4.}USER INTERFACE}{28}
+\contentsline {section}{\numberline {4.1}Viewing Window}{29}
+\contentsline {section}{\numberline {4.2}Floor Plan Window}{29}
+\contentsline {section}{\numberline {4.3}Grid Window}{30}
+\contentsline {section}{\numberline {4.4}Other Features}{33}
+\contentsline {section}{\numberline {4.5}Summary}{35}
+\contentsline {chapter}{\numberline {5.}USER STUDY}{38}
+\contentsline {section}{\numberline {5.1}Design of the Study}{38}
+\contentsline {section}{\numberline {5.2}The Questionnaire}{39}
+\contentsline {section}{\numberline {5.3}The Users}{39}
+\contentsline {subsection}{\numberline {5.3.1}User 1}{40}
+\contentsline {subsubsection}{\numberline {5.3.1.1}Interface Observations}{40}
+\contentsline {subsubsection}{\numberline {5.3.1.2}Feature Requests}{42}
+\contentsline {subsubsection}{\numberline {5.3.1.3}Questionnaire}{43}
+\contentsline {subsection}{\numberline {5.3.2}User 2}{43}
+\contentsline {subsubsection}{\numberline {5.3.2.1}Observations}{43}
+\contentsline {subsubsection}{\numberline {5.3.2.2}Questionnaire}{43}
+\contentsline {subsection}{\numberline {5.3.3}User 3}{44}
+\contentsline {subsection}{\numberline {5.3.4}User 4}{44}
+\contentsline {subsubsection}{\numberline {5.3.4.1}Observations}{44}
+\contentsline {subsubsection}{\numberline {5.3.4.2}Questionnaire}{44}
+\contentsline {subsection}{\numberline {5.3.5}User 5}{45}
+\contentsline {subsubsection}{\numberline {5.3.5.1}Observations}{45}
+\contentsline {subsubsection}{\numberline {5.3.5.2}Questionnaire}{45}
+\contentsline {subsection}{\numberline {5.3.6}User 6}{45}
+\contentsline {subsubsection}{\numberline {5.3.6.1}Observations}{45}
+\contentsline {subsubsection}{\numberline {5.3.6.2}Questionnaire}{45}
+\contentsline {subsection}{\numberline {5.3.7}User 7}{46}
+\contentsline {subsection}{\numberline {5.3.8}User 8}{46}
+\contentsline {subsection}{\numberline {5.3.9}User 9}{46}
+\contentsline {section}{\numberline {5.4}Discussion}{47}
+\contentsline {subsection}{\numberline {5.4.1}Noted Strengths}{47}
+\contentsline {subsection}{\numberline {5.4.2}Suggested Improvements}{47}
+\contentsline {subsection}{\numberline {5.4.3}Numerical Responses}{48}
+\contentsline {subsection}{\numberline {5.4.4}Conclusions}{49}
+\contentsline {section}{\numberline {5.5}Summary}{50}
+\contentsline {chapter}{\numberline {6.}FUTURE WORK}{51}
+\contentsline {section}{\numberline {6.1}Changes to existing features}{51}
+\contentsline {subsection}{\numberline {6.1.1}Cloth}{51}
+\contentsline {subsection}{\numberline {6.1.2}Clicking}{51}
+\contentsline {subsection}{\numberline {6.1.3}Floor Plan}{52}
+\contentsline {subsection}{\numberline {6.1.4}Save/Open option}{52}
+\contentsline {section}{\numberline {6.2}Additional features}{53}
+\contentsline {subsection}{\numberline {6.2.1}Height change}{53}
+\contentsline {subsection}{\numberline {6.2.2}Visualizations}{53}
+\contentsline {section}{\numberline {6.3}Other possibilities}{54}
+\contentsline {subsection}{\numberline {6.3.1}Grasshopper}{54}
+\contentsline {subsection}{\numberline {6.3.2}Web application}{55}
+\contentsline {chapter}{\numberline {7.}CONCLUSION}{56}
+\contentsline {chapter}{LITERATURE CITED}{56}
 \parindent 0pt\vskip 12pt APPENDICES
-\contentsline {chapter}{\numberline {A.}QUESTIONNAIRE}{56}
+\contentsline {chapter}{\numberline {A.}QUESTIONNAIRE}{59}
