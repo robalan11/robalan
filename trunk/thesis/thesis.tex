@@ -58,26 +58,26 @@ The back end is designed to be quick and efficient, allowing the user to design 
 A major part of this project was the conducting of a user study.  This user study was essential to the project because it gave feedback from
 the users for whom the tool was designed.  This feedback is essential because while a tool can be designed and refined indefinitely, these
 revisions are meaningless if they are not useful to the users.  Obtaining feedback from users verified that the tool is useful to real users
-and provided many suggestions for improvements and additions.  Some of these features had been thought of previously, but others were
-completely new.
+and provided many suggestions for improvements and additions.  Some of these features had already been planned for future implementation, but
+others were completely new suggestions.
 
 \chapter{INTRODUCTION} \label{chp:introduction}
 
 The goal of this project was to create a tool to aid architects in designing thin-shell structures.  Thin-shell structures can be used in
 buildings to save materials, create an open space, or simply for the aesthetic of a smoothly curving shell.  In addition to being beautiful
 and materials-friendly, thin-shell structures are also incredibly structurally efficient.  Some thin-shell structures feature shells as thin
-as 4 centimeters, yet stand up with nearly no required maintenance for many years.  This structural efficiency is one of the most valuable
+as four centimeters, yet stand up with nearly no required maintenance for many years.  This structural efficiency is one of the most valuable
 characteristics of thin-shell structures.
 
 Structural efficiency is a very important element of construction.  With traditional construction methods, this tends not to be an issue, since
 the tried-and-true construction conventions will keep a building standing.  Houses, for example, have been built using the same structural
-conventions for years and do not require any advanced structural analysis.  Walls are constructed with studs every 16 inches, and the house
+conventions for years and do not require any advanced structural analysis.  Walls are constructed with studs every sixteen inches, and the house
 stands up.  Even in non-residential structures, the studded or cinder-block walls convention tends to be followed.  However, when creating
 buildings that fall outside the norm of studded walls, cinder block construction, and other such traditional methods, more complex analysis
 tools are necessary.
 
 Insufficient analysis of the elements used in constructing a building can result in spectacular disasters such as those
-detailed and discussed in \underline{Why Buildings Fall Down}\cite{levy92falldown}.  For example, the C.W. Post Dome covering a theater on the
+detailed and discussed in \underline{Why Buildings Fall} \underline{Down}\cite{levy92falldown}.  For example, the C.W. Post Dome covering a theater on the
 campus of C.W. Post College collapsed suddenly under a load of snow much lower than the dome had been built to withstand.  While the dome had
 stood up under loads much larger than the one under which it collapsed, the uneven loading of this particular load put undue stress on part
 of the dome, leading to a localized instability which spread to cause the whole dome to collapse.  Another famous collapsing structure whose
@@ -102,7 +102,7 @@ up for thousands of years, as some of the building in Mario Salvadori's \underli
 \subsection{Overview}
 A thin shell structure is a structure which has a small thickness compared to its other dimensions.  While this may seem to be
 an obvious definition, the design and construction of these structures can be complicated.  In traditional construction, load-bearing
-members are flat, carrying forces straight through themselves.  A simplified 2D representation of the load-bearing elements of a house
+members are flat, carrying forces straight through themselves.  A simplified two-dimensional representation of the load-bearing elements of a house
 can be seen in Figure \ref{fig:house}.  Larger buildings which are constructed using traditional techniques use very similar techniques
 as those used in Figure \ref{fig:house}, employing vertical members and cross-pieces to support the weight of the building.  One
 consideration for larger buildings is that large rooms will have large unsupported expanses of floor.  Beams which are loaded transversely
@@ -333,6 +333,13 @@ the modern architecture world.  Fortunately, both hanging chains and cloth are r
 allow these designs to be rapidly prototyped, tweaked, and refined on the computer.
 
 \section{Overview}
+This problem is an interesting one and quite appealing due to my mechanical engineering background.  It
+was quite rewarding to be able to apply both of my areas of study in one project.  Furthermore, thin-shell
+structures are fascinating and their applications are numerous.  Regardless of the particular application,
+thin-shell structures are beautiful and impressive feats of engineering.  Hopefully, this tool will make
+their design easier so that more can be constructed.
+
+The design, implementation, and testing of this tool will be described as follows.
 In chapter two, I will discuss a number of related works and their influence on this project.  Papers on
 procedural structure generation and cloth simulation are discussed, along with structural analysis software.
 Chapter three contains a description of the simulation algorithm used in this tool.  Advantages and
@@ -357,7 +364,8 @@ for structural analysis or catenary design.
 
 \section{Procedural Modeling}
 In ``Procedural Modeling of Structurally-Sound Masonry Buildings"\cite{whiting:2009}, Whiting, Ochsendorf, and Durand explore
-the possibilities of creating existing or novel structures procedurally.  They began by creating a grammar
+the possibilities of creating existing or novel structures procedurally.  That is, by using algorithms or
+sets of rules to create the structures rather than creating them by hand.  They began by creating a grammar
 which can be used to construct masonry buildings.  Arches, buttresses, domes, and vaults are some of the
 structural elements which are then combined in their software.  These grammar elements are assembled into
 a structure through a procedural algorithm which cuts windows in walls and assembles
@@ -373,24 +381,24 @@ safety is needed.  For example, a bridge needs a higher factor of safety than a 
 that there is no feasible configuration for a structure, the least infeasible structure is returned and the
 user is required to add new structural elements.
 
-The initial version of my software, discussed in Section \ref{sec:initial}, used static analysis like this
-research does.  The initial version was intended to analyze a structure that the user created in Google
+The initial version of my software, discussed in Section \ref{sec:initial}, used static analysis as was done
+in this paper.  The initial version was intended to analyze a structure that the user created in Google
 SketchUp\cite{sketchup} and alter the structure to make it more stable or cheaper to construct.  However,
 while SketchUp is an excellent tool and the Ruby scripting offers many possibilities, the combination of
 Ruby and SketchUp was not responsive or flexible enough for the tool I had hoped to create.
 
 In ``Creating Models of Truss Structures with Optimization"\cite{Carnegie02creatingmodels}, Smith, Hodgins,
-Oppenheim, and Witkin propose a method of creating trusses procedurally.  This work allows the user to define
-several anchor points and loads for a truss, then have the software automatically generate a truss.  In this
-work, the risk of pieces falling apart is not an issue as it was in the previous paper.  The primary failure
+Oppenheim, and Witkin propose a method of creating trusses procedurally.  The tool described in this paper allows the user to define
+several anchor points and loads for a truss, then have the software automatically generate a truss.  In \cite{Carnegie02creatingmodels},
+the risk of pieces falling apart is not an issue as it was in the previous paper.  The primary failure
 method in this case is buckling, since all forces are axial.  Therefore, the core of the algorithm is a
 multivariable optimization with constraints.  The algorithm attempts iteratively to minimize weight
 while ensuring that none of the members will fail, either in tension or compression.
 
-This work was also referenced while creating the original version of this tool.  The procedural generation
+This paper was also referenced while creating the original version of my tool.  The procedural generation
 of trusses and especially the optimization such that non-essential members were removed was very important
 to my goals of giving architects optimized structures that were stable and conserved material.  As stated
-above, this version of the tool was eventually discarded in favor of a standalone C++ tool which had the
+above, this early version of my tool was eventually discarded in favor of a standalone C++ tool which had the
 flexibility, speed, and power that was desired.
 
 \section{Hanging Chains}
@@ -520,7 +528,7 @@ is also included.
 
 \section{First Attempt}
 \label{sec:initial}
-In my first attempt at a thin-shell design tool, I used Ruby to create a plugin for Google SketchUp that would attempt to analyze
+In my first attempt at a thin-shell design tool, I used Ruby to create a plugin for Google SketchUp\cite{sketchup} that would attempt to analyze
 a structure created in SketchUp and indicate which elements of the shell were under tension and which were under compression.
 However, the solution method I used in this plugin did not behave very well on most shells.  This is because the method I was
 using to solve the system of equations is not very well suited to sparse matrices.  I have since learned of more appropriate
@@ -539,7 +547,7 @@ points in the floor plan pane.
 
 This data structure taken as a whole represents a discrete mesh, upon which a simulation can be run.  Figure \ref{fig:wireframe} shows
 the wireframe view of a model within the simulator.  The lines in the image are the springs connecting points, and each place where
-the points meet is a discrete mass.  Each point has both structural and shear springs coming from it, and the forces applied by these
+the springs meet is a discrete mass.  Each point has both structural and shear springs coming from it, and the forces applied by these
 springs together with the force of gravity give the shell its stable shape.  In Figure \ref{fig:wireframe_detail}, the forces acting on
 a point are annotated.  The green arrow represents gravity, the red arrows mark the structural springs, and the blue arrows mark the
 shear springs.  It may seem curious that gravity is applying a force in the upward direction, but the reason for this is to make the
@@ -568,7 +576,7 @@ shear forces.}
 \end{figure}
 
 \section{Algorithm}
-The algorithm which was to be applied to this cloth structure needed to be quick enough to maintain a high frame rate, but robust enough
+The algorithm that was to be applied to this cloth structure needed to be quick enough to maintain a high frame rate, but robust enough
 that reasonable time steps could be taken in order to reach an equilibrium where all the forces cancel each other out quickly.
 Furthermore, it needed to be able to find an equilibrium without becoming unstable and degenerating into a chaotic mess.  The
 best candidate for an integration method that met all of these criteria is a second-order explicit Euler integration.  This
@@ -594,7 +602,7 @@ The end result is that a step is taken from the initial point in approximately t
 the midpoint of the step. This second-order integration method is much more stable, so much larger time steps can be taken with comparable
 accuracy, as shown in Figure \ref{fig:euler_integration}.
 
-A fourth-order Runge-Kutta system was created, but despite its stability, each step took too long for it to be useful in an interactive
+A fourth-order Runge-Kutta solver was implemented, but despite its stability, each step took too long for it to be useful in an interactive
 simulation.  The fourth-order Runge-Kutta method, commonly referred to simply as \emph{the} Runge-Kutta method, was developed around 1900
 by Runge and Kutta.  It can be expanded to any order, but the fourth-order version is the most commonly used.  In order to take a step
 using the Runge-Kutta method, four slopes must be calculated.  $k_1$ is the slope at the initial point, $k_2$ is the slope at the midpoint,
@@ -687,7 +695,12 @@ implicit solver can theoretically operate with arbitrarily large time steps, the
 the time step used in the current simulation is large enough that the user does not grow impatient waiting for the structure to reach
 equilibrium, nor is it short enough that the user cannot react to the motion of the shell.  An ancillary disadvantage to the
 explicit solver is the necessity of correction methods to prevent over-stretching.  However, this disadvantage is again offset by the
-fact that even with the correction methods, the explicit solver is faster than an implicit solver.
+fact that even with the correction methods, the explicit solver is faster per timestep than an implicit solver.
+
+Baraff and Witkin\cite{baraff98largesteps} state that for most cloth simulation, the implicit solver ends up being faster than an
+explicit one in the end because much larger steps can be taken.  However, for this project it was suspected that the longer steps
+would cause a very low framerate and thus a less useful tool.  The implementation and comparison of these different methods was
+beyond the scope of this thesis and left for potential future work.
 
 \section{Summary}
 The back end of this tool consists of a cloth data structure, to which a midpoint method solver is applied.  This solver is much more
@@ -732,11 +745,11 @@ implemented.  This makes it very easy to add new points to the floor plan.  Figu
 have been added.  If the user wants to have a line of points attached to the ground rather than a single point in order to create
 a wall or otherwise block off a portion of the shell, it can be tedious to add a point and place it correctly for every point along
 the line.  Therefore, another feature in the floor plan view is the ability to attach a line between two points by right-clicking on
-the line and selecting "Attach".  If they change their mind, a line can be freed by right-clicking on it and selecting "Detach".
-Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  Lines can also be converted into a bezier curve to give
+the line and selecting ``Attach".  If they change their mind, a line can be freed by right-clicking on it and selecting ``Detach".
+Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  Lines can also be converted into a Bezier curve to give
 the user additional flexibility in designing their structure, as seen in Figures \ref{fig:thing_with_wings} and
-\ref{fig:countercurve}.  Conversion from line to bezier is done by right-clicking on the line and selecting "Set Bezier".  To
-convert back into a line, the user can right-click on the bezier curve and select "Set Line".
+\ref{fig:countercurve}.  Conversion from line to Bezier is done by right-clicking on the line and selecting ``Set Bezier".  To
+convert back into a line, the user can right-click on the Bezier curve and select ``Set Line".
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/waist.png}}
@@ -753,7 +766,7 @@ caused the points in the mesh between the newly added points to be pulled down, 
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/thing_with_wings.png}}
-\caption[Flared shell]{The flared edges on the sides of this shell are caused by the bezier curves on either side
+\caption[Flared shell]{The flared edges on the sides of this shell are caused by the Bezier curves on either side
 allowing the edges of the shell to rise up.}
 \label{fig:thing_with_wings}
 \end{figure}
@@ -761,7 +774,7 @@ allowing the edges of the shell to rise up.}
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/countercurve.png}}
 \caption[Modified barrel vault]{This shell, as well as the shell in Figure \ref{fig:thing_with_wings}, show some of the
-interesting shapes that can arise from the simple barrel vault using bezier curves.}
+interesting shapes that can arise from the simple barrel vault using Bezier curves.}
 \label{fig:countercurve}
 \end{figure}
 
@@ -798,13 +811,13 @@ of displaying the grid have been considered to help combat this problem.
 
 One features that does not have an obvious UI elements associated with it is the ability to load shells that have been created
 elsewhere.  If an architect has designed a shell in a traditional architectural CAD tool such as Rhino or Google SketchUp, they
-can right-click in the floor plan window and select "Load input.obj" to load an exported mesh into the tool.  This allows users
+can right-click in the floor plan window and select ``Load input.obj" to load an exported mesh into the tool.  This allows users
 to create a shell in an environment that they might be more comfortable in and import it into this tool so that the simulator
 can adjust the mesh to be more structurally stable.  The shell in Figure \ref{fig:triangle_mesh} was loaded in this way.  No
 restrictions are put on the shell to be imported, and the tool should be able to handle arbitrarily large or complex shells.
 Additionally, if the user creates an interesting shell in the tool, they can right-click to save it.  The current implementation
 of saving gives the file an automatically generated number to distinguish it from other saved files.  If the user would like to
-start over from the initial shell, right-clicking in the floor plan window and selecting "Reset" will give the user a clean shell
+start over from the initial shell, right-clicking in the floor plan window and selecting ``Reset" will give the user a clean shell
 from which to begin creating again.
 
 \begin{figure}
@@ -851,7 +864,7 @@ design are absent in designs such as this.}
 \section{Summary}
 The user interface of this tool was designed with precision and flexibility in mind.  The viewing window has straightforward controls
 to view a shell from any angle, while the floor plan and grid windows allow the user to make changes to the shell.  The floor plan
-controls the fixed points and allows the user to attach lines and set them to bezier curves.  The grid allows the user to associate
+controls the fixed points and allows the user to attach lines and set them to Bezier curves.  The grid allows the user to associate
 floor plan points with points in the mesh and disable points to create windows.  Other tools available to the user are loading and
 saving, resetting, and zooming the small windows.  Put together, these features make for a very flexible tool that allows users to
 create a wide variety of thin-shell structures.
@@ -994,7 +1007,7 @@ that it also has its uses at other points in the design process.
 
 \subsection{User 3}
 In his questionnaire, User 3 responded that he felt the tool provided an ``easy and intuitive way to quickly prototype and alter a
-shell".  He also enjoyed it's support of bezier curves.  Unlike the previous two users, he felt that being able to save and load
+shell".  He also enjoyed its support of Bezier curves.  Unlike the previous two users, he felt that being able to save and load
 shells more easily would be the most useful feature.  In addition, he requested a way to see which floor plan point was associated with
 a given point in the mesh rather than only being able to see which mesh point was associated with a floor plan point.  In addition, he
 requested the ability to change the lighting, as he found it hard to see the shell in some cases.
@@ -1123,7 +1136,7 @@ Table \ref{tbl:features} shows the usefulness of various features, rated on a sc
 the responses of the 9 users.  Unfortunately, many of the users had very different ideas of what as important, so most of these
 averages do not mean much.  I can conclude that the option to change the height of fixed points is the most valuable feature,
 since is has not only the highest average, but also the highest median and mode, both of which are 5.  The visualization of the
-difference between an imported mesh and the optimized mesh sits solidly at "average", with 6 users rating it a 3.  However, the
+difference between an imported mesh and the optimized mesh sits solidly at ``average", with 6 users rating it a 3.  However, the
 other three features had a wide and even distribution of ratings, so no solid conclusions can be drawn from the data.  One
 possible cause for this variation is that several users were confused by the instruction to rate these features from 1 to 5,
 thinking that each number could only be used once.  This caused some features to be rated lower than the user perhaps intended
@@ -1259,6 +1272,31 @@ user does not have to download anything, which makes it much more likely that an
 web is a great environment for collaboration.  With a properly designed app and website, a collaborative thin-shell structure
 community could be created where architects and artists can create structures, share them, comment, and collaborate in the
 design of interesting, stable structures.
+
+
+\chapter{CONCLUSION}
+Overall, this project was a success.  I created a tool that architects enjoyed using and learned a lot about architecture and
+software development in the process.  In addition, I ran a successful user study from which I learned what was good about the 
+tool and received numerous suggestions on what could be improved.
+
+Before starting on this project, I had a basic knowledge of architecture and statics, as well as a rudimentary definition of what
+a thin-shell structure is.  Over the course of the project however, I have become much more familiar with thin-shell structures,
+their applications, and their beauty.  When correctly constructed, thin-shell structures are remarkably strong and durable,
+requiring considerably less mainainance than similar traditionally constructed structures.
+
+With this expanded knowledge and appreciation for thin-shell structures, I set off to design a tool that would help architects
+create these structures easily.  The design and development of this tool provided some of the most valuable development experience
+of my time as a student and resulted in a highly useful tool.
+
+The most important part of this project was the user study.  In the user study, I got input from other people who had not used the
+tool in the past and got invaluable advice.  The users of the study were varied in background, coming from architecture, engineering,
+art, and computer science.  Despite the variety, all had interest in the tool and provided very useful input.  Many additional features
+were suggested, providing inspiration for future work.  The one regret I have about the user study is not having one earlier in the
+development of the tool.
+
+This project was a fantastic learning experience and resulted in a very useful tool for the design of thin-shell structures.  Many
+interesting shells have been created in it already, and the possibilities for future shells are nearly limitless.  In addition, the
+potential future work to improve the tool and make it even more flexible and intuitive holds a great deal of promise and potential.
 
 
 % The following produces a numbered bibliography where the numbers
