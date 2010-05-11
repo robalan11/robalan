@@ -24,7 +24,7 @@
 \contentsline {section}{\numberline {4.1}Viewing Window}{29}
 \contentsline {section}{\numberline {4.2}Floor Plan Window}{29}
 \contentsline {section}{\numberline {4.3}Grid Window}{30}
-\contentsline {section}{\numberline {4.4}Other Features}{33}
+\contentsline {section}{\numberline {4.4}Other Features}{32}
 \contentsline {section}{\numberline {4.5}Summary}{35}
 \contentsline {chapter}{\numberline {5.}USER STUDY}{38}
 \contentsline {section}{\numberline {5.1}Design of the Study}{38}

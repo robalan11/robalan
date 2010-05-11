@@ -604,7 +604,7 @@ accuracy, as shown in Figure \ref{fig:euler_integration}.
 
 A fourth-order Runge-Kutta solver was implemented, but despite its stability, each step took too long for it to be useful in an interactive
 simulation.  The fourth-order Runge-Kutta method, commonly referred to simply as \emph{the} Runge-Kutta method, was developed around 1900
-by Runge and Kutta.  It can be expanded to any order, but the fourth-order version is the most commonly used.  In order to take a step
+by Carl Runge and Martin Wilhelm Kutta.  It can be expanded to any order, but the fourth-order version is the most commonly used.  In order to take a step
 using the Runge-Kutta method, four slopes must be calculated.  $k_1$ is the slope at the initial point, $k_2$ is the slope at the midpoint,
 calculated using $k_1$ as the slope from the initial point, $k_3$ is the slope at the midpoint calculated using $k_2$ as the slope from the
 initial point, and $k_4$ is the slope at the end of the step, calculated using $k_3$ as the slope from the initial point.  The final slope
@@ -746,10 +746,11 @@ have been added.  If the user wants to have a line of points attached to the gro
 a wall or otherwise block off a portion of the shell, it can be tedious to add a point and place it correctly for every point along
 the line.  Therefore, another feature in the floor plan view is the ability to attach a line between two points by right-clicking on
 the line and selecting ``Attach".  If they change their mind, a line can be freed by right-clicking on it and selecting ``Detach".
-Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  Lines can also be converted into a Bezier curve to give
-the user additional flexibility in designing their structure, as seen in Figures \ref{fig:thing_with_wings} and
-\ref{fig:countercurve}.  Conversion from line to Bezier is done by right-clicking on the line and selecting ``Set Bezier".  To
-convert back into a line, the user can right-click on the Bezier curve and select ``Set Line".
+Figure \ref{fig:barrel_vault} shows a simple shell with attached lines.  Lines can also be converted into B\'{e}zier curves, first
+popularized by Pierre B\'{e}zier, to give the user additional flexibility in designing their structure
+The effects of B\'{e}zier curves can be seen in Figures \ref{fig:thing_with_wings} and
+\ref{fig:countercurve}.  Conversion from line to B\'{e}zier is done by right-clicking on the line and selecting ``Set B\'{e}zier".  To
+convert back into a line, the user can right-click on the B\'{e}zier curve and select ``Set Line".
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/waist.png}}
@@ -766,7 +767,7 @@ caused the points in the mesh between the newly added points to be pulled down, 
 
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/thing_with_wings.png}}
-\caption[Flared shell]{The flared edges on the sides of this shell are caused by the Bezier curves on either side
+\caption[Flared shell]{The flared edges on the sides of this shell are caused by the B\'{e}zier curves on either side
 allowing the edges of the shell to rise up.}
 \label{fig:thing_with_wings}
 \end{figure}
@@ -774,7 +775,7 @@ allowing the edges of the shell to rise up.}
 \begin{figure}
 \resizebox{5in}{!}{\includegraphics{images/countercurve.png}}
 \caption[Modified barrel vault]{This shell, as well as the shell in Figure \ref{fig:thing_with_wings}, show some of the
-interesting shapes that can arise from the simple barrel vault using Bezier curves.}
+interesting shapes that can arise from the simple barrel vault using B\'{e}zier curves.}
 \label{fig:countercurve}
 \end{figure}
 
@@ -810,8 +811,9 @@ of displaying the grid have been considered to help combat this problem.
 \end{figure}
 
 One features that does not have an obvious UI elements associated with it is the ability to load shells that have been created
-elsewhere.  If an architect has designed a shell in a traditional architectural CAD tool such as Rhino or Google SketchUp, they
-can right-click in the floor plan window and select ``Load input.obj" to load an exported mesh into the tool.  This allows users
+elsewhere.  If an architect has designed a shell in a traditional architectural CAD tool such as Rhino\cite{rhino} or Google
+SketchUp\cite{sketchup}, they can right-click in the floor plan window and select ``Load input.obj" to load an exported mesh
+into the tool.  This allows users
 to create a shell in an environment that they might be more comfortable in and import it into this tool so that the simulator
 can adjust the mesh to be more structurally stable.  The shell in Figure \ref{fig:triangle_mesh} was loaded in this way.  No
 restrictions are put on the shell to be imported, and the tool should be able to handle arbitrarily large or complex shells.
@@ -864,7 +866,7 @@ design are absent in designs such as this.}
 \section{Summary}
 The user interface of this tool was designed with precision and flexibility in mind.  The viewing window has straightforward controls
 to view a shell from any angle, while the floor plan and grid windows allow the user to make changes to the shell.  The floor plan
-controls the fixed points and allows the user to attach lines and set them to Bezier curves.  The grid allows the user to associate
+controls the fixed points and allows the user to attach lines and set them to B\'{e}zier curves.  The grid allows the user to associate
 floor plan points with points in the mesh and disable points to create windows.  Other tools available to the user are loading and
 saving, resetting, and zooming the small windows.  Put together, these features make for a very flexible tool that allows users to
 create a wide variety of thin-shell structures.
@@ -1007,7 +1009,7 @@ that it also has its uses at other points in the design process.
 
 \subsection{User 3}
 In his questionnaire, User 3 responded that he felt the tool provided an ``easy and intuitive way to quickly prototype and alter a
-shell".  He also enjoyed its support of Bezier curves.  Unlike the previous two users, he felt that being able to save and load
+shell".  He also enjoyed its support of B\'{e}zier curves.  Unlike the previous two users, he felt that being able to save and load
 shells more easily would be the most useful feature.  In addition, he requested a way to see which floor plan point was associated with
 a given point in the mesh rather than only being able to see which mesh point was associated with a floor plan point.  In addition, he
 requested the ability to change the lighting, as he found it hard to see the shell in some cases.
@@ -1282,7 +1284,7 @@ tool and received numerous suggestions on what could be improved.
 Before starting on this project, I had a basic knowledge of architecture and statics, as well as a rudimentary definition of what
 a thin-shell structure is.  Over the course of the project however, I have become much more familiar with thin-shell structures,
 their applications, and their beauty.  When correctly constructed, thin-shell structures are remarkably strong and durable,
-requiring considerably less mainainance than similar traditionally constructed structures.
+requiring considerably less maintenance than similar traditionally constructed structures.
 
 With this expanded knowledge and appreciation for thin-shell structures, I set off to design a tool that would help architects
 create these structures easily.  The design and development of this tool provided some of the most valuable development experience
