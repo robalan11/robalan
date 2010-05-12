@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  11 MAY 2010 11:57
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.2.2)  11 MAY 2010 16:28
 entering extended mode
 **thesis.tex
 ("C:\Users\Allan\Documents\Grad School\repository\thesis\thesis.tex"
@@ -181,6 +181,11 @@ ding.png>] <images/isler_dome_1.jpg, id=48, 72.27pt x 48.14989pt>
 File: images/isler_dome_1.jpg Graphic file (type jpg)
 
 <use images/isler_dome_1.jpg>
+Underfull \hbox (badness 1515) in paragraph at lines 146--146
+\OT1/cmr/bx/n/12 by Chriusha, $\OT1/cmtt/m/n/12 http : / / commons . wikimedia 
+. org / wiki / File : Deitingen _ Sued _
+ []
+
 <images/twa_flight_center.jpg, id=49, 803.0pt x 394.47375pt>
 File: images/twa_flight_center.jpg Graphic file (type jpg)
 
@@ -203,20 +208,25 @@ File: images/arch.png Graphic file (type png)
 File: images/gateway_arch.jpg Graphic file (type jpg)
 
 <use images/gateway_arch.jpg> [6 <C:/Users/Allan/Documents/Grad School/reposito
-ry/thesis/images/montreal_biosphere.jpg>] [7 <C:/Users/Allan/Documents/Grad Sch
-ool/repository/thesis/images/arch.png> <C:/Users/Allan/Documents/Grad School/re
-pository/thesis/images/gateway_arch.jpg>]
-<images/catenary.png, id=68, 473.77pt x 307.1475pt>
+ry/thesis/images/montreal_biosphere.jpg>]
+<images/catenary.png, id=65, 473.77pt x 307.1475pt>
 File: images/catenary.png Graphic file (type png)
  <use images/catenary.png>
-<images/hanging_chain.jpg, id=69, 803.0pt x 602.25pt>
+<images/hanging_chain.jpg, id=66, 803.0pt x 602.25pt>
 File: images/hanging_chain.jpg Graphic file (type jpg)
 
 <use images/hanging_chain.jpg>
-<images/compound_catenary.png, id=70, 471.7625pt x 407.5225pt>
+Underfull \hbox (badness 1917) in paragraph at lines 236--236
+\OT1/cmr/bx/n/12 photo taken by Kamel15, $\OT1/cmtt/m/n/12 http : / / en . wiki
+pedia . org / wiki / File : Kette _
+ []
+
+<images/compound_catenary.png, id=67, 471.7625pt x 407.5225pt>
 File: images/compound_catenary.png Graphic file (type png)
 
-<use images/compound_catenary.png> [8 <C:/Users/Allan/Documents/Grad School/rep
+<use images/compound_catenary.png> [7 <C:/Users/Allan/Documents/Grad School/rep
+ository/thesis/images/arch.png>] [8 <C:/Users/Allan/Documents/Grad School/repos
+itory/thesis/images/gateway_arch.jpg> <C:/Users/Allan/Documents/Grad School/rep
 ository/thesis/images/catenary.png> <C:/Users/Allan/Documents/Grad School/repos
 itory/thesis/images/hanging_chain.jpg>]
 <images/casa_mila_ext.jpg, id=76, 642.4pt x 602.25pt>
@@ -243,11 +253,6 @@ File: images/sagrada_familia_nativity.jpg Graphic file (type jpg)
 File: images/sagrada_familia_columns.jpg Graphic file (type jpg)
 
 <use images/sagrada_familia_columns.jpg>
-Underfull \hbox (badness 5711) in paragraph at lines 306--306
-\OT1/cmtt/m/n/12 / / en . wikipedia . org / wiki / File : Sagradafamilia-[]over
-view . jpg$ \OT1/cmr/bx/n/12 Im-age (b)
- []
-
 <images/gaudi_model.jpg, id=82, 752.8125pt x 502.87875pt>
 File: images/gaudi_model.jpg Graphic file (type jpg)
 
@@ -466,7 +471,7 @@ Here is how much of TeX's memory you used:
  5658 multiletter control sequences out of 15000+200000
  8156 words of font info for 29 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,9n,45p,199b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,9n,45p,227b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
 les/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
@@ -476,7 +481,7 @@ nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1
 msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmti12.
 pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (73 pages, 4410633 bytes).
+Output written on thesis.pdf (73 pages, 4411226 bytes).
 PDF statistics:
  324 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
