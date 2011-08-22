@@ -5,16 +5,26 @@ import os
 class MainWindow(wx.Frame):
     """ We simply derive a new class of Frame. """
     def __init__(self, parent, title):
-        wx.Frame.__init__(self, parent, title=title, size=(800,600))
+        wx.Frame.__init__(self, parent, title=title)
         self.control = wx.TextCtrl(self, style=wx.TE_MULTILINE)
-        self.CreateStatusBar()
-        self.CreateToolBar()
+        self.mainDisplay = wx.Panel(self)
+        self.mainDisplay.Bind(wx.EVT_PAINT, self.OnPaint) 
         
-        self.initMenu()
+        self.CreateMenu()
+        self.CreateToolBar()
+        self.CreateStatusBar()
+        
+        self.sizer = wx.BoxSizer(wx.VERTICAL)
+        self.sizer.Add(self.control, 0, wx.EXPAND)
+        self.sizer.Add(self.mainDisplay, 1, wx.EXPAND)
+        
+        self.SetSizer(self.sizer)
+        self.SetAutoLayout(True)
+        self.sizer.Fit(self)
         
         self.Show(True)
 
-    def initMenu(self):
+    def CreateMenu(self):
         fileMenu = wx.Menu()
         openItem = fileMenu.Append(wx.ID_OPEN, "&Open...", "Open a project")
         self.Bind(wx.EVT_MENU, self.OnOpen, openItem)
@@ -39,7 +49,7 @@ class MainWindow(wx.Frame):
         
     def OnAbout(self, event):
         """Display the About dialog"""
-        dlg = wx.MessageDialog( self, "A small application, currently a text editor", "About Simple App", wx.OK)
+        dlg = wx.MessageDialog( self, "A small application, currently a text editor", "About Lumberer", wx.OK)
         dlg.ShowModal() # Show it
         dlg.Destroy() # finally destroy it when finished.
         
@@ -66,7 +76,28 @@ class MainWindow(wx.Frame):
             f.write(self.control.GetValue())
             f.close()
         dlg.Destroy()
+        
+    def OnPaint(self, event):
+        # establish the painting surface
+        dc = wx.PaintDC(self.mainDisplay)
+        dc.SetPen(wx.WHITE_PEN)
+        dc.SetBrush(wx.WHITE_BRUSH)
+        size = self.mainDisplay.GetSize()
+        dc.DrawRectangle(0, 0, size[0], size[1])
+        dc.SetPen(wx.Pen('blue', 4))
+        # draw a blue line (thickness = 4)
+        dc.DrawLine(50, 20, 300, 20)
+        dc.SetPen(wx.Pen('red', 1))
+        # draw a red rounded-rectangle
+        rect = wx.Rect(50, 50, 100, 100)
+        dc.DrawRoundedRectangleRect(rect, 8)
+        # draw a red circle with yellow fill
+        dc.SetBrush(wx.Brush('yellow'))
+        x = 250
+        y = 100
+        r = 50
+        dc.DrawCircle(x, y, r)
 
 app = wx.App(False)
-frame = MainWindow(None, 'Small editor')
+frame = MainWindow(None, 'Lumberer')
 app.MainLoop()
