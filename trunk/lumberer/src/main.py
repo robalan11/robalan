@@ -1,26 +1,30 @@
 #!/usr/bin/env python
 import wx
 import os
+   
+import my3dcanvas
 
 class MainWindow(wx.Frame):
     """ We simply derive a new class of Frame. """
     def __init__(self, parent, title):
         wx.Frame.__init__(self, parent, title=title)
-        self.control = wx.TextCtrl(self, style=wx.TE_MULTILINE)
-        self.mainDisplay = wx.Panel(self)
-        self.mainDisplay.Bind(wx.EVT_PAINT, self.OnPaint) 
+        
+        self.mainSplitter = wx.SplitterWindow(self, wx.ID_DEFAULT)
+        self.mainSplitter.SetMinimumPaneSize(40)
+        self.infoSplitter = wx.SplitterWindow(self.mainSplitter, wx.ID_DEFAULT)
+        self.infoSplitter.SetMinimumPaneSize(40)
+        
+        self.control = wx.TextCtrl(self.infoSplitter, style=wx.TE_MULTILINE)
+        self.otherControl = wx.TextCtrl(self.infoSplitter, style=wx.TE_MULTILINE)
+        
+        self.mainDisplay = my3dcanvas.My3DCanvas(self.mainSplitter)
+                    
+        self.infoSplitter.SplitHorizontally(self.control, self.otherControl)        
+        self.mainSplitter.SplitVertically(self.mainDisplay, self.infoSplitter)
         
         self.CreateMenu()
         self.CreateToolBar()
         self.CreateStatusBar()
-        
-        self.sizer = wx.BoxSizer(wx.VERTICAL)
-        self.sizer.Add(self.control, 0, wx.EXPAND)
-        self.sizer.Add(self.mainDisplay, 1, wx.EXPAND)
-        
-        self.SetSizer(self.sizer)
-        self.SetAutoLayout(True)
-        self.sizer.Fit(self)
         
         self.Show(True)
 
@@ -76,27 +80,6 @@ class MainWindow(wx.Frame):
             f.write(self.control.GetValue())
             f.close()
         dlg.Destroy()
-        
-    def OnPaint(self, event):
-        # establish the painting surface
-        dc = wx.PaintDC(self.mainDisplay)
-        dc.SetPen(wx.WHITE_PEN)
-        dc.SetBrush(wx.WHITE_BRUSH)
-        size = self.mainDisplay.GetSize()
-        dc.DrawRectangle(0, 0, size[0], size[1])
-        dc.SetPen(wx.Pen('blue', 4))
-        # draw a blue line (thickness = 4)
-        dc.DrawLine(50, 20, 300, 20)
-        dc.SetPen(wx.Pen('red', 1))
-        # draw a red rounded-rectangle
-        rect = wx.Rect(50, 50, 100, 100)
-        dc.DrawRoundedRectangleRect(rect, 8)
-        # draw a red circle with yellow fill
-        dc.SetBrush(wx.Brush('yellow'))
-        x = 250
-        y = 100
-        r = 50
-        dc.DrawCircle(x, y, r)
 
 app = wx.App(False)
 frame = MainWindow(None, 'Lumberer')
