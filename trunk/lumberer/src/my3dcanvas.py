@@ -23,16 +23,20 @@ class My3DCanvas(glcanvas.GLCanvas):
     def InitGL(self):
         # set viewing projection
         glMatrixMode(GL_PROJECTION)
-        glFrustum(-0.5, 0.5, -0.5, 0.5, 1.0, 3.0)
+        glFrustum(-0.3, 0.3, -0.3, 0.3, 1.0, 5.0)
 
         # position viewer
         glMatrixMode(GL_MODELVIEW)
-        glTranslatef(0.0, 0.0, -2.0)
+        glTranslatef(0.0, 0.0, -3.0)
 
         # position object
         glRotatef(self.y, 1.0, 0.0, 0.0)
         glRotatef(self.x, 0.0, 1.0, 0.0)
 
+        glClearColor(1.0, 1.0, 1.0, 1.0)
+        
+        glColorMaterial (GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
+        glEnable (GL_COLOR_MATERIAL)
         glEnable(GL_DEPTH_TEST)
         glEnable(GL_LIGHTING)
         glEnable(GL_LIGHT0)
@@ -64,6 +68,8 @@ class My3DCanvas(glcanvas.GLCanvas):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         # draw six faces of a cube
+        
+        glColor3f(0.1,0.7,0.3)
         glBegin(GL_QUADS)
         glNormal3f( 0.0, 0.0, 1.0)
         glVertex3f( 0.5, 0.5, 0.5)
@@ -82,7 +88,8 @@ class My3DCanvas(glcanvas.GLCanvas):
         glVertex3f( 0.5, 0.5,-0.5)
         glVertex3f(-0.5, 0.5,-0.5)
         glVertex3f(-0.5, 0.5, 0.5)
-
+        
+        glColor3f(0.7,0.1,0.1)
         glNormal3f( 0.0,-1.0, 0.0)
         glVertex3f(-0.5,-0.5,-0.5)
         glVertex3f( 0.5,-0.5,-0.5)
@@ -101,7 +108,7 @@ class My3DCanvas(glcanvas.GLCanvas):
         glVertex3f(-0.5, 0.5, 0.5)
         glVertex3f(-0.5, 0.5,-0.5)
         glEnd()
-
+        
         if self.size is None:
             self.size = self.GetClientSize()
         w, h = self.size
