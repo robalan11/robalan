@@ -35,11 +35,13 @@ class My3DCanvas(glcanvas.GLCanvas):
 
         glClearColor(1.0, 1.0, 1.0, 1.0)
         
-        glColorMaterial (GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
-        glEnable (GL_COLOR_MATERIAL)
+        #glColorMaterial (GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
+        #glEnable (GL_COLOR_MATERIAL)
         glEnable(GL_DEPTH_TEST)
-        glEnable(GL_LIGHTING)
-        glEnable(GL_LIGHT0)
+        #glEnable(GL_LIGHTING)
+        #glEnable(GL_LIGHT0)
+        glDisable(GL_LIGHTING)
+        glLineWidth(2)
 
 
     def OnEraseBackground(self, event):
@@ -67,47 +69,7 @@ class My3DCanvas(glcanvas.GLCanvas):
         # clear color and depth buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-        # draw six faces of a cube
-        
-        glColor3f(0.1,0.7,0.3)
-        glBegin(GL_QUADS)
-        glNormal3f( 0.0, 0.0, 1.0)
-        glVertex3f( 0.5, 0.5, 0.5)
-        glVertex3f(-0.5, 0.5, 0.5)
-        glVertex3f(-0.5,-0.5, 0.5)
-        glVertex3f( 0.5,-0.5, 0.5)
-
-        glNormal3f( 0.0, 0.0,-1.0)
-        glVertex3f(-0.5,-0.5,-0.5)
-        glVertex3f(-0.5, 0.5,-0.5)
-        glVertex3f( 0.5, 0.5,-0.5)
-        glVertex3f( 0.5,-0.5,-0.5)
-
-        glNormal3f( 0.0, 1.0, 0.0)
-        glVertex3f( 0.5, 0.5, 0.5)
-        glVertex3f( 0.5, 0.5,-0.5)
-        glVertex3f(-0.5, 0.5,-0.5)
-        glVertex3f(-0.5, 0.5, 0.5)
-        
-        glColor3f(0.7,0.1,0.1)
-        glNormal3f( 0.0,-1.0, 0.0)
-        glVertex3f(-0.5,-0.5,-0.5)
-        glVertex3f( 0.5,-0.5,-0.5)
-        glVertex3f( 0.5,-0.5, 0.5)
-        glVertex3f(-0.5,-0.5, 0.5)
-
-        glNormal3f( 1.0, 0.0, 0.0)
-        glVertex3f( 0.5, 0.5, 0.5)
-        glVertex3f( 0.5,-0.5, 0.5)
-        glVertex3f( 0.5,-0.5,-0.5)
-        glVertex3f( 0.5, 0.5,-0.5)
-
-        glNormal3f(-1.0, 0.0, 0.0)
-        glVertex3f(-0.5,-0.5,-0.5)
-        glVertex3f(-0.5,-0.5, 0.5)
-        glVertex3f(-0.5, 0.5, 0.5)
-        glVertex3f(-0.5, 0.5,-0.5)
-        glEnd()
+        self.DrawBoard((-0.5, -0.5, -0.5), (0.5, 0.5, 0.5))
         
         if self.size is None:
             self.size = self.GetClientSize()
@@ -120,6 +82,87 @@ class My3DCanvas(glcanvas.GLCanvas):
         glRotatef((self.x - self.lastx) * xScale, 0.0, 1.0, 0.0);
 
         self.SwapBuffers()
+
+
+    def DrawBoard(self, corner1, corner2):
+        self.DrawRectPrism(corner1, corner2)
+        
+
+    def DrawRectPrism(self, corner1, corner2):
+        #glColor3f(1.0, 1.0, 1.0)
+        glColor3f(0.97,0.97,0.97)
+        glBegin(GL_QUADS)
+        glVertex3f( corner2[0], corner2[1], corner2[2])
+        glVertex3f( corner1[0], corner2[1], corner2[2])
+        glVertex3f( corner1[0], corner1[1], corner2[2])
+        glVertex3f( corner2[0], corner1[1], corner2[2])
+
+        glVertex3f( corner1[0], corner1[1], corner1[2])
+        glVertex3f( corner1[0], corner2[1], corner1[2])
+        glVertex3f( corner2[0], corner2[1], corner1[2])
+        glVertex3f( corner2[0], corner1[1], corner1[2])
+
+        glVertex3f( corner2[0], corner2[1], corner2[2])
+        glVertex3f( corner2[0], corner2[1], corner1[2])
+        glVertex3f( corner1[0], corner2[1], corner1[2])
+        glVertex3f( corner1[0], corner2[1], corner2[2])
+
+        glVertex3f( corner1[0], corner1[1], corner1[2])
+        glVertex3f( corner2[0], corner1[1], corner1[2])
+        glVertex3f( corner2[0], corner1[1], corner2[2])
+        glVertex3f( corner1[0], corner1[1], corner2[2])
+
+        glVertex3f( corner2[0], corner2[1], corner2[2])
+        glVertex3f( corner2[0], corner1[1], corner2[2])
+        glVertex3f( corner2[0], corner1[1], corner1[2])
+        glVertex3f( corner2[0], corner2[1], corner1[2])
+
+        glVertex3f( corner1[0], corner1[1], corner1[2])
+        glVertex3f( corner1[0], corner1[1], corner2[2])
+        glVertex3f( corner1[0], corner2[1], corner2[2])
+        glVertex3f( corner1[0], corner2[1], corner1[2])
+        glEnd()
+        
+        glColor3f(0.0,0.0,0.0)
+        glBegin(GL_LINES)
+        glVertex3f( corner2[0], corner2[1], corner2[2])
+        glVertex3f( corner1[0], corner2[1], corner2[2])
+        
+        glVertex3f( corner1[0], corner2[1], corner2[2])
+        glVertex3f( corner1[0], corner1[1], corner2[2])
+        
+        glVertex3f( corner1[0], corner1[1], corner2[2])
+        glVertex3f( corner2[0], corner1[1], corner2[2])
+        
+        glVertex3f( corner2[0], corner1[1], corner2[2])
+        glVertex3f( corner2[0], corner2[1], corner2[2])
+        
+
+        glVertex3f( corner1[0], corner1[1], corner1[2])
+        glVertex3f( corner1[0], corner2[1], corner1[2])
+        
+        glVertex3f( corner1[0], corner2[1], corner1[2])
+        glVertex3f( corner2[0], corner2[1], corner1[2])
+        
+        glVertex3f( corner2[0], corner2[1], corner1[2])
+        glVertex3f( corner2[0], corner1[1], corner1[2])
+        
+        glVertex3f( corner2[0], corner1[1], corner1[2])
+        glVertex3f( corner1[0], corner1[1], corner1[2])
+        
+        
+        glVertex3f( corner2[0], corner2[1], corner2[2])
+        glVertex3f( corner2[0], corner2[1], corner1[2])
+        
+        glVertex3f( corner1[0], corner2[1], corner2[2])
+        glVertex3f( corner1[0], corner2[1], corner1[2])
+        
+        glVertex3f( corner1[0], corner1[1], corner2[2])
+        glVertex3f( corner1[0], corner1[1], corner1[2])
+        
+        glVertex3f( corner2[0], corner1[1], corner2[2])
+        glVertex3f( corner2[0], corner1[1], corner1[2])
+        glEnd()
 
 
     def OnMouseDown(self, evt):
